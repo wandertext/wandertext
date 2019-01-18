@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'txtw-client',
+    modulePrefix: 'textwalker-client',
     environment,
     rootURL: '/',
     locationType: 'auto',

@@ -1,5 +1,5 @@
 {
-  "name": "txtw-client",
+  "name": "textwalker-client",
   "version": "0.0.0",
   "private": true,
   "description": "Create and share semantically rich geospatial datasets",
@@ -9,7 +9,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "homepage": "https://github.com/muziejus/txtw-client#readme",
+  "homepage": "https://github.com/muziejus/textwalker-client#readme",
   "repository": "",
   "scripts": {
     "build": "ember build",
