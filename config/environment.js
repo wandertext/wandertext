@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'textwalker-client',
+    modulePrefix: 'wandertext-client',
     environment,
     rootURL: '/',
     locationType: 'auto',
