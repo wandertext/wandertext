@@ -1,5 +1,5 @@
 {
-  "name": "wandertext-client",
+  "name": "wandertext",
   "version": "0.0.0",
   "private": true,
   "description": "Create and share semantically rich geospatial datasets",
@@ -9,7 +9,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "homepage": "https://github.com/muziejus/wandertext-client#readme",
+  "homepage": "https://github.com/muziejus/wandertext#readme",
   "repository": "",
   "scripts": {
     "build": "ember build",
