@@ -13,7 +13,7 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
-    "lint:js": "eslint ./*.js app blueprints config lib server tests",
+    "lint:js": "xo ./*.js app blueprints config lib server tests",
     "start": "ember serve",
     "test": "ember test"
   },
@@ -51,5 +51,40 @@
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
+  },
+  "dependencies": {
+    "eslint": "^5.12.1",
+    "xo": "^0.24.0"
+  },
+  "xo": {
+    "envs": [
+      "amd"
+    ],
+    "globals": [
+      "it",
+      "describe"
+    ],
+    "prettier": true,
+    "space": true,
+    "rules": {
+      "require-await": 0,
+      "import/no-unresolved": 0,
+      "quotes": [
+        "error",
+        "double"
+      ]
+    },
+    "overrides": [
+      {
+        "files": "features/**/*.js",
+        "rules": {
+          "new-cap": 0
+        }
+      }
+    ]
+  },
+  "prettier": {
+    "singleQuote": false,
+    "bracketSpacing": true
   }
 }
