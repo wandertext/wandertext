@@ -27,7 +27,7 @@ install:
 script:
   - yarn lint:js
   - yarn test
-  - yarn build -- -prod
+  - yarn build -prod
 
 deploy:
   provider: pages
