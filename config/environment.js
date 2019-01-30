@@ -44,7 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    rootURL: '/wandertext',
+    rootURL: '/wandertext'
   }
 
   return ENV;
