@@ -384,7 +384,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("wandertext/app")["default"].create({"name":"wandertext","version":"0.0.0+b13804f1"});
+            require("wandertext/app")["default"].create({"name":"wandertext","version":"0.0.0+d5202ef6"});
           }
         
 //# sourceMappingURL=wandertext.map

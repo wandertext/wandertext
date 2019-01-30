@@ -4,7 +4,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'wandertext',
     environment,
-    rootURL: '/',
+    rootURL: '/wandertext',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
