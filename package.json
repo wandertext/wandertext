@@ -41,6 +41,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-pouch": "^6.0.0",
     "ember-resolver": "^4.0.0",
     "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/726c4e2a22dc9eb9e92e749ba754a2d2fde4f2cd.tgz",
     "eslint-plugin-ember": "^5.0.0",
