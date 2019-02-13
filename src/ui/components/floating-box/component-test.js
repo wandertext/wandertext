@@ -21,6 +21,6 @@ module("Integration | Component | floating-box", hooks => {
       {{/floating-box}}
     `);
 
-    assert.equal(/template block text/.test(this.element.textContent.trim()), true);
+    assert.ok(/template block text/.test(this.element.textContent.trim()));
   });
 });
