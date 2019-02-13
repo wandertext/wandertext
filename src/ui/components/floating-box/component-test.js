@@ -12,7 +12,7 @@ module("Integration | Component | floating-box", hooks => {
 
     await render(hbs`{{floating-box}}`);
 
-    assert.equal(this.element.textContent.trim(), "");
+    assert.equal(this.element.textContent.trim(), "I am FloatingBox");
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module("Integration | Component | floating-box", hooks => {
       {{/floating-box}}
     `);
 
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.equal(/template block text/.test(this.element.textContent.trim()), true);
   });
 });
