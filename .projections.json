@@ -1,4 +1,8 @@
 {
+  "src/services/*.js": {
+    "type": "service",
+    "alternate": "src/services/{}-test.js"
+  },
   "src/ui/components/*/template.hbs": {
     "type": "ctemplate",
     "alternate": "src/ui/components/{}/component.js"
