@@ -93,6 +93,12 @@
     },
     "overrides": [
       {
+        "files": "src/**/*-test.js",
+        "env": {
+          "mocha": true
+        }
+      },
+      {
         "files": "features/**/*.js",
         "rules": {
           "new-cap": 0
