@@ -5,6 +5,15 @@ const Funnel = require("broccoli-funnel");
 
 module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
+    fingerprint: {
+      exclude: [
+        "images/layers-2x.png",
+        "images/layers.png",
+        "images/marker-icon-2x.png",
+        "images/marker-icon.png",
+        "images/marker-shadow.png"
+      ]
+    },
     "ember-bootstrap": {
       bootstrapVersion: 4,
       importBootstrapFont: true,
