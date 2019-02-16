@@ -10,7 +10,7 @@ module("Integration | Component | floating-box", hooks => {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{floating-box}}`);
+    await render(hbs`<FloatingBox />`);
 
     assert.equal(this.element.textContent.trim(), "I am FloatingBox");
 
@@ -23,4 +23,12 @@ module("Integration | Component | floating-box", hooks => {
 
     assert.ok(/template block text/.test(this.element.textContent.trim()));
   });
+
+  test("it is called #floating-box", async function(assert) {
+    await render(hbs`<FloatingBox />`);
+
+    assert.dom("#floating-box").exists();
+
+  });
+
 });
