@@ -1,4 +1,6 @@
-# Wandertext ![](https://travis-ci.com/muziejus/wandertext.svg?branch=master)
+[![Build Status](https://travis-ci.com/muziejus/wandertext.svg?branch=master)](https://travis-ci.com/muziejus/wandertext/)[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
+
+# Wandertext
 
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
