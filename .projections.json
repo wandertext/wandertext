@@ -1,0 +1,14 @@
+{
+  "src/ui/components/*/template.hbs": {
+    "type": "ctemplate",
+    "alternate": "src/ui/components/{}/component.js"
+  },
+  "src/ui/components/*/component-test.js": {
+    "type": "ctest",
+    "alternate": "src/ui/components/{}/template.hbs"
+  },
+  "src/ui/components/*/component.js": {
+    "type": "component",
+    "alternate": "src/ui/components/{}/template.hbs"
+  }
+}
