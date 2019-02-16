@@ -79,36 +79,18 @@
       "chai-friendly",
       "ember"
     ],
-    "space": true,
+    "space": 2,
     "rules": {
       "require-await": 0,
       "no-unused-expressions": 0,
       "chai-friendly/no-unused-expressions": 2,
       "import/no-unresolved": 0,
-      "import/no-extraneous-dependencies": 1,
-      "quotes": [
-        "error",
-        "double"
-      ]
+      "import/no-extraneous-dependencies": 1
     },
     "overrides": [
       {
         "files": "src/**/*-test.js",
-        "env": {
-          "mocha": true
-        }
-      },
-      {
-        "files": "features/**/*.js",
-        "rules": {
-          "new-cap": 0
-        }
-      },
-      { 
-        "files": "testem.js",
-        "rules": {
-          "camelcase": 0
-        }
+        "envs": ["mocha"]
       },
       {
         "files": [
@@ -122,10 +104,7 @@
           "sourceType": "script",
           "ecmaVersion": 2015
         },
-        "env": {
-          "browser": false,
-          "node": true
-        }
+        "envs": ["node"]
       }
     ]
   },
