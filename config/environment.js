@@ -44,6 +44,7 @@ module.exports = function(environment) {
   }
 
   if (environment === "production") {
+    // This is here for muziejus.github.io/wandertext/
     ENV.rootURL = "/wandertext";
   }
 
