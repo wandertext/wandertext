@@ -16,9 +16,9 @@ module("Integration | Component | floating-box", hooks => {
 
     // Template block usage:
     await render(hbs`
-      {{#floating-box}}
+      <FloatingBox>
         template block text
-      {{/floating-box}}
+      </FloatingBox>
     `);
 
     assert.ok(/template block text/.test(this.element.textContent.trim()));
