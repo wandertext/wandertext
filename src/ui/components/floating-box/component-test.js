@@ -1,34 +1,25 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
-import { render } from "@ember/test-helpers";
+import { expect } from "chai";
+import { describe, it } from "mocha";
+import { setupRenderingTest } from "ember-mocha";
+import { render, find } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
-module("Integration | Component | floating-box", hooks => {
-  setupRenderingTest(hooks);
+describe("Integration | Component | floating-box", () => {
+  setupRenderingTest();
 
-  test("it renders", async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  it("is called #floating-box", async () => {
     await render(hbs`<FloatingBox />`);
+    expect(find("#floating-box")).to.be.ok;
+  });
 
-    assert.equal(this.element.textContent.trim(), "I am FloatingBox");
-
-    // Template block usage:
+  it("renders", async () => {
+    await render(hbs`<FloatingBox />`);
+    expect(find("#floating-box")).to.contain.text("I am FloatingBox");
     await render(hbs`
       <FloatingBox>
         template block text
       </FloatingBox>
     `);
-
-    assert.ok(/template block text/.test(this.element.textContent.trim()));
+    expect(find("#floating-box")).to.contain.text("template block text");
   });
-
-  test("it is called #floating-box", async function(assert) {
-    await render(hbs`<FloatingBox />`);
-
-    assert.dom("#floating-box").exists();
-
-  });
-
 });
