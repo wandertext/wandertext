@@ -1,6 +1,7 @@
 "use strict";
 
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
+const Funnel = require("broccoli-funnel");
 
 module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
@@ -24,5 +25,13 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  // app.import("node_modules/leaflet/dist/leaflet.css");
+  // app.import("node_modules/leaflet/dist/");
+  const leaflet = new Funnel("node_modules/leaflet/", {
+    srcDir: "/dist",
+    include: ["leaflet.js", "leaflet.js.map", "leaflet.css", "images/*.png"],
+    destDir: "/assets"
+  });
+
+  return app.toTree(leaflet);
 };

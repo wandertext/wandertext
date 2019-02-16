@@ -59,7 +59,9 @@
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
   },
-  "dependencies": {},
+  "dependencies": {
+    "leaflet": "^1.4.0"
+  },
   "xo": {
     "envs": [
       "amd",
@@ -90,7 +92,9 @@
     "overrides": [
       {
         "files": "src/**/*-test.js",
-        "envs": ["mocha"]
+        "envs": [
+          "mocha"
+        ]
       },
       {
         "files": [
@@ -104,7 +108,9 @@
           "sourceType": "script",
           "ecmaVersion": 2015
         },
-        "envs": ["node"]
+        "envs": [
+          "node"
+        ]
       }
     ]
   },
