@@ -14,5 +14,8 @@
   "src/ui/components/*/component.js": {
     "type": "component",
     "alternate": "src/ui/components/{}/template.hbs"
+  },
+  "src/ui/styles/*.scss": {
+    "type": "sass"
   }
 }
