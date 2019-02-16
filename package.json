@@ -13,7 +13,7 @@
   "repository": "",
   "scripts": {
     "build": "ember build",
-    "lint:js": "xo ./*.js app blueprints config lib server tests",
+    "lint:js": "xo ./*.js src blueprints config lib server tests",
     "start": "ember serve",
     "test": "ember test"
   },
