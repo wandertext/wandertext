@@ -60,7 +60,7 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
-    "bootstrap": "4.3",
+    "bootstrap": "^4.0.0",
     "leaflet": "^1.4.0"
   },
   "xo": {
