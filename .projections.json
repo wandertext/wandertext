@@ -3,6 +3,18 @@
     "type": "service",
     "alternate": "src/services/{}-test.js"
   },
+  "src/ui/routes/*/template.hbs": {
+    "type": "rtemplate",
+    "alternate": "src/ui/routes/{}/route-test.js"
+  },
+  "src/ui/routes/*/route-test.js": {
+    "type": "rtest",
+    "alternate": "src/ui/routes/{}/route.js"
+  },
+  "src/ui/routes/*/route.js": {
+    "type": "route",
+    "alternate": "src/ui/routes/{}/template.hbs"
+  },
   "src/ui/components/*/template.hbs": {
     "type": "ctemplate",
     "alternate": "src/ui/components/{}/component-test.js"
