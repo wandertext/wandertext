@@ -1,0 +1,14 @@
+#floating-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  max-height: 100vh;
+
+  @media (min-width: 576px) {
+    width: 50%;
+  }
+
+}
+
+

@@ -13,8 +13,6 @@ describe("Integration | Component | floating-box", function() {
   });
 
   it("renders", async function() {
-    await render(hbs`<FloatingBox />`);
-    expect(find("#floating-box")).to.contain.text("I am FloatingBox");
     await render(hbs`
       <FloatingBox>
         template block text
