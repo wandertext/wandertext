@@ -29,5 +29,8 @@
   },
   "src/ui/styles/*.scss": {
     "type": "sass"
+  },
+  "src/router.js": {
+    "type": "router"
   }
 }

@@ -7,6 +7,8 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(() => {});
+Router.map(function() {
+  this.route('text', { path: "text/:slug" });
+});
 
 export default Router;
