@@ -5,11 +5,11 @@
   },
   "src/ui/components/*/template.hbs": {
     "type": "ctemplate",
-    "alternate": "src/ui/components/{}/component.js"
+    "alternate": "src/ui/components/{}/component-test.js"
   },
   "src/ui/components/*/component-test.js": {
     "type": "ctest",
-    "alternate": "src/ui/components/{}/template.hbs"
+    "alternate": "src/ui/components/{}/component.js"
   },
   "src/ui/components/*/component.js": {
     "type": "component",
