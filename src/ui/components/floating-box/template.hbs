@@ -1,8 +1,10 @@
 <div id="floating-box" class="m-3 card">
-  <CardHeader />
-  <div id="card-content" aria-labelledby="the-card-header">
+  <CardHeader @onClick={{action "toggleContent"}} />
+  <div id="card-content">
+    {{#bs-collapse collapsed=cardCollapsed }}
       <div class="card-body">
         {{yield}}
       </div>
+    {{/bs-collapse}}
   </div>
 </div>

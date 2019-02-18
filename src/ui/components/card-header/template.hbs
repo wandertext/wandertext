@@ -1,7 +1,7 @@
 <div id="the-card-header" class="card-header d-flex justify-content-end">
   <h1>Wandertext</h1>
-  <button class="ml-3 btn btn-secondary">
-    <img src="{{ rootURL }}assets/logo/waw.svg" class="" style="width: 2.5rem; height: 2.5rem;">
-  </button>
+    {{#bs-button type="secondary" onClick=(action @onClick) class="ml-3"}}
+      <img src="{{ rootURL }}assets/logo/waw.svg" class="" style="width: 2.5rem; height: 2.5rem;">
+    {{/bs-button}}
 </div>
 
