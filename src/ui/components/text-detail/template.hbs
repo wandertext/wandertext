@@ -1,5 +1,6 @@
-<h2>{{ @text.title }}</h2>
-
-<p>{{ @text.body }}</p>
+<h2>{{ text.properties.title }}</h2>
+<h3>{{ text.properties.author }}</h3>
+<p>{{ text.year }}</p>
+<img src={{ text.properties.cover }} alt="Cover of {{ text.properties.title }}" class="img-fluid">
 
 {{yield}}
