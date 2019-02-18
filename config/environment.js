@@ -6,7 +6,7 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
-    couchdb: process.env.COUCHDB,
+    couchdb: "http://localhost:5984/wandertext",
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -47,7 +47,7 @@ module.exports = function(environment) {
   if (environment === "production") {
     // This is here for muziejus.github.io/wandertext/
     ENV.rootURL = "/wandertext";
-    ENV.couchdb = process.env.CLOUDANT;
+    ENV.couchdb = process.env.COUCHDB;
   }
 
   return ENV;
