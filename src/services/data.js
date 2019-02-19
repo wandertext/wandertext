@@ -1,10 +1,16 @@
 /* eslint camelcase: 0 */
 import Service from "@ember/service";
 import PouchDB from "pouchdb";
+import pouchDBFind from "pouchdb-find";
 import config from "../../config/environment";
 
 export default class DataService extends Service {
-  db = new PouchDB(config.couchdb);
+  db = this.initDB();
+
+  initDB() {
+    PouchDB.plugin(pouchDBFind);
+    return new PouchDB(config.couchdb);
+  }
 
   async getAll() {
     const result = await this.db.allDocs({
@@ -15,14 +21,29 @@ export default class DataService extends Service {
     });
   }
 
-  async getText(slug) {
-    let docId = "8a915f90dc5b231bf7f57601cb00f669";
-    if (slug === "nightwood") {
-      docId = "8a915f90dc5b231bf7f57601cb011c57";
-    }
-
-    const doc = await this.db.get(docId);
-
+  async getTextBySlug(slug) {
+    const doc = await this.db
+      .createIndex({
+        index: {
+          fields: ["type", "slug"],
+          name: "text-by-slug",
+          ddoc: "text-by-slug"
+        }
+      })
+      .then(() => {
+        return this.db.find({
+          selector: {
+            type: "text",
+            slug
+          }
+        });
+      })
+      .then(results => {
+        if (results.docs.length > 0) {
+          return results.docs[0];
+        }
+      })
+      .catch(error => error);
     return doc;
   }
 }

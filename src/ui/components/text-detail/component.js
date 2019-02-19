@@ -5,6 +5,6 @@ export default class TextDetailComponent extends Component {
   @service data;
 
   async didInsertElement() {
-    this.set("text", await this.data.getText(this.get("slug")));
+    this.set("text", await this.data.getTextBySlug(this.get("slug")));
   }
 }
