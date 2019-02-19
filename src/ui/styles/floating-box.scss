@@ -3,7 +3,8 @@
   top: 0;
   left: 0;
   z-index: 2000;
-  max-height: 100vh;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
 
   @media (min-width: 576px) {
     width: 50%;
