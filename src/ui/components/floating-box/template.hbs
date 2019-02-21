@@ -1,10 +1,8 @@
-<div class="m-3 card">
-  <CardHeader @onClick={{action "toggleContent"}} />
-  <div id="card-content">
-    {{#bs-collapse collapsed=cardCollapsed }}
-      <div class="card-body">
-        {{yield}}
-      </div>
-    {{/bs-collapse}}
-  </div>
+<CardHeader @onClick={{action "toggleContent"}} />
+<div id="card-content">
+  {{#bs-collapse collapsed=cardCollapsed }}
+    <div class="card-body">
+      {{yield}}
+    </div>
+  {{/bs-collapse}}
 </div>

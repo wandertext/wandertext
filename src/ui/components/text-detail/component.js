@@ -6,6 +6,8 @@ import { uniq } from "@ember-decorators/object/computed";
 export default class TextDetailComponent extends Component {
   @service data;
 
+  @service theMap;
+
   @uniq("places") distinctPlaces;
 
   @computed("distinctPlaces")
@@ -29,5 +31,6 @@ export default class TextDetailComponent extends Component {
     this.set("entries", entries);
     const places = await entries.map(entry => entry.place);
     this.set("places", places);
+    this.theMap.addPoints();
   }
 }
