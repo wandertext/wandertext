@@ -5,18 +5,24 @@ import { inject as service } from "@ember-decorators/service";
 export default class TextDetailComponent extends Component {
   @service data;
 
-  instances = [];
+  distinctPlaces = [];
 
-  @computed("instances")
-  get instancesCount() {
-    return this.instances.length;
+  @computed("distinctPlaces")
+  get distinctPlacesCount() {
+    return this.distinctPlaces.length;
+  }
+
+  entries = [];
+
+  @computed("entries")
+  get entriesCount() {
+    return this.entries.length;
   }
 
   async didInsertElement() {
     const text = await this.data.getTextBySlug(this.get("slug"));
     this.set("text", text);
-    const instances = await this.data.getInstancesByText(text.id);
-    this.set("instances", instances);
-    // Console.log(instances);
+    const entries = await this.data.getEntriesByText(text.id);
+    this.set("entries", entries);
   }
 }

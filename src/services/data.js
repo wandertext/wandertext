@@ -21,19 +21,19 @@ export default class DataService extends Service {
     });
   }
 
-  async getInstancesByText(text) {
-    const instances = await this.db
+  async getEntriesByText(text) {
+    const entries = await this.db
       .createIndex({
         index: {
           fields: ["type", "text"],
-          name: "instances-by-text",
-          ddoc: "instances-by-text"
+          name: "entries-by-text",
+          ddoc: "entries-by-text"
         }
       })
       .then(() => {
         return this.db.find({
           selector: {
-            type: "instance",
+            type: "entry",
             text
           },
           limit: 10000
@@ -45,7 +45,7 @@ export default class DataService extends Service {
         }
       })
       .catch(error => error);
-    return instances;
+    return entries;
   }
 
   async getTextBySlug(slug) {
