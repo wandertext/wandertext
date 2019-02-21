@@ -1,7 +1,11 @@
 <h2>{{ text.properties.title }}</h2>
-<img src={{ text.properties.cover }} alt="Cover of {{ text.properties.title }}" class="img-fluid rounded float-right ml-3 mb-3">
+<img src={{ text.properties.cover }} 
+  alt="Cover of {{ text.properties.title }}" 
+  class="img-fluid rounded float-right ml-3 mb-3"
+  />
 <h3>{{ text.properties.author }}</h3>
 <p>{{ text.year }}</p>
-<p>Entry count: {{ entriesCount }}</p>
+<p>Entries: {{ entriesCount }}</p>
+<p>Distinct places: {{ distinctPlacesCount }}</p>
 
 {{yield}}
