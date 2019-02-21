@@ -21,6 +21,33 @@ export default class DataService extends Service {
     });
   }
 
+  async getInstancesByText(text) {
+    const instances = await this.db
+      .createIndex({
+        index: {
+          fields: ["type", "text"],
+          name: "instances-by-text",
+          ddoc: "instances-by-text"
+        }
+      })
+      .then(() => {
+        return this.db.find({
+          selector: {
+            type: "instance",
+            text
+          },
+          limit: 10000
+        });
+      })
+      .then(results => {
+        if (results.docs.length > 0) {
+          return results.docs;
+        }
+      })
+      .catch(error => error);
+    return instances;
+  }
+
   async getTextBySlug(slug) {
     const doc = await this.db
       .createIndex({
