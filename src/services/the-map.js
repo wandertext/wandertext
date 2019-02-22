@@ -6,13 +6,18 @@ export default class TheMapService extends Service {
 
   map = {};
 
-  clearMap() {
-    this.removeLayers();
-    this.addTileLayer();
-  }
+  points = [];
+
+  pointsLayer = {};
 
   addPoints() {
-    this.clearMap();
+    this.removePoints();
+    const pointsLayer = L.layerGroup();
+    this.points.forEach(point => {
+      L.circleMarker([point.lat, point.lng]).addTo(pointsLayer);
+    });
+    this.set("pointsLayer", pointsLayer);
+    this.get("pointsLayer").addTo(this.get("map"));
   }
 
   addZoomControl() {
@@ -30,11 +35,8 @@ export default class TheMapService extends Service {
     ).addTo(this.get("map"));
   }
 
-  removeLayers() {
-    const map = this.get("map");
-    map.eachLayer(layer => {
-      map.removeLayer(layer);
-    });
+  removePoints() {
+    this.get("map").removeLayer(this.get("pointsLayer"));
   }
 
   async createMap() {
@@ -48,5 +50,8 @@ export default class TheMapService extends Service {
     );
     this.addTileLayer();
     this.addZoomControl();
+    if (this.get("points").length > 0) {
+      this.addPoints();
+    }
   }
 }

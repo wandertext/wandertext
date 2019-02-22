@@ -31,6 +31,7 @@ export default class TextDetailComponent extends Component {
     this.set("entries", entries);
     const places = await entries.map(entry => entry.place);
     this.set("places", places);
+    this.theMap.points = [{ lat: 5, lng: 5 }, { lat: 0, lng: 35 }];
     this.theMap.addPoints();
   }
 }
