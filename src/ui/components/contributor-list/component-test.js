@@ -14,14 +14,5 @@ describe("Integration | Component | contributor-list", function() {
     await render(hbs`<ContributorList />`);
 
     expect(find("#contributor-list")).to.be.ok;
-
-    // Template block usage:
-    await render(hbs`
-      <ContributorList>
-        template block text
-      </ContributorList>
-    `);
-
-    expect(find("#contributor-list")).to.contain.text("template block text");
   });
 });
