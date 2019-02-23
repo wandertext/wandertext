@@ -14,7 +14,9 @@ export default class TheMapService extends Service {
     this.removePoints();
     const pointsLayer = L.layerGroup();
     this.points.forEach(point => {
-      L.circleMarker([point.lat, point.lng]).addTo(pointsLayer);
+      if (point.latitude && point.longitude) {
+        L.circleMarker([point.latitude, point.longitude]).addTo(pointsLayer);
+      }
     });
     this.set("pointsLayer", pointsLayer);
     this.get("pointsLayer").addTo(this.get("map"));
