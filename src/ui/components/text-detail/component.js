@@ -37,6 +37,8 @@ export default class TextDetailComponent extends Component {
 
   entries = [];
 
+  users = ["Moacir", "Manan", "Isabelle"];
+
   @computed("entries")
   get entriesCount() {
     return this.entries.length;
