@@ -6,7 +6,8 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
-    couchdb: process.env.WANDERTEXT_DEV_COUCHDB,
+    couchdb: process.env.CLOUDANT,
+    // couchdb: process.env.WANDERTEXT_DEV_COUCHDB,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -42,7 +43,7 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
-    ENV.couchdb = "testdb";
+    ENV.couchdb = process.env.CLOUDANT;
   }
 
   if (environment === "production") {
