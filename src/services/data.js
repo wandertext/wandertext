@@ -5,12 +5,7 @@ import pouchDBFind from "pouchdb-find";
 import config from "../../config/environment";
 
 export default class DataService extends Service {
-  db = this.initDB();
-
-  initDB() {
-    PouchDB.plugin(pouchDBFind);
-    return new PouchDB(config.couchdb);
-  }
+  db = this._initDB();
 
   async getAll() {
     const result = await this.db.allDocs({
@@ -119,5 +114,12 @@ export default class DataService extends Service {
       })
       .catch(error => error);
     return doc;
+  }
+
+  // “Private” properties.
+
+  _initDB() {
+    PouchDB.plugin(pouchDBFind);
+    return new PouchDB(config.couchdb);
   }
 }
