@@ -22,13 +22,14 @@ describe("Unit | Service | data", function() {
         .info()
         .then(result => result.db_name)
         .then(name => {
-          expect(name).to.equal("wandertext");
+          return expect(name).to.eventually.equal("wandertext");
         });
     });
   });
 
   describe("#getAll", function() {
     it("returns all of the documents", async function() {
+      this.timeout(5000);
       const service = this.owner.lookup("service:data");
       const officialDocCount = await service.db
         .info()
@@ -42,9 +43,9 @@ describe("Unit | Service | data", function() {
     it("returns documents that are all of a single type.", function() {
       const service = this.owner.lookup("service:data");
       service.getAllByType("text").then(docs => {
-        expect(docs.filter(d => d.type === "text")).to.have.lengthOf(
-          docs.length
-        );
+        return expect(
+          docs.filter(d => d.type === "text")
+        ).to.eventually.have.lengthOf(docs.length);
       });
     });
   });
@@ -53,9 +54,7 @@ describe("Unit | Service | data", function() {
     const id = "entry-000000005401";
     it("returns a single document (in an array)", function() {
       const service = this.owner.lookup("service:data");
-      service.getDocById(id).then(docArray => {
-        expect(docArray).to.have.lengthOf(1);
-      });
+      expect(service.getDocById(id)).to.eventually.have.lengthOf(1);
     });
   });
 
@@ -64,18 +63,18 @@ describe("Unit | Service | data", function() {
     it("returns only entries", function() {
       const service = this.owner.lookup("service:data");
       service.getEntriesByText(text).then(entries => {
-        expect(entries.filter(d => d.type === "entry")).to.have.lengthOf(
-          entries.length
-        );
+        return expect(
+          entries.filter(d => d.type === "entry")
+        ).to.eventually.have.lengthOf(entries.length);
       });
     });
 
     it("from the specified text", function() {
       const service = this.owner.lookup("service:data");
       service.getEntriesByText(text).then(entries => {
-        expect(entries.filter(d => d.text === text)).to.have.lengthOf(
-          entries.length
-        );
+        return expect(
+          entries.filter(d => d.text === text)
+        ).to.eventually.have.lengthOf(entries.length);
       });
     });
   });
