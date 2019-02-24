@@ -6,7 +6,7 @@
 <h3>{{ text.properties.author }}</h3>
 <p>{{ text.year }}</p>
 <ContributorList @users={{users}} />
-<p>Entries: {{ entriesCount }}</p>
-<p>Distinct places: {{ distinctPlaceIdsCount }}</p>
+<TextEntries @entries={{entries}} />
+<TextPlaces @distinctPlaces={{distinctPlaces}} />
 
 {{yield}}

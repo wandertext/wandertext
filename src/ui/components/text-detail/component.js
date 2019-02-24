@@ -1,5 +1,4 @@
 import Component from "@ember/component";
-import { observes, computed } from "@ember-decorators/object";
 import { inject as service } from "@ember-decorators/service";
 import { uniq } from "@ember-decorators/object/computed";
 import _intersectionBy from "lodash/intersectionBy";
@@ -9,10 +8,34 @@ export default class TextDetailComponent extends Component {
 
   @service theMap;
 
+  distinctPlaces = [];
+
+  entries = [];
+
+  placeIds = [];
+
+  users = ["Moacir", "Manan", "Isabelle"];
+
   @uniq("placeIds") distinctPlaceIds;
 
-  @observes("distinctPlaceIds")
-  async placeIdsDidChange() {
+  didInsertElement() {
+    return this.data
+      .getTextBySlug(this.get("slug"))
+      .then(text => {
+        this.set("text", text);
+        return this.data.getEntriesByText(text.id);
+      })
+      .then(entries => {
+        this.set("entries", entries);
+        return entries.map(entry => entry.place);
+      })
+      .then(placeIds => {
+        this.set("placeIds", placeIds);
+        return this._makePlaces();
+      });
+  }
+
+  _makePlaces() {
     this.data
       .getAllByType("place")
       .then(places => {
@@ -25,33 +48,9 @@ export default class TextDetailComponent extends Component {
         );
       })
       .then(points => {
+        this.set("distinctPlaces", points);
         this.theMap.points = points;
         this.theMap.addPoints();
       });
-  }
-
-  @computed("distinctPlaceIds")
-  get distinctPlaceIdsCount() {
-    return this.distinctPlaceIds.length;
-  }
-
-  entries = [];
-
-  users = ["Moacir", "Manan", "Isabelle"];
-
-  @computed("entries")
-  get entriesCount() {
-    return this.entries.length;
-  }
-
-  placeIds = [];
-
-  async didInsertElement() {
-    const text = await this.data.getTextBySlug(this.get("slug"));
-    this.set("text", text);
-    const entries = await this.data.getEntriesByText(text.id);
-    this.set("entries", entries);
-    const placeIds = await entries.map(entry => entry.place);
-    this.set("placeIds", placeIds);
   }
 }
