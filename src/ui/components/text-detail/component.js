@@ -13,7 +13,37 @@ export default class TextDetailComponent extends Component {
 
   placeIds = [];
 
-  users = ["Moacir", "Manan", "Isabelle"];
+  contributors = [];
+
+  async getContributors() {
+    let userIds = [];
+    if (this.text && this.text.users) {
+      userIds = this.text.users;
+    }
+
+    this.entries.forEach(entry => {
+      if (entry.users) {
+        entry.users.forEach(userId => {
+          userIds.push(userId);
+        });
+      }
+    });
+    const counts = {};
+    userIds.forEach(userId => {
+      counts[userId] = counts[userId] ? counts[userId] + 1 : 1;
+    });
+    this.data.getListFromTypeAndIds("user", Object.keys(counts)).then(users => {
+      const contributors = users.map(user => {
+        return {
+          firstname: user.firstname,
+          lastname: user.lastname,
+          name: user.name,
+          count: counts[user.id]
+        };
+      });
+      this.set("contributors", contributors);
+    });
+  }
 
   @uniq("placeIds") distinctPlaceIds;
 
@@ -31,6 +61,9 @@ export default class TextDetailComponent extends Component {
       .then(placeIds => {
         this.set("placeIds", placeIds);
         return this._makePlaces();
+      })
+      .then(() => {
+        return this.getContributors();
       });
   }
 
