@@ -23,7 +23,9 @@ export default class TheMapService extends Service {
   }
 
   addZoomControl() {
-    this.get("map").addControl(L.control.zoom({ position: "topright" }));
+    if (!L.Browser.mobile) {
+      this.get("map").addControl(L.control.zoom({ position: "topright" }));
+    }
   }
 
   addTileLayer() {
