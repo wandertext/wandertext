@@ -7,7 +7,7 @@ export default class ContributorListComponent extends Component {
 
   @computed("contributors")
   get contributorsList() {
-    if(this.contributors){
+    if (this.contributors) {
       return _sortBy(
         this.contributors.map(user => {
           user.count *= -1;
@@ -28,8 +28,8 @@ export default class ContributorListComponent extends Component {
           return name;
         })
         .join(", ");
-    } else {
-      return "";
     }
+
+    return "";
   }
 }
