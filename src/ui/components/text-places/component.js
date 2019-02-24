@@ -6,6 +6,11 @@ export default class TextPlacesComponent extends Component {
 
   @computed("distinctPlaces")
   get distinctPlacesCount() {
-    return this.distinctPlaces.length;
+    let length = 0;
+    if (this.distinctPlaces) {
+      length = this.distinctPlaces.length;
+    }
+
+    return length;
   }
 }

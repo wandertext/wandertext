@@ -6,6 +6,11 @@ export default class TextEntriesComponent extends Component {
 
   @computed("entries")
   get entriesCount() {
-    return this.entries.length;
+    let length = 0;
+    if (this.entries) {
+      length = this.entries.length;
+    }
+
+    return length;
   }
 }
