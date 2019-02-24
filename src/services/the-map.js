@@ -15,7 +15,12 @@ export default class TheMapService extends Service {
     const pointsLayer = L.layerGroup();
     this.points.forEach(point => {
       if (point.latitude && point.longitude) {
-        L.circleMarker([point.latitude, point.longitude]).addTo(pointsLayer);
+        const marker = L.circleMarker([point.latitude, point.longitude]);
+        if (point.popup) {
+          marker.bindPopup(point.popup);
+        }
+
+        marker.addTo(pointsLayer);
       }
     });
     this.set("pointsLayer", pointsLayer);

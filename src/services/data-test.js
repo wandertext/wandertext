@@ -94,4 +94,17 @@ describe("Unit | Service | data", function() {
       });
     });
   });
+
+  describe("getListFromTypeAndIds", function() {
+    const type = "user";
+    const userList = ["user-000000000001", "user-000000000065"];
+    it("returns a list of documents all of the same type", function() {
+      const service = this.owner.lookup("service:data");
+      service.getListFromTypeAndIds(type, userList).then(list => {
+        expect(list.filter(u => u.type === type)).to.eventually.have.lengthOf(
+          userList.length
+        );
+      });
+    });
+  });
 });

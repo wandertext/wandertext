@@ -1,7 +1,6 @@
 import Component from "@ember/component";
 import { inject as service } from "@ember-decorators/service";
 import { uniq } from "@ember-decorators/object/computed";
-import _intersectionBy from "lodash/intersectionBy";
 
 export default class TextDetailComponent extends Component {
   @service data;
@@ -35,22 +34,16 @@ export default class TextDetailComponent extends Component {
       });
   }
 
-  _makePlaces() {
-    this.data
-      .getAllByType("place")
-      .then(places => {
-        return _intersectionBy(
-          places,
-          this.distinctPlaceIds.map(id => {
-            return { id };
-          }),
-          "id"
-        );
-      })
-      .then(points => {
-        this.set("distinctPlaces", points);
-        this.theMap.points = points;
-        this.theMap.addPoints();
-      });
+  async _makePlaces() {
+    const points = await this.data.getListFromTypeAndIds(
+      "place",
+      this.distinctPlaceIds
+    );
+    this.set("distinctPlaces", points);
+    this.theMap.points = points.map(point => {
+      point.popup = `<h3>${point.name}</h3>`;
+      return point;
+    });
+    this.theMap.addPoints();
   }
 }

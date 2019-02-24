@@ -2,6 +2,7 @@
 import Service from "@ember/service";
 import PouchDB from "pouchdb";
 import pouchDBFind from "pouchdb-find";
+import _intersectionBy from "lodash/intersectionBy";
 import config from "../../config/environment";
 
 export default class DataService extends Service {
@@ -114,6 +115,18 @@ export default class DataService extends Service {
       })
       .catch(error => error);
     return doc;
+  }
+
+  getListFromTypeAndIds(type, list) {
+    return this.getAllByType(type).then(docs => {
+      return _intersectionBy(
+        docs,
+        list.map(id => {
+          return { id };
+        }),
+        "id"
+      );
+    });
   }
 
   // “Private” properties.
