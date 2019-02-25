@@ -12,7 +12,7 @@ export default class TheMapService extends Service {
 
   addPoints() {
     this.removePoints();
-    const pointsLayer = L.layerGroup();
+    const pointsLayer = L.featureGroup();
     this.points.forEach(point => {
       if (point.latitude && point.longitude) {
         const marker = L.circleMarker([point.latitude, point.longitude]);
@@ -25,6 +25,7 @@ export default class TheMapService extends Service {
     });
     this.set("pointsLayer", pointsLayer);
     this.get("pointsLayer").addTo(this.get("map"));
+    this._recenterMap();
   }
 
   addZoomControl() {
@@ -62,5 +63,14 @@ export default class TheMapService extends Service {
     if (this.get("points").length > 0) {
       this.addPoints();
     }
+  }
+
+  _recenterMap() {
+    const paddingTopLeft = [0, 0];
+    if (!L.Browser.mobile) {
+      paddingTopLeft[0] = 0.5 * window.innerWidth;
+    }
+
+    this.map.fitBounds(this.pointsLayer.getBounds(), { paddingTopLeft });
   }
 }
