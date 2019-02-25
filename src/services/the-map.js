@@ -10,7 +10,7 @@ export default class TheMapService extends Service {
 
   pointsLayer = {};
 
-  addPoints() {
+  addPoints(opts = { padding: true }) {
     this.removePoints();
     const pointsLayer = L.featureGroup();
     this.points.forEach(point => {
@@ -25,7 +25,7 @@ export default class TheMapService extends Service {
     });
     this.set("pointsLayer", pointsLayer);
     this.get("pointsLayer").addTo(this.get("map"));
-    this._recenterMap();
+    this._recenterMap(opts.padding);
   }
 
   addZoomControl() {
@@ -54,6 +54,7 @@ export default class TheMapService extends Service {
       "map",
       L.map(this.mapDiv, {
         center: [0, 0],
+        minZoom: 2,
         zoom: 4,
         zoomControl: false
       })
@@ -65,9 +66,9 @@ export default class TheMapService extends Service {
     }
   }
 
-  _recenterMap() {
+  _recenterMap(padding) {
     const paddingTopLeft = [0, 0];
-    if (!L.Browser.mobile) {
+    if (padding && !L.Browser.mobile) {
       paddingTopLeft[0] = 0.5 * window.innerWidth;
     }
 
