@@ -66,6 +66,12 @@ export default class TextDetailComponent extends Component {
       );
       this.set("placeIds", this.entries.map(entry => entry.place));
       this._makePlaces();
+      if (this.slug === "lcaaj") {
+        this.set("logo.svg", "vov.svg");
+      } else {
+        this.set("logo.svg", "waw.svg");
+      }
+
       return this.getContributors();
     });
   }
@@ -84,8 +90,5 @@ export default class TextDetailComponent extends Component {
       return point;
     });
     this.theMap.addPoints();
-    if (this.slug === "lcaaj") {
-      this.set("logo.svg", "vov.svg");
-    }
   }
 }
