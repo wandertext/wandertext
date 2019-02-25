@@ -8,6 +8,8 @@ export default class TextDetailComponent extends Component {
 
   @service theMap;
 
+  @service logo;
+
   docs = [];
 
   distinctPlaces = [];
@@ -82,5 +84,8 @@ export default class TextDetailComponent extends Component {
       return point;
     });
     this.theMap.addPoints();
+    if (this.slug === "lcaaj") {
+      this.set("logo.svg", "vov.svg");
+    }
   }
 }
