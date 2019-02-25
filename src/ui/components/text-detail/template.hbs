@@ -1,8 +1,11 @@
 <h2>{{ text.properties.title }}</h2>
+  
+{{#if text.properties.cover }}
 <img src={{ text.properties.cover }} 
-  alt="Cover of {{ text.properties.title }}" 
+  alt="image for {{ text.name }}" 
   class="img-fluid rounded float-right ml-3 mb-3"
   />
+{{/if}}
 <h3>{{ text.properties.author }}</h3>
 <p>{{ text.year }}</p>
 <ContributorList @contributors={{contributors}} />
