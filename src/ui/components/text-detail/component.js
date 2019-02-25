@@ -84,11 +84,15 @@ export default class TextDetailComponent extends Component {
       }),
       "id"
     );
-    this.set("distinctPlaces", points);
-    this.theMap.points = points.map(point => {
-      point.popup = `<h3>${point.name}</h3>`;
-      return point;
-    });
-    this.theMap.addPoints();
+    if (points.length > 0) {
+      this.set("distinctPlaces", points);
+      this.theMap.points = points.map(point => {
+        point.popup = `<h3>${point.name}</h3>`;
+        return point;
+      });
+      this.theMap.addPoints();
+    } else {
+      this.theMap.removePoints();
+    }
   }
 }
