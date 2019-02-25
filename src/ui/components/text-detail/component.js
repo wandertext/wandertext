@@ -1,11 +1,14 @@
 import Component from "@ember/component";
 import { inject as service } from "@ember-decorators/service";
 import { uniq } from "@ember-decorators/object/computed";
+import _intersectionBy from "lodash/intersectionBy";
 
 export default class TextDetailComponent extends Component {
   @service data;
 
   @service theMap;
+
+  docs = [];
 
   distinctPlaces = [];
 
@@ -15,7 +18,7 @@ export default class TextDetailComponent extends Component {
 
   contributors = [];
 
-  async getContributors() {
+  getContributors() {
     let userIds = [];
     if (this.text && this.text.users) {
       userIds = this.text.users;
@@ -32,45 +35,46 @@ export default class TextDetailComponent extends Component {
     userIds.forEach(userId => {
       counts[userId] = counts[userId] ? counts[userId] + 1 : 1;
     });
-    this.data.getListFromTypeAndIds("user", Object.keys(counts)).then(users => {
-      const contributors = users.map(user => {
-        return {
-          firstname: user.firstname,
-          lastname: user.lastname,
-          name: user.name,
-          count: counts[user.id]
-        };
-      });
-      this.set("contributors", contributors);
+    const contributors = _intersectionBy(
+      this.docs,
+      Object.keys(counts).map(id => {
+        return { id };
+      }),
+      "id"
+    ).map(user => {
+      return {
+        firstname: user.firstname,
+        lastname: user.lastname,
+        name: user.name,
+        count: counts[user.id]
+      };
     });
+    this.set("contributors", contributors);
   }
 
   @uniq("placeIds") distinctPlaceIds;
 
   didInsertElement() {
-    return this.data
-      .getTextBySlug(this.get("slug"))
-      .then(text => {
-        this.set("text", text);
-        return this.data.getEntriesByText(text.id);
-      })
-      .then(entries => {
-        this.set("entries", entries);
-        return entries.map(entry => entry.place);
-      })
-      .then(placeIds => {
-        this.set("placeIds", placeIds);
-        return this._makePlaces();
-      })
-      .then(() => {
-        return this.getContributors();
-      });
+    return this.data.getAll().then(docs => {
+      this.set("docs", docs);
+      this.set("text", this.docs.filter(d => d.slug === this.get("slug"))[0]);
+      this.set(
+        "entries",
+        this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
+      );
+      this.set("placeIds", this.entries.map(entry => entry.place));
+      this._makePlaces();
+      return this.getContributors();
+    });
   }
 
-  async _makePlaces() {
-    const points = await this.data.getListFromTypeAndIds(
-      "place",
-      this.distinctPlaceIds
+  _makePlaces() {
+    const points = _intersectionBy(
+      this.docs,
+      this.distinctPlaceIds.map(id => {
+        return { id };
+      }),
+      "id"
     );
     this.set("distinctPlaces", points);
     this.theMap.points = points.map(point => {
