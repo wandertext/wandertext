@@ -7,6 +7,12 @@ module.exports = function(environment) {
     rootURL: "/",
     locationType: "auto",
     couchdb: process.env.COUCHDB,
+    fontawesome: {
+      icons: {
+        "free-solid-svg-icons": ["info-circle", "map", "database", "home"],
+        "free-brands-svg-icons": ["ember"]
+      }
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
