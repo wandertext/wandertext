@@ -10,7 +10,7 @@
     "test": "tests"
   },
   "homepage": "https://github.com/muziejus/wandertext#readme",
-  "repository": "",
+  "repository": "https://github.com/muziejus/wandertext.git",
   "scripts": {
     "build": "ember build",
     "lint:js": "xo --fix",
