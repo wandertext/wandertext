@@ -7,7 +7,7 @@ module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
     "ember-bootstrap": {
       importBootstrapCSS: false,
-      whitelist: ["bs-collapse", "bs-button"]
+      whitelist: ["bs-collapse", "bs-button", "bs-nav"]
     },
     fingerprint: {
       exclude: [

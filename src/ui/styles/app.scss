@@ -1,3 +1,4 @@
+@import "./fonts";
 @import "./bootstrap";
 @import "./the-map";
 @import "./floating-box";
@@ -9,4 +10,9 @@ html, body {
 
 body {
   background: #ddcc00;
+}
+
+#main-header {
+  margin: 0 2rem 0 1rem;
+  font-family: "Herr Von Muellerhoff", cursive;
 }
