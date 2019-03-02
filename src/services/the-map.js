@@ -10,6 +10,10 @@ export default class TheMapService extends Service {
 
   pointsLayer = {};
 
+  politicalTileLayer = {};
+
+  physicalTileLayer = {};
+
   iconUrl =
     "<svg height=20 width=20 xmlns='http://www.w3.org/2000/svg'><path class='dot-marker' d='M0,29L26,0l1.8,1.1c7.4,8.6,16.4,17,26.9,25.3c-5.4,6.2-14,15.1-25.8,26.5c-4.3-0.7-8.7-3.1-13.3-7.2 c-4.5-4.1-8.8-8.1-12.7-12L0,29z' transform='scale(0.32)' /></svg>";
 
@@ -27,45 +31,30 @@ export default class TheMapService extends Service {
         marker.addTo(pointsLayer);
       }
     });
-    this.set("pointsLayer", pointsLayer);
-    this.get("pointsLayer").addTo(this.get("map"));
+    this.pointsLayer = pointsLayer;
+    this.pointsLayer.addTo(this.map);
     this._recenterMap(opts.padding);
   }
 
-  addZoomControl() {
-    if (!L.Browser.mobile) {
-      this.get("map").addControl(L.control.zoom({ position: "topright" }));
-    }
-  }
-
-  addTileLayer() {
-    L.tileLayer(
-      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
-      {
-        attribution:
-          "Tiles &copy; Esri &mdash; Source: US National Park Service",
-        maxZoom: 8
-      }
-    ).addTo(this.get("map"));
-  }
-
   removePoints() {
-    this.get("map").removeLayer(this.get("pointsLayer"));
+    this.map.removeLayer(this.pointsLayer);
   }
 
-  async createMap() {
-    await this.set(
-      "map",
-      L.map(this.mapDiv, {
-        center: [0, 0],
-        minZoom: 2,
-        zoom: 4,
-        zoomControl: false
-      })
-    );
-    this.addTileLayer();
-    this.addZoomControl();
-    if (this.get("points").length > 0) {
+  // Async createMap() {
+  createMap() {
+    this._initTileLayers();
+    this.map = L.map(this.mapDiv, {
+      center: [0, 0],
+      minZoom: 2,
+      maxZoom: 19,
+      zoom: 4,
+      zoomControl: false
+    });
+    this.map.on("zoomend", () => {
+      this._showTileLayer();
+    });
+    this._addZoomControl();
+    if (this.points.length > 0) {
       this.addPoints();
     }
   }
@@ -77,5 +66,51 @@ export default class TheMapService extends Service {
     }
 
     this.map.fitBounds(this.pointsLayer.getBounds(), { paddingTopLeft });
+  }
+
+  _showTileLayer() {
+    if (this.map.getZoom() < 8) {
+      if (this.map.hasLayer(this.politicalTileLayer)) {
+        this.map.removeLayer(this.politicalTileLayer);
+      }
+
+      if (!this.map.hasLayer(this.physicalTileLayer)) {
+        this.physicalTileLayer.addTo(this.map);
+      }
+    } else {
+      if (this.map.hasLayer(this.physicalTileLayer)) {
+        this.map.removeLayer(this.physicalTileLayer);
+      }
+
+      if (!this.map.hasLayer(this.politcalTileLayer)) {
+        this.politicalTileLayer.addTo(this.map);
+      }
+    }
+  }
+
+  _initTileLayers() {
+    this.physicalTileLayer = L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
+      {
+        attribution:
+          "Tiles &copy; Esri &mdash; Source: US National Park Service",
+        maxZoom: 8
+      }
+    );
+    this.politicalTileLayer = L.tileLayer(
+      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      {
+        minZoom: 7,
+        maxZoom: 19,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }
+    );
+  }
+
+  _addZoomControl() {
+    if (!L.Browser.mobile) {
+      this.map.addControl(L.control.zoom({ position: "topright" }));
+    }
   }
 }
