@@ -1,21 +1,26 @@
 <div id="the-card-header" class="card-header d-flex justify-content-end">
-  {{#bs-nav class="mr-auto" type="pills" as |nav|}}
-    {{#nav.item}}
-      {{#nav.link-to "index"}}{{ fa-icon "home" }}{{/nav.link-to}}
-    {{/nav.item}}
-    {{#nav.item}}
-      {{#nav.link-to "texts"}}{{ fa-icon "database" }}{{/nav.link-to}}
-    {{/nav.item}}
-    {{#nav.item}}
-      {{#nav.link-to "places"}}{{ fa-icon "map" }}{{/nav.link-to}}
-    {{/nav.item}}
-    {{#nav.item}}
-      {{#nav.link-to "about"}}{{ fa-icon "info-circle" }}{{/nav.link-to}}
-    {{/nav.item}}
-  {{/bs-nav}}
-  <h1 id="main-header" class="">Wandertext</h1>
-  {{#bs-button onClick=(action @onClick) }}
-      <img src="{{ rootURL }}assets/logo/{{ this.logo.svg }}" class="" style="filter: invert(100); width: 1.5rem; height: 1.5rem;">
+  {{#bs-navbar class="mr-auto" type="pills" as |navbar|}}
+    {{navbar.toggle}}
+    {{#navbar.content}}
+      {{#navbar.nav as |nav|}}
+        {{#nav.item}}
+          {{#nav.link-to "index"}}{{ fa-icon "home" }}{{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+          {{#nav.link-to "texts"}}{{ fa-icon "database" }}{{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+          {{#nav.link-to "places"}}{{ fa-icon "map" }}{{/nav.link-to}}
+        {{/nav.item}}
+        {{#nav.item}}
+          {{#nav.link-to "about"}}{{ fa-icon "info-circle" }}{{/nav.link-to}}
+        {{/nav.item}}
+      {{/navbar.nav}}
+    {{/navbar.content}}
+  {{/bs-navbar}}
+  <h1 id="main-header" class="pt-3">Wandertext</h1>
+  {{#bs-button onClick=(action @onClick) type="light"}}
+      <img src="{{ rootURL }}assets/logo/{{ this.logo.svg }}" style="width: 2.5rem; height: 2.5rem;">
   {{/bs-button}}
 </div>
 
