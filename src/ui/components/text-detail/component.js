@@ -2,6 +2,7 @@ import Component from "@ember/component";
 import { inject as service } from "@ember-decorators/service";
 import { uniq } from "@ember-decorators/object/computed";
 import _intersectionBy from "lodash/intersectionBy";
+import { compile } from "handlebars/dist/handlebars";
 
 export default class TextDetailComponent extends Component {
   @service data;
@@ -59,7 +60,7 @@ export default class TextDetailComponent extends Component {
   didInsertElement() {
     return this.data.getAll().then(docs => {
       this.set("docs", docs);
-      this.set("text", this.docs.filter(d => d.slug === this.get("slug"))[0]);
+      this.set("text", this.docs.filter(d => d.slug === this.slug)[0]);
       this.set(
         "entries",
         this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
@@ -77,6 +78,7 @@ export default class TextDetailComponent extends Component {
   }
 
   _makePlaces() {
+    const popup = this.text.popupTemplate || "<h3>{{point.name}}</h3>";
     const points = _intersectionBy(
       this.docs,
       this.distinctPlaceIds.map(id => {
@@ -87,7 +89,7 @@ export default class TextDetailComponent extends Component {
     if (points.length > 0) {
       this.set("distinctPlaces", points);
       this.theMap.points = points.map(point => {
-        point.popup = `<h3>${point.name}</h3>`;
+        point.popup = compile(popup)({ point, text: this.text });
         return point;
       });
       this.theMap.addPoints();
