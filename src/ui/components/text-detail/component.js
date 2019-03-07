@@ -2,6 +2,8 @@ import Component from "@ember/component";
 import { inject as service } from "@ember-decorators/service";
 import { uniq } from "@ember-decorators/object/computed";
 import _intersectionBy from "lodash/intersectionBy";
+import _countBy from "lodash/countBy";
+import _sortBy from "lodash/sortBy";
 import { compile } from "handlebars/dist/handlebars";
 
 export default class TextDetailComponent extends Component {
@@ -78,7 +80,16 @@ export default class TextDetailComponent extends Component {
   }
 
   _makePlaces() {
-    const popup = this.text.popupTemplate || "<h3>{{point.name}}</h3>";
+    const popup = `<h3>{{point.attestedName}}<br /><small class='muted'>{{point.name}}</small></h3>
+    <svg id='histogram'></svg><br />
+    <ul>
+      <li>{{point.entryCount}} entries</li>
+      {{#if point.geonameId}}
+        <li>GeonameId: {{point.geonameId}}</li>
+      {{/if}}
+    </ul>
+    `;
+    // Const popup = this.text.popupTemplate || "<h3>{{point.name}}</h3>";
     const points = _intersectionBy(
       this.docs,
       this.distinctPlaceIds.map(id => {
@@ -89,6 +100,18 @@ export default class TextDetailComponent extends Component {
     if (points.length > 0) {
       this.set("distinctPlaces", points);
       this.theMap.points = points.map(point => {
+        const theEntries = this.entries.filter(
+          entry => entry.place === point.id
+        );
+        point.entryCount = theEntries.length;
+        const names = _countBy(theEntries, "placeInText");
+        const attestedNames = Object.keys(names).map(key => ({
+          name: key,
+          count: names[key]
+        }));
+        point.attestedName = _sortBy(attestedNames, "count")[
+          attestedNames.length - 1
+        ].name;
         point.popup = compile(popup)({ point, text: this.text });
         return point;
       });
