@@ -1,7 +1,7 @@
 {{#paper-card as |card|}}
   {{#card.title as |title|}}
     {{#title.text as |text|}}
-      {{#text.headline}}Wandertext{{/text.headline}}
+    {{#text.headline}}{{{this.card.title}}}{{/text.headline}}
     {{/title.text}}
   {{/card.title}}
   {{#card.content class="layout-row layout-align-space-between"}}

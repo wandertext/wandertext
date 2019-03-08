@@ -1,11 +1,6 @@
 import Component from "@ember/component";
-import { action } from "@ember-decorators/object";
+import { inject as service } from "@ember/service";
 
 export default class FloatingBoxComponent extends Component {
-  cardCollapsed = false;
-
-  @action
-  toggleContent() {
-    this.toggleProperty("cardCollapsed");
-  }
+  @service card;
 }

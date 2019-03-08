@@ -15,6 +15,8 @@ export default class TextDetailComponent extends Component {
 
   @service logo;
 
+  @service card;
+
   @tracked docs = [];
 
   @tracked distinctPlaces = [];
@@ -67,6 +69,7 @@ export default class TextDetailComponent extends Component {
       .then(docs => {
         this.set("docs", docs);
         this.set("text", this.docs.filter(d => d.slug === this.slug)[0]);
+        this.card.setTitle(this.text);
         this.set(
           "entries",
           this.docs.filter(d => d.type === "entry" && d.text === this.text.id)

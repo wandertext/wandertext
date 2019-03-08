@@ -1,14 +1,6 @@
-{{#if text.markdownTitle}}
-  <h2>{{markdown-to-html text.markdownTitle}}</h2>
-{{else}}
-<h2>{{ text.properties.title }}</h2>
-{{/if}}
-
 {{#if text.properties.cover }}
 <img src={{ text.properties.cover }} 
-  alt="image for {{ text.name }}" 
-  class="img-fluid rounded float-right ml-3 mb-3"
-  />
+  alt="image for {{ text.name }}" />
 {{/if}}
 <p>{{ text.year }}</p>
 
