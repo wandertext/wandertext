@@ -1,14 +1,19 @@
-{{#if text.properties.cover }}
-<img src={{ text.properties.cover }} 
-  alt="image for {{ text.name }}" />
-{{/if}}
-<p>{{ text.year }}</p>
+<div>
+  <p>{{ text.year }}</p>
 
-{{#if text.markdownBlurb }}
-{{markdown-to-html text.markdownBlurb }}
-{{/if}}
+  {{#if text.markdownBlurb }}
+  {{markdown-to-html text.markdownBlurb }}
+  {{/if}}
 
-<ContributorList @contributors={{contributors}} />
-<TextEntries @entries={{entries}} />
-<TextPlaces @distinctPlaces={{distinctPlaces}} />
-{{yield}}
+  <ContributorList @contributors={{contributors}} />
+  <TextEntries @entries={{entries}} />
+  <TextPlaces @distinctPlaces={{distinctPlaces}} />
+  {{yield}}
+</div>
+
+<div>
+  {{#if text.properties.cover }}
+    <img src={{ text.properties.cover }} 
+      alt="image for {{ text.name }}" />
+  {{/if}}
+</div>
