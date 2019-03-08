@@ -4,6 +4,7 @@ import { uniq } from "@ember-decorators/object/computed";
 import _intersectionBy from "lodash/intersectionBy";
 import _countBy from "lodash/countBy";
 import _sortBy from "lodash/sortBy";
+import _uniqBy from "lodash/uniqBy";
 import { compile } from "handlebars/dist/handlebars";
 
 export default class TextDetailComponent extends Component {
@@ -60,28 +61,32 @@ export default class TextDetailComponent extends Component {
   @uniq("placeIds") distinctPlaceIds;
 
   didInsertElement() {
-    return this.data.getAll().then(docs => {
-      this.set("docs", docs);
-      this.set("text", this.docs.filter(d => d.slug === this.slug)[0]);
-      this.set(
-        "entries",
-        this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
-      );
-      this.set("placeIds", this.entries.map(entry => entry.place));
-      this._makePlaces();
-      if (this.slug === "lcaaj") {
-        this.set("logo.svg", "vov.svg");
-      } else {
-        this.set("logo.svg", "waw.svg");
-      }
-
-      return this.getContributors();
-    });
+    return this.data
+      .getAll()
+      .then(docs => {
+        this.set("docs", docs);
+        this.set("text", this.docs.filter(d => d.slug === this.slug)[0]);
+        this.set(
+          "entries",
+          this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
+        );
+        this.set("placeIds", this.entries.map(entry => entry.place));
+        if (this.slug === "lcaaj") {
+          this.set("logo.svg", "vov.svg");
+        } else {
+          this.set("logo.svg", "waw.svg");
+        }
+      })
+      .then(() => {
+        this._makePlaces();
+        return this.getContributors();
+      });
   }
 
   _makePlaces() {
     const popup = `<h3>{{point.attestedName}}<br /><small class='muted'>{{point.name}}</small></h3>
-    <svg id='histogram'></svg><br />
+    <div class="histogram-container">
+      <EntriesHistogram @xAxis={{text.xValues}} @x={{point.entriesXs}} />
     <ul>
       <li>{{point.entryCount}} entries</li>
       {{#if point.geonameId}}
@@ -90,6 +95,10 @@ export default class TextDetailComponent extends Component {
     </ul>
     `;
     // Const popup = this.text.popupTemplate || "<h3>{{point.name}}</h3>";
+    const sortKey = this.text.entrySort || "page";
+    this.text.xValues = _uniqBy(this.entries, sortKey).map(
+      entry => entry[sortKey]
+    );
     const points = _intersectionBy(
       this.docs,
       this.distinctPlaceIds.map(id => {
@@ -104,6 +113,7 @@ export default class TextDetailComponent extends Component {
           entry => entry.place === point.id
         );
         point.entryCount = theEntries.length;
+        point.entriesXs = theEntries.map(entry => entry[sortKey]);
         const names = _countBy(theEntries, "placeInText");
         const attestedNames = Object.keys(names).map(key => ({
           name: key,

@@ -1,15 +1,22 @@
+{{#if text.markdownTitle}}
+  <h2>{{markdown-to-html text.markdownTitle}}</h2>
+{{else}}
 <h2>{{ text.properties.title }}</h2>
-  
+{{/if}}
+
 {{#if text.properties.cover }}
 <img src={{ text.properties.cover }} 
   alt="image for {{ text.name }}" 
   class="img-fluid rounded float-right ml-3 mb-3"
   />
 {{/if}}
-<h3>{{ text.properties.author }}</h3>
 <p>{{ text.year }}</p>
+
+{{#if text.markdownBlurb }}
+{{markdown-to-html text.markdownBlurb }}
+{{/if}}
+
 <ContributorList @contributors={{contributors}} />
 <TextEntries @entries={{entries}} />
 <TextPlaces @distinctPlaces={{distinctPlaces}} />
-
 {{yield}}
