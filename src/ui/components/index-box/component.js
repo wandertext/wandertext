@@ -3,7 +3,9 @@ import { inject as service } from "@ember/service";
 
 export default class IndexBoxComponent extends Component {
   @service data;
+
   @service theMap;
+
   @service logo;
 
   didInsertElement() {

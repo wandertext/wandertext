@@ -907,6 +907,15 @@
     ember-cli-babel "^7.1.3"
     ember-compatibility-helpers "^1.1.2"
 
+"@ember-decorators/object@^5.1.4":
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/object/-/object-5.1.4.tgz#41ea33864cf742b42e47b6d13b6edf8baa5e7b28"
+  integrity sha512-r3zFXUp8yuHHq+7XKLFvq+xAAap4JK9i8gDjuyu1eW8sxeAszn/3sK5b+l1LT9wSC9aALhYhAIBeNRjcan8APA==
+  dependencies:
+    "@ember-decorators/utils" "^5.1.4"
+    ember-cli-babel "^7.1.3"
+    ember-compatibility-helpers "^1.1.2"
+
 "@ember-decorators/service@^5.1.3":
   version "5.1.3"
   resolved "https://registry.yarnpkg.com/@ember-decorators/service/-/service-5.1.3.tgz#4034277d0c428388d47b48886dea35bccebc9d09"
@@ -942,6 +951,17 @@
   version "5.1.3"
   resolved "https://registry.yarnpkg.com/@ember-decorators/utils/-/utils-5.1.3.tgz#c9ae884ce51943718a2ce9b5ed7abe6677645756"
   integrity sha512-kYCxPL1yxN3iwKllI1wfbkxmcLxgZMbrLCat+JEPYEw4xJBzLRFzZO2qg+KAFDh7rG/WgS3L7Ji0THOj422/yw==
+  dependencies:
+    babel-plugin-debug-macros "^0.2.0"
+    ember-cli-babel "^7.1.3"
+    ember-cli-version-checker "^3.0.0"
+    ember-compatibility-helpers "^1.1.2"
+    semver "^5.6.0"
+
+"@ember-decorators/utils@^5.1.4":
+  version "5.1.4"
+  resolved "https://registry.yarnpkg.com/@ember-decorators/utils/-/utils-5.1.4.tgz#e8a18e614b3bd282c548803fd5e94d49d8fbaeee"
+  integrity sha512-wWJwhVIG1xwY0PbyWx7GHIkEvqDejzJ6trHtHSsTjBhhLbBtQqJN3DCHe4IltCyvizhzusRiFrZJB1g+eWiXCA==
   dependencies:
     babel-plugin-debug-macros "^0.2.0"
     ember-cli-babel "^7.1.3"

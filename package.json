@@ -144,6 +144,7 @@
     }
   },
   "optionalDependencies": {
+    "@ember-decorators/object": "^5.1.4",
     "@glimmer/tracking": "^0.14.0-alpha.1",
     "broccoli-funnel": "^2.0.2",
     "chai": "^4.2.0",
