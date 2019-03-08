@@ -1,9 +1,16 @@
 {{#paper-card as |card|}}
-  {{#card.title as |title|}}
-    {{#title.text as |text|}}
-    {{#text.headline}}{{{this.card.title}}}{{/text.headline}}
-    {{/title.text}}
-  {{/card.title}}
+  {{#paper-toolbar}}
+    {{#paper-toolbar-tools}}
+      {{#paper-sidenav-toggle name="left" as |toggleAction|}}
+        {{#paper-button iconButton=true onClick=(action toggleAction)}}
+          {{paper-icon "menu"}}
+        {{/paper-button}}
+      {{/paper-sidenav-toggle}}
+      <h2>
+        {{{this.card.title}}}
+      </h2>
+    {{/paper-toolbar-tools}}
+  {{/paper-toolbar}}
   {{#card.content class="layout-row layout-align-space-between"}}
     {{yield}}
   {{/card.content}}
