@@ -1,10 +1,11 @@
 import Component from "@ember/component";
-import { inject as service } from "@ember-decorators/service";
-import { uniq } from "@ember-decorators/object/computed";
+import { inject as service } from "@ember/service";
+import { tracked } from "@glimmer/tracking";
 import _intersectionBy from "lodash/intersectionBy";
 import _countBy from "lodash/countBy";
 import _sortBy from "lodash/sortBy";
 import _uniqBy from "lodash/uniqBy";
+import _uniq from "lodash/uniq";
 import { compile } from "handlebars/dist/handlebars";
 
 export default class TextDetailComponent extends Component {
@@ -14,15 +15,15 @@ export default class TextDetailComponent extends Component {
 
   @service logo;
 
-  docs = [];
+  @tracked docs = [];
 
-  distinctPlaces = [];
+  @tracked distinctPlaces = [];
 
-  entries = [];
+  @tracked entries = [];
 
-  placeIds = [];
+  @tracked placeIds = [];
 
-  contributors = [];
+  @tracked contributors = [];
 
   getContributors() {
     let userIds = [];
@@ -58,7 +59,7 @@ export default class TextDetailComponent extends Component {
     this.set("contributors", contributors);
   }
 
-  @uniq("placeIds") distinctPlaceIds;
+  @tracked distinctPlaceIds = _uniq(this.placeIds);
 
   didInsertElement() {
     return this.data

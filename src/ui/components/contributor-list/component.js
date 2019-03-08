@@ -1,15 +1,15 @@
-import Component from "@ember/component";
-import { computed } from "@ember-decorators/object";
+import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import _sortBy from "lodash/sortBy";
 
 export default class ContributorListComponent extends Component {
-  elementId = "contributor-list";
+  @tracked contributorsList;
 
-  @computed("contributors")
-  get contributorsList() {
-    if (this.contributors) {
-      return _sortBy(
-        this.contributors.map(user => {
+  constructor(...args) {
+    super(...args);
+    if (this.args.contributors) {
+      this.contributorsList = _sortBy(
+        this.args.contributors.map(user => {
           user.count *= -1;
           return user;
         }),
@@ -29,7 +29,5 @@ export default class ContributorListComponent extends Component {
         })
         .join(", ");
     }
-
-    return "";
   }
 }

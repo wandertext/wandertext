@@ -1,13 +1,9 @@
 import Component from "@ember/component";
-import { inject as service } from "@ember-decorators/service";
+import { inject as service } from "@ember/service";
 
 export default class IndexBoxComponent extends Component {
-  elementId = "index-box";
-
   @service data;
-
   @service theMap;
-
   @service logo;
 
   didInsertElement() {

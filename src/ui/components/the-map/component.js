@@ -1,12 +1,10 @@
-import Component from "@ember/component";
-import { inject as service } from "@ember-decorators/service";
+import Component from "@glimmer/component";
+import { inject as service } from "@ember/service";
 
 export default class TheMapComponent extends Component {
   @service theMap;
 
-  elementId = "the-map";
-
-  async didInsertElement() {
-    await this.theMap.createMap();
+  didInsertElement() {
+    this.theMap.createMap();
   }
 }

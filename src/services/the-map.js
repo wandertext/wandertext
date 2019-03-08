@@ -2,6 +2,11 @@ import L from "leaflet";
 import Service from "@ember/service";
 
 export default class TheMapService extends Service {
+  constructor(...args) {
+    super(...args);
+    this.createMap();
+  }
+
   mapDiv = "the-map";
 
   map = {};

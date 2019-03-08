@@ -15,6 +15,7 @@ module.exports = function(environment) {
     },
     EmberENV: {
       FEATURES: {
+        EMBER_NATIVE_DECORATOR_SUPPORT: true
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       },

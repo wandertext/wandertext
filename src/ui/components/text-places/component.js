@@ -1,16 +1,20 @@
-import Component from "@ember/component";
-import { computed } from "@ember-decorators/object";
+import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 
 export default class TextPlacesComponent extends Component {
-  elementId = "text-places";
+  @tracked distinctPlacesCount;
 
-  @computed("distinctPlaces")
-  get distinctPlacesCount() {
+  constructor(...args) {
+    super(...args);
+    this.setDistinctPlacesCount();
+  }
+
+  setDistinctPlacesCount() {
     let length = 0;
-    if (this.distinctPlaces) {
-      length = this.distinctPlaces.length;
+    if (this.args.distinctPlaces) {
+      length = this.args.distinctPlaces.length;
     }
 
-    return length;
+    this.distinctPlacesCount = length;
   }
 }

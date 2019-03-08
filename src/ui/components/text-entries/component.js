@@ -1,16 +1,20 @@
-import Component from "@ember/component";
-import { computed } from "@ember-decorators/object";
+import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 
 export default class TextEntriesComponent extends Component {
-  elementId = "text-entries";
+  @tracked entriesCount;
 
-  @computed("entries")
-  get entriesCount() {
+  constructor(...args) {
+    super(...args);
+    this.setEntriesCount();
+  }
+
+  setEntriesCount() {
     let length = 0;
-    if (this.entries) {
-      length = this.entries.length;
+    if (this.args.entries) {
+      length = this.args.entries.length;
     }
 
-    return length;
+    this.entriesCount = length;
   }
 }
