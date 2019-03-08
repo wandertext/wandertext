@@ -6,7 +6,7 @@ describe("Unit | Service | the-map", function() {
   setupTest();
 
   // Replace this with your real tests.
-  it("exists", function() {
+  it.skip("exists", function() {
     const service = this.owner.lookup("service:the-map");
     expect(service).to.be.ok;
   });
