@@ -1,8 +1,6 @@
 <CardHeader @onClick={{action "toggleContent"}} />
 <div id="card-content">
-  {{#bs-collapse collapsed=cardCollapsed }}
     <div class="card-body">
       {{yield}}
     </div>
-  {{/bs-collapse}}
 </div>

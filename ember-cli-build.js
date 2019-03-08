@@ -5,10 +5,6 @@ const Funnel = require("broccoli-funnel");
 
 module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
-    "ember-bootstrap": {
-      importBootstrapCSS: false,
-      whitelist: ["bs-navbar", "bs-collapse", "bs-button", "bs-nav"]
-    },
     fingerprint: {
       exclude: [
         "images/layers-2x.png",

@@ -72,8 +72,6 @@
     "node": "6.* || 8.* || >= 10.*"
   },
   "dependencies": {
-    "bootstrap": "^4.0.0",
-    "ember-bootstrap": "^2.5.0",
     "leaflet": "^1.4.0",
     "pouchdb": "^7.0.0",
     "pouchdb-find": "^7.0.0"
