@@ -133,6 +133,9 @@ export default class DataService extends Service {
 
   _initDB() {
     PouchDB.plugin(pouchDBFind);
-    return new PouchDB(config.couchdb);
+    const local = new PouchDB("wandertext", { auto_compaction: true });
+    const remote = new PouchDB(config.couchdb, { skip_setup: true });
+    PouchDB.replicate(remote, local, { live: true, retry: true });
+    return local;
   }
 }
