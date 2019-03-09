@@ -1,15 +1,16 @@
 import L from "leaflet";
 import Service from "@ember/service";
+import { set } from "@ember/object";
 
 export default class TheMapService extends Service {
   constructor(...args) {
     super(...args);
-    this.createMap();
+    if (!this.map) {
+      this._createMap();
+    }
   }
 
   mapDiv = "the-map";
-
-  map = {};
 
   points = [];
 
@@ -46,15 +47,19 @@ export default class TheMapService extends Service {
   }
 
   // Async createMap() {
-  createMap() {
+  _createMap() {
     this._initTileLayers();
-    this.map = L.map(this.mapDiv, {
-      center: [0, 0],
-      minZoom: 2,
-      maxZoom: 19,
-      zoom: 4,
-      zoomControl: false
-    });
+    set(
+      this,
+      "map",
+      L.map(this.mapDiv, {
+        center: [0, 0],
+        minZoom: 2,
+        maxZoom: 19,
+        zoom: 4,
+        zoomControl: false
+      })
+    );
     this.map.on("zoomend", () => {
       this._showTileLayer();
     });

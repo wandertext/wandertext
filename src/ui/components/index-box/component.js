@@ -10,14 +10,17 @@ export default class IndexBoxComponent extends Component {
 
   didInsertElement() {
     this.set("logo.svg", "waw.svg");
-    return this.data.getAll().then(docs => {
-      this.theMap.points = docs
-        .filter(doc => doc.type === "place")
-        .map(place => {
-          place.popup = `<h3>${place.name}</h3>`;
-          return place;
-        });
-      this.theMap.addPoints({ padding: false });
-    });
+    if (!this.theMap.map) {
+      this.theMap._createMap();
+    }
+    // Return this.data.getAll().then(docs => {
+    //   this.theMap.points = docs
+    //     .filter(doc => doc.type === "place")
+    //     .map(place => {
+    //       place.popup = `<h3>${place.name}</h3>`;
+    //       return place;
+    //     });
+    //   this.theMap.addPoints({ padding: false });
+    // });
   }
 }
