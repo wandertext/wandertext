@@ -8,19 +8,17 @@ export default class IndexBoxComponent extends Component {
 
   @service logo;
 
+  constructor(...args) {
+    super(...args);
+    if (!this.data.docs) {
+      this.data._setDocs();
+    }
+  }
+
   didInsertElement() {
     this.set("logo.svg", "waw.svg");
     if (!this.theMap.map) {
       this.theMap._createMap();
     }
-    // Return this.data.getAll().then(docs => {
-    //   this.theMap.points = docs
-    //     .filter(doc => doc.type === "place")
-    //     .map(place => {
-    //       place.popup = `<h3>${place.name}</h3>`;
-    //       return place;
-    //     });
-    //   this.theMap.addPoints({ padding: false });
-    // });
   }
 }

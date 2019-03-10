@@ -1,5 +1,6 @@
 /* eslint camelcase: 0 */
 import Service from "@ember/service";
+import { set } from "@ember/object";
 import PouchDB from "pouchdb";
 import pouchDBFind from "pouchdb-find";
 import _intersectionBy from "lodash/intersectionBy";
@@ -133,9 +134,11 @@ export default class DataService extends Service {
 
   _initDB() {
     PouchDB.plugin(pouchDBFind);
-    const local = new PouchDB("wandertext", { auto_compaction: true });
     const remote = new PouchDB(config.couchdb, { skip_setup: true });
-    PouchDB.replicate(remote, local, { live: true, retry: true });
-    return local;
+    return remote;
+  }
+
+  _setDocs() {
+    set(this, "docs", this.getAll());
   }
 }
