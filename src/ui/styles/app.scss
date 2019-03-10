@@ -1,3 +1,23 @@
+$primary: (
+    '50' : #e0e7f4,
+    '100' : #b3c2e3,
+    '200' : #8099d0,
+    '300' : #4d70bd,
+    '400' : #2652ae,
+    '500' : #0033a0,
+    '600' : #002e98,
+    '700' : #00278e,
+    '800' : #002084,
+    '900' : #001473,
+    'A100' : #a1abff,
+    'A200' : #6e7dff,
+    'A400' : #3b4fff,
+    'A700' : #2238ff,
+    'contrastDefaultColor': #ffffff,
+    'contrastLightColors': ('500', '600', '700', '800', '900'),
+    'contrastStrongLightColors': ('500', '600', '700')
+); 
+
 @import "./fonts";
 @import "ember-paper";
 @import "./leaflet";
