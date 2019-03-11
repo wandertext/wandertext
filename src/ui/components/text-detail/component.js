@@ -1,5 +1,6 @@
 import Component from "@ember/component";
 import { inject as service } from "@ember/service";
+import { set } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import _intersectionBy from "lodash/intersectionBy";
 import _countBy from "lodash/countBy";
@@ -26,6 +27,12 @@ export default class TextDetailComponent extends Component {
   @tracked placeIds = [];
 
   @tracked contributors = [];
+
+  constructor(...args) {
+    super(...args);
+    set(this, "distinctPlacesCount", null);
+    set(this, "entriesCount", null);
+  }
 
   getContributors() {
     let userIds = [];
@@ -59,6 +66,7 @@ export default class TextDetailComponent extends Component {
       };
     });
     this.set("contributors", contributors);
+    this._setContributorsSentence(contributors);
   }
 
   @tracked distinctPlaceIds = _uniq(this.placeIds);
@@ -74,6 +82,7 @@ export default class TextDetailComponent extends Component {
           "entries",
           this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
         );
+        this.set("entriesCount", this.entries.length);
         this.set("placeIds", this.entries.map(entry => entry.place));
         if (this.slug === "lcaaj") {
           this.set("logo.svg", "vov.svg");
@@ -112,6 +121,7 @@ export default class TextDetailComponent extends Component {
     );
     if (points.length > 0) {
       this.set("distinctPlaces", points);
+      this.set("distinctPlacesCount", points.length);
       this.theMap.points = points.map(point => {
         const theEntries = this.entries.filter(
           entry => entry.place === point.id
@@ -133,5 +143,32 @@ export default class TextDetailComponent extends Component {
     } else {
       this.theMap.removePoints();
     }
+  }
+
+  _setContributorsSentence(contributors) {
+    set(
+      this,
+      "contributorsSentence",
+      _sortBy(
+        contributors.map(user => {
+          user.count *= -1;
+          return user;
+        }),
+        ["count", "lastname"]
+      )
+        .map((user, i) => {
+          let name;
+          if (i === 0) {
+            name = `${user.lastname}, ${user.firstname}`;
+          } else if (i === contributors.length - 1) {
+            name = `and ${user.firstname} ${user.lastname}`;
+          } else {
+            name = `${user.firstname} ${user.lastname}`;
+          }
+
+          return name;
+        })
+        .join(", ")
+    );
   }
 }

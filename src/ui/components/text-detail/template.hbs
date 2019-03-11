@@ -5,9 +5,9 @@
   {{markdown-to-html text.markdownBlurb }}
   {{/if}}
 
-  <ContributorList @contributors={{contributors}} />
-  <TextEntries @entries={{entries}} />
-  <TextPlaces @distinctPlaces={{distinctPlaces}} />
+  <TextContributors @contributorsSentence={{this.contributorsSentence}} />
+  <TextEntries @entriesCount={{this.entriesCount}} />
+  <TextPlaces @distinctPlacesCount={{this.distinctPlacesCount}} />
   {{yield}}
 </div>
 
