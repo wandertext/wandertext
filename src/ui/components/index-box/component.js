@@ -6,7 +6,7 @@ export default class IndexBoxComponent extends Component {
 
   @service theMap;
 
-  @service logo;
+  @service card;
 
   constructor(...args) {
     super(...args);
@@ -16,7 +16,8 @@ export default class IndexBoxComponent extends Component {
   }
 
   didInsertElement() {
-    this.set("logo.svg", "waw.svg");
+    this.set("card.title", "Wandertext");
+    this.set("card.logo", this.card.waw);
     if (!this.theMap.map) {
       this.theMap._createMap();
     }

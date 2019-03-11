@@ -14,8 +14,6 @@ export default class TextDetailComponent extends Component {
 
   @service theMap;
 
-  @service logo;
-
   @service card;
 
   @tracked docs = [];
@@ -72,6 +70,12 @@ export default class TextDetailComponent extends Component {
   @tracked distinctPlaceIds = _uniq(this.placeIds);
 
   didInsertElement() {
+    if (this.slug === "lcaaj") {
+      this.set("card.logo", this.card.vov);
+    } else {
+      this.set("card.logo", this.card.waw);
+    }
+
     return this.data
       .getAll()
       .then(docs => {
@@ -84,11 +88,6 @@ export default class TextDetailComponent extends Component {
         );
         this.set("entriesCount", this.entries.length);
         this.set("placeIds", this.entries.map(entry => entry.place));
-        if (this.slug === "lcaaj") {
-          this.set("logo.svg", "vov.svg");
-        } else {
-          this.set("logo.svg", "waw.svg");
-        }
       })
       .then(() => {
         this._makePlaces();
