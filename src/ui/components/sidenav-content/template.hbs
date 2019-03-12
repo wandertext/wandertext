@@ -1,6 +1,6 @@
 {{#paper-content padding=true}}
   {{#paper-list}}
-    {{#each this.sidenavList as |item|}}
+    {{#each this.sidenav.linkList as |item|}}
       {{#paper-item class="md-2-line" href=(href-to item.route)}}
         {{paper-icon item.icon}}
         <p>{{item.text}}</p>
