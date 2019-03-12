@@ -13,6 +13,7 @@ export default class IndexBoxComponent extends Component {
     if (!this.data.docs) {
       this.data._setDocs();
     }
+    // This.set("interval", null);
   }
 
   didInsertElement() {
@@ -21,5 +22,12 @@ export default class IndexBoxComponent extends Component {
     if (!this.theMap.map) {
       this.theMap._createMap();
     }
+    // This.set("interval", setInterval(() => {
+    //   console.log("hi.");
+    // }, 1000));
   }
+
+  // WillDestroyElement() {
+  //   clearInterval(this.interval);
+  // }
 }
