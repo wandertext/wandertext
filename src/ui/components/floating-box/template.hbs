@@ -1,16 +1,18 @@
-{{#paper-card as |card|}}
-  {{#paper-toolbar}}
-    {{#paper-toolbar-tools}}
-      <h2>
-        {{{this.card.title}}}
-      </h2>
-      <span class="flex"></span>
-        {{#paper-button fab=true mini=true accent=true raised=true iconButton=true onClick=(action toggleAction)}}
-          {{{ this.card.logo }}}
-        {{/paper-button}} 
-    {{/paper-toolbar-tools}}
-  {{/paper-toolbar}}
-  {{#card.content class="layout-row layout-align-space-between"}}
-    {{yield}}
-  {{/card.content}}
-{{/paper-card}}
+<div id="floating-box">
+  {{#paper-card as |card|}}
+    {{#paper-toolbar}}
+      {{#paper-toolbar-tools}}
+        <h2>
+          {{{this.card.title}}}
+        </h2>
+        <span class="flex"></span>
+          {{#paper-button fab=true mini=true accent=true raised=true iconButton=true onClick=(action toggleAction)}}
+            {{{ this.card.logo }}}
+          {{/paper-button}} 
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+    {{#card.content class="layout-row layout-align-space-between"}}
+      {{yield}}
+    {{/card.content}}
+  {{/paper-card}}
+</div>

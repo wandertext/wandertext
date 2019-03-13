@@ -7,12 +7,12 @@ import hbs from "htmlbars-inline-precompile";
 describe("Integration | Component | floating-box", function() {
   setupRenderingTest();
 
-  it.skip("is called #floating-box", async function() {
+  it("is called #floating-box", async function() {
     await render(hbs`<FloatingBox />`);
     expect(find("#floating-box")).to.be.ok;
   });
 
-  it.skip("renders", async function() {
+  it("renders as block", async function() {
     await render(hbs`
       <FloatingBox>
         template block text
