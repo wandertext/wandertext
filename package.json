@@ -57,6 +57,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-mocha": "^0.14.0",
     "ember-paper": "^1.0.0-beta.24",
+    "ember-paper-expansion-panel": "^0.0.4",
     "ember-resolver": "^5.1.3",
     "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/1d0adb1cb13211a58bfcd0feef47c9dd9f9ed42b.tgz",
     "eslint-plugin-chai-friendly": "^0.4.1",
