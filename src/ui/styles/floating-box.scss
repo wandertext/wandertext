@@ -1,6 +1,12 @@
 #floating-box {
   position: absolute;
   z-index: 40;
+  min-width: 50%;
+
+  .md-button:not([disabled]):hover {
+    background-color: RGBA(var(--accent-700), 0.2);
+  }
+
 }
 
 
