@@ -63,7 +63,6 @@ export default class TheMapService extends Service {
     this.map.on("zoomend", () => {
       this._showTileLayer();
     });
-    this._addZoomControl();
     if (this.points.length > 0) {
       this.addPoints();
     }
@@ -116,11 +115,5 @@ export default class TheMapService extends Service {
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }
     );
-  }
-
-  _addZoomControl() {
-    if (!L.Browser.mobile) {
-      this.map.addControl(L.control.zoom({ position: "topright" }));
-    }
   }
 }
