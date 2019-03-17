@@ -96,17 +96,6 @@ export default class TextDetailComponent extends Component {
   }
 
   _makePlaces() {
-    const popup = `<h3>{{point.attestedName}}<br /><small class='muted'>{{point.name}}</small></h3>
-    <div class="histogram-container">
-      <EntriesHistogram @xAxis={{text.xValues}} @x={{point.entriesXs}} />
-    <ul>
-      <li>{{point.entryCount}} entries</li>
-      {{#if point.geonameId}}
-        <li>GeonameId: {{point.geonameId}}</li>
-      {{/if}}
-    </ul>
-    `;
-    // Const popup = this.text.popupTemplate || "<h3>{{point.name}}</h3>";
     const sortKey = this.text.entrySort || "page";
     this.text.xValues = _uniqBy(this.entries, sortKey).map(
       entry => entry[sortKey]
@@ -135,7 +124,7 @@ export default class TextDetailComponent extends Component {
         point.attestedName = _sortBy(attestedNames, "count")[
           attestedNames.length - 1
         ].name;
-        point.popup = compile(popup)({ point, text: this.text });
+        point.tooltip = point.attestedName;
         return point;
       });
       this.theMap.addPoints();

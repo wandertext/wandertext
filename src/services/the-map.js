@@ -29,9 +29,9 @@ export default class TheMapService extends Service {
     const icon = L.divIcon({ html: this.iconUrl, iconSize: [20, 20] });
     this.points.forEach(point => {
       if (point.latitude && point.longitude) {
-        const marker = L.marker([point.latitude, point.longitude], { icon });
-        if (point.popup) {
-          marker.bindPopup(point.popup);
+        const marker = L.marker([point.latitude, point.longitude], { id: point.id, icon });
+        if (point.tooltip) {
+          marker.bindTooltip(point.tooltip);
         }
 
         marker.addTo(pointsLayer);
