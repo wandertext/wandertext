@@ -1,16 +1,9 @@
 import L from "leaflet";
 import Service from "@ember/service";
-import { set } from "@ember/object";
+// Import { tracked } from "@glimmer/tracking";
 
 export default class TheMapService extends Service {
-  constructor(...args) {
-    super(...args);
-    if (!this.map) {
-      this._createMap();
-    }
-  }
-
-  mapDiv = "the-map";
+  activePlaceId = null;
 
   points = [];
 
@@ -47,26 +40,6 @@ export default class TheMapService extends Service {
   }
 
   // Async createMap() {
-  _createMap() {
-    this._initTileLayers();
-    set(
-      this,
-      "map",
-      L.map(this.mapDiv, {
-        center: [0, 0],
-        minZoom: 2,
-        maxZoom: 19,
-        zoom: 4,
-        zoomControl: false
-      })
-    );
-    this.map.on("zoomend", () => {
-      this._showTileLayer();
-    });
-    if (this.points.length > 0) {
-      this.addPoints();
-    }
-  }
 
   _recenterMap(padding) {
     const paddingTopLeft = [0, 0];
