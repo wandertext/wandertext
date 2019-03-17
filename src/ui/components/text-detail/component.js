@@ -7,7 +7,6 @@ import _countBy from "lodash/countBy";
 import _sortBy from "lodash/sortBy";
 import _uniqBy from "lodash/uniqBy";
 import _uniq from "lodash/uniq";
-import { compile } from "handlebars/dist/handlebars";
 
 export default class TextDetailComponent extends Component {
   @service data;

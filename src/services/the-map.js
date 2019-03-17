@@ -1,9 +1,9 @@
 import L from "leaflet";
 import Service from "@ember/service";
-// Import { tracked } from "@glimmer/tracking";
+import { tracked } from "@glimmer/tracking";
 
 export default class TheMapService extends Service {
-  activePlaceId = null;
+  @tracked activePlaceId = null;
 
   points = [];
 
@@ -22,11 +22,17 @@ export default class TheMapService extends Service {
     const icon = L.divIcon({ html: this.iconUrl, iconSize: [20, 20] });
     this.points.forEach(point => {
       if (point.latitude && point.longitude) {
-        const marker = L.marker([point.latitude, point.longitude], { id: point.id, icon });
+        const marker = L.marker([point.latitude, point.longitude], {
+          id: point.id,
+          icon
+        });
         if (point.tooltip) {
           marker.bindTooltip(point.tooltip);
         }
 
+        marker.on("click", e => {
+          this.activePlaceId = e.target.options.id;
+        });
         marker.addTo(pointsLayer);
       }
     });
