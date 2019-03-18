@@ -14,7 +14,7 @@
 
     {{#expanded.content}}
       <div class="layout-row">
-        <div>
+        <div id="overview-content">
           {{#if text.markdownBlurb }}
           {{markdown-to-html text.markdownBlurb }}
           {{/if}}
@@ -34,14 +34,14 @@
 {{#paper-expansion-panel expanded=this.contributorsExpanded as |panel|}}
   {{#panel.collapsed}}
     <div class="md-panel-title">Contributors</div>
-    <div class="md-panel-summary">Summary</div>
+    <div class="md-panel-summary">{{this.contributorsEtAl}}</div>
     {{paper-icon "keyboard_arrow_down"}}
   {{/panel.collapsed}}
 
   {{#panel.expanded as |expanded|}}
     {{#expanded.header}}
       <div class="md-panel-title">Contributors</div>
-      <div class="md-panel-summary">Expanded summary</div>
+      <div class="md-panel-summary"></div>
       {{paper-icon "keyboard_arrow_up"}}
     {{/expanded.header}}
 
@@ -66,7 +66,7 @@
   {{#panel.expanded as |expanded|}}
     {{#expanded.header}}
       <div class="md-panel-title">Entries</div>
-      <div class="md-panel-summary">Expanded summary</div>
+      <div class="md-panel-summary"></div>
       {{paper-icon "keyboard_arrow_up"}}
     {{/expanded.header}}
 
@@ -91,7 +91,7 @@
   {{#panel.expanded as |expanded|}}
     {{#expanded.header}}
       <div class="md-panel-title">Places</div>
-      <div class="md-panel-summary">Expanded summary</div>
+      <div class="md-panel-summary"><!-- distinct place? --></div>
       {{paper-icon "keyboard_arrow_up"}}
     {{/expanded.header}}
 
