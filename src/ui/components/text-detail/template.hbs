@@ -1,102 +1,107 @@
-<div class="flex">
-  {{#paper-expansion-panel expanded=true as |panel|}}
-    {{#panel.collapsed rippleInkColor="green"}}
+{{#paper-expansion-panel expanded=this.previewExpanded as |panel|}}
+  {{#panel.collapsed rippleInkColor="green"}}
+    <div class="md-panel-title">Preview</div>
+    <div class="md-panel-summary">Summary</div>
+    {{paper-icon "keyboard_arrow_down"}}
+  {{/panel.collapsed}}
+
+  {{#panel.expanded as |expanded|}}
+    {{#expanded.header}}
       <div class="md-panel-title">Preview</div>
-      <div class="md-panel-summary">Summary</div>
-      {{paper-icon "keyboard_arrow_down"}}
-    {{/panel.collapsed}}
+      <div class="md-panel-summary">Expanded summary</div>
+      {{paper-icon "keyboard_arrow_up"}}
+    {{/expanded.header}}
 
-    {{#panel.expanded as |expanded|}}
-      {{#expanded.header}}
-        <div class="md-panel-title">Preview</div>
-        <div class="md-panel-summary">Expanded summary</div>
-        {{paper-icon "keyboard_arrow_up"}}
-      {{/expanded.header}}
+    {{#expanded.content}}
+      <div class="layout-row">
+        <div>
+          <p>{{ text.year }}</p>
 
-      {{#expanded.content}}
-        <div class="layout-row">
-          <div>
-            <p>{{ text.year }}</p>
-
-            {{#if text.markdownBlurb }}
-            {{markdown-to-html text.markdownBlurb }}
-            {{/if}}
-          </div>
-          <div>
-            {{#if text.properties.cover }}
-              <img src={{ text.properties.cover }} 
-                alt="image for {{ text.name }}" />
-            {{/if}}
-          </div>
+          {{#if text.markdownBlurb }}
+          {{markdown-to-html text.markdownBlurb }}
+          {{/if}}
         </div>
-      {{/expanded.content}}
+        <div>
+          {{#if text.properties.cover }}
+            <img src={{ text.properties.cover }} 
+              alt="image for {{ text.name }}" />
+          {{/if}}
+        </div>
+      </div>
+    {{/expanded.content}}
 
-    {{/panel.expanded}}
-  {{/paper-expansion-panel}}
+  {{/panel.expanded}}
+{{/paper-expansion-panel}}
 
-  {{#paper-expansion-panel as |panel|}}
-    {{#panel.collapsed}}
+{{#paper-expansion-panel expanded=this.contributorsExpanded as |panel|}}
+  {{#panel.collapsed}}
+    <div class="md-panel-title">Contributors</div>
+    <div class="md-panel-summary">Summary</div>
+    {{paper-icon "keyboard_arrow_down"}}
+  {{/panel.collapsed}}
+
+  {{#panel.expanded as |expanded|}}
+    {{#expanded.header}}
       <div class="md-panel-title">Contributors</div>
-      <div class="md-panel-summary">Summary</div>
-      {{paper-icon "keyboard_arrow_down"}}
-    {{/panel.collapsed}}
+      <div class="md-panel-summary">Expanded summary</div>
+      {{paper-icon "keyboard_arrow_up"}}
+    {{/expanded.header}}
 
-    {{#panel.expanded as |expanded|}}
-      {{#expanded.header}}
-        <div class="md-panel-title">Contributors</div>
-        <div class="md-panel-summary">Expanded summary</div>
-        {{paper-icon "keyboard_arrow_up"}}
-      {{/expanded.header}}
+    {{#expanded.content}}
+      <TextContributors @contributorsSentence={{this.contributorsSentence}} />
+    {{/expanded.content}}
 
-      {{#expanded.content}}
-        <TextContributors @contributorsSentence={{this.contributorsSentence}} />
-      {{/expanded.content}}
+  {{/panel.expanded}}
+{{/paper-expansion-panel}}
 
-    {{/panel.expanded}}
-  {{/paper-expansion-panel}}
+{{#paper-expansion-panel expanded=this.entriesExpanded as |panel|}}
+  {{#panel.collapsed}}
+    <div class="md-panel-title">Entries</div>
+    <div class="md-panel-summary">
+      {{#if this.entriesCount}}
+        {{this.entriesCount}} entries
+      {{/if}}
+    </div>
+    {{paper-icon "keyboard_arrow_down"}}
+  {{/panel.collapsed}}
 
-  {{#paper-expansion-panel as |panel|}}
-    {{#panel.collapsed}}
+  {{#panel.expanded as |expanded|}}
+    {{#expanded.header}}
       <div class="md-panel-title">Entries</div>
-      <div class="md-panel-summary">Summary</div>
-      {{paper-icon "keyboard_arrow_down"}}
-    {{/panel.collapsed}}
+      <div class="md-panel-summary">Expanded summary</div>
+      {{paper-icon "keyboard_arrow_up"}}
+    {{/expanded.header}}
 
-    {{#panel.expanded as |expanded|}}
-      {{#expanded.header}}
-        <div class="md-panel-title">Entries</div>
-        <div class="md-panel-summary">Expanded summary</div>
-        {{paper-icon "keyboard_arrow_up"}}
-      {{/expanded.header}}
+    {{#expanded.content}}
+      <TextEntries @entriesCount={{this.entriesCount}} />
+    {{/expanded.content}}
 
-      {{#expanded.content}}
-        <TextEntries @entriesCount={{this.entriesCount}} />
-      {{/expanded.content}}
+  {{/panel.expanded}}
+{{/paper-expansion-panel}}
 
-    {{/panel.expanded}}
-  {{/paper-expansion-panel}}
+{{#paper-expansion-panel expanded=this.placesExpanded as |panel|}}
+  {{#panel.collapsed}}
+    <div class="md-panel-title">Places</div>
+    <div class="md-panel-summary">
+      {{#if this.distinctPlacesCount}}
+        {{this.distinctPlacesCount}} distinct places
+      {{/if}}
+    </div>
+    {{paper-icon "keyboard_arrow_down"}}
+  {{/panel.collapsed}}
 
-  {{#paper-expansion-panel as |panel|}}
-    {{#panel.collapsed}}
+  {{#panel.expanded as |expanded|}}
+    {{#expanded.header}}
       <div class="md-panel-title">Places</div>
-      <div class="md-panel-summary">Summary</div>
-      {{paper-icon "keyboard_arrow_down"}}
-    {{/panel.collapsed}}
+      <div class="md-panel-summary">Expanded summary</div>
+      {{paper-icon "keyboard_arrow_up"}}
+    {{/expanded.header}}
 
-    {{#panel.expanded as |expanded|}}
-      {{#expanded.header}}
-        <div class="md-panel-title">Places</div>
-        <div class="md-panel-summary">Expanded summary</div>
-        {{paper-icon "keyboard_arrow_up"}}
-      {{/expanded.header}}
+    {{#expanded.content}}
+      <TextPlaces @distinctPlacesCount={{this.distinctPlacesCount}} />
+    {{/expanded.content}}
 
-      {{#expanded.content}}
-        <TextPlaces @distinctPlacesCount={{this.distinctPlacesCount}} />
-      {{/expanded.content}}
+  {{/panel.expanded}}
+{{/paper-expansion-panel}}
 
-    {{/panel.expanded}}
-  {{/paper-expansion-panel}}
-
-  {{yield}}
-</div>
-
+{{yield}}
