@@ -41,7 +41,6 @@ export default class TextDetailComponent extends Component {
       entries: false,
       places: false
     };
-    console.log("in constructor", this.expanded.entries);
     this.activePlaceId = this.theMap.activePlaceId;
   }
 
