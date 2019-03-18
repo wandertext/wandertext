@@ -1,0 +1,14 @@
+p {
+  a {
+    color: paper-color($primary, '400');
+    text-decoration: none;
+  }
+
+  a:hover, a:active {
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: paper-color($primary, '900');
+  }
+}
