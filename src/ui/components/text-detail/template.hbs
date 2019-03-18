@@ -1,22 +1,20 @@
 {{#paper-expansion-panel expanded=this.previewExpanded as |panel|}}
   {{#panel.collapsed rippleInkColor="green"}}
-    <div class="md-panel-title">Preview</div>
-    <div class="md-panel-summary">Summary</div>
+    <div class="md-panel-title">Overview</div>
+    <div class="md-panel-summary"></div>
     {{paper-icon "keyboard_arrow_down"}}
   {{/panel.collapsed}}
 
   {{#panel.expanded as |expanded|}}
     {{#expanded.header}}
-      <div class="md-panel-title">Preview</div>
-      <div class="md-panel-summary">Expanded summary</div>
+      <div class="md-panel-title">Overview</div>
+      <div class="md-panel-summary"></div>
       {{paper-icon "keyboard_arrow_up"}}
     {{/expanded.header}}
 
     {{#expanded.content}}
       <div class="layout-row">
         <div>
-          <p>{{ text.year }}</p>
-
           {{#if text.markdownBlurb }}
           {{markdown-to-html text.markdownBlurb }}
           {{/if}}
