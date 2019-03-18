@@ -1,4 +1,4 @@
-{{#paper-expansion-panel expanded=this.previewExpanded as |panel|}}
+{{#paper-expansion-panel expanded=this.expanded.overview as |panel|}}
   {{#panel.collapsed rippleInkColor="green"}}
     <div class="md-panel-title">Overview</div>
     <div class="md-panel-summary"></div>
@@ -16,13 +16,13 @@
       <div class="layout-row">
         <div id="overview-content">
           {{#if text.markdownBlurb }}
-          {{markdown-to-html text.markdownBlurb }}
+            {{markdown-to-html text.markdownBlurb }}
           {{/if}}
         </div>
         <div style="margin-left: 1rem;">
           {{#if text.properties.cover }}
             <img src={{ text.properties.cover }} 
-              alt="image for {{ text.name }}" />
+              alt="image for {{ text.name }}" >
           {{/if}}
         </div>
       </div>
@@ -31,7 +31,7 @@
   {{/panel.expanded}}
 {{/paper-expansion-panel}}
 
-{{#paper-expansion-panel expanded=this.contributorsExpanded as |panel|}}
+{{#paper-expansion-panel expanded=this.expanded.contributors as |panel|}}
   {{#panel.collapsed}}
     <div class="md-panel-title">Contributors</div>
     <div class="md-panel-summary">{{this.contributorsEtAl}}</div>
@@ -52,7 +52,7 @@
   {{/panel.expanded}}
 {{/paper-expansion-panel}}
 
-{{#paper-expansion-panel expanded=this.entriesExpanded as |panel|}}
+{{#paper-expansion-panel expanded=this.expanded.entries as |panel|}}
   {{#panel.collapsed}}
     <div class="md-panel-title">Entries</div>
     <div class="md-panel-summary">
@@ -71,13 +71,13 @@
     {{/expanded.header}}
 
     {{#expanded.content}}
-      <TextEntries @entriesCount={{this.entriesCount}} />
+      <TextEntries @entries={{this.entries}} @entrySort={{this.text.entrySort}} />
     {{/expanded.content}}
 
   {{/panel.expanded}}
 {{/paper-expansion-panel}}
 
-{{#paper-expansion-panel expanded=this.placesExpanded as |panel|}}
+{{#paper-expansion-panel expanded=this.expanded.places as |panel|}}
   {{#panel.collapsed}}
     <div class="md-panel-title">Places</div>
     <div class="md-panel-summary">

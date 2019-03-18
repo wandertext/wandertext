@@ -15,6 +15,10 @@ export default class TextDetailComponent extends Component {
 
   @service card;
 
+  @tracked activePlaceId;
+
+  @tracked expanded;
+
   @tracked docs = [];
 
   @tracked distinctPlaces = [];
@@ -23,12 +27,22 @@ export default class TextDetailComponent extends Component {
 
   @tracked placeIds = [];
 
-  @tracked contributors = [];
+  @tracked contributorsSentence = null;
+
+  @tracked contributorsEtAl = null;
 
   constructor(...args) {
     super(...args);
     set(this, "distinctPlacesCount", null);
     set(this, "entriesCount", null);
+    this.expanded = {
+      overview: true,
+      contributors: false,
+      entries: false,
+      places: false
+    };
+    console.log("in constructor", this.expanded.entries);
+    this.activePlaceId = this.theMap.activePlaceId;
   }
 
   getContributors() {
@@ -133,29 +147,29 @@ export default class TextDetailComponent extends Component {
   }
 
   _setContributorsSentence(contributors) {
-    set(
-      this,
-      "contributorsSentence",
-      _sortBy(
-        contributors.map(user => {
-          user.count *= -1;
-          return user;
-        }),
-        ["count", "lastname"]
-      )
-        .map((user, i) => {
-          let name;
-          if (i === 0) {
-            name = `${user.lastname}, ${user.firstname}`;
-          } else if (i === contributors.length - 1) {
-            name = `and ${user.firstname} ${user.lastname}`;
-          } else {
-            name = `${user.firstname} ${user.lastname}`;
-          }
+    const namesArray = _sortBy(
+      contributors.map(user => {
+        user.count *= -1;
+        return user;
+      }),
+      ["count", "lastname"]
+    ).map((user, i) => {
+      let name;
+      if (i === 0) {
+        name = `${user.lastname}, ${user.firstname}`;
+      } else if (i === contributors.length - 1) {
+        name = `and ${user.firstname} ${user.lastname}`;
+      } else {
+        name = `${user.firstname} ${user.lastname}`;
+      }
 
-          return name;
-        })
-        .join(", ")
-    );
+      return name;
+    });
+    this.contributorsSentence = namesArray.join(", ");
+    if (namesArray.length > 3) {
+      this.contributorsEtAl = namesArray[0].split(",")[0] + " et al.";
+    } else {
+      this.contributorsEtAl = this.contributorsSentence;
+    }
   }
 }
