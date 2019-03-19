@@ -2,16 +2,24 @@
   position: absolute;
   z-index: 40;
   min-width: 50%;
+  overflow-y: auto;
 
   .md-button:not([disabled]):hover {
     background-color: RGBA(var(--accent-700), 0.2);
   }
 
-  #overview-content {
-    p {
-      margin: 0px;
-      margin-bottom: 1em;
+  .text-detail {
+    overflow-y: auto; 
+    padding: 0.25rem; 
+    min-width: calc(100% - 2rem);
+
+    #overview-content {
+      p {
+        margin: 0px;
+        margin-bottom: 1em;
+      }
     }
+
   }
 
 }
