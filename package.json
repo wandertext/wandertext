@@ -150,6 +150,10 @@
     "@glimmer/tracking": "^0.14.0-alpha.1",
     "broccoli-funnel": "^2.0.2",
     "chai": "^4.2.0",
+    "d3-array": "^2.0.3",
+    "d3-axis": "^1.0.12",
+    "d3-scale": "^3.0.0",
+    "d3-selection": "^1.4.0",
     "lodash": "^4.17.11",
     "mocha": "^6.0.0"
   }
