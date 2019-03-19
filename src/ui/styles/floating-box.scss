@@ -11,7 +11,7 @@
   .text-detail {
     overflow-y: auto; 
     padding: 0.25rem; 
-    min-width: calc(100% - 2rem);
+    min-width: calc(100% - 0.5rem);
 
     #overview-content {
       p {

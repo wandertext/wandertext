@@ -1,0 +1,15 @@
+svg {
+
+  .hover {
+    fill: paper-color($accent, '500');
+  }
+
+  text {
+    font-family: $font-family;
+  }
+
+  rect {
+    fill: paper-color($primary, '500');
+  }
+
+}
