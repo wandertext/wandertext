@@ -83,7 +83,7 @@ export default class TextEntriesComponent extends Component {
         const bar = select(this);
         if (bar.classed("clicked")) {
           bar.classed("clicked", false);
-          theMap.points = places;
+          theMap.addPoints();
         } else {
           selectAll(".bar-chart").classed("clicked", false);
           bar.classed("clicked", true);
@@ -96,10 +96,8 @@ export default class TextEntriesComponent extends Component {
 
             return result;
           });
-          theMap.points = selectedPlaces;
+          theMap.addPoints(selectedPlaces);
         }
-
-        theMap.addPoints();
       });
 
     svg.append("g").call(xAxis);
