@@ -17,117 +17,106 @@ export default class DataService extends Service {
   }
 
   async getAllByType(type) {
-    return this.db
-      .createIndex({
+    try {
+      await this.db.createIndex({
         index: {
           fields: ["type"],
           name: "all-by-type",
           ddoc: "all-by-type"
         }
-      })
-      .then(() => {
-        return this.db.find({
-          selector: {
-            type
-          },
-          limit: 10000
-        });
-      })
-      .then(results => {
-        if (results.docs.length > 0) {
-          return results.docs;
-        }
-      })
-      .catch(error => error);
+      });
+      const results = await this.db.find({
+        selector: {
+          type
+        },
+        limit: 10000
+      });
+      if (results.docs.length > 0) {
+        return results.docs;
+      }
+    } catch (error) {
+      return error;
+    }
   }
 
   async getDocById(id) {
-    return this.db
-      .createIndex({
+    try {
+      await this.db.createIndex({
         index: {
           fields: ["id"],
           name: "docs-by-id",
           ddoc: "docs-by-id"
         }
-      })
-      .then(() => {
-        return this.db.find({
-          selector: {
-            id
-          }
-        });
-      })
-      .then(results => {
-        if (results.docs.length > 0) {
-          return results.docs;
+      });
+      const results = await this.db.find({
+        selector: {
+          id
         }
-      })
-      .catch(error => error);
+      });
+      if (results.docs.length > 0) {
+        return results.docs;
+      }
+    } catch (error) {
+      return error;
+    }
   }
 
   async getEntriesByText(text) {
-    const entries = await this.db
-      .createIndex({
+    try {
+      await this.db.createIndex({
         index: {
           fields: ["type", "text"],
           name: "entries-by-text",
           ddoc: "entries-by-text"
         }
-      })
-      .then(() => {
-        return this.db.find({
-          selector: {
-            type: "entry",
-            text
-          },
-          limit: 10000
-        });
-      })
-      .then(results => {
-        if (results.docs.length > 0) {
-          return results.docs;
-        }
-      })
-      .catch(error => error);
-    return entries;
+      });
+      const results = await this.db.find({
+        selector: {
+          type: "entry",
+          text
+        },
+        limit: 10000
+      });
+      if (results.docs.length > 0) {
+        return results.docs;
+      }
+    } catch (error) {
+      return error;
+    }
   }
 
   async getTextBySlug(slug) {
-    const doc = await this.db
-      .createIndex({
+    try {
+      await this.db.createIndex({
         index: {
           fields: ["type", "slug"],
           name: "text-by-slug",
           ddoc: "text-by-slug"
         }
-      })
-      .then(() => {
-        return this.db.find({
-          selector: {
-            type: "text",
-            slug
-          }
-        });
-      })
-      .then(results => {
-        if (results.docs.length > 0) {
-          return results.docs[0];
+      });
+      const results = await this.db.find({
+        selector: {
+          type: "text",
+          slug
         }
-      })
-      .catch(error => error);
-    return doc;
+      });
+      if (results.docs.length > 0) {
+        return results.docs[0];
+      }
+    } catch (error) {
+      return error;
+    }
   }
 
-  getListFromTypeAndIds(type, list) {
-    return this.getAllByType(type).then(docs => {
-      return _intersectionBy(
-        docs,
-        list.map(id => {
-          return { id };
-        }),
-        "id"
-      );
-    });
+  async getListFromTypeAndIds(type, list) {
+    const docs = await this.getAllByType(type);
+    return _intersectionBy(
+      docs,
+      list.map(id => {
+        return { id };
+      }),
+      "id"
+    );
   }
 
   // “Private” properties.

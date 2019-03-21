@@ -105,7 +105,6 @@
       "no-unused-expressions": 0,
       "chai-friendly/no-unused-expressions": 2,
       "import/no-unresolved": 0,
-      "promise/prefer-await-to-then": 0,
       "import/no-extraneous-dependencies": 1
     },
     "overrides": [

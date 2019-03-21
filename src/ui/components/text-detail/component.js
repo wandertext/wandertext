@@ -81,30 +81,29 @@ export default class TextDetailComponent extends Component {
 
   @tracked distinctPlaceIds = _uniq(this.placeIds);
 
-  didInsertElement() {
+  async didInsertElement() {
     if (this.slug === "lcaaj") {
       this.set("card.logo", this.card.vov);
     } else {
       this.set("card.logo", this.card.waw);
     }
 
-    return this.data
-      .getAll()
-      .then(docs => {
-        this.set("docs", docs);
-        this.set("text", this.docs.filter(d => d.slug === this.slug)[0]);
-        this.card.setTitle(this.text);
-        this.set(
-          "entries",
-          this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
-        );
-        this.set("entriesCount", this.entries.length);
-        this.set("placeIds", this.entries.map(entry => entry.place));
-      })
-      .then(() => {
-        this._makePlaces();
-        return this.getContributors();
-      });
+    try {
+      const docs = await this.data.getAll();
+      this.set("docs", docs);
+      this.set("text", this.docs.filter(d => d.slug === this.slug)[0]);
+      this.card.setTitle(this.text);
+      this.set(
+        "entries",
+        this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
+      );
+      this.set("entriesCount", this.entries.length);
+      this.set("placeIds", this.entries.map(entry => entry.place));
+      this._makePlaces();
+      return this.getContributors();
+    } catch (error) {
+      return error;
+    }
   }
 
   _makePlaces() {
