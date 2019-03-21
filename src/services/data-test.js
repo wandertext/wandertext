@@ -11,6 +11,7 @@ describe("Unit | Service | data", function() {
     expect(service).to.be.ok;
   });
 
+  /* Comment all this out
   describe("#db", function() {
     it("exists as a property", function() {
       const service = this.owner.lookup("service:data");
@@ -107,4 +108,5 @@ describe("Unit | Service | data", function() {
       });
     });
   });
+*/
 });
