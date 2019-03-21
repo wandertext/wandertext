@@ -23,11 +23,10 @@ export default class TextEntriesComponent extends Component {
       width: document.querySelector(id).clientWidth,
       height: 0.4 * window.innerHeight,
       entrySort: this.args.entrySort,
-      places: this.args.distinctPlaces
     });
   }
 
-  makeHistogram({ id, data, width, height, entrySort, places }) {
+  makeHistogram({ id, data, width, height, entrySort }) {
     const { theMap } = this;
     const margin = { top: 5, right: 10, bottom: 30, left: 40 };
     const x = scaleLinear()
@@ -88,7 +87,7 @@ export default class TextEntriesComponent extends Component {
           selectAll(".bar-chart").classed("clicked", false);
           bar.classed("clicked", true);
           const uniqs = [...new Set(d)];
-          const selectedPlaces = places.filter(place => {
+          const selectedPlaces = theMap.points.filter(place => {
             let result = false;
             if (_intersection(place.entriesXs, uniqs).length > 0) {
               result = true;
