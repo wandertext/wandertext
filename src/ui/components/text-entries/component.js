@@ -22,7 +22,7 @@ export default class TextEntriesComponent extends Component {
       data: this.args.entries.map(entry => entry[this.args.entrySort]),
       width: document.querySelector(id).clientWidth,
       height: 0.4 * window.innerHeight,
-      entrySort: this.args.entrySort,
+      entrySort: this.args.entrySort
     });
   }
 
