@@ -1,6 +1,5 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
-import { set } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import _intersectionBy from "lodash/intersectionBy";
 import _countBy from "lodash/countBy";
@@ -17,24 +16,38 @@ export default class TextDetailComponent extends Component {
 
   @tracked activePlaceId;
 
+  @tracked entries;
+
+  @tracked entriesCount;
+
   @tracked expanded;
 
-  @tracked docs = [];
+  @tracked docs;
 
-  @tracked distinctPlaces = [];
+  @tracked distinctPlaces;
 
-  @tracked entries = [];
+  @tracked distinctPlacesCount;
 
-  @tracked placeIds = [];
+  @tracked placeIds;
+
+  @tracked contributors;
 
   @tracked contributorsSentence = null;
 
   @tracked contributorsEtAl = null;
 
+  @tracked text;
+
   constructor(...args) {
     super(...args);
-    set(this, "distinctPlacesCount", null);
-    set(this, "entriesCount", null);
+    this.getData();
+    if (this.args.slug === "lcaaj") {
+      this.card.logo = this.card.vov;
+    } else {
+      this.card.logo = this.card.waw;
+    }
+
+    this.distinctPlacesCount = null;
     this.expanded = {
       overview: true,
       contributors: false,
@@ -75,30 +88,22 @@ export default class TextDetailComponent extends Component {
         count: counts[user.id]
       };
     });
-    this.set("contributors", contributors);
+    this.contributors = contributors;
     this._setContributorsSentence(contributors);
   }
 
   @tracked distinctPlaceIds = _uniq(this.placeIds);
 
-  async didInsertElement() {
-    if (this.slug === "lcaaj") {
-      this.set("card.logo", this.card.vov);
-    } else {
-      this.set("card.logo", this.card.waw);
-    }
-
+  async getData() {
     try {
-      const docs = await this.data.getAll();
-      this.set("docs", docs);
-      this.set("text", this.docs.filter(d => d.slug === this.slug)[0]);
+      this.docs = await this.data.getAll();
+      this.text = this.docs.filter(d => d.slug === this.args.slug)[0];
       this.card.setTitle(this.text);
-      this.set(
-        "entries",
-        this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
+      this.entries = this.docs.filter(
+        d => d.type === "entry" && d.text === this.text.id
       );
-      this.set("entriesCount", this.entries.length);
-      this.set("placeIds", this.entries.map(entry => entry.place));
+      this.entriesCount = this.entries.length;
+      this.placeIds = this.entries.map(entry => entry.place);
       this._makePlaces();
       return this.getContributors();
     } catch (error) {
@@ -119,8 +124,8 @@ export default class TextDetailComponent extends Component {
       "id"
     );
     if (points.length > 0) {
-      this.set("distinctPlaces", points);
-      this.set("distinctPlacesCount", points.length);
+      this.distinctPlaces = points;
+      this.distinctPlacesCount = points.length;
       this.theMap.points = points.map(point => {
         const theEntries = this.entries.filter(
           entry => entry.place === point.id
