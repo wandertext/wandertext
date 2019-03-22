@@ -2,22 +2,32 @@
   position: absolute;
   z-index: 40;
   min-width: 50%;
-  overflow-y: auto;
+  max-height: 100%;
+  overflow-y: hidden;
 
   .md-button:not([disabled]):hover {
     background-color: RGBA(var(--accent-700), 0.2);
   }
 
-  .text-detail {
-    overflow-y: auto; 
-    padding: 0.25rem; 
-    min-width: calc(100% - 0.5rem);
+  md-card-content {
+    padding: 0;
 
-    #overview-content {
-      p {
-        margin: 0px;
-        margin-bottom: 1em;
+    #text-detail {
+      // overflow-y: auto; 
+      overflow-y: overlay; 
+      overflow-x: visible;
+      margin: 1rem 0 1rem 1rem;
+      padding: 0.25rem 1.25rem 0.25rem 0.25rem; 
+      min-width: calc(100% - 2.5rem);
+      max-height: 100%; // needed to get scrolling to work appropriately.
+
+      #overview-content {
+        p {
+          margin: 0px;
+          margin-bottom: 1em;
+        }
       }
+
     }
 
   }
