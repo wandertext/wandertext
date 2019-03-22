@@ -26,7 +26,8 @@
     "@fortawesome/free-brands-svg-icons": "^5.7.2",
     "@fortawesome/free-regular-svg-icons": "^5.7.2",
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
-    "@glimmer/component": "^0.14.0-alpha.3",
+    "@glimmer/component": "^0.14.0-alpha.4",
+    "@glimmer/tracking": "^0.14.0-alpha.4",
     "babel-eslint": "^8.0.2",
     "broccoli-asset-rev": "^3.0.0",
     "chai-as-promised": "^7.1.1",
@@ -147,7 +148,6 @@
   },
   "optionalDependencies": {
     "@ember-decorators/object": "^5.1.4",
-    "@glimmer/tracking": "^0.14.0-alpha.1",
     "broccoli-funnel": "^2.0.2",
     "chai": "^4.2.0",
     "d3-array": "^2.0.3",
