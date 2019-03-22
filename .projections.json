@@ -1,40 +1,40 @@
 {
-  "src/services/*.js": {
+  "app/services/*.js": {
     "type": "service",
-    "alternate": "src/services/{}-test.js"
+    "alternate": "tests/unit/services/{}-test.js"
   },
-  "src/ui/components/*.js": {
+  "app/helpers/*.js": {
     "type": "helper",
-    "alternate": "src/ui/components/{}-test.js"
+    "alternate": "tests/integration/helpers/{}-test.js"
   },
-  "src/ui/routes/*/template.hbs": {
+  "app/templates/*.hbs": {
     "type": "rtemplate",
-    "alternate": "src/ui/routes/{}/route-test.js"
+    "alternate": "tests/unit/routes/{}-test.js"
   },
-  "src/ui/routes/*/route-test.js": {
+  "tests/unit/routes/*-test.js": {
     "type": "rtest",
-    "alternate": "src/ui/routes/{}/route.js"
+    "alternate": "app/routes/{}.js"
   },
-  "src/ui/routes/*/route.js": {
+  "app/routes/*.js": {
     "type": "route",
-    "alternate": "src/ui/routes/{}/template.hbs"
+    "alternate": "app/templates/{}.hbs"
   },
-  "src/ui/components/*/template.hbs": {
+  "app/templates/components/*.hbs": {
     "type": "ctemplate",
-    "alternate": "src/ui/components/{}/component-test.js"
+    "alternate": "tests/integration/components/{}-test.js"
   },
-  "src/ui/components/*/component-test.js": {
+  "tests/integration/components/*-test.js": {
     "type": "ctest",
-    "alternate": "src/ui/components/{}/component.js"
+    "alternate": "app/components/{}.js"
   },
-  "src/ui/components/*/component.js": {
+  "app/components/*.js": {
     "type": "component",
-    "alternate": "src/ui/components/{}/template.hbs"
+    "alternate": "app/templates/components/{}.hbs"
   },
-  "src/ui/styles/*.scss": {
+  "app/styles/*.scss": {
     "type": "sass"
   },
-  "src/router.js": {
+  "app/router.js": {
     "type": "router"
   }
 }
