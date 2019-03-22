@@ -16,4 +16,11 @@
     stroke: paper-color($primary, '400');
     stroke-width: 6;
   }
+
+  path.selected-dot {
+    fill: paper-color($accent, '500');
+    fill-opacity: 1.0;
+    stroke: paper-color($primary, '900');
+    stroke-width: 6;
+  }
 }

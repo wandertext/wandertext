@@ -28,6 +28,7 @@ export default class TheMapService extends Service {
     points.forEach(point => {
       if (point.latitude && point.longitude) {
         const marker = L.marker([point.latitude, point.longitude], {
+          riseOnHover: true,
           id: point.id,
           icon
         });
@@ -36,7 +37,9 @@ export default class TheMapService extends Service {
         }
 
         marker.on("click", e => {
+          document.querySelectorAll(".dot-marker").forEach( dot => dot.classList.remove("selected-dot"));
           this.activePlaceId = e.target.options.id;
+          e.originalEvent.srcElement.classList.add("selected-dot");
         });
         marker.addTo(pointsLayer);
       }
