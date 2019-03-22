@@ -4,7 +4,7 @@ import { set } from "@ember/object";
 import PouchDB from "pouchdb";
 import pouchDBFind from "pouchdb-find";
 import _intersectionBy from "lodash/intersectionBy";
-import ENV from "wandertext/config/environment";
+import ENV from "../config/environment";
 
 export default class DataService extends Service {
   db = this._initDB();
