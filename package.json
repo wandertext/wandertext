@@ -110,7 +110,7 @@
     },
     "overrides": [
       {
-        "files": "src/**/*-test.js",
+        "files": "tests/**/*-test.js",
         "envs": [
           "mocha"
         ],
