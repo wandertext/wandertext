@@ -12,7 +12,7 @@
   md-card-content {
     padding: 0;
 
-    #text-detail {
+    #text-detail, #index-box {
       // overflow-y: auto; 
       overflow-y: overlay; 
       overflow-x: visible;
@@ -29,6 +29,13 @@
       }
 
     }
+
+    #index-box {
+      h2 {
+        font-family: "Trajan Pro", "Cinzel", serif;
+      }
+    }
+
 
   }
 
