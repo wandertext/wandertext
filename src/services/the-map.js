@@ -37,7 +37,9 @@ export default class TheMapService extends Service {
         }
 
         marker.on("click", e => {
-          document.querySelectorAll(".dot-marker").forEach( dot => dot.classList.remove("selected-dot"));
+          document
+            .querySelectorAll(".dot-marker")
+            .forEach(dot => dot.classList.remove("selected-dot"));
           this.activePlaceId = e.target.options.id;
           e.originalEvent.srcElement.classList.add("selected-dot");
         });
