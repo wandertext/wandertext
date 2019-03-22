@@ -5,7 +5,6 @@ import _intersectionBy from "lodash/intersectionBy";
 import _countBy from "lodash/countBy";
 import _sortBy from "lodash/sortBy";
 import _uniqBy from "lodash/uniqBy";
-import _uniq from "lodash/uniq";
 
 export default class TextDetailComponent extends Component {
   @service data;
@@ -14,21 +13,44 @@ export default class TextDetailComponent extends Component {
 
   @service card;
 
-  @tracked activePlaceId;
-
-  @tracked entries;
-
-  @tracked entriesCount;
-
-  @tracked expanded;
-
   @tracked docs;
 
   @tracked distinctPlaces;
 
-  @tracked distinctPlacesCount;
+  @tracked text;
 
-  @tracked placeIds;
+  get selectedPlace() {
+    this.expandedPlace = true;
+    let place = null;
+    if (this.theMap.activePlaceId) {
+      place = this.docs.filter(doc => doc.id === this.theMap.activePlaceId)[0];
+    }
+
+    return place;
+  }
+
+  get distinctPlacesCount() {
+    return this.distinctPlaces ? this.distinctPlaces.length : null;
+  }
+
+  get entries() {
+    return this.docs
+      ? this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
+      : null;
+  }
+
+  get entriesCount() {
+    return this.entries ? this.entries.length : null;
+  }
+
+  get placeIds() {
+    let ids = null;
+    if (this.entries) {
+      ids = this.entries.map(entry => entry.place);
+    }
+
+    return ids;
+  }
 
   @tracked contributors;
 
@@ -36,25 +58,17 @@ export default class TextDetailComponent extends Component {
 
   @tracked contributorsEtAl = null;
 
-  @tracked text;
+  @tracked expandedPlace = false;
 
   constructor(...args) {
     super(...args);
+
     this.getData();
     if (this.args.slug === "lcaaj") {
       this.card.logo = this.card.vov;
     } else {
       this.card.logo = this.card.waw;
     }
-
-    this.distinctPlacesCount = null;
-    this.expanded = {
-      overview: true,
-      contributors: false,
-      entries: false,
-      places: false
-    };
-    this.activePlaceId = this.theMap.activePlaceId;
   }
 
   getContributors() {
@@ -92,18 +106,15 @@ export default class TextDetailComponent extends Component {
     this._setContributorsSentence(contributors);
   }
 
-  @tracked distinctPlaceIds = _uniq(this.placeIds);
+  get distinctPlaceIds() {
+    return this.placeIds ? [...new Set(this.placeIds)] : null;
+  }
 
   async getData() {
     try {
       this.docs = await this.data.getAll();
       this.text = this.docs.filter(d => d.slug === this.args.slug)[0];
       this.card.setTitle(this.text);
-      this.entries = this.docs.filter(
-        d => d.type === "entry" && d.text === this.text.id
-      );
-      this.entriesCount = this.entries.length;
-      this.placeIds = this.entries.map(entry => entry.place);
       this._makePlaces();
       return this.getContributors();
     } catch (error) {
@@ -125,7 +136,6 @@ export default class TextDetailComponent extends Component {
     );
     if (points.length > 0) {
       this.distinctPlaces = points;
-      this.distinctPlacesCount = points.length;
       this.theMap.points = points.map(point => {
         const theEntries = this.entries.filter(
           entry => entry.place === point.id

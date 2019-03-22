@@ -1,5 +1,5 @@
-<div class="text-detail">
-  {{#paper-expansion-panel expanded=this.expanded.overview as |panel|}}
+<div id="text-detail">
+  {{#paper-expansion-panel expanded=true as |panel|}}
     {{#panel.collapsed rippleInkColor="green"}}
       <div class="md-panel-title">Overview</div>
       <div class="md-panel-summary"></div>
@@ -32,7 +32,7 @@
     {{/panel.expanded}}
   {{/paper-expansion-panel}}
 
-  {{#paper-expansion-panel expanded=this.expanded.contributors as |panel|}}
+  {{#paper-expansion-panel expanded=false as |panel|}}
     {{#panel.collapsed}}
       <div class="md-panel-title">Contributors</div>
       <div class="md-panel-summary">{{this.contributorsEtAl}}</div>
@@ -53,7 +53,7 @@
     {{/panel.expanded}}
   {{/paper-expansion-panel}}
 
-  {{#paper-expansion-panel expanded=this.expanded.entries as |panel|}}
+  {{#paper-expansion-panel expanded=false as |panel|}}
     {{#panel.collapsed}}
       <div class="md-panel-title">Entries</div>
       <div class="md-panel-summary">
@@ -78,30 +78,38 @@
     {{/panel.expanded}}
   {{/paper-expansion-panel}}
 
-  {{#paper-expansion-panel expanded=this.expanded.places as |panel|}}
+  {{#paper-expansion-panel expanded=this.expandedPlace as |panel|}}
     {{#panel.collapsed}}
-      <div class="md-panel-title">Places</div>
-      <div class="md-panel-summary">
-        {{#if this.distinctPlacesCount}}
-          {{this.distinctPlacesCount}} distinct places
+        {{#if this.selectedPlace}}
+          <div class="md-panel-title">
+            {{this.selectedPlace.attestedName}}
+          </div>
+          <div class="md-panel-summary">{{this.selectedPlace.entryCount}} entries</div>
+        {{else}}
+          <div class="md-panel-title">No place selected</div>
+          <div class="md-panel-summary"></div>
         {{/if}}
-      </div>
       {{paper-icon "keyboard_arrow_down"}}
     {{/panel.collapsed}}
 
     {{#panel.expanded as |expanded|}}
       {{#expanded.header}}
-        <div class="md-panel-title">Places</div>
-        <div class="md-panel-summary"><!-- distinct place? --></div>
+        {{#if this.selectedPlace}}
+          <div class="md-panel-title">
+            {{this.selectedPlace.attestedName}}
+          </div>
+          <div class="md-panel-summary">{{this.selectedPlace.entryCount}} entries</div>
+        {{else}}
+          <div class="md-panel-title">No place selected</div>
+          <div class="md-panel-summary"></div>
+        {{/if}}
         {{paper-icon "keyboard_arrow_up"}}
       {{/expanded.header}}
 
       {{#expanded.content}}
-        <TextPlaces @distinctPlacesCount={{this.distinctPlacesCount}} />
+      <TextPlaces @entries={{this.entries}} @entrySort={{this.text.entrySort}} @place={{this.selectedPlace}} />
       {{/expanded.content}}
 
     {{/panel.expanded}}
   {{/paper-expansion-panel}}
-
-  {{yield}}
 </div>
