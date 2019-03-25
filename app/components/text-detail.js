@@ -65,7 +65,7 @@ export default class TextDetailComponent extends Component {
 
     this.theMap.activePlaceId = null;
     this.getData();
-    if (this.args.slug === "lcaaj") {
+    if (this.args.text.slug === "lcaaj") {
       this.card.logo = this.card.vov;
     } else {
       this.card.logo = this.card.waw;
@@ -113,11 +113,12 @@ export default class TextDetailComponent extends Component {
 
   async getData() {
     try {
-      this.docs = await this.data.docs();
-      this.text = this.docs.filter(d => d.slug === this.args.slug)[0];
-      this.card.setTitle(this.text);
-      this._makePlaces();
-      return this.getContributors();
+      console.log(this.args.text);
+      // This.docs = await this.data.docs();
+      // this.text = this.docs.filter(d => d.slug === this.args.slug)[0];
+      // this.card.setTitle(this.text);
+      // this._makePlaces();
+      // return this.getContributors();
     } catch (error) {
       return error;
     }

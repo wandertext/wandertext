@@ -6,7 +6,10 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
-    couchdb: process.env.COUCHDB,
+    emberPouch: {
+      localDb: "wandertext",
+      remoteDb: process.env.COUCHDB
+    },
     fontawesome: {
       icons: {
         "free-solid-svg-icons": ["info-circle", "map", "database", "home"],
@@ -52,13 +55,17 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
-    ENV.couchdb = process.env.COUCHDB;
+    ENV.emberPouch = {
+      localDb: "wandertext",
+      remoteDb: process.env.COUCHDB
+    };
   }
 
   if (environment === "production") {
-    // This is here for muziejus.github.io/wandertext/
-    // ENV.rootURL = "/wandertext";
-    ENV.couchdb = process.env.COUCHDB;
+    ENV.emberPouch = {
+      localDb: "wandertext",
+      remoteDb: process.env.COUCHDB
+    };
   }
 
   return ENV;
