@@ -113,7 +113,7 @@ export default class TextDetailComponent extends Component {
 
   async getData() {
     try {
-      // console.log(this.args.text);
+      // Console.log(this.args.text);
       // This.docs = await this.data.docs();
       // this.text = this.docs.filter(d => d.slug === this.args.slug)[0];
       // this.card.setTitle(this.text);
