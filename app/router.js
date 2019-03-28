@@ -12,7 +12,7 @@ Router.map(function() {
   this.route("places");
   this.route("help");
   this.route("about");
-  this.route("browse", function(){
+  this.route("browse", function() {
     this.route("text", { path: "text/:slug" });
   });
 });
