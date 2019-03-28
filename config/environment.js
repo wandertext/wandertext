@@ -7,8 +7,8 @@ module.exports = function(environment) {
     rootURL: "/",
     locationType: "auto",
     emberPouch: {
-      localDb: "wandertext",
-      remoteDb: process.env.COUCHDB
+      localDb: "wandertext-ember-data",
+      remoteDb: "http://admin:admin@localhost:5984/wandertext-ember-data/"
     },
     fontawesome: {
       icons: {
@@ -55,10 +55,6 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
-    ENV.emberPouch = {
-      localDb: "wandertext",
-      remoteDb: process.env.COUCHDB
-    };
   }
 
   if (environment === "production") {
