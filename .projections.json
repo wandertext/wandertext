@@ -1,4 +1,8 @@
 {
+  "app/models/*.js": {
+    "type": "model",
+    "alternate": "tests/unit/models/{}-test.js"
+  },
   "app/services/*.js": {
     "type": "service",
     "alternate": "tests/unit/services/{}-test.js"
