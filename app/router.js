@@ -8,11 +8,13 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route("text", { path: "text/:slug" });
   this.route("texts");
   this.route("places");
   this.route("help");
   this.route("about");
+  this.route("browse", function(){
+    this.route("text", { path: "text/:slug" });
+  });
 });
 
 export default Router;
