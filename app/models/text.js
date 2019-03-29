@@ -3,9 +3,7 @@ import DS from "ember-data";
 
 const { attr, hasMany } = DS;
 
-export default class Text extends Model {
-  @attr("string") type;
-
+export default class TextModel extends Model {
   @attr("string") name;
 
   @attr("string") slug;

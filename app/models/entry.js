@@ -1,10 +1,8 @@
 import Model from "ember-pouch/model";
 import DS from "ember-data";
 
-const { attr, belongsTo } = DS;
+const { belongsTo } = DS;
 
-export default class Entry extends Model {
-  @attr("string") type;
-
+export default class EntryModel extends Model {
   @belongsTo("text") text;
 }
