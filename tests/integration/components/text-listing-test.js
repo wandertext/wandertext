@@ -8,26 +8,23 @@ import hbs from "htmlbars-inline-precompile";
 describe("Integration | Component | text-listing", function() {
   const hooks = setupRenderingTest();
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(async function() {
     this.text = EmberObject.create({
       name: "Name",
       slug: "slug",
       entrySort: "entrySort"
     });
+    await render(hbs`<TextListing @text={{this.text}} />`);
   });
 
-  it("renders as .text-listing", async function() {
+  it("renders as .text-listing", function() {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<TextListing @text={{this.text}} />`);
 
     expect(this.element.querySelector(".text-listing")).to.be.ok;
   });
 
-  it("shows the name of the text in an h3", async function() {
-    await render(hbs`<TextListing @text={{this.text}} />`);
-
+  it("shows the name of the text in an h3", function() {
     expect(this.element.querySelector("h3").textContent).to.equal(
       this.text.name
     );
