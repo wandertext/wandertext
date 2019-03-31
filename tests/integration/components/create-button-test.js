@@ -1,0 +1,37 @@
+import { expect } from "chai";
+import { describe, it } from "mocha";
+import { setupRenderingTest } from "ember-mocha";
+import { render } from "@ember/test-helpers";
+import hbs from "htmlbars-inline-precompile";
+
+describe("Integration | Component | create-button", function() {
+  setupRenderingTest();
+
+  it("renders as button.create-button", async function() {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.set('myAction', function(val) { ... });
+    await render(hbs`<CreateButton />`);
+    expect(this.element.querySelector("button.create-button")).to.be.ok;
+  });
+
+  it("renders its text as “Create New Blah,” fed from @buttonText", async function() {
+    await render(hbs`<CreateButton @buttonText="Blah" />`);
+    expect(
+      this.element.querySelector("button.create-button").textContent.trim()
+    ).to.equal("Create New Blah");
+  });
+
+  it("gets fed classes in @classes", async function() {
+    await render(hbs`<CreateButton @classes="foo bar" />`);
+    expect(
+      this.element
+        .querySelector("button.create-button")
+        .classList.contains("foo")
+    ).to.be.ok;
+    expect(
+      this.element
+        .querySelector("button.create-button")
+        .classList.contains("bar")
+    ).to.be.ok;
+  });
+});

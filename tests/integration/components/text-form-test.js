@@ -18,10 +18,14 @@ describe("Integration | Component | text-form", function() {
     expect(this.element.querySelector("#text-form")).to.be.ok;
   });
 
-  it("has a “Create” button", function() {
-    expect(this.element.querySelector("button").textContent.trim()).to.equal(
-      "Create"
-    );
+  it("has a <CreateButton> button", function() {
+    expect(this.element.querySelector("button.create-button")).to.be.ok;
+  });
+
+  it("has a button that reads “Create New Text”", function() {
+    expect(
+      this.element.querySelector("button.create-button").textContent.trim()
+    ).to.equal("Create New Text");
   });
 
   // I mean, these tests pass the *acceptance* test?
