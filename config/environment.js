@@ -8,7 +8,7 @@ module.exports = function(environment) {
     locationType: "auto",
     emberPouch: {
       localDb: "wandertext-ember-data",
-      remoteDb: "http://admin:admin@localhost:5984/wandertext-ember-data/"
+      remoteDb: "http://admin:admin@localhost:5984/wandertext-ember-data"
     },
     fontawesome: {
       icons: {
@@ -48,6 +48,8 @@ module.exports = function(environment) {
   if (environment === "test") {
     // Testem prefers this...
     ENV.locationType = "none";
+    ENV.emberPouch.localDb = "wandertext-ember-data-test";
+    ENV.emberPouch.remoteDb = "http://admin:admin@localhost:5984/wandertext-ember-data-test";
 
     // Keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
