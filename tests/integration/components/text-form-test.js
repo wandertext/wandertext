@@ -8,8 +8,8 @@ describe("Integration | Component | text-form", function() {
   const hooks = setupRenderingTest();
 
   hooks.beforeEach(async function() {
-    // This.store = this.owner.lookup("service:store");
-    await render(hbs`<TextForm />`);
+    this.store = this.owner.lookup("service:store");
+    await render(hbs`<TextForm @store={{this.store}} />`);
   });
 
   it("renders as #text-form", function() {
@@ -28,16 +28,15 @@ describe("Integration | Component | text-form", function() {
     ).to.equal("Create New Text");
   });
 
-  // I mean, these tests pass the *acceptance* test?
-  it.skip("has an #input-name input box", function() {
+  it("has an #input-name input box", function() {
     expect(this.element.querySelector("#input-name")).to.be.ok;
   });
 
-  it.skip("has an #input-slug input box", function() {
+  it("has an #input-slug input box", function() {
     expect(this.element.querySelector("#input-slug")).to.be.ok;
   });
 
-  it.skip("has an #input-entrySort input box", function() {
+  it("has an #input-entrySort input box", function() {
     expect(this.element.querySelector("#input-entrySort")).to.be.ok;
   });
 });
