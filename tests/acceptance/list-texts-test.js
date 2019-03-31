@@ -20,4 +20,9 @@ describe("Acceptance | list texts", function() {
     await visit("/texts");
     expect(this.element.querySelectorAll(".text-listing").length).to.equal(3);
   });
+
+  it("should include the text-form component", async function() {
+    await visit("/texts");
+    expect(this.element.querySelector("#text-form")).to.be.ok;
+  });
 });
