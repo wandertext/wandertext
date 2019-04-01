@@ -25,12 +25,12 @@ describe("Acceptance | list texts", function() {
     expect(currentURL()).to.equal("/texts");
   });
 
-  it("should include a “Texts” h2", async function() {
+  it("includes a “Texts” h2", async function() {
     await visit("/texts");
     expect(this.element.querySelector("h2").textContent).to.equal("Texts");
   });
 
-  it("should show a list of 2 .text-listings", async function() {
+  it("shows a list of 2 .text-listings", async function() {
     await visit("/texts");
     expect(this.element.querySelectorAll(".text-listing").length).to.equal(2);
   });

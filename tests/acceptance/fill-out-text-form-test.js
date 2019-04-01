@@ -8,7 +8,7 @@ describe("Acceptance | fill out text form", function() {
 
   // Causes "You can only unload a record which is not inFlight." error in
   // afterEach hook.
-  it("should include the text-form component", async function() {
+  it("includes the text-form component", async function() {
     await visit("/texts/new");
     expect(this.element.querySelector("#text-form")).to.be.ok;
   });
