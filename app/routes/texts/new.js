@@ -5,4 +5,3 @@ export default class TextsNewRoute extends Route {
     return this.store.createRecord("text");
   }
 }
-
