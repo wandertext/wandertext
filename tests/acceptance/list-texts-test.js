@@ -4,7 +4,21 @@ import { setupApplicationTest } from "ember-mocha";
 import { visit, currentURL } from "@ember/test-helpers";
 
 describe("Acceptance | list texts", function() {
-  setupApplicationTest();
+  const hooks = setupApplicationTest();
+
+  hooks.beforeEach(async function() {
+    this.store = this.owner.lookup("service:store");
+    await [
+      {
+        name: "Over Sea, Under Stone",
+        slug: "osus-1965"
+      },
+      {
+        name: "The Dark Is Rising",
+        slug: "tdir-1974"
+      }
+    ].forEach(text => this.store.createRecord("text", text));
+  });
 
   it("can visit /texts", async function() {
     await visit("/texts");
@@ -16,9 +30,9 @@ describe("Acceptance | list texts", function() {
     expect(this.element.querySelector("h2").textContent).to.equal("Texts");
   });
 
-  it("should show a list of .text-listings", async function() {
+  it("should show a list of 2 .text-listings", async function() {
     await visit("/texts");
-    expect(this.element.querySelectorAll(".text-listing").length).to.equal(3);
+    expect(this.element.querySelectorAll(".text-listing").length).to.equal(2);
   });
 
   it("should include the text-form component", async function() {
