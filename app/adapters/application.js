@@ -29,5 +29,21 @@ export default class ApplicationAdapter extends Adapter {
         type: "json"
       }
     });
+    this.db.createIndex({
+      index: {
+        fields: ["data.slug"],
+        name: "data-slug",
+        ddoc: "data-slug",
+        type: "json"
+      }
+    });
+    this.db.createIndex({
+      index: {
+        fields: ["data.text"],
+        name: "data-text",
+        ddoc: "data-text",
+        type: "json"
+      }
+    });
   }
 }
