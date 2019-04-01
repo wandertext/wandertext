@@ -79,6 +79,7 @@
     "node": "8.* || >= 10.*"
   },
   "dependencies": {
+    "faker": "^4.1.0",
     "leaflet": "^1.4.0"
   },
   "xo": {
