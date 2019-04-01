@@ -8,7 +8,9 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route("texts", () => {});
+  this.route("texts", function() {
+    this.route("new");
+  });
   this.route("places");
   this.route("help");
   this.route("about");

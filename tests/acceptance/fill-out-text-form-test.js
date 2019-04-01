@@ -8,12 +8,17 @@ describe("Acceptance | fill out text form", function() {
 
   // Causes "You can only unload a record which is not inFlight." error in
   // afterEach hook.
+  it("should include the text-form component", async function() {
+    await visit("/texts/new");
+    expect(this.element.querySelector("#text-form")).to.be.ok;
+  });
+
   it.skip("can fill out the text form", async function() {
     const name = "Baburnama";
     const slug = "baburnama-1530";
     const entrySort = "folio";
     const store = this.owner.lookup("service:store");
-    await visit("/texts");
+    await visit("/texts/new");
     await fillIn("#input-name", name);
     await fillIn("#input-slug", slug);
     await fillIn("#input-entrySort", entrySort);
