@@ -5,14 +5,17 @@ import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
 describe("Integration | Component | the-map", function() {
-  setupRenderingTest();
+  const hooks = setupRenderingTest();
 
-  it.skip("renders", async function() {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{the-map}}`);
-
-    expect(this.element.textContent.trim()).to.equal("");
+  hooks.beforeEach(async function() {
+    await render(hbs`<TheMap />`);
   });
+
+  it("renders as #the-map", async function() {
+    expect(this.element.querySelector("#the-map")).to.be.ok;
+  });
+
+  it("sets theMap.map");
+
+  it("builds a leaflet map out of theMap.map");
 });
