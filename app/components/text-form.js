@@ -1,20 +1,12 @@
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 
 export default class TextFormComponent extends Component {
-  @tracked newText;
-
-  constructor(...args) {
-    super(...args);
-    if (this.args.store) {
-      this.newText = this.args.store.createRecord("text");
-    }
-  }
+  @service router;
 
   @action createText() {
-    if (this.newText) {
-      this.newText.save();
-    }
+    this.args.model.save();
+    this.router.transitionTo("texts.index");
   }
 }

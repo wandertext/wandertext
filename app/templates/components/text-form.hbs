@@ -5,9 +5,9 @@
       @action={{this.createText}} 
       @classes="create-text-button" />
   </p>
-  <p>{{input id="input-name" type="text" value=this.newText.name placeholder="Name"}}</p>
-  <p>{{input id="input-slug" type="text" value=this.newText.slug placeholder="Slug"}}</p>
-  <p>{{input id="input-entrySort" type="text" value=this.newText.entrySort placeholder="entrySort"}}</p>
+  <p>{{input id="input-name" type="text" value=@model.name placeholder="Name"}}</p>
+  <p>{{input id="input-slug" type="text" value=@model.slug placeholder="Slug"}}</p>
+  <p>{{input id="input-entrySort" type="text" value=@model.entrySort placeholder="entrySort"}}</p>
 </div>
 
   
