@@ -1,7 +1,14 @@
 import { describe, it } from "mocha";
 import { expect } from "chai";
 import { setupApplicationTest } from "ember-mocha";
-import { currentURL, visit, click, fillIn } from "@ember/test-helpers";
+import {
+  pauseTest,
+  resumeTest,
+  currentURL,
+  visit,
+  click,
+  fillIn
+} from "@ember/test-helpers";
 import faker from "faker";
 
 describe("Acceptance | create new Text", function() {
@@ -22,6 +29,7 @@ describe("Acceptance | create new Text", function() {
     await fillIn("#input-slug", slug);
     await fillIn("#input-entrySort", entrySort);
     await click(".create-text-button");
+    pauseTest();
 
     const text = await store.queryRecord("text", {
       filter: { name }
@@ -30,5 +38,6 @@ describe("Acceptance | create new Text", function() {
     expect(text.slug).to.equal(slug);
     expect(text.entrySort).to.equal(entrySort);
     expect(currentURL()).to.equal("/texts");
+    resumeTest();
   });
 });
