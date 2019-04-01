@@ -5,24 +5,32 @@ import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
 describe("Integration | Component | create-button", function() {
-  setupRenderingTest();
+  const hooks = setupRenderingTest();
+
+  hooks.beforeEach(function() {
+    this.set("myAction", val => val);
+  });
 
   it("renders as button.create-button", async function() {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
-    await render(hbs`<CreateButton />`);
+    await render(hbs`<CreateButton @action={{this.myAction}} />`);
     expect(this.element.querySelector("button.create-button")).to.be.ok;
   });
 
   it("renders its text as “Create New Blah,” fed from @buttonText", async function() {
-    await render(hbs`<CreateButton @buttonText="Blah" />`);
+    await render(
+      hbs`<CreateButton @action={{this.myAction}} @buttonText="Blah" />`
+    );
     expect(
       this.element.querySelector("button.create-button").textContent.trim()
     ).to.equal("Create New Blah");
   });
 
   it("gets fed classes in @classes", async function() {
-    await render(hbs`<CreateButton @classes="foo bar" />`);
+    await render(
+      hbs`<CreateButton @action={{this.myAction}} @classes="foo bar" />`
+    );
     expect(
       this.element
         .querySelector("button.create-button")
