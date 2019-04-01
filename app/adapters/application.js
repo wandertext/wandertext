@@ -11,16 +11,21 @@ export default class ApplicationAdapter extends Adapter {
   constructor(...args) {
     super(...args);
     this.db = new PouchDB(config.emberPouch.localDb);
-    this.remoteDb = new PouchDB(config.emberPouch.remoteDb, {
-      fetch(url, opts) {
-        opts.credentials = "include";
-        return PouchDB.fetch(url, opts);
-      }
-    });
-    this.db.sync(this.remoteDb, {
-      live: true,
-      retry: true
-    });
+    if (config.emberPouch.remoteDb) {
+      this.remoteDb = new PouchDB(config.emberPouch.remoteDb, {
+        fetch(url, opts) {
+          opts.credentials = "include";
+          return PouchDB.fetch(url, opts);
+        }
+      });
+      this.db.sync(this.remoteDb, {
+        live: true,
+        retry: true
+      });
+    } else {
+      this.remoteDb = null;
+    }
+
     this.db.createIndex({
       index: {
         fields: ["data.name"],
@@ -39,7 +44,7 @@ export default class ApplicationAdapter extends Adapter {
     });
     this.db.createIndex({
       index: {
-        fields: ["data.text"],
+        fields: ["data.text", "_id"],
         name: "data-text",
         ddoc: "data-text",
         type: "json"
