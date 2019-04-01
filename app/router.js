@@ -10,6 +10,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route("texts", function() {
     this.route("new");
+    this.route("show", { path: "/:slug" });
   });
   this.route("places");
   this.route("help");
