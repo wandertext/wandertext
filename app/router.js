@@ -11,7 +11,9 @@ Router.map(function() {
   this.route("texts", function() {
     this.route("new");
     this.route("show", { path: "/:slug" }, function() {
-      this.route("entry");
+      this.route("entries", { path: "/entries" }, function() {
+        this.route("new");
+      });
     });
   });
   this.route("places");
