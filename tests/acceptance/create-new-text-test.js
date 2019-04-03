@@ -22,7 +22,7 @@ describe("Acceptance | create new Text", function() {
   it("fills out the form, makes a Text, & transitions to texts/index", async function() {
     const name = faker.commerce.productName();
     const slug = faker.helpers.slugify(name) + "-1976";
-    const entrySort = faker.random.word();
+    const entrySort = faker.lorem.word();
     const store = this.owner.lookup("service:store");
     await visit("/texts/new");
     await fillIn("#input-name", name);
