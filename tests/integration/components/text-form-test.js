@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { describe, it } from "mocha";
 import { setupRenderingTest } from "ember-mocha";
-import { render } from "@ember/test-helpers";
+import { find, render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
 describe("Integration | Component | text-form", function() {
@@ -15,11 +15,11 @@ describe("Integration | Component | text-form", function() {
   it("renders as #text-form", function() {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
-    expect(this.element.querySelector("#text-form")).to.be.ok;
+    expect(find("#text-form")).to.be.ok;
   });
 
   it("has a <CreateButton> button", function() {
-    expect(this.element.querySelector("button.create-button")).to.be.ok;
+    expect(find("button.create-button")).to.be.ok;
   });
 
   it("has a button that reads “Create New Text”", function() {
