@@ -1,4 +1,7 @@
 {
+  "tests/acceptance/*-test.js": {
+    "type": "acceptanceTest"
+  },
   "app/models/*.js": {
     "type": "model",
     "alternate": "tests/unit/models/{}-test.js"
