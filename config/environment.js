@@ -49,6 +49,7 @@ module.exports = function(environment) {
     // Testem prefers this...
     ENV.locationType = "none";
     ENV.emberPouch.localDb = "wandertext-ember-data-test";
+    // ENV.emberPouch.remoteDb = "http://admin:admin@localhost:5984/wandertext-ember-data-test"
     ENV.emberPouch.remoteDb = null;
 
     // Keep test console output quieter
