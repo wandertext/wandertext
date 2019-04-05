@@ -1,14 +1,34 @@
 import { expect } from "chai";
 import { describe, it } from "mocha";
 import { setupRenderingTest } from "ember-mocha";
-import { render } from "@ember/test-helpers";
+import { findAll, find, render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
+import faker from "faker";
 
 describe("Integration | Component | text-entry-list", function() {
-  setupRenderingTest();
+  const hooks = setupRenderingTest();
 
-  it("renders as #text-entry-list", async function() {
-    await render(hbs`<TextEntryList />`);
-    expect(this.element.querySelector("#text-entry-list")).to.be.ok;
+  hooks.beforeEach(async function() {
+    this.placeNames = [
+      faker.address.city(),
+      faker.address.city(),
+      faker.address.city()
+    ];
+    this.entries = this.placeNames.map(attestedName => {
+      return { attestedName };
+    });
+    await render(hbs`<TextEntryList @entries={{this.entries}} />`);
+  });
+
+  it("renders as #text-entry-list", function() {
+    expect(find("#text-entry-list")).to.be.ok;
+  });
+
+  it("lists Entries", function() {
+    this.placeNames.forEach(placeName => {
+      expect(
+        findAll(".attested-name").map(node => node.textContent.trim())
+      ).to.include(placeName);
+    });
   });
 });
