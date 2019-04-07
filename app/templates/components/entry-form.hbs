@@ -1,0 +1,19 @@
+<div id="entry-form">
+  <p>
+    <CreateButton 
+      @buttonText="Entry" 
+      @action={{this.createEntry}} 
+      @classes="create-entry-button" />
+  </p>
+  <p>{{input id="input-attestedName" type="text" value=this.entry.attestedName placeholder="Attested Name"}}</p>
+
+  <p>{{input id="input-entrySort" type="text" value=(get this.entry @text.entrySort) placeholder=@text.entrySort}}</p>
+
+  {{#if @text.entryProperties}}
+    {{#each @text.entryProperties as |prop|}}
+    <p>{{input id=(concat "input-entryProperty-" prop.name) type="text" value=(get this.entry.properties prop.name) placeholder=prop.name}}</p>
+    {{/each}}
+  {{/if}}
+
+</div>
+
