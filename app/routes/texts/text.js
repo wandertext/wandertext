@@ -1,6 +1,6 @@
 import Route from "@ember/routing/route";
 
-export default class TextsShowRoute extends Route {
+export default class TextsTextRoute extends Route {
   model({ slug }) {
     return this.store.queryRecord(
       "text",
