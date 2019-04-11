@@ -1,5 +1,11 @@
 <h3 id="text-name">{{ this.model.name }}</h3>
 <h4>{{ this.model.slug }}</h4>
 <h4>{{ this.model.entrySort }}</h4>
-<p>{{#link-to "texts.show.entries" this.model.slug }}Show Entries{{/link-to}}</p>
+<p>
+  {{#link-to "texts.text.entries" this.model }}
+    <button id="show-entries-button">
+      Show Entries
+    </button>
+  {{/link-to}}
+</p>
 {{outlet}}

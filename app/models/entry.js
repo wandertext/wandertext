@@ -6,5 +6,7 @@ const { attr, belongsTo } = DS;
 export default class Entry extends Model {
   @attr("string") attestedName;
 
+  @attr() properties;
+
   @belongsTo("text") text;
 }

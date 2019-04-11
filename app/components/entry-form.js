@@ -11,8 +11,7 @@ export default class EntryFormComponent extends Component {
   @tracked entry = this._createBlankEntry();
 
   @action createEntry() {
-    this.entry.save();
-    this.router.transitionTo("texts", this.args.text);
+    this.router.transitionTo("/texts/text", this.args.text);
   }
 
   _createBlankEntry() {
