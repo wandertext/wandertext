@@ -3,26 +3,18 @@ import { expect } from "chai";
 import { setupApplicationTest } from "ember-mocha";
 import { visit, click, fillIn } from "@ember/test-helpers";
 import faker from "faker";
+import createText from "../helpers/create-text";
+import createEntry from "../helpers/create-entry";
 
 describe("Acceptance | create new Entry", function() {
   const hooks = setupApplicationTest();
 
   hooks.beforeEach(async function() {
     this.store = this.owner.lookup("service:store");
-    const texts = await this.store.findAll("text");
-    this.text = texts.firstObject;
-    // This errors when the database is empty, of course, since then there is no text.
-    this.text.set("entryProperties", [
-      { name: "prop1" },
-      { name: "prop2" },
-      { name: "prop3" }
-    ]);
-    this.attestedNames = [faker.address.city(), faker.address.city()];
-    this.attestedNames.forEach(async attestedName => {
-      const entry = this.store.createRecord("entry", { attestedName });
-      this.text.entries.pushObject(entry);
-      return entry;
-    });
+    this.text = await createText(this.store);
+    // Create two dummy entries ahead of time.
+    this.text.entries.pushObject(createEntry(this.store, this.text));
+    this.text.entries.pushObject(createEntry(this.store, this.text));
     await this.text.save();
     await visit(`/texts/${this.text.slug}/entries/new`);
   });
@@ -43,10 +35,12 @@ describe("Acceptance | create new Entry", function() {
       .toArray()
       .filter(entry => entry.attestedName === randomName);
     expect(ourEntries.length).to.equal(1);
+    const testEntry = ourEntries[0];
     this.text.entryProperties.forEach(async (prop, i) => {
-      expect(ourEntries[0].properties[prop.name]).to.equal(
+      expect(testEntry.properties[prop.name]).to.equal(
         `test ${i} ${randomName}`
       );
     });
+    expect(testEntry.text.get("id")).to.equal(this.text.id);
   });
 });
