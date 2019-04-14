@@ -8,7 +8,7 @@ export default class Text extends Model {
 
   @attr("string") slug;
 
-  @attr("string") entrySort;
+  @attr() entrySort;
 
   @hasMany("entry") entries;
 
