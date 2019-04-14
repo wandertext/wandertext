@@ -17,7 +17,7 @@ export default class Text extends Model {
   @attr("string") url;
 
   @attr("string") imgSrc;
-  
+
   @attr("string") imgCredit;
 
   @attr("string") imgHref;
