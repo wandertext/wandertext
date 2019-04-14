@@ -12,6 +12,8 @@ export default class Text extends Model {
 
   @attr() userNames;
 
+  @attr() nywalkerProperties;
+
   @hasMany("entry") entries;
 
   @hasMany("user") users;

@@ -14,6 +14,8 @@ export default class Entry extends Model {
 
   @attr() properties;
 
+  @attr() nywalkerProperties;
+
   @belongsTo("text") text;
 
   @hasMany("user") users;

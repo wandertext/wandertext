@@ -14,6 +14,8 @@ export default class User extends Model {
 
   @attr("boolean", { defaultValue: false }) admin;
 
+  @attr() nywalkerProperties;
+
   @hasMany("entry") entries;
 
   @hasMany("place") places;
