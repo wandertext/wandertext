@@ -6,6 +6,8 @@ const { attr, hasMany } = DS;
 export default class Place extends Model {
   @attr("string", { defaultValue: "Feature" }) type;
 
+  @attr() bbox;
+
   @attr() geometry;
 
   @attr() properties;
