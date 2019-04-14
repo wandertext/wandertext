@@ -22,7 +22,7 @@ export default class User extends Model {
 
   @hasMany("text") texts;
 
-  @attr("date") dateCreated;
+  @attr("date") createdOn;
 
-  @attr("date") dateModified;
+  @attr("date") modifiedOn;
 }

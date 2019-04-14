@@ -18,7 +18,7 @@ export default class Text extends Model {
 
   @hasMany("user") users;
 
-  @attr("date") dateCreated;
+  @attr("date") createdOn;
 
-  @attr("date") dateModified;
+  @attr("date") modifiedOn;
 }
