@@ -11,4 +11,6 @@ export default class Place extends Model {
   @attr() properties;
 
   @hasMany("entry") entries;
+
+  @hasMany("user") users;
 }
