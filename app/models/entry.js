@@ -11,4 +11,8 @@ export default class Entry extends Model {
   @belongsTo("text") text;
 
   @hasMany("user") users;
+
+  @attr("date") dateCreated;
+
+  @attr("date") dateModified;
 }
