@@ -8,6 +8,14 @@ export default class Text extends Model {
 
   @attr("string") slug;
 
+  @attr("string") popupTemplate;
+
+  @attr("string") markdownName;
+
+  @attr("string") markdownBlurb;
+
+  @attr() entryProperties;
+
   @attr() entrySort;
 
   @attr() userNames;
