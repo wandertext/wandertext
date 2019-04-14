@@ -14,6 +14,14 @@ export default class Text extends Model {
 
   @attr("string") markdownBlurb;
 
+  @attr("string") url;
+
+  @attr("string") imgSrc;
+  
+  @attr("string") imgCredit;
+
+  @attr("string") imgHref;
+
   @attr() entryProperties;
 
   @attr() entrySort;
