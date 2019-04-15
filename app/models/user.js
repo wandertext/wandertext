@@ -8,7 +8,9 @@ export default class User extends Model {
 
   @attr("string", { defaultValue: "github" }) authentication; // "github" or "uni"
 
-  @attr("string") citationName;
+  @attr("string") firstName;
+
+  @attr("string") lastName;
 
   @attr("boolean", { defaultValue: false }) superUser;
 
