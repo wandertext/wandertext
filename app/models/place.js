@@ -14,5 +14,7 @@ export default class Place extends Model {
 
   @hasMany("entry") entries;
 
+  @hasMany("flag") flags;
+
   @hasMany("user") users;
 }

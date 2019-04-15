@@ -22,6 +22,8 @@ export default class Entry extends Model {
 
   @hasMany("user") users;
 
+  @hasMany("flag") flags;
+
   @attr("date") createdOn;
 
   @attr("date") modifiedOn;

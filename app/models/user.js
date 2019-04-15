@@ -20,6 +20,8 @@ export default class User extends Model {
 
   @hasMany("entry") entries;
 
+  @hasMany("flag") flags;
+
   @hasMany("place") places;
 
   @hasMany("text") texts;

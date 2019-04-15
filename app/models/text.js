@@ -34,6 +34,8 @@ export default class Text extends Model {
 
   @hasMany("user") users;
 
+  @hasMany("flag") flags;
+
   @attr("date") createdOn;
 
   @attr("date") modifiedOn;
