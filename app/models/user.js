@@ -12,6 +12,8 @@ export default class User extends Model {
 
   @attr("string") lastName;
 
+  @attr("boolean", { defaultValue: false }) enabled;
+
   @attr("boolean", { defaultValue: false }) superUser;
 
   @attr("boolean", { defaultValue: false }) admin;
