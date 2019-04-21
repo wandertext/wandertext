@@ -6,13 +6,7 @@ const { attr, belongsTo, hasMany } = DS;
 export default class Entry extends Model {
   @attr("string") attestedName;
 
-  @attr("string") placeSlug;
-
-  @attr("string") textSlug;
-
   @attr("string") note;
-
-  @attr() userNames;
 
   @attr() properties;
 

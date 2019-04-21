@@ -26,8 +26,6 @@ export default class Text extends Model {
 
   @attr() entrySort;
 
-  @attr() userNames;
-
   @attr() nywalkerProperties;
 
   @hasMany("entry") entries;
