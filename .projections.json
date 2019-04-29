@@ -1,5 +1,5 @@
 {
-  "app/controllers/*js": {
+  "app/controllers/*.js": {
     "type": "controller",
     "alternate": "tests/unit/controllers/{}-test.js"
   },
