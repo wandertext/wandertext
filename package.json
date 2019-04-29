@@ -70,7 +70,7 @@
     "eslint-plugin-node": "^8.0.1",
     "faker": "^4.1.0",
     "ghooks": "^2.0.4",
-    "handlebars": "^4.1.0",
+    "handlebars": "^4.1.2",
     "loader.js": "^4.7.0",
     "sass": "^1.17.2",
     "xo": "^0.24.0"
