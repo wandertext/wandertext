@@ -39,14 +39,6 @@ describe("Integration | Component | entry-form", function() {
     expect(find("#input-attestedName")).to.be.ok;
   });
 
-  it("has an #input-entrySort box with a placeholder of text.entrySort", function() {
-    expect(find("#input-entrySort")).to.be.ok;
-    expect(find("#input-entrySort")).to.have.attribute(
-      "placeholder",
-      this.text.entrySort
-    );
-  });
-
   it("has an input box for each of text.entryProperties", function() {
     this.text.entryProperties.forEach(prop => {
       expect(find(`#input-entryProperty-${prop.name}`)).to.be.ok;
