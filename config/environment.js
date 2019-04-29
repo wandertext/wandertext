@@ -8,7 +8,7 @@ module.exports = function(environment) {
     locationType: "auto",
     emberPouch: {
       localDb: "wandertext-ember-data",
-      remoteDb: "http://admin:admin@localhost:5984/wandertext-ember-data"
+      remoteDb: "http://admin:admin@localhost:5984/wandertext-relational"
     },
     fontawesome: {
       icons: {
