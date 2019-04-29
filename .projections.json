@@ -1,4 +1,8 @@
 {
+  "app/controllers/*js": {
+    "type": "controller",
+    "alternate": "tests/unit/controllers/{}-test.js"
+  },
   "tests/acceptance/*-test.js": {
     "type": "acceptanceTest"
   },
