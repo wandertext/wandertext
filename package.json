@@ -37,7 +37,7 @@
     "ember-bind-helper": "^0.3.2",
     "ember-cli": "github:ember-cli/ember-cli#38b3e16dc7b8989f4297ffc6d94d5d64a3d08ab4",
     "ember-cli-app-version": "^3.2.0",
-    "ember-cli-babel": "^7.6.0",
+    "ember-cli-babel": "^7.7.3",
     "ember-cli-chai": "^0.5.0",
     "ember-cli-code-coverage": "^0.4.2",
     "ember-cli-dependency-checker": "^3.0.0",
