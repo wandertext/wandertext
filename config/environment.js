@@ -10,6 +10,14 @@ module.exports = function(environment) {
       localDb: "wandertext-ember-data",
       remoteDb: "http://admin:admin@localhost:5984/wandertext-relational"
     },
+    torii: {
+      sessionServiceName: "session",
+      providers: {
+        "github-oauth2": {
+          scope: "repo user"
+        }
+      }
+    },
     fontawesome: {
       icons: {
         "free-solid-svg-icons": ["info-circle", "map", "database", "home"],
@@ -43,6 +51,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.torii.providers["github-oauth2"].apiKey =
+      process.env.GITHUB_DEV_CLIENT_ID;
+    ENV.torii.providers["github-oauth2"].redirectUri = "http://localhost:4200";
   }
 
   if (environment === "test") {
@@ -65,6 +76,10 @@ module.exports = function(environment) {
       localDb: "wandertext",
       remoteDb: process.env.COUCHDB
     };
+    ENV.torii.providers["github-oauth2"].apiKey =
+      process.env.GITHUB_PRODUCTION_CLIENT_ID;
+    ENV.torii.providers["github-oauth2"].redirectUri =
+      "http://wandertext.moacir.com";
   }
 
   return ENV;
