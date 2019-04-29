@@ -7,6 +7,6 @@ export default class TextFormComponent extends Component {
 
   @action createText() {
     this.args.model.save();
-    this.router.transitionTo("texts.index");
+    this.router.transitionTo("workbench.texts.index");
   }
 }

@@ -16,13 +16,12 @@ describe("Acceptance | create new Entry", function() {
     this.text.entries.pushObject(createEntry(this.store, this.text));
     this.text.entries.pushObject(createEntry(this.store, this.text));
     await this.text.save();
-    await visit(`/texts/${this.text.slug}/entries/new`);
+    await visit(`/workbench/texts/${this.text.slug}/entries/new`);
   });
 
   it("fills out the form, makes an entry, and saves it.", async function() {
     const randomName = `New York ${faker.random.number()}`;
     await fillIn("#input-attestedName", randomName);
-    await fillIn("#input-entrySort", "25");
     this.text.entryProperties.forEach(async (prop, i) => {
       await fillIn(
         `#input-entryProperty-${prop.name}`,
