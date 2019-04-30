@@ -34,7 +34,7 @@
     "chai-dom": "^1.8.1",
     "ember-ajax": "^5.0.0",
     "ember-auto-import": "^1.2.20",
-    "ember-bind-helper": "^0.3.2",
+    "ember-bind-helper": "^1.0.0",
     "ember-cli": "github:ember-cli/ember-cli#38b3e16dc7b8989f4297ffc6d94d5d64a3d08ab4",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.6.0",
