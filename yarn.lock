@@ -4979,12 +4979,12 @@ ember-basic-dropdown@^1.0.0, ember-basic-dropdown@^1.1.0:
     ember-cli-htmlbars "^3.0.1"
     ember-maybe-in-element "^0.2.0"
 
-ember-bind-helper@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/ember-bind-helper/-/ember-bind-helper-0.3.2.tgz#da9311abeaaea6631a81f646adbe28da249b12fa"
-  integrity sha512-KcBKT/FFg0ZBIQgUmXPbl+GXh52o01nOxHCgberjEhazpP4tMOnvCVmuuEzh6gDoxV7kpQxUjz5fLKxcyl3OhA==
+ember-bind-helper@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-bind-helper/-/ember-bind-helper-1.0.0.tgz#ec0080409336531625553a34e2d8297e824b43d7"
+  integrity sha512-O0lQPw3+nlf+mg7OnqxrC06dlg+GX+jvCAaodt7t2Q6lVqTty4GgNGCJ5ZEEBMP+ZJfJCApyLYw2b0jLkOuAKQ==
   dependencies:
-    ember-cli-babel "^6.16.0"
+    ember-cli-babel "^7.5.0"
 
 ember-cli-app-version@^3.2.0:
   version "3.2.0"
