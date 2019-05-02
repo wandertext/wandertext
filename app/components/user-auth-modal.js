@@ -14,5 +14,6 @@ export default class UserAuthModalComponent extends Component {
   async login() {
     await this.session.authenticate("authenticator:torii", "github");
     this.githubUser = await this.store.findRecord("github-user", "#");
+    this.session.data.authenticated.githubUsername = this.githubUser.login;
   }
 }
