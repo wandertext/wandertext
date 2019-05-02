@@ -1,4 +1,4 @@
-/* eslint array-callback-return: 0 */
+/* eslint max-nested-callbacks: 0, array-callback-return: 0 */
 import EmberRouter from "@ember/routing/router";
 import config from "./config/environment";
 
@@ -8,18 +8,21 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route("texts", function() {
-    this.route("new");
-    this.route("text", { path: ":slug" }, function() {
-      this.route("entries", function() {
-        this.route("new");
+  this.route("workbench", function() {
+    this.route("texts", function() {
+      this.route("new");
+      this.route("text", { path: ":slug" }, function() {
+        this.route("entries", function() {
+          this.route("new");
+        });
       });
     });
   });
-  this.route("places");
   this.route("help");
   this.route("about");
-  this.route("browse", function() {
+  this.route("places");
+  this.route("texts");
+  this.route("view", function() {
     this.route("text", { path: "text/:slug" });
   });
 });

@@ -3,11 +3,11 @@ import { describe, it } from "mocha";
 import { setupTest } from "ember-mocha";
 import { visit, find } from "@ember/test-helpers";
 
-describe("Unit | Route | texts/text/entries/new", function() {
+describe("Unit | Route | workbench/texts/text/entries/new", function() {
   const hooks = setupTest();
 
   hooks.beforeEach(function() {
-    this.route = this.owner.lookup("route:texts/text/entries/new");
+    this.route = this.owner.lookup("route:workbench/texts/text/entries/new");
   });
 
   it("exists", function() {

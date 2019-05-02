@@ -8,12 +8,23 @@ module.exports = function(environment) {
     locationType: "auto",
     emberPouch: {
       localDb: "wandertext-ember-data",
-      remoteDb: "http://admin:admin@localhost:5984/wandertext-ember-data"
+      remoteDb: "http://admin:admin@localhost:5984/wandertext-relational"
+    },
+    torii: {
+      sessionServiceName: "session",
+      providers: {
+        "github-oauth2": {
+          scope: "repo user",
+          apiKey: process.env.GITHUB_DEV_CLIENT_ID,
+          redirectUri: process.env.GITHUB_DEV_REDIRECT_URI,
+          tokenExchangeUri: process.env.DEV_TOKEN_EXCHANGE_URL
+        }
+      }
     },
     fontawesome: {
       icons: {
         "free-solid-svg-icons": ["info-circle", "map", "database", "home"],
-        "free-brands-svg-icons": ["ember"]
+        "free-brands-svg-icons": ["github", "ember"]
       }
     },
     EmberENV: {

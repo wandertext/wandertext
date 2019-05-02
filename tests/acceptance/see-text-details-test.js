@@ -20,11 +20,11 @@ describe("Acceptance | see Text details", function() {
     });
     await this.text.save();
     resumeTest();
-    await visit(`/texts/${this.text.slug}`);
+    await visit(`/workbench/texts/${this.text.slug}`);
   });
 
-  it("can visit /texts/:slug", function() {
-    expect(currentURL()).to.equal(`/texts/${this.text.slug}`);
+  it("can visit /workbench/texts/:slug", function() {
+    expect(currentURL()).to.equal(`/workbench/texts/${this.text.slug}`);
   });
 
   it("shows the Text.name as h3#text-name", function() {

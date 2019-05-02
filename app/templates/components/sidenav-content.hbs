@@ -6,6 +6,18 @@
         <p>{{item.text}}</p>
       {{/paper-item}}
     {{/each}}
+    {{#if this.session.isAuthenticated}}
+      {{#paper-item class="md-2-line" onClick=(action this.logout) }}
+        {{paper-icon "exit_to_app"}}
+        <p>Log Out of @githubuser</p>
+      {{/paper-item}}
+    {{else}}
+      {{#paper-item class="md-2-line" onClick=(action this.showUserAuthModal) }}
+        {{paper-icon "account_circle"}}
+        <p>Log In</p>
+      {{/paper-item}}
+    {{/if}}
   {{/paper-list}}
   {{yield}}
 {{/paper-content}}
+<UserAuthModal @close={{this.closeUserAuthModal}} @shown={{this.showModal}} />
