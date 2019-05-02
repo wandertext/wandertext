@@ -21,8 +21,11 @@ Router.map(function() {
   this.route("help");
   this.route("about");
   this.route("places");
-  this.route("text", { path: "text/:slug" });
   this.route("texts");
+  this.route("login");
+  this.route("view", function() {
+    this.route("text", { path: "text/:slug" });
+  });
 });
 
 export default Router;
