@@ -50,7 +50,7 @@
     "ember-cli-sass": "^10.0.0",
     "ember-cli-showdown": "^4.4.4",
     "ember-cli-sri": "^2.1.1",
-    "ember-cli-template-lint": "^1.0.0-beta.1",
+    "ember-cli-template-lint": "^1.0.0-beta.3",
     "ember-cli-uglify": "^2.1.0",
     "ember-d3": "^0.5.1",
     "ember-data": "github:emberjs/data#1df833396855d956b817540923dd89338463fec2",
