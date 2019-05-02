@@ -22,7 +22,6 @@ Router.map(function() {
   this.route("about");
   this.route("places");
   this.route("texts");
-  this.route("login");
   this.route("view", function() {
     this.route("text", { path: "text/:slug" });
   });
