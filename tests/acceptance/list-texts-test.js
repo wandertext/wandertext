@@ -7,6 +7,8 @@ describe("Acceptance | list texts", function() {
   const hooks = setupApplicationTest();
 
   hooks.beforeEach(async function() {
+    this.session = this.owner.lookup("service:session");
+    this.session.isAuthenticated = true;
     this.store = this.owner.lookup("service:store");
     await [
       {

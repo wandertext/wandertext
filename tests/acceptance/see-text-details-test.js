@@ -9,6 +9,8 @@ describe("Acceptance | see Text details", function() {
 
   hooks.beforeEach(async function() {
     pauseTest();
+    this.session = this.owner.lookup("service:session");
+    this.session.isAuthenticated = true;
     const store = this.owner.lookup("service:store");
     const texts = await store.findAll("text");
     this.text = texts.firstObject;

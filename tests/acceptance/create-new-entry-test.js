@@ -10,6 +10,8 @@ describe("Acceptance | create new Entry", function() {
   const hooks = setupApplicationTest();
 
   hooks.beforeEach(async function() {
+    this.session = this.owner.lookup("service:session");
+    this.session.isAuthenticated = true;
     this.store = this.owner.lookup("service:store");
     this.text = await createText(this.store);
     // Create two dummy entries ahead of time.

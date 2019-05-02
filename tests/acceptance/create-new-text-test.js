@@ -12,7 +12,12 @@ import {
 import faker from "faker";
 
 describe("Acceptance | create new Text", function() {
-  setupApplicationTest();
+  const hooks = setupApplicationTest();
+
+  hooks.beforeEach(async function() {
+    this.session = this.owner.lookup("service:session");
+    this.session.isAuthenticated = true;
+  });
 
   it("includes the text-form component", async function() {
     await visit("/workbench/texts/new");
