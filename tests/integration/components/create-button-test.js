@@ -8,12 +8,11 @@ describe("Integration | Component | create-button", function() {
   const hooks = setupRenderingTest();
 
   hooks.beforeEach(function() {
-    this.set("myAction", val => val);
+    this.myAction = () => true;
   });
 
   it("renders as button.create-button", async function() {
     // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
     await render(hbs`<CreateButton @action={{this.myAction}} />`);
     expect(this.element.querySelector("button.create-button")).to.be.ok;
   });
@@ -22,9 +21,9 @@ describe("Integration | Component | create-button", function() {
     await render(
       hbs`<CreateButton @action={{this.myAction}} @buttonText="Blah" />`
     );
-    expect(
-      this.element.querySelector("button.create-button").textContent.trim()
-    ).to.equal("Create New Blah");
+    expect(this.element.querySelector("button").textContent.trim()).to.equal(
+      "Create New Blah"
+    );
   });
 
   it("gets fed classes in @classes", async function() {
