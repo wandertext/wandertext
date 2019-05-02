@@ -14,14 +14,17 @@ module.exports = function(environment) {
       sessionServiceName: "session",
       providers: {
         "github-oauth2": {
-          scope: "repo user"
+          scope: "repo user",
+          apiKey: process.env.GITHUB_DEV_CLIENT_ID,
+          redirectUri: process.env.GITHUB_DEV_REDIRECT_URI,
+          tokenExchangeUri: process.env.DEV_TOKEN_EXCHANGE_URL
         }
       }
     },
     fontawesome: {
       icons: {
         "free-solid-svg-icons": ["info-circle", "map", "database", "home"],
-        "free-brands-svg-icons": ["ember"]
+        "free-brands-svg-icons": ["github", "ember"]
       }
     },
     EmberENV: {
@@ -51,9 +54,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.torii.providers["github-oauth2"].apiKey =
-      process.env.GITHUB_DEV_CLIENT_ID;
-    ENV.torii.providers["github-oauth2"].redirectUri = "http://localhost:4200";
   }
 
   if (environment === "test") {
@@ -76,10 +76,6 @@ module.exports = function(environment) {
       localDb: "wandertext",
       remoteDb: process.env.COUCHDB
     };
-    ENV.torii.providers["github-oauth2"].apiKey =
-      process.env.GITHUB_PRODUCTION_CLIENT_ID;
-    ENV.torii.providers["github-oauth2"].redirectUri =
-      "http://wandertext.moacir.com";
   }
 
   return ENV;
