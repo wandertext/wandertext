@@ -7,12 +7,12 @@
       {{/paper-item}}
     {{/each}}
     {{#if this.session.isAuthenticated}}
-      {{#paper-item class="md-2-line" onClick=(action this.logout) }}
+      {{#paper-item id="login-button" class="md-2-line" onClick=(action this.logout) }}
         {{paper-icon "exit_to_app"}}
         <p>Log Out of @{{this.session.data.authenticated.githubUsername}}</p>
       {{/paper-item}}
     {{else}}
-      {{#paper-item class="md-2-line" onClick=(action this.showUserAuthModal) }}
+      {{#paper-item id="login-button" class="md-2-line" onClick=(action this.showUserAuthModal) }}
         {{paper-icon "account_circle"}}
         <p>Log In</p>
       {{/paper-item}}
