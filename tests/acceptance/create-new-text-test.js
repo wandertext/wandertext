@@ -1,6 +1,7 @@
 import { describe, it } from "mocha";
 import { expect } from "chai";
 import { setupApplicationTest } from "ember-mocha";
+import { authenticateSession } from "ember-simple-auth/test-support";
 import {
   pauseTest,
   resumeTest,
@@ -15,8 +16,7 @@ describe("Acceptance | create new Text", function() {
   const hooks = setupApplicationTest();
 
   hooks.beforeEach(async function() {
-    this.session = this.owner.lookup("service:session");
-    this.session.isAuthenticated = true;
+    authenticateSession();
   });
 
   it("includes the text-form component", async function() {

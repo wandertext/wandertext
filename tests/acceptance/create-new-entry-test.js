@@ -2,6 +2,7 @@ import { describe, it } from "mocha";
 import { expect } from "chai";
 import { setupApplicationTest } from "ember-mocha";
 import { visit, click, fillIn } from "@ember/test-helpers";
+import { authenticateSession } from "ember-simple-auth/test-support";
 import faker from "faker";
 import createText from "../helpers/create-text";
 import createEntry from "../helpers/create-entry";
@@ -10,8 +11,7 @@ describe("Acceptance | create new Entry", function() {
   const hooks = setupApplicationTest();
 
   hooks.beforeEach(async function() {
-    this.session = this.owner.lookup("service:session");
-    this.session.isAuthenticated = true;
+    authenticateSession();
     this.store = this.owner.lookup("service:store");
     this.text = await createText(this.store);
     // Create two dummy entries ahead of time.

@@ -1,6 +1,7 @@
 import { describe, it } from "mocha";
 import { expect } from "chai";
 import { setupApplicationTest } from "ember-mocha";
+import { authenticateSession } from "ember-simple-auth/test-support";
 import { pauseTest, resumeTest, visit, currentURL } from "@ember/test-helpers";
 import faker from "faker";
 
@@ -8,9 +9,8 @@ describe("Acceptance | see Text details", function() {
   const hooks = setupApplicationTest();
 
   hooks.beforeEach(async function() {
+    authenticateSession();
     pauseTest();
-    this.session = this.owner.lookup("service:session");
-    this.session.isAuthenticated = true;
     const store = this.owner.lookup("service:store");
     const texts = await store.findAll("text");
     this.text = texts.firstObject;

@@ -1,14 +1,14 @@
 import { describe, it } from "mocha";
 import { expect } from "chai";
 import { setupApplicationTest } from "ember-mocha";
+import { authenticateSession } from "ember-simple-auth/test-support";
 import { visit, currentURL } from "@ember/test-helpers";
 
 describe("Acceptance | list texts", function() {
   const hooks = setupApplicationTest();
 
   hooks.beforeEach(async function() {
-    this.session = this.owner.lookup("service:session");
-    this.session.isAuthenticated = true;
+    authenticateSession();
     this.store = this.owner.lookup("service:store");
     await [
       {
