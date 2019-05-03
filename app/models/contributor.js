@@ -3,7 +3,7 @@ import DS from "ember-data";
 
 const { attr, hasMany } = DS;
 
-export default class User extends Model {
+export default class Contributor extends Model {
   @attr("string") username;
 
   @attr("string", { defaultValue: "github" }) authentication; // "github" or "uni"

@@ -16,7 +16,7 @@ export default class Entry extends Model {
 
   @belongsTo("text") text;
 
-  @hasMany("user") users;
+  @hasMany("contributor") contributors;
 
   @hasMany("flag") flags;
 

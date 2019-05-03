@@ -17,8 +17,8 @@ Router.map(function() {
         });
       });
     });
-    this.route("users", function() {
-      this.route("user", { path: ":username" });
+    this.route("contributors", function() {
+      this.route("contributor", { path: ":username" });
       this.route("new");
     });
   });

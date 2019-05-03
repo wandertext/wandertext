@@ -12,7 +12,7 @@ export default class Flag extends Model {
 
   @attr() nywalkerProperties;
 
-  @belongsTo("user") user;
+  @belongsTo("contributor") contributor;
 
   @belongsTo("text") text;
 

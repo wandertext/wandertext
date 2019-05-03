@@ -30,7 +30,7 @@ export default class Text extends Model {
 
   @hasMany("entry") entries;
 
-  @hasMany("user") users;
+  @hasMany("contributor") contributors;
 
   @hasMany("flag") flags;
 
