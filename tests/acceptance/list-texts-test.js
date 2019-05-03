@@ -27,7 +27,7 @@ describe("Acceptance | list texts", function() {
     expect(currentURL()).to.equal("/workbench/texts");
   });
 
-  it("includes a “Texts” h2", async function() {
+  it.skip("includes a “Texts” h2", async function() {
     await visit("/workbench/texts");
     expect(this.element.querySelector("h2").textContent).to.equal("Texts");
   });

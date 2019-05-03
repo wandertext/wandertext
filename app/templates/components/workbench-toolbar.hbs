@@ -1,0 +1,11 @@
+{{#paper-toolbar as |toolbar|}}
+  {{#toolbar.tools}}
+    <h2>
+      Wandertext Workbench
+    </h2>
+    <span class="flex"></span>
+      {{#paper-button id="sidenav-button" fab=true mini=true accent=true raised=true iconButton=true onClick=this.toggleAction}}
+        {{{ this.card.logo }}}
+      {{/paper-button}} 
+  {{/toolbar.tools}}
+{{/paper-toolbar}}

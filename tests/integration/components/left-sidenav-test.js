@@ -4,24 +4,15 @@ import { setupRenderingTest } from "ember-mocha";
 import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
-describe("Integration | Component | left-sidebar", function() {
+describe("Integration | Component | left-sidenav", function() {
   setupRenderingTest();
 
   it.skip("renders", async function() {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<LeftSidebar />`);
+    await render(hbs`<LeftSidenav />`);
 
     expect(this.element.textContent.trim()).to.equal("");
-
-    // Template block usage:
-    await render(hbs`
-      <LeftSidebar>
-        template block text
-      </LeftSidebar>
-    `);
-
-    expect(this.element.textContent.trim()).to.equal("template block text");
   });
 });

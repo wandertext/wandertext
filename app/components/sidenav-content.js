@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 
-export default class SidebarContentComponent extends Component {
+export default class SidenavContentComponent extends Component {
   @service sidenav;
 
   @service session;
@@ -16,12 +16,12 @@ export default class SidebarContentComponent extends Component {
   }
 
   @action
-  showUserAuthModal() {
+  showContributorAuthModal() {
     this.showModal = true;
   }
 
   @action
-  closeUserAuthModal() {
+  closeContributorAuthModal() {
     this.showModal = false;
   }
 }

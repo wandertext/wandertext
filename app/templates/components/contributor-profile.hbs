@@ -1,0 +1,13 @@
+{{#paper-card as |card|}}
+  {{#card.title as |title|}}
+    {{#title.text as |text|}}
+      {{#text.headline}}{{@model.firstName}} {{@model.lastName}}{{/text.headline}}
+      {{#text.subhead}}
+        <a href="http://github.com/{{@model.username}}">@{{@model.username}}</a>
+      {{/text.subhead}}
+    {{/title.text}}
+    {{#if this.isMe}}
+      {{title.media size="lg" src=this.session.data.authenticated.githubAvatarUrl alt=(concat "GitHub Avatar for @" @model.username) title=(concat "GitHub Avatar for @" @model.username)}}
+    {{/if}}
+  {{/card.title}}
+{{/paper-card}}

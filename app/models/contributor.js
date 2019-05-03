@@ -8,6 +8,8 @@ export default class Contributor extends Model {
 
   @attr("string", { defaultValue: "github" }) authentication; // "github" or "uni"
 
+  @attr("string", { defaultValue: "" }) githubAvatarUrl;
+
   @attr("string") firstName;
 
   @attr("string") lastName;

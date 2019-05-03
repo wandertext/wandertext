@@ -23,6 +23,6 @@ describe("Acceptance | sidenav login", function() {
     await visit("/");
     await click("#sidenav-button");
     await waitFor("#login-button");
-    expect(find("#login-button")).to.contain.text("Log Out of @");
+    expect(find("#login-button")).to.contain.text("Log Out @");
   });
 });
