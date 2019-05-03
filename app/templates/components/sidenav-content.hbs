@@ -7,6 +7,10 @@
       {{/paper-item}}
     {{/each}}
     {{#if this.session.isAuthenticated}}
+      {{#paper-item id="edit" class="md-2-line" href=(href-to "workbench") }}
+        {{paper-icon "edit"}}
+        <p>Wandertext Workbench</p>
+      {{/paper-item}}
       {{#paper-item id="login-button" class="md-2-line" onClick=(action this.logout) }}
         {{paper-icon "exit_to_app"}}
         <p>Log Out @{{this.currentContributor.contributor.username}}</p>
