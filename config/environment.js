@@ -76,6 +76,12 @@ module.exports = function(environment) {
       localDb: "wandertext",
       remoteDb: process.env.COUCHDB
     };
+    ENV.torii.providers["github-oauth2"].apiKey =
+      process.env.GITHUB_PRODUCTION_CLIENT_ID;
+    ENV.torii.providers["github-oauth2"].redirectUri =
+      process.env.GITHUB_PRODUCTION_REDIRECT_URI;
+    ENV.torii.providers["github-oauth2"].tokenExchangeUri =
+      process.env.PRODUCTION_TOKEN_EXCHANGE_URL;
   }
 
   return ENV;
