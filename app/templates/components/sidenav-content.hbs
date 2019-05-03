@@ -9,7 +9,7 @@
     {{#if this.session.isAuthenticated}}
       {{#paper-item id="login-button" class="md-2-line" onClick=(action this.logout) }}
         {{paper-icon "exit_to_app"}}
-        <p>Log Out @{{this.session.data.authenticated.githubUsername}}</p>
+        <p>Log Out @{{this.currentContributor.contributor.username}}</p>
       {{/paper-item}}
     {{else}}
       {{#paper-item id="login-button" class="md-2-line" onClick=(action this.showContributorAuthModal) }}

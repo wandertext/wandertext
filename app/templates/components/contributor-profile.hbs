@@ -7,7 +7,7 @@
       {{/text.subhead}}
     {{/title.text}}
     {{#if this.isMe}}
-      {{title.media size="lg" src=this.session.data.authenticated.githubAvatarUrl alt=(concat "GitHub Avatar for @" @model.username) title=(concat "GitHub Avatar for @" @model.username)}}
+      {{title.media size="lg" src=this.currentContributor.contributor.githubAvatarUrl alt=(concat "GitHub Avatar for @" @model.username) title=(concat "GitHub Avatar for @" @model.username)}}
     {{/if}}
   {{/card.title}}
 {{/paper-card}}

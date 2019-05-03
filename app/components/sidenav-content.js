@@ -8,6 +8,8 @@ export default class SidenavContentComponent extends Component {
 
   @service session;
 
+  @service currentContributor;
+
   @tracked showModal = false;
 
   @action
