@@ -18,7 +18,7 @@ Router.map(function() {
       });
     });
     this.route("users", function() {
-      this.route("user");
+      this.route("user", { path: ":username" });
       this.route("new");
     });
   });
