@@ -17,6 +17,10 @@ Router.map(function() {
         });
       });
     });
+    this.route("users", function() {
+      this.route("user");
+      this.route("new");
+    });
   });
   this.route("help");
   this.route("about");
