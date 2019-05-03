@@ -14,10 +14,7 @@ module.exports = function(environment) {
       sessionServiceName: "session",
       providers: {
         "github-oauth2": {
-          scope: "repo user",
-          apiKey: process.env.GITHUB_DEV_CLIENT_ID,
-          redirectUri: process.env.GITHUB_DEV_REDIRECT_URI,
-          tokenExchangeUri: process.env.DEV_TOKEN_EXCHANGE_URL
+          scope: "repo user"
         }
       }
     },
@@ -54,6 +51,12 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.torii.providers["github-oauth2"].apiKey =
+      process.env.GITHUB_DEV_CLIENT_ID;
+    ENV.torii.providers["github-oauth2"].redirectUri =
+      process.env.GITHUB_DEV_REDIRECT_URI;
+    ENV.torii.providers["github-oauth2"].tokenExchangeUri =
+      process.env.DEV_TOKEN_EXCHANGE_URL;
   }
 
   if (environment === "test") {
@@ -62,6 +65,13 @@ module.exports = function(environment) {
     ENV.emberPouch.localDb = "wandertext-ember-data-test";
     // ENV.emberPouch.remoteDb = "http://admin:admin@localhost:5984/wandertext-ember-data-test"
     ENV.emberPouch.remoteDb = null;
+
+    ENV.torii.providers["github-oauth2"].apiKey =
+      process.env.GITHUB_DEV_CLIENT_ID;
+    ENV.torii.providers["github-oauth2"].redirectUri =
+      process.env.GITHUB_DEV_REDIRECT_URI;
+    ENV.torii.providers["github-oauth2"].tokenExchangeUri =
+      process.env.DEV_TOKEN_EXCHANGE_URL;
 
     // Keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
