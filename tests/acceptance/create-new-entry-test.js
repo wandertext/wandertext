@@ -13,6 +13,13 @@ describe("Acceptance | create new Entry", function() {
   hooks.beforeEach(async function() {
     authenticateSession();
     this.store = this.owner.lookup("service:store");
+    this.currentContributor = this.owner.lookup("service:currentContributor");
+    this.currentContributor.contributor = {
+      username: "github-username",
+      id: "contrib-id",
+      firstName: "contrib-first",
+      lastName: "contrib-last"
+    };
     this.text = await createText(this.store);
     // Create two dummy entries ahead of time.
     this.text.entries.pushObject(createEntry(this.store, this.text));

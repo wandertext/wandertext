@@ -11,6 +11,13 @@ describe("Acceptance | see Text details", function() {
   hooks.beforeEach(async function() {
     authenticateSession();
     pauseTest();
+    this.currentContributor = this.owner.lookup("service:currentContributor");
+    this.currentContributor.contributor = {
+      username: "github-username",
+      id: "contrib-id",
+      firstName: "contrib-first",
+      lastName: "contrib-last"
+    };
     const store = this.owner.lookup("service:store");
     const texts = await store.findAll("text");
     this.text = texts.firstObject;

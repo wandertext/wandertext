@@ -17,6 +17,13 @@ describe("Acceptance | create new Text", function() {
 
   hooks.beforeEach(async function() {
     authenticateSession();
+    this.currentContributor = this.owner.lookup("service:currentContributor");
+    this.currentContributor.contributor = {
+      username: "github-username",
+      id: "contrib-id",
+      firstName: "contrib-first",
+      lastName: "contrib-last"
+    };
   });
 
   it("includes the text-form component", async function() {

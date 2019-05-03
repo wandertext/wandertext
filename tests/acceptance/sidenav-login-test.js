@@ -20,6 +20,13 @@ describe("Acceptance | sidenav login", function() {
 
   it("sees the logout sidenav button when logged in", async function() {
     authenticateSession();
+    this.currentContributor = this.owner.lookup("service:currentContributor");
+    this.currentContributor.contributor = {
+      username: "github-username",
+      id: "contrib-id",
+      firstName: "contrib-first",
+      lastName: "contrib-last"
+    };
     await visit("/");
     await click("#sidenav-button");
     await waitFor("#login-button");
