@@ -14,7 +14,7 @@ export default class Contributor extends Model {
 
   @attr("boolean", { defaultValue: false }) enabled;
 
-  @attr("boolean", { defaultValue: false }) superUser;
+  @attr("boolean", { defaultValue: false }) editor;
 
   @attr("boolean", { defaultValue: false }) admin;
 
