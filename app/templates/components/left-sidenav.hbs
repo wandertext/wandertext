@@ -1,12 +1,14 @@
 {{#paper-sidenav class="md-whiteframe-z2" name="left" position="left" open=sidebarOpen lockedOpen=false onToggle=(action (mut sidebarOpen)) }}
-  <PaperToolbar>
+  {{#paper-toolbar accent=true}}
     <PaperToolbarTools>
-      <span style="font-family: 'Herr Von Muellerhoff';">Wandertext</span>
+      <h2 class="dark-blue">
+        Wandertext Navigation
+      </h2>
     </PaperToolbarTools>
-  </PaperToolbar>
+  {{/paper-toolbar}}
   <SidenavContent>
     {{yield}}
   </SidenavContent>
-  <PaperDivider inset=true />
+  {{paper-divider inset=true}}
   <SidenavFooter />
 {{/paper-sidenav}}
