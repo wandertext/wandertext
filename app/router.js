@@ -21,6 +21,7 @@ Router.map(function() {
       this.route("contributor", { path: ":username" });
       this.route("new");
     });
+    this.route("places");
   });
   this.route("help");
   this.route("about");

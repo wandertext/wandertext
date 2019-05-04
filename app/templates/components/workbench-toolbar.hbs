@@ -4,6 +4,12 @@
       Wandertext Workbench
     </h2>
     <span class="flex"></span>
+      {{#paper-button accent=true raised=true href=(href-to "workbench.texts")}}
+        <span class="dark-blue">Texts</span>
+      {{/paper-button}}
+      {{#paper-button accent=true raised=true href=(href-to "workbench.places")}}
+        <span class="dark-blue">Places</span>
+      {{/paper-button}}
       {{#paper-button id="sidenav-button" fab=true mini=true accent=true raised=true iconButton=true onClick=this.toggleAction}}
         {{{ this.card.logo }}}
       {{/paper-button}} 
