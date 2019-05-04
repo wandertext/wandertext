@@ -1,4 +1,7 @@
 <div id="main" class="flex layout-column" tabindex="-1" role="main">
-  <WorkbenchToolbar />
-  {{outlet}}
+  {{#paper-card}}
+    <WorkbenchToolbar />
+  {{/paper-card}}
+
+  {{ outlet }}
 </div>

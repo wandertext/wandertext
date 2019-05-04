@@ -1,8 +1,8 @@
 {{#paper-card as |card|}}
   {{#card.title as |title|}}
     {{#title.text as |text|}}
-      {{#text.headline}}{{@model.firstName}} {{@model.lastName}}{{/text.headline}}
-      {{#text.subhead}}
+      {{#text.headline id="card-headline"}}{{@model.firstName}} {{@model.lastName}}{{/text.headline}}
+      {{#text.subhead id="card-subhead"}}
         <a href="http://github.com/{{@model.username}}">@{{@model.username}}</a>
       {{/text.subhead}}
     {{/title.text}}
