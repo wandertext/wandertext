@@ -10,4 +10,47 @@
       {{title.media size="lg" src=this.currentContributor.contributor.githubAvatarUrl alt=(concat "GitHub Avatar for @" @model.username) title=(concat "GitHub Avatar for @" @model.username)}}
     {{/if}}
   {{/card.title}}
+
+  {{#card.content}}
+    {{#paper-expansion-panel expanded=false as |panel|}}
+      {{#panel.collapsed rippleInkColor="green"}}
+        <div class="md-panel-title">Texts</div>
+        <div class="md-panel-summary"></div>
+        {{paper-icon "keyboard_arrow_down"}}
+      {{/panel.collapsed}}
+
+      {{#panel.expanded as |expanded|}}
+        {{#expanded.header}}
+          <div class="md-panel-title">Texts</div>
+          <div class="md-panel-summary"></div>
+          {{paper-icon "keyboard_arrow_up"}}
+        {{/expanded.header}}
+
+        {{#expanded.content}}
+        Texts List
+        {{/expanded.content}}
+
+      {{/panel.expanded}}
+    {{/paper-expansion-panel}}
+    {{#paper-expansion-panel expanded=false as |panel|}}
+      {{#panel.collapsed rippleInkColor="green"}}
+        <div class="md-panel-title">Places</div>
+        <div class="md-panel-summary"></div>
+        {{paper-icon "keyboard_arrow_down"}}
+      {{/panel.collapsed}}
+
+      {{#panel.expanded as |expanded|}}
+        {{#expanded.header}}
+          <div class="md-panel-title">Places</div>
+          <div class="md-panel-summary"></div>
+          {{paper-icon "keyboard_arrow_up"}}
+        {{/expanded.header}}
+
+        {{#expanded.content}}
+        Places List
+        {{/expanded.content}}
+
+      {{/panel.expanded}}
+    {{/paper-expansion-panel}}
+  {{/card.content}}
 {{/paper-card}}
