@@ -1,5 +1,10 @@
-<div class="text-listing md-list-item-text">
-  <h3>{{#link-to workbench.texts.show @text.slug}}{{@text.name}}{{/link-to}}</h3>
+{{#if @text.imgSrc}}
+  <img src={{@text.imgSrc}} alt={{@text.name}} class="md-avatar">
+{{else}}
+  {{paper-icon "book" class="md-avatar"}}
+{{/if}}
+<div class="md-list-item-text">
+  <h3>{{#link-to workbench.texts.text @text.slug}}{{@text.name}}{{/link-to}}</h3>
   <h4>{{@text.slug}}</h4>
 </div>
 

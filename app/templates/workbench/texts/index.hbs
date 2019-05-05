@@ -2,14 +2,10 @@
   {{#card.title as |title|}}
     {{#title.text as |text|}}
       {{#text.headline id="card-headline"}}Texts{{/text.headline}}
-      <h2>Texts</h2>
-      <p>{{#link-to "workbench.texts.new"}}New text{{/link-to}}</p>
     {{/title.text}}
-    {{#if this.isMe}}
-      {{title.media size="lg" src=this.currentContributor.contributor.githubAvatarUrl alt=(concat "GitHub Avatar for @" @model.username) title=(concat "GitHub Avatar for @" @model.username)}}
-    {{/if}}
   {{/card.title}}
   {{#card.content}}
+    <p>{{#link-to "workbench.texts.new"}}New text{{/link-to}}</p>
     <TextList @texts={{this.model}} />
   {{/card.content}}
 {{/paper-card}}

@@ -9,5 +9,4 @@ export default class ContributorProfileComponent extends Component {
       this.args.model.username === this.currentContributor.contributor.username
     );
   }
-
 }
