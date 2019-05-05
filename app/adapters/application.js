@@ -42,13 +42,5 @@ export default class ApplicationAdapter extends Adapter {
         type: "json"
       }
     });
-    this.db.createIndex({
-      index: {
-        fields: ["data.text", "_id"],
-        name: "data-text",
-        ddoc: "data-text",
-        type: "json"
-      }
-    });
   }
 }
