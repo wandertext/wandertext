@@ -30,6 +30,7 @@ Router.map(function() {
   this.route("view", function() {
     this.route("text", { path: "text/:slug" });
   });
+  this.route("login");
 });
 
 export default Router;
