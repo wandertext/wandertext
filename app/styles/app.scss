@@ -1,24 +1,26 @@
-@import "./colors";
-@import "./fonts";
-@import "ember-paper";
-@import "ember-paper-expansion-panel";
-@import "./links";
-@import "./leaflet";
-@import "./the-map";
-@import "./zoom-control";
-@import "./floating-box";
-@import "./svg";
+@import "tailwind";
+
+// @import "./colors";
+// @import "./fonts";
+// @import "ember-paper";
+// @import "ember-paper-expansion-panel";
+// @import "./links";
+// @import "./leaflet";
+// @import "./the-map";
+// @import "./zoom-control";
+// @import "./floating-box";
+// @import "./svg";
 
 html, body {
   height: 100%;
   width: 100%;
 }
 
-body {
-  background: paper-color($accent, '500');
-  background-image: linear-gradient(paper-color($accent, '200'), paper-color($accent, '800'));
-}
+// body {
+//   background: paper-color($accent, '500');
+//   background-image: linear-gradient(paper-color($accent, '200'), paper-color($accent, '800'));
+// }
 
-.dark-blue {
-  color: paper-color($primary, '500');
-}
+// .dark-blue {
+//   color: paper-color($primary, '500');
+// }
