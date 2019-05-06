@@ -1,18 +1,22 @@
 {{#paper-card as |card|}}
-  {{#card.title as |title|}}
-    {{#title.text as |text|}}
-      {{#text.headline id="card-headline"}}{{ this.model.name }}{{/text.headline}}
-    {{/title.text}}
-    {{#if this.model.imgSrc}}
-      {{title.media size="lg" src=this.model.imgSrc alt=this.model.name title=this.model.name}}
-    {{/if}}
-  {{/card.title}}
-  {{#card.content}}
-    <div id="overview-content">
-      {{#if this.model.markdownBlurb }}
-        {{markdown-to-html this.model.markdownBlurb }}
+  {{#if this.model.isRunning}}
+    {{paper-progress-circular}}
+  {{else}}
+    {{#card.title as |title|}}
+      {{#title.text as |text|}}
+        {{#text.headline id="card-headline"}}{{ this.model.name }}{{/text.headline}}
+      {{/title.text}}
+      {{#if this.model.imgSrc}}
+        {{title.media size="lg" src=this.model.imgSrc alt=this.model.name title=this.model.name}}
       {{/if}}
-    </div>
-    {{outlet}}
-  {{/card.content}}
+    {{/card.title}}
+    {{#card.content}}
+      <div id="overview-content">
+        {{#if this.model.markdownBlurb }}
+          {{markdown-to-html this.model.markdownBlurb }}
+        {{/if}}
+      </div>
+      {{outlet}}
+    {{/card.content}}
+  {{/if}}
 {{/paper-card}}
