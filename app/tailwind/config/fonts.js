@@ -33,11 +33,9 @@ export default {
     "sans-serif"
   ],
   serif: [
-    "Constantia",
-    "Lucida Bright",
-    "Lucidabright",
-    "Lucida Serif",
-    "Lucida",
+    "Adobe Garamond",
+    "EB Garamond",
+    "Garamond",
     "DejaVu Serif",
     "Bitstream Vera Serif",
     "Liberation Serif",
@@ -45,11 +43,32 @@ export default {
     "serif"
   ],
   mono: [
+    "Source Code Pro",
     "Menlo",
     "Monaco",
     "Consolas",
     "Liberation Mono",
     "Courier New",
     "monospace"
-  ]
+  ],
+  nastaliq: [
+    "IranNastaliq",
+    "Urdu Emad Nastaleeq",
+    "Noto Nastaliq Urdu",
+    "Noto Nastaliq Urdu Draft",
+    "Awami Nastaliq",
+    "Awami Nastaliq Beta3",
+    "Awami Nastaliq Beta2",
+    "Awami Nastaliq Beta1",
+    "Urdu Typesetting",
+    "Jameel Noori Nastaleeq",
+    "Hussaini Nastaleeq",
+    "AlQalam Taj Nastaleeq",
+    "Nafees Nastaleeq",
+    "Nafees Nastaleeq v1.01",
+    "Pak Nastaleeq",
+    "PDMS_Jauhar",
+    "Alvi Lahori Nastaleeq"
+  ],
+  title: ["Trajan Pro", "Cinzel", "serif"]
 };

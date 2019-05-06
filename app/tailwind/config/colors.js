@@ -97,5 +97,21 @@ export default {
   pink: "#f66d9b",
   "pink-light": "#fa7ea8",
   "pink-lighter": "#ffbbca",
-  "pink-lightest": "#ffebef"
+  "pink-lightest": "#ffebef",
+
+  "primary-darkest": "#002084",
+  "primary-darker": "#00278e",
+  "primary-dark": "#002e98",
+  primary: "#0033a0",
+  "primary-light": "#2652ae",
+  "primary-lighter": "#4d70bd",
+  "primary-lightest": "#8099d0",
+
+  "accent-darkest": "#a2cae2",
+  "accent-darker": "#aacfe5",
+  "accent-dark": "#b2d5e9",
+  accent: "#b9d9eb",
+  "accent-light": "#c4dfee",
+  "accent-lighter": "#cee4f1",
+  "accent-lightest": "#dcecf5"
 };

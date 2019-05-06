@@ -1,3 +1,4 @@
+/* eslint prefer-object-spread: 0 */
 import colors from "./colors";
 
 /*
@@ -18,4 +19,4 @@ import colors from "./colors";
 |
 */
 
-export default { default: colors["grey-light"], ...colors };
+export default Object.assign({ default: colors["grey-light"] }, colors);
