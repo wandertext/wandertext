@@ -5,10 +5,6 @@
   max-height: 100%;
   overflow-y: hidden;
 
-  .md-button:not([disabled]):hover {
-    background-color: RGBA(var(--accent-700), 0.2);
-  }
-
   md-card-content {
     padding: 0;
 

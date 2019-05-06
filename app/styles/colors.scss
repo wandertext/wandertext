@@ -1,54 +1,15 @@
-$primary: (
-    '50' : #e0e7f4,
-    '100' : #b3c2e3,
-    '200' : #8099d0,
-    '300' : #4d70bd,
-    '400' : #2652ae,
-    '500' : #0033a0,
-    '600' : #002e98,
-    '700' : #00278e,
-    '800' : #002084,
-    '900' : #001473,
-    'A100' : #a1abff,
-    'A200' : #6e7dff,
-    'A400' : #3b4fff,
-    'A700' : #2238ff,
-    'contrastDefaultColor': #ffffff,
-    'contrastLightColors': ('500', '600', '700', '800', '900'),
-    'contrastStrongLightColors': ('500', '600', '700')
-); 
+$primary-darkest: "#002084";
+$primary-darker: "#00278e";
+$primary-dark: "#002e98";
+$primary: "#0033a0";
+$primary-light: "#2652ae";
+$primary-lighter: "#4d70bd";
+$primary-lightest: "#8099d0";
 
-$accent: (
-  '50': #f7fafd,
-  '100': #eaf4f9,
-  '200': #dcecf5,
-  '300': #cee4f1,
-  '400': #c4dfee,
-  '500': #b9d9eb,
-  '600': #b2d5e9,
-  '700': #aacfe5,
-  '800': #a2cae2,
-  '900': #93c0dd,
-  'A100': #ffffff,
-  'A200': #ffffff,
-  'A400': #ffffff,
-  'A700': #f6fcff,
-  'contrastDefaultColor': 'light',
-  'contrastDarkColors': (
-    '50',
-    '100',
-    '200',
-    '300',
-    '400',
-    '500',
-    '600',
-    '700',
-    '800',
-    '900',
-    'A100',
-    'A200',
-    'A400',
-    'A700'
-  ),
-  'contrastLightColors': ()
-);
+$accent-darkest: "#a2cae2";
+$accent-darker: "#aacfe5";
+$accent-dark: "#b2d5e9";
+$accent: "#b9d9eb";
+$accent-light: "#c4dfee";
+$accent-lighter: "#cee4f1";
+$accent-lightest: "#dcecf5";
