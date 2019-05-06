@@ -1,11 +1,18 @@
-<h3 id="text-name">{{ this.model.name }}</h3>
-<h4>{{ this.model.slug }}</h4>
-<h4>{{ this.model.entrySort }}</h4>
-<p>
-  {{#link-to "workbench.texts.text.entries" this.model }}
-    <button id="show-entries-button">
-      Show Entries
-    </button>
-  {{/link-to}}
-</p>
-{{outlet}}
+{{#paper-card as |card|}}
+  {{#card.title as |title|}}
+    {{#title.text as |text|}}
+      {{#text.headline id="card-headline"}}{{ this.model.name }}{{/text.headline}}
+    {{/title.text}}
+    {{#if this.model.imgSrc}}
+      {{title.media size="lg" src=this.model.imgSrc alt=this.model.name title=this.model.name}}
+    {{/if}}
+  {{/card.title}}
+  {{#card.content}}
+    <div id="overview-content">
+      {{#if this.model.markdownBlurb }}
+        {{markdown-to-html this.model.markdownBlurb }}
+      {{/if}}
+    </div>
+    {{outlet}}
+  {{/card.content}}
+{{/paper-card}}
