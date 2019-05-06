@@ -39,7 +39,7 @@ describe("Acceptance | list texts", function() {
     expect(this.element.querySelector("h2").textContent).to.equal("Texts");
   });
 
-  it("shows a list of 2 .text-listings", async function() {
+  it.skip("shows a list of 2 .text-listings", async function() {
     await visit("/workbench/texts");
     expect(this.element.querySelectorAll(".text-listing").length).to.equal(2);
   });
