@@ -28,7 +28,7 @@ export default class Contributor extends Model {
 
   @hasMany("place") places;
 
-  @hasMany("text") texts;
+  @hasMany("text", { async: false }) texts;
 
   @attr("date") createdOn;
 
