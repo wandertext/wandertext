@@ -7,7 +7,7 @@ export default class WorkbenchContributorsContributorRoute extends Route.extend(
   async model({ username }) {
     const contributors = await this.store.loadRecords("contributor", {
       filter: { username }
-    })
-    return contributors.firstObject; 
+    });
+    return contributors.firstObject;
   }
 }

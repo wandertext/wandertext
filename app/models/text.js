@@ -28,9 +28,9 @@ export default class Text extends Model {
 
   @attr() nywalkerProperties;
 
-  @hasMany("entry") entries;
+  @hasMany("entry", { async: false }) entries;
 
-  @hasMany("contributor") contributors;
+  @hasMany("contributor", { async: false }) contributors;
 
   @hasMany("flag") flags;
 

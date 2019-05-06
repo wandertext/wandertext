@@ -26,7 +26,7 @@ export default class Contributor extends Model {
 
   @hasMany("flag") flags;
 
-  @hasMany("place") places;
+  @hasMany("place", { async: false }) places;
 
   @hasMany("text", { async: false }) texts;
 
