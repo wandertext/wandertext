@@ -4,10 +4,10 @@ import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-rout
 export default class WorkbenchContributorsContributorRoute extends Route.extend(
   AuthenticatedRouteMixin
 ) {
-  model({ username }) {
-    return this.store.queryRecord("contributor", {
-      filter: { username },
-      include: "texts"
-    });
+  async model({ username }) {
+    const contributors = await this.store.loadRecords("contributor", {
+      filter: { username }
+    })
+    return contributors.firstObject; 
   }
 }
