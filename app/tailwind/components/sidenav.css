@@ -1,0 +1,3 @@
+.sidenav {
+  @apply .shadow-md .flex .flex-col .pin-t .pin-l .absolute .z-50 .h-screen .w-64 .max-w-xs .bg-grey-lightest
+}
