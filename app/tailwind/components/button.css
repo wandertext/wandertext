@@ -1,0 +1,11 @@
+.btn {
+  @apply .py-2 .px-4 .border .rounded .shadow
+}
+
+.btn-primary {
+  @apply .bg-primary .text-grey-lightest .border-primary-darkest
+}
+
+.btn-primary:hover {
+  @apply .bg-primary-dark .border-primary-lightest .text-white
+}
