@@ -42,7 +42,7 @@
     "type": "component",
     "alternate": "app/templates/components/{}.hbs"
   },
-  "app/styles/*.scss": {
+  "app/tailwind/*.css": {
     "type": "sass"
   },
   "app/router.js": {
