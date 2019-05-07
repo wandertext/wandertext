@@ -1,0 +1,4 @@
+#floating-box {
+  @apply .flex .flex-col .flex-grow .flex-shrink .absolute .z-40 .max-h-full .overflow-y-hidden .shadow-lg .mt-8 .ml-8
+}
+

@@ -1,18 +1,8 @@
-<div id="floating-box" class="layout-column flex-xs flex-gt-xs-50">
-  {{#paper-card as |card|}}
-    {{#paper-toolbar}}
-      {{#paper-toolbar-tools}}
-        <h2>
-          {{{this.card.title}}}
-        </h2>
-        <span class="flex"></span>
-          {{#paper-button id="sidenav-button" fab=true mini=true accent=true raised=true iconButton=true onClick=this.toggleAction}}
-            {{{ this.card.logo }}}
-          {{/paper-button}} 
-      {{/paper-toolbar-tools}}
-    {{/paper-toolbar}}
-    {{#card.content class="layout-row layout-align-space-between"}}
+<div id="floating-box" class="md:w-1/2 w-full">
+  <Card class="w-full">
+    <Toolbar @heading="Wandertext"></Toolbar>
+    <div class="card-content opacity-75">
       {{yield}}
-    {{/card.content}}
-  {{/paper-card}}
+    </div>
+  </Card>
 </div>
