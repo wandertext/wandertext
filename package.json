@@ -83,7 +83,7 @@
     "node": "8.* || >= 10.*"
   },
   "dependencies": {
-    "leaflet": "^1.4.0"
+    "leaflet": "^1.5.0"
   },
   "xo": {
     "envs": [
