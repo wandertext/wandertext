@@ -1,22 +1,21 @@
-{{#paper-card as |card|}}
+<Card>
   {{#if this.model.isRunning}}
     {{paper-progress-circular}}
   {{else}}
-    {{#card.title as |title|}}
-      {{#title.text as |text|}}
-        {{#text.headline id="card-headline"}}{{ this.model.name }}{{/text.headline}}
-      {{/title.text}}
-      {{#if this.model.imgSrc}}
-        {{title.media size="lg" src=this.model.imgSrc alt=this.model.name title=this.model.name}}
-      {{/if}}
-    {{/card.title}}
-    {{#card.content}}
-      <div id="overview-content">
+    <h2>{{ this.model.name }}</h2>
+      <div>
         {{#if this.model.markdownBlurb }}
           {{markdown-to-html this.model.markdownBlurb }}
         {{/if}}
       </div>
+      <div class="flex flex-row">
+        <div>
+          {{#link-to "workbench.texts.text.entries" this.model }}Entries{{/link-to}}
+        </div>
+        <div>
+          Some other button
+        </div>
+      </div>
       {{outlet}}
-    {{/card.content}}
   {{/if}}
-{{/paper-card}}
+</Card>
