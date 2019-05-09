@@ -1,4 +1,9 @@
 <div class="toolbar">
   <h2 class="font-normal font-title self-center">{{@heading}}</h2>
+  {{#if @workbench}}
+    {{#link-to "workbench.texts" class="block mt-4 lg:inline-block lg:mt-0 mr-4 brn btn-primary"}}Texts{{/link-to}}
+    {{#link-to "workbench.places" class="block mt-4 lg:inline-block lg:mt-0 mr-4 brn btn-primary"}}Places{{/link-to}}
+  {{/if}}
+    
   <WawButton @click={{this.handleClick}} />
 </div>
