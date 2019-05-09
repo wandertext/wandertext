@@ -1,6 +1,24 @@
 <div id="text-entry-list">
-{{#each @entries as |entry|}}
-<p class="attested-name">{{ entry.attestedName }}</p>
-{{/each}}
+  <table>
+    <thead>
+      <tr>
+        {{#each this.columns as |column| }}
+          <th>
+            {{column.name}}
+          </th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.rows as |row| }}
+        <tr>
+          {{#each this.columns as |column| }}
+            <td>
+              {{get row column.valuePath}}
+            </td>
+          {{/each}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
-
