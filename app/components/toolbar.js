@@ -6,8 +6,7 @@ export default class ToolbarComponent extends Component {
   @service sidenav;
 
   @action
-  showSidenav() {
-
+  handleClick() {
+    this.sidenav.toggle();
   }
-
 }

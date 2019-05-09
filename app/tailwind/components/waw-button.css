@@ -1,0 +1,7 @@
+.waw-button {
+  @apply .bg-accent .rounded-full .h-8 .w-8 .shadow-md .block .self-center
+}
+
+.waw-button:hover {
+  @apply .bg-white
+}

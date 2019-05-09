@@ -10,3 +10,7 @@
 /* .skew-45 {
   transform: skewY(45deg);
 } */
+
+.sub {
+  vertical-align: sub;
+}
