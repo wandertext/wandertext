@@ -7,8 +7,8 @@ module.exports = function(environment) {
     rootURL: "/",
     locationType: "auto",
     emberPouch: {
-      localDb: "wandertext-ember-data",
-      remoteDb: "http://admin:admin@localhost:5984/wandertext-relational"
+      localDb: "wandertext-rel-dev",
+      remoteDb: "http://admin:admin@localhost:5984/wandertext-rel-dev"
     },
     torii: {
       sessionServiceName: "session",
