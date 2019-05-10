@@ -1,24 +1,6 @@
 <div id="text-entry-list">
-  <table>
-    <thead>
-      <tr>
-        {{#each this.columns as |column| }}
-          <th>
-            {{column.name}}
-          </th>
-        {{/each}}
-      </tr>
-    </thead>
-    <tbody>
-      {{#each this.rows as |row| }}
-        <tr>
-          {{#each this.columns as |column| }}
-            <td>
-              {{get row column.valuePath}}
-            </td>
-          {{/each}}
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
+  <EmberTable as |t|>
+    <t.head @columns={{this.columns}} />
+    <t.body @rows={{this.rows}} />
+  </EmberTable>
 </div>
