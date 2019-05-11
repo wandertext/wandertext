@@ -1,21 +1,19 @@
-<Card>
-  {{#if this.model.isRunning}}
-    {{paper-progress-circular}}
-  {{else}}
-    <h2>{{ this.model.name }}</h2>
+{{#if this.model.isRunning}}
+  {{paper-progress-circular}}
+{{else}}
+  <h2>{{ this.model.name }}</h2>
+    <div>
+      {{#if this.model.markdownBlurb }}
+        {{markdown-to-html this.model.markdownBlurb }}
+      {{/if}}
+    </div>
+    <div class="flex flex-row">
       <div>
-        {{#if this.model.markdownBlurb }}
-          {{markdown-to-html this.model.markdownBlurb }}
-        {{/if}}
+        {{#link-to "workbench.texts.text.entries" this.model }}Entries{{/link-to}}
       </div>
-      <div class="flex flex-row">
-        <div>
-          {{#link-to "workbench.texts.text.entries" this.model }}Entries{{/link-to}}
-        </div>
-        <div>
-          Some other button
-        </div>
+      <div>
+        Some other button
       </div>
-      {{outlet}}
-  {{/if}}
-</Card>
+    </div>
+    {{outlet}}
+{{/if}}

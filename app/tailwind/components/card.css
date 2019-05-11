@@ -1,3 +1,4 @@
 .card {
-  @apply .bg-white .rounded .overflow-hidden .max-h-screen
+  max-height: calc(100vh - 2rem);
+  @apply .bg-white .rounded .overflow-hidden .m-4
 }
