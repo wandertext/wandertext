@@ -3,6 +3,16 @@
     Welcome to Wandertext.
   </h2>
 
+  {{#if this.session.isAuthenticated}}
+    {{#paper-button onClick=this.logout}}
+      Logout
+    {{/paper-button}}
+  {{else}}
+    {{#paper-button onClick=this.login}}
+      Login
+    {{/paper-button}}
+  {{/if}}
+
   <p class="lead">Create and share semantically rich geospatial datasets.</p>
 
   <div>
