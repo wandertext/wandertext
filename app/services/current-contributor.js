@@ -18,7 +18,10 @@ export default class CurrentContributorService extends Service {
         contributor = await this.store.queryRecord("contributor", {
           filter: { username: githubUser.login }
         });
-        contributor.githubAvatarUrl = githubUser.avatarUrl;
+        if (contributor) {
+          contributor.githubAvatarUrl = githubUser.avatarUrl;
+        }
+
         this.contributor = contributor;
       }
     } else {
