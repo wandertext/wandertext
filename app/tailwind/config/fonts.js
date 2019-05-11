@@ -65,7 +65,6 @@ export default {
     "Hussaini Nastaleeq",
     "AlQalam Taj Nastaleeq",
     "Nafees Nastaleeq",
-    "Nafees Nastaleeq v1.01",
     "Pak Nastaleeq",
     "PDMS_Jauhar",
     "Alvi Lahori Nastaleeq"
