@@ -23,12 +23,14 @@ export default class TextEntryListComponent extends Component {
     });
     this.columns.pushObject({
       valuePath: "attestedName",
-      name: "Attested Name"
+      name: "Attested Name",
+      cellComponent: "table-edit"
     });
     text.entryProperties.forEach(propObj => {
       const name = propObj.inputLabel || capitalize(propObj.name);
       const valuePath = `eProp${propObj.name}`;
-      this.columns.pushObject({ valuePath, name });
+      const cellComponent = propObj.readOnly ? "table-readonly" : "table-edit";
+      this.columns.pushObject({ valuePath, name, cellComponent });
     });
     this.columns.pushObject({
       valuePath: "createdOn",

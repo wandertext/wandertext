@@ -1,0 +1,7 @@
+<div class="table-edit" onClick={{this.toggleEditing}}>
+  {{#if this.isEditing}}
+    Edit {{yield}}
+  {{else}}
+    {{yield}}
+  {{/if}}
+</div>

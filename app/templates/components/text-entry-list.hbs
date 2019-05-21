@@ -1,12 +1,13 @@
-<div id="text-entry-list" class="text-sm">
+<div style="height: 300px" id="text-entry-list" class="border-4 text-sm">
   <EmberTable as |t|>
-  <t.head 
-    @columns={{this.columns}} 
-    @sorts={{this.sorts}} 
-    @onUpdateSorts={{action (mut sorts)}}
-    @widthContraint="gte-container"
-    @fillMode="first-column"
-    as |h|>
+    <t.head 
+      @columns={{this.columns}} 
+      @sorts={{this.sorts}} 
+      @onUpdateSorts={{action (mut sorts)}}
+      @widthContraint="gte-container"
+      @fillMode="first-column"
+      as |h|
+    >
       <h.row as |r|>
         <r.cell as |column|>
           {{column.name}}
@@ -22,7 +23,7 @@
       <b.row as |r|>
         <r.cell as |cell column|>
           {{#if column.cellComponent}}
-            {{#component column.cellComponent value=cell}}
+            {{#component column.cellComponent cellContent=cell}}
               {{cell}}
             {{/component}}
           {{else}}
