@@ -1,3 +1,5 @@
 <div>
-  {{moment-format value "YYYY-MM-DD"}}
+  {{#if @cellContent}}
+    {{moment-format @cellContent "YYYY-MM-DD"}}
+  {{/if}}
 </div>
