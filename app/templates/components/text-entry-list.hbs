@@ -1,6 +1,35 @@
-<div id="text-entry-list">
+<div id="text-entry-list" class="text-sm">
   <EmberTable as |t|>
-    <t.head @columns={{this.columns}} />
-    <t.body @rows={{this.rows}} />
+  <t.head 
+    @columns={{this.columns}} 
+    @sorts={{this.sorts}} 
+    @onUpdateSorts={{action (mut sorts)}}
+    @widthContraint="gte-container"
+    @fillMode="first-column"
+    as |h|>
+      <h.row as |r|>
+        <r.cell as |column|>
+          {{column.name}}
+        </r.cell>
+      </h.row>
+    </t.head>
+    <t.body 
+      @rows={{this.rows}} 
+      @staticHeight={{true}}
+      @key="id" 
+      as |b|
+    >
+      <b.row as |r|>
+        <r.cell as |cell column|>
+          {{#if column.cellComponent}}
+            {{#component column.cellComponent value=cell}}
+              {{cell}}
+            {{/component}}
+          {{else}}
+            {{cell}}
+          {{/if}}
+        </r.cell>
+      </b.row>
+    </t.body>
   </EmberTable>
 </div>

@@ -3,6 +3,8 @@ import { tracked } from "@glimmer/tracking";
 import { capitalize } from "@ember/string";
 
 export default class TextEntryListComponent extends Component {
+  @tracked sorts = [];
+
   @tracked columns = [];
 
   @tracked rows = [];
@@ -14,17 +16,28 @@ export default class TextEntryListComponent extends Component {
   }
 
   _buildColumns(text) {
-    this.columns.pushObject({ name: "ID", valuePath: "id" });
+    this.columns.pushObject({
+      name: "ID",
+      valuePath: "id",
+      cellComponent: "table-id"
+    });
+    this.columns.pushObject({
+      valuePath: "attestedName",
+      name: "Attested Name"
+    });
     text.entryProperties.forEach(propObj => {
       const name = propObj.inputLabel || capitalize(propObj.name);
       const valuePath = `eProp${propObj.name}`;
       this.columns.pushObject({ valuePath, name });
     });
     this.columns.pushObject({
-      valuePath: "attestedName",
-      name: "Attested Name"
+      valuePath: "createdOn",
+      name: "Created On",
+      cellComponent: "table-date"
     });
-    this.columns.pushObject({ valuePath: "createdOn", name: "Created On" });
+    text.entrySort.forEach(valuePath => {
+      this.sorts.pushObject({ valuePath, isAscending: true });
+    });
   }
 
   _buildRows({ entries }) {
