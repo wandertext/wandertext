@@ -1,11 +1,5 @@
-{{#paper-card as |card|}}
-  {{#card.title as |title|}}
-    {{#title.text as |text|}}
-      {{#text.headline id="card-headline"}}Texts{{/text.headline}}
-    {{/title.text}}
-  {{/card.title}}
-  {{#card.content}}
+<h2>
+  Texts
+</h2>
     <p>{{#link-to "workbench.texts.new"}}New text{{/link-to}}</p>
     <TextList @texts={{this.model}} />
-  {{/card.content}}
-{{/paper-card}}
