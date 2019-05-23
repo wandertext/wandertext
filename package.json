@@ -66,7 +66,7 @@
     "ember-load-initializers": "^2.0.0",
     "ember-lodash": "^4.19.4",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-mocha": "^0.14.0",
+    "ember-mocha": "^0.15.1",
     "ember-moment": "^7.8.1",
     "ember-paper": "^1.0.0-beta.24",
     "ember-paper-expansion-panel": "^0.0.4",
