@@ -44,7 +44,7 @@ export default class TextEntryListComponent extends Component {
 
   _buildRows({ entries }) {
     entries.forEach(entry => {
-      const row = {};
+      const row = { rev: entry.rev };
       this.columns.forEach(({ valuePath }) => {
         if (valuePath.startsWith("eProp")) {
           row[valuePath] = entry.properties[valuePath.replace(/^eProp/, "")];

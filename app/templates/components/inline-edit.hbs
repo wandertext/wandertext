@@ -1,0 +1,66 @@
+<div class="ember-inline-edit {{this.classes}}">
+{{#if hasBlockParams}}
+  {{yield (hash
+      editor=(component "inline-editor"
+        isVisible=this.isEditing
+        value=(readonly this.value)
+        field=this.field
+        fieldWidth=this.fieldWidth
+        showSaveButton=this.showSaveButton
+        showCancelButton=this.showCancelButton
+        saveLabel=this.saveLabel
+        cancelLabel=this.cancelLabel
+        editorClass=this.editorClass
+        buttonContainerClass=this.buttonContainerClass
+        saveButtonClass=this.saveButtonClass
+        cancelButtonClass=this.cancelButtonClass
+        hintLabel=this.hintLabel
+        on-update=(action (mut this.value))
+        on-save=this.save
+        on-cancel=this.cancel
+        )
+
+      editable=(component "inline-editable"
+        isVisible=this.isNotEditing
+        value=(readonly this.value)
+        placeholder=this.placeholder
+        showEditButton=this.showEditButton
+        editButtonClass=this.editButtonClass
+        on-edit=this.startEditing
+        )
+      )
+    (action this.save) (action this.cancel)
+    }}
+{{else}}
+  {{#if this.isEditing}}
+    <InlineEditor
+      @isVisible={{this.isEditing}}
+      @value={{readonly this.value}}
+      @field={{this.field}}
+      @fieldWidth={{this.fieldWidth}}
+      @showSaveButton={{this.showSaveButton}}
+      @showCancelButton={{this.showCancelButton}}
+      @saveLabel={{this.saveLabel}}
+      @cancelLabel={{this.cancelLabel}}
+      @editorClass={{this.editorClass}}
+      @buttonContainerClass={{this.buttonContainerClass}}
+      @saveButtonClass={{this.saveButtonClass}}
+      @cancelButtonClass={{this.cancelButtonClass}}
+      @hintLabel={{this.hintLabel}}
+      @on-update={{mut this.value}}
+      @on-save={{this.save}}
+      @on-cancel={{this.cancel}}
+      />
+  {{else}}
+    <InlineEditable
+      @isVisible={{this.isNotEditing}}
+      @value={{this.value}}
+      @placeholder={{this.placeholder}}
+      @editLabel={{this.editLabel}}
+      @showEditButton={{this.showEditButton}}
+      @editButtonClass={{this.editButtonClass}}
+      @onEdit={{this.startEditing}}
+      />  
+  {{/if}}
+{{/if}}
+</div>

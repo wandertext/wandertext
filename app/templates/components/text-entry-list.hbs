@@ -1,16 +1,18 @@
-<div id="text-entry-list" class="h-64 flex-grow border-2 text-sm">
+<div id="text-entry-list" class="h-64 flex-grow text-sm">
   <EmberTable as |t|>
     <t.head 
       @columns={{this.columns}} 
       @sorts={{this.sorts}} 
       @onUpdateSorts={{action (mut sorts)}}
-      @widthContraint="gte-container"
+      @widthConstraint="eq-container"
       @fillMode="first-column"
       as |h|
     >
       <h.row as |r|>
         <r.cell as |column|>
-          {{column.name}}
+          {{#component "table-column-header"}}
+            {{column.name}}
+          {{/component}}
         </r.cell>
       </h.row>
     </t.head>
@@ -21,14 +23,16 @@
       as |b|
     >
       <b.row as |r|>
-        <r.cell as |cell column|>
-          {{#if column.cellComponent}}
-            {{#component column.cellComponent cellContent=cell}}
+        <r.cell as |cell column row|>
+          <div class="px-1">
+            {{#if column.cellComponent}}
+              {{#component column.cellComponent cellContent=cell row=row}}
+                {{cell}}
+              {{/component}}
+            {{else}}
               {{cell}}
-            {{/component}}
-          {{else}}
-            {{cell}}
-          {{/if}}
+            {{/if}}
+          </div>
         </r.cell>
       </b.row>
     </t.body>

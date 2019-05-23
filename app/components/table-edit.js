@@ -15,7 +15,12 @@ export default class TableEditComponent extends Component {
     }
   }
 
-  _saveChange() {
-    return true;
+  @action
+  saveCell() {
+    console.log(this.args.row);
   }
+
+  // _saveChange() {
+  //   console.log(this.args.row);
+  // }
 }

@@ -5692,6 +5692,14 @@ ember-inflector@^3.0.0:
   dependencies:
     ember-cli-babel "^6.6.0"
 
+ember-inline-edit@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/ember-inline-edit/-/ember-inline-edit-1.1.1.tgz#e14d0552a0bde70e7df108b8d5020388bbb27ef2"
+  integrity sha512-p9lzsIb5wXq3ayaK7oKf7L4emk7+zca3K1FeTqra65TBrP7RyOHZ20SCIFUhFqBPXhk90VkW5hbakcEStBYeMw==
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^2.0.1"
+
 ember-invoke-action@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ember-invoke-action/-/ember-invoke-action-1.5.1.tgz#b6cad51ee729fc227cdbdba83b2b5486f0fa5834"
