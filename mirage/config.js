@@ -20,6 +20,15 @@ export default function() {
     http://www.ember-cli-mirage.com/docs/v0.4.x/shorthands/
   */
 
+  this.get("/entries");
+  this.get("/entries/:id");
+  this.get("/contributors");
+  this.get("/contributors/:id");
   this.get("/texts");
-  this.get("/texts/:slug");
+  this.get("/texts/:id");
+  this.get("/places");
+  this.get("/places/:id");
+
+  this.passthrough("https://wandertext-github-gatekeeper.herokuapp.com/**");
+  this.passthrough("https://api.github.com/**");
 }
