@@ -93,7 +93,6 @@ export default class InlineEditComponent extends Component {
 
   @action
   startEditing(e) {
-    console.log("in startediting");
     e.stopPropagation();
     tryInvoke(this, "onEdit");
 
