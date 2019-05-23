@@ -1,5 +1,5 @@
 import { Factory } from "ember-cli-mirage";
-import { date, internet } from "faker";
+import { name, date, internet } from "faker";
 
 export default Factory.extend({
   username() {
@@ -25,5 +25,4 @@ export default Factory.extend({
   createdOn() {
     return date.past();
   }
-
 });
