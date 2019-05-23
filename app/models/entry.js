@@ -1,9 +1,8 @@
-import Model from "ember-pouch/model";
 import DS from "ember-data";
 
 const { attr, belongsTo, hasMany } = DS;
 
-export default class Entry extends Model {
+export default class Entry extends DS.Model {
   @attr("string") attestedName;
 
   @attr("string") note;

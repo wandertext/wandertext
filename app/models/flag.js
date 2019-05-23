@@ -1,9 +1,8 @@
-import Model from "ember-pouch/model";
 import DS from "ember-data";
 
 const { attr, belongsTo } = DS;
 
-export default class Flag extends Model {
+export default class Flag extends DS.Model {
   @attr("string") comment;
 
   @attr("date") createdOn;

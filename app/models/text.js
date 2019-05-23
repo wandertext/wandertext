@@ -1,9 +1,8 @@
-import Model from "ember-pouch/model";
 import DS from "ember-data";
 
 const { attr, hasMany } = DS;
 
-export default class Text extends Model {
+export default class Text extends DS.Model {
   @attr("string") name;
 
   @attr("string") slug;
