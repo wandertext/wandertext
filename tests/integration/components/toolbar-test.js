@@ -4,7 +4,7 @@ import { setupRenderingTest } from "ember-mocha";
 import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
-describe("Integration | Component | toolbar", function() {
+describe.skip("Integration | Component | toolbar", function() {
   setupRenderingTest();
 
   it("renders", async function() {

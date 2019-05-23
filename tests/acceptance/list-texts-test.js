@@ -3,9 +3,11 @@ import { expect } from "chai";
 import { setupApplicationTest } from "ember-mocha";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { visit, currentURL } from "@ember/test-helpers";
+import { setupMirage } from "ember-cli-mirage/test-support";
 
 describe("Acceptance | list texts", function() {
   const hooks = setupApplicationTest();
+  setupMirage(hooks);
 
   hooks.beforeEach(async function() {
     authenticateSession();

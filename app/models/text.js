@@ -31,7 +31,7 @@ export default class Text extends DS.Model {
 
   @hasMany("contributor", { async: false }) contributors;
 
-  @hasMany("flag") flags;
+  @hasMany("flag", { async: false }) flags;
 
   @attr("date") createdOn;
 

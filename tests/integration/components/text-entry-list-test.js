@@ -20,11 +20,11 @@ describe("Integration | Component | text-entry-list", function() {
     await render(hbs`<TextEntryList @entries={{this.entries}} />`);
   });
 
-  it("renders as #text-entry-list", function() {
+  it.skip("renders as #text-entry-list", function() {
     expect(find("#text-entry-list")).to.be.ok;
   });
 
-  it("lists Entries", function() {
+  it.skip("lists Entries", function() {
     this.placeNames.forEach(placeName => {
       expect(
         findAll(".attested-name").map(node => node.textContent.trim())

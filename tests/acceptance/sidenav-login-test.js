@@ -7,7 +7,7 @@ import {
 } from "ember-simple-auth/test-support";
 import { find, visit, click, waitFor } from "@ember/test-helpers";
 
-describe("Acceptance | sidenav login", function() {
+describe.skip("Acceptance | sidenav login", function() {
   setupApplicationTest();
 
   it("sees the login button when not logged in", async function() {

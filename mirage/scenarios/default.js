@@ -8,6 +8,6 @@ export default function(server) {
     admin: true
   });
   server.createList("text", 3, { contributors: [muziejus] }).forEach(text => {
-    server.createList("entry", 60, { contributors: [muziejus], text });
+    server.createList("entry", 30, { contributors: [muziejus], text });
   });
 }

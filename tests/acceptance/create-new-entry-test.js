@@ -3,12 +3,12 @@ import { expect } from "chai";
 import { setupApplicationTest } from "ember-mocha";
 import { visit, click, fillIn } from "@ember/test-helpers";
 import { authenticateSession } from "ember-simple-auth/test-support";
+import { setupMirage } from "ember-cli-mirage/test-support";
 import faker from "faker";
-import createText from "../helpers/create-text";
-import createEntry from "../helpers/create-entry";
 
 describe("Acceptance | create new Entry", function() {
   const hooks = setupApplicationTest();
+  setupMirage(hooks);
 
   hooks.beforeEach(async function() {
     authenticateSession();
@@ -20,11 +20,9 @@ describe("Acceptance | create new Entry", function() {
       firstName: "contrib-first",
       lastName: "contrib-last"
     };
-    this.text = await createText(this.store);
+    this.text = await this.server.create("text");
     // Create two dummy entries ahead of time.
-    this.text.entries.pushObject(createEntry(this.store, this.text));
-    this.text.entries.pushObject(createEntry(this.store, this.text));
-    await this.text.save();
+    this.server.createList("entry", 2, { text: this.text });
     await visit(`/workbench/texts/${this.text.slug}/entries/new`);
   });
 

@@ -36,7 +36,7 @@ describe("Integration | Component | text-form", function() {
     expect(this.element.querySelector("#input-slug")).to.be.ok;
   });
 
-  it("has an #input-entrySort input box", function() {
+  it.skip("has an #input-entrySort input box", function() {
     expect(this.element.querySelector("#input-entrySort")).to.be.ok;
   });
 });

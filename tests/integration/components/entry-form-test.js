@@ -2,20 +2,17 @@ import { expect } from "chai";
 import { describe, it } from "mocha";
 import { setupRenderingTest } from "ember-mocha";
 import { render, find } from "@ember/test-helpers";
+import { setupMirage } from "ember-cli-mirage/test-support";
 import hbs from "htmlbars-inline-precompile";
 
 describe("Integration | Component | entry-form", function() {
   const hooks = setupRenderingTest();
+  setupMirage(hooks);
 
   hooks.beforeEach(async function() {
-    const store = this.owner.lookup("service:store");
-    const texts = await store.findAll("text");
-    this.text = texts.firstObject;
-    this.text.set("entryProperties", [
-      { name: "prop1" },
-      { name: "prop2" },
-      { name: "prop3" }
-    ]);
+    this.text = this.server.create("text", {
+      entryProperties: [{ name: "prop1" }, { name: "prop2" }, { name: "prop3" }]
+    });
     await render(hbs`<EntryForm @text={{this.text}} />`);
   });
 

@@ -2,15 +2,16 @@ import { describe, it } from "mocha";
 import { expect } from "chai";
 import { setupApplicationTest } from "ember-mocha";
 import { authenticateSession } from "ember-simple-auth/test-support";
-import { pauseTest, resumeTest, visit, currentURL } from "@ember/test-helpers";
+import { visit, currentURL } from "@ember/test-helpers";
+import { setupMirage } from "ember-cli-mirage/test-support";
 import faker from "faker";
 
 describe("Acceptance | see Text details", function() {
   const hooks = setupApplicationTest();
+  setupMirage(hooks);
 
   hooks.beforeEach(async function() {
     authenticateSession();
-    pauseTest();
     this.currentContributor = this.owner.lookup("service:currentContributor");
     this.currentContributor.contributor = {
       username: "github-username",
@@ -18,17 +19,11 @@ describe("Acceptance | see Text details", function() {
       firstName: "contrib-first",
       lastName: "contrib-last"
     };
-    const store = this.owner.lookup("service:store");
-    const texts = await store.findAll("text");
-    this.text = texts.firstObject;
+    this.text = this.server.create("text");
     this.attestedNames = [faker.address.city(), faker.address.city()];
-    this.attestedNames.forEach(async attestedName => {
-      const entry = store.createRecord("entry", { attestedName });
-      this.text.entries.pushObject(entry);
-      return entry.save();
+    this.attestedNames.forEach(attestedName => {
+      this.server.create("entry", { text: this.text, attestedName });
     });
-    await this.text.save();
-    resumeTest();
     await visit(`/workbench/texts/${this.text.slug}`);
   });
 
