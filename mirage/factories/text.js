@@ -1,18 +1,18 @@
 import { Factory } from "ember-cli-mirage";
-import faker from "faker";
+import { lorem } from "faker";
 
-export default class TextFactory extends Factory {
-  name(i) {
-    return `Txt ${i}`;
-  }
+export default Factory.extend({
+  name() {
+    return lorem.words();
+  },
 
   slug() {
-    return `${faker.helpers.slugify(this.name)}-${faker.random.number()}`;
-  }
+    return lorem.slug();
+  },
 
   markdownBlurb() {
-    return faker.lorem.paragraph();
-  }
+    return lorem.paragraph();
+  },
 
   entryProperties() {
     return [
@@ -39,9 +39,9 @@ export default class TextFactory extends Factory {
         inputLabel: "special-input-label"
       }
     ];
-  }
+  },
 
   entrySort() {
     return ["page", "sequence"];
   }
-}
+});
