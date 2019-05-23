@@ -1,12 +1,5 @@
 <div id="text-list">
-{{#paper-list}}
   {{#each @texts as |text|}}
-    {{#if text.name}}
-      {{#paper-item class="md-3-line"}}
-        <TextListing @text={{text}} />
-      {{/paper-item}}
-    {{/if}}
+    <TextListing @text={{text}} />
   {{/each}}
-{{/paper-list}}
 </div>
-
