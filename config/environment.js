@@ -6,10 +6,6 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
-    emberPouch: {
-      localDb: "wandertext-rel-dev",
-      remoteDb: "http://admin:admin@localhost:5984/wandertext-rel-dev"
-    },
     torii: {
       sessionServiceName: "session",
       providers: {
@@ -62,10 +58,6 @@ module.exports = function(environment) {
   if (environment === "test") {
     // Testem prefers this...
     ENV.locationType = "none";
-    ENV.emberPouch.localDb = "wandertext-ember-data-test";
-    // ENV.emberPouch.remoteDb = "http://admin:admin@localhost:5984/wandertext-ember-data-test"
-    ENV.emberPouch.remoteDb = null;
-
     ENV.torii.providers["github-oauth2"].apiKey =
       process.env.GITHUB_DEV_CLIENT_ID;
     ENV.torii.providers["github-oauth2"].redirectUri =
@@ -82,10 +74,6 @@ module.exports = function(environment) {
   }
 
   if (environment === "production") {
-    ENV.emberPouch = {
-      localDb: "wandertext",
-      remoteDb: process.env.COUCHDB
-    };
     ENV.torii.providers["github-oauth2"].apiKey =
       process.env.GITHUB_PRODUCTION_CLIENT_ID;
     ENV.torii.providers["github-oauth2"].redirectUri =
