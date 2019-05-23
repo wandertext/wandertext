@@ -4886,7 +4886,7 @@ ember-ast-helpers@0.3.5:
     "@glimmer/compiler" "^0.27.0"
     "@glimmer/syntax" "^0.27.0"
 
-ember-auto-import@^1.2.14, ember-auto-import@^1.3.0:
+ember-auto-import@^1.2.14, ember-auto-import@^1.2.19, ember-auto-import@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.3.0.tgz#0d0988790e60847315f9bba758299226a3ba75c6"
   integrity sha512-Fiw0lVSdARFI6/ewq7zDPmfC6+Ss+qIV6Xp0iwhlJOPa6HP1KpNodPXBnmzppMdnGMsnT72YdMgPbVXsyWMu8A==
@@ -5172,6 +5172,23 @@ ember-cli-lodash-subset@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-2.0.1.tgz#20cb68a790fe0fde2488ddfd8efbb7df6fe766f2"
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
+
+ember-cli-mirage@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-mirage/-/ember-cli-mirage-1.0.0.tgz#e64132227e63bdd6e3a35df52a74cb19514a8c08"
+  integrity sha512-vBohHV4sE7tJQ/Nfl3Nmsdjliwqlx4/WG0yjIS5JYZWKewJ58FYMlsTLZKk7vfWf4Cq+aTGth+qyEfeSE8IuAQ==
+  dependencies:
+    broccoli-file-creator "^2.1.1"
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^3.0.2"
+    broccoli-string-replace "^0.1.2"
+    chalk "^2.4.2"
+    ember-auto-import "^1.2.19"
+    ember-cli-babel "^7.5.0"
+    ember-get-config "^0.2.2"
+    ember-inflector "^2.0.0 || ^3.0.0"
+    lodash "^4.17.11"
+    pretender "3.0.1"
 
 ember-cli-moment-shim@^3.7.1:
   version "3.7.1"
@@ -5652,7 +5669,7 @@ ember-factory-for-polyfill@^1.3.1:
     node-fetch "^2.3.0"
     whatwg-fetch "^3.0.0"
 
-ember-get-config@^0.2.4:
+ember-get-config@^0.2.2, ember-get-config@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/ember-get-config/-/ember-get-config-0.2.4.tgz#118492a2a03d73e46004ed777928942021fe1ecd"
   integrity sha1-EYSSoqA9c+RgBO13eSiUICH+Hs0=
@@ -5685,20 +5702,12 @@ ember-in-element-polyfill@^0.1.3:
     ember-cli-version-checker "^2.1.0"
     ember-wormhole "^0.5.4"
 
-ember-inflector@^3.0.0:
+"ember-inflector@^2.0.0 || ^3.0.0", ember-inflector@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ember-inflector/-/ember-inflector-3.0.0.tgz#7e1ee8aaa0fa773ba0905d8b7c0786354d890ee1"
   integrity sha512-tLWfYolZAkLnkTvvBkjizy4Wmj8yI8wqHZFK+leh0iScHiC3r1Yh5C4qO+OMGiBTMLwfTy+YqVoE/Nu3hGNkcA==
   dependencies:
     ember-cli-babel "^6.6.0"
-
-ember-inline-edit@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/ember-inline-edit/-/ember-inline-edit-1.1.1.tgz#e14d0552a0bde70e7df108b8d5020388bbb27ef2"
-  integrity sha512-p9lzsIb5wXq3ayaK7oKf7L4emk7+zca3K1FeTqra65TBrP7RyOHZ20SCIFUhFqBPXhk90VkW5hbakcEStBYeMw==
-  dependencies:
-    ember-cli-babel "^6.6.0"
-    ember-cli-htmlbars "^2.0.1"
 
 ember-invoke-action@^1.5.1:
   version "1.5.1"
@@ -6857,6 +6866,11 @@ extsprintf@^1.2.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
+
+fake-xml-http-request@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/fake-xml-http-request/-/fake-xml-http-request-2.0.0.tgz#41a92f0ca539477700cb1dafd2df251d55dac8ff"
+  integrity sha512-UjNnynb6eLAB0lyh2PlTEkjRJORnNsVF1hbzU+PQv89/cyBV9GDRCy7JAcLQgeCLYT+3kaumWWZKEJvbaK74eQ==
 
 faker@^4.1.0:
   version "4.1.0"
@@ -11194,6 +11208,15 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
+pretender@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/pretender/-/pretender-3.0.1.tgz#817ac43faa3330aa17646968a115f232de10b2ca"
+  integrity sha512-NO5qK7vJls4uz1NxVKuAY6/aHLOVvchGAvrPWCRHRKpCLquBWQjk3CVx195Hs5yUdcQ4e3OlpUijmOzFzzOmWQ==
+  dependencies:
+    fake-xml-http-request "^2.0.0"
+    route-recognizer "^0.3.3"
+    whatwg-fetch "^3.0.0"
+
 prettier-linter-helpers@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/prettier-linter-helpers/-/prettier-linter-helpers-1.0.0.tgz#d23d41fe1375646de2d0104d3454a3008802cf7b"
@@ -12025,6 +12048,11 @@ rollup@^0.57.1:
     rollup-pluginutils "^2.0.1"
     signal-exit "^3.0.2"
     sourcemap-codec "^1.4.1"
+
+route-recognizer@^0.3.3:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/route-recognizer/-/route-recognizer-0.3.4.tgz#39ab1ffbce1c59e6d2bdca416f0932611e4f3ca3"
+  integrity sha512-2+MhsfPhvauN1O8KaXpXAOfR/fwe8dnUXVM+xw7yt40lJRfPVQxV6yryZm0cgRvAj5fMF/mdRZbL2ptwbs5i2g==
 
 rsvp@^3.0.14, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.0.6, rsvp@^3.1.0, rsvp@^3.2.1:
   version "3.6.2"
