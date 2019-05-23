@@ -47,5 +47,19 @@
   },
   "app/router.js": {
     "type": "router"
+  },
+  "mirage/config.js": {
+    "type": "mirageconfig"
+  },
+  "mirage/models/*.js": {
+    "type": "miragemodel",
+    "alternate": "mirage/factories/{}.js"
+  },
+  "mirage/factories/*.js": {
+    "type": "miragefactory",
+    "alternate": "mirage/models/{}.js"
+  },
+  "mirage/scenarios/*.js": {
+    "type": "miragescenario"
   }
 }
