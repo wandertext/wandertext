@@ -1,5 +1,5 @@
 /*
-import { expect } from "chai";
+Import { expect } from "chai";
 import { describe, it } from "mocha";
 import { setupRenderingTest } from "ember-mocha";
 import { render } from "@ember/test-helpers";
