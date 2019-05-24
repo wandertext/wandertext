@@ -1,7 +1,7 @@
 {{#if this.model.isRunning}}
   {{paper-progress-circular}}
 {{else}}
-  <h2>{{ this.model.name }}</h2>
+  <h2>{{text-title this.model }}</h2>
   <div>
     {{#if this.model.markdownBlurb }}
       {{markdown-to-html this.model.markdownBlurb }}
