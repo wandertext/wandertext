@@ -24,10 +24,19 @@ describe("Integration | Component | text-listing", function() {
     expect(this.element.querySelector(".text-listing")).to.be.ok;
   });
 
-  it.skip("shows the name of the text in an h3", function() {
-    // Doesn't work because of the text-title helper.
+  it("shows the name of the text in an h3", function() {
     expect(this.element.querySelector("h3").textContent).to.equal(
       this.text.name
+    );
+  });
+
+  it("renders markdown with text-title", async function() {
+    this.text.markdownName = "_Markdown Name_";
+
+    await render(hbs`<TextListing @text={{this.text}} />`);
+
+    expect(this.element.querySelector("h3")).to.contain.html(
+      "<em>Markdown Name</em>"
     );
   });
 });
