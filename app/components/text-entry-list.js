@@ -17,11 +17,6 @@ export default class TextEntryListComponent extends Component {
 
   _buildColumns(text) {
     this.columns.pushObject({
-      name: "ID",
-      valuePath: "id",
-      cellComponent: "table-id"
-    });
-    this.columns.pushObject({
       valuePath: "attestedName",
       name: "Attested Name",
       cellComponent: "table-edit"
@@ -44,7 +39,7 @@ export default class TextEntryListComponent extends Component {
 
   _buildRows({ entries }) {
     entries.forEach(entry => {
-      const row = { rev: entry.rev };
+      const row = { id: entry.id };
       this.columns.forEach(({ valuePath }) => {
         if (valuePath.startsWith("eProp")) {
           row[valuePath] = entry.properties[valuePath.replace(/^eProp/, "")];
