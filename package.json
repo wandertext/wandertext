@@ -165,7 +165,6 @@
     "d3-scale": "^3.0.0",
     "d3-selection": "^1.4.0",
     "lodash": "^4.17.11",
-    "mocha": "^6.1.4",
-    "tailwindcss": "^1.0.1"
+    "mocha": "^6.1.4"
   }
 }
