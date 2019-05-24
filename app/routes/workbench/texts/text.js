@@ -12,8 +12,7 @@ export default class TextsTextRoute extends Route.extend(
   @task
   textTask = function*(slug) {
     const texts = yield this.store.loadRecords("text", {
-      filter: { slug },
-      include: "entries"
+      filter: { slug }
     });
     return texts.firstObject;
   };
