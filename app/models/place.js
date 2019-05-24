@@ -11,9 +11,9 @@ export default class Place extends DS.Model {
 
   @attr() properties;
 
-  @hasMany("entry", { async: false }) entries;
+  @hasMany("entry") entries;
 
-  @hasMany("flag", { async: false }) flags;
+  @hasMany("flag") flags;
 
-  @hasMany("contributor", { async: false }) contributors;
+  @hasMany("contributor") contributors;
 }

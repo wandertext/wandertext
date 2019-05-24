@@ -25,9 +25,9 @@ export default class Contributor extends DS.Model {
 
   @hasMany("flag") flags;
 
-  @hasMany("place", { async: false }) places;
+  @hasMany("place") places;
 
-  @hasMany("text", { async: false }) texts;
+  @hasMany("text") texts;
 
   @attr("date") createdOn;
 

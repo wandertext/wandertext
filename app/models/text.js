@@ -27,11 +27,11 @@ export default class Text extends DS.Model {
 
   @attr() nywalkerProperties;
 
-  @hasMany("entry", { async: false }) entries;
+  @hasMany("entry") entries;
 
-  @hasMany("contributor", { async: false }) contributors;
+  @hasMany("contributor") contributors;
 
-  @hasMany("flag", { async: false }) flags;
+  @hasMany("flag") flags;
 
   @attr("date") createdOn;
 
