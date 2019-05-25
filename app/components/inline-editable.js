@@ -2,6 +2,6 @@ import Component from "@glimmer/component";
 
 export default class InlineEditableComponent extends Component {
   get valueIsEmpty() {
-    return this.args.value === null || this.args.value === "";
+    return !this.args.value;
   }
 }

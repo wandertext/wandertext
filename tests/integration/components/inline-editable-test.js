@@ -7,21 +7,17 @@ import hbs from "htmlbars-inline-precompile";
 describe("Integration | Component | inline-editable", function() {
   setupRenderingTest();
 
-  it("renders", async function() {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  it("renders with a placeholder in case of a lack of a value", async function() {
+    await render(hbs`<InlineEditable @placeholder="placeholder" />`);
 
-    await render(hbs`<InlineEditable />`);
+    expect(this.element).to.contain.text("placeholder");
+  });
 
-    expect(this.element.textContent.trim()).to.equal("");
+  it("displays the value", async function() {
+    await render(
+      hbs`<InlineEditable @value="the-value" @placeholder="placeholder" />`
+    );
 
-    // Template block usage:
-    await render(hbs`
-      <InlineEditable>
-        template block text
-      </InlineEditable>
-    `);
-
-    expect(this.element.textContent.trim()).to.equal("template block text");
+    expect(this.element).to.contain.text("the-value");
   });
 });
