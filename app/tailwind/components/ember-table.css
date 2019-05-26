@@ -1,0 +1,3 @@
+.ember-table th, td {
+  @apply .border-t .border-primary-lightest .p-2
+}
