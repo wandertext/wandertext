@@ -14,14 +14,5 @@ describe("Integration | Component | inline-editor", function() {
     await render(hbs`<InlineEditor />`);
 
     expect(this.element.textContent.trim()).to.equal("");
-
-    // Template block usage:
-    await render(hbs`
-      <InlineEditor>
-        template block text
-      </InlineEditor>
-    `);
-
-    expect(this.element.textContent.trim()).to.equal("template block text");
   });
 });

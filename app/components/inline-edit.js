@@ -84,16 +84,16 @@ export default class InlineEditComponent extends Component {
 
   @action
   save() {
-    tryInvoke(this, "onSave", [this.value]);
+    console.log("saving", this.value);
 
-    run(this, () => {
-      this.isEditing = false;
-    });
+    // TryInvoke(this, "onSave", [this.value]);
+
+    this.isEditing = false;
   }
 
   @action
-  startEditing(e) {
-    e.stopPropagation();
+  startEditing() {
+    // E.stopPropagation();
     tryInvoke(this, "onEdit");
 
     run(this, () => {
@@ -105,10 +105,7 @@ export default class InlineEditComponent extends Component {
   @action
   cancel() {
     tryInvoke(this, "onCancel");
-
-    run(this, () => {
-      this.value = this.previousValue;
-      this.isEditing = false;
-    });
+    this.value = this.previousValue;
+    this.isEditing = false;
   }
 }
