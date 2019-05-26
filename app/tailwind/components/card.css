@@ -1,4 +1,4 @@
 .card {
   max-height: calc(100vh - 2rem);
-  @apply .bg-white .rounded .overflow-hidden .m-4 .flex .flex-col
+  @apply .bg-white .rounded .overflow-hidden .flex .flex-col
 }
