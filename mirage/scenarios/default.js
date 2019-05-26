@@ -15,27 +15,31 @@ export default function(server) {
     markdownBlurb: "markdown blurb for _Bāburnāma_",
     contributors: [muziejus]
   });
-  // Server.createList("entry", 20, { contributors: [muziejus], text });
   server.create("entry", {
     id: 1,
     properties: {
-      page: 1,
-      sequence: 1
+      page: 3,
+      sequence: 2
     },
-    attestedName: "place 1",
+    attestedName: "Agra",
     text
   });
   server.create("entry", {
     id: 2,
     properties: {
       page: 1,
-      sequence: 2
+      sequence: 3
     },
-    attestedName: "place 2",
+    attestedName: "Belarus",
     text
   });
-
-  // Server.createList("text", 3, { contributors: [muziejus] }).forEach(text => {
-  //   server.createList("entry", 30, { contributors: [muziejus], text });
-  // });
+  server.create("entry", {
+    id: 3,
+    properties: {
+      page: 2,
+      sequence: 1
+    },
+    attestedName: "Chile",
+    text
+  });
 }
