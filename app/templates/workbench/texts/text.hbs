@@ -6,10 +6,10 @@
     {{#if this.model.markdownBlurb }}
       {{markdown-to-html this.model.markdownBlurb }}
     {{else}}
-      blurb
+      _non_ markdown blurb
     {{/if}}
   </div>
-  <div class="flex flex-row">
+  <div class="my-4 flex flex-row">
     <div>
       {{#link-to "workbench.texts.text.entries" this.model }}Entries{{/link-to}}
     </div>

@@ -1,0 +1,7 @@
+.inline-editor {
+  @apply .bg-grey-lighter .appearance-none .w-full .py-1 .px-2 .text-primary .leading-tight
+}
+
+.inline-editor:focus {
+  @apply .bg-accent .border-primary
+}

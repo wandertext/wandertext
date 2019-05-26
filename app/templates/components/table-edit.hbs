@@ -1,3 +1,8 @@
-<div class="table-edit">
-  <InlineEdit @value={{@cellContent}} @onSave={{this.saveCell}} />
+<div class="table-edit py-1">
+  <span class="hidden">{{@cellContent}}</span>
+  <input
+    type="text"
+    value={{@cellContent}}
+    class="inline-editor"
+  >
 </div>
