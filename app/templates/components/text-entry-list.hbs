@@ -10,7 +10,7 @@
     >
       <h.row as |r|>
         <r.cell as |column|>
-          {{#component "table-column-header"}}
+          {{#component "table-column-header" columnContent=column}}
             {{column.name}}
           {{/component}}
         </r.cell>
