@@ -75,7 +75,7 @@
     "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/cb4233bf416127d626304fa33ca9125310a7d959.tgz",
     "ember-table": "github:Addepar/ember-table#1c3b87a4722089cd11c27e7a39ec4a1e0dd210c2",
     "eslint-plugin-chai-friendly": "^0.4.1",
-    "eslint-plugin-ember": "^6.4.1",
+    "eslint-plugin-ember": "^6.5.0",
     "eslint-plugin-node": "^9.0.1",
     "faker": "^4.1.0",
     "ghooks": "^2.0.4",
