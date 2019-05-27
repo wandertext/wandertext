@@ -7,47 +7,39 @@ export default class TextEntryListComponent extends Component {
 
   @tracked columns = [];
 
-  @tracked rows = [];
+  @tracked entries = this.args.text.entries;
 
   constructor(...args) {
     super(...args);
     this._buildColumns(this.args.text);
-    this._buildRows(this.args.text);
+    this._buildSorts(this.args.text);
   }
 
   _buildColumns(text) {
     this.columns.pushObject({
-      valuePath: "attestedName",
-      name: "Attested Name",
-      cellComponent: "table-edit"
+      cellComponent: "table-edit",
+      label: "Attested Name",
+      valuePath: "attestedName"
     });
     text.entryProperties.forEach(propObj => {
-      const name = propObj.inputLabel || capitalize(propObj.name);
-      const valuePath = `eProp${propObj.name}`;
+      const label = propObj.inputLabel || capitalize(propObj.name);
+      const valuePath = `properties.${propObj.name}`;
       const cellComponent = propObj.readOnly ? "table-readonly" : "table-edit";
-      this.columns.pushObject({ valuePath, name, cellComponent });
+      this.columns.pushObject({ valuePath, label, cellComponent });
     });
     this.columns.pushObject({
-      valuePath: "createdOn",
-      name: "Created On",
-      cellComponent: "table-date"
-    });
-    text.entrySort.forEach(valuePath => {
-      this.sorts.pushObject({ valuePath, isAscending: true });
+      cellComponent: "table-date",
+      label: "Created On",
+      valuePath: "createdOn"
     });
   }
 
-  _buildRows({ entries }) {
-    entries.forEach(entry => {
-      const row = { id: entry.id };
-      this.columns.forEach(({ valuePath }) => {
-        if (valuePath.startsWith("eProp")) {
-          row[valuePath] = entry.properties[valuePath.replace(/^eProp/, "")];
-        } else {
-          row[valuePath] = entry[valuePath];
-        }
+  _buildSorts(text) {
+    text.entrySort.forEach(sort => {
+      this.sorts.pushObject({
+        valuePath: `properties.${sort}`,
+        isAscending: true
       });
-      this.rows.pushObject(row);
     });
   }
 }

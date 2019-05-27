@@ -1,40 +1,31 @@
 <div id="text-entry-list" class="h-64 flex-grow text-sm">
-  <EmberTable as |t|>
-    <t.head 
-      @columns={{this.columns}} 
-      @sorts={{this.sorts}} 
-      @onUpdateSorts={{action (mut sorts)}}
-      @widthConstraint="eq-container"
-      @fillMode="first-column"
-      as |h|
-    >
-      <h.row as |r|>
-        <r.cell as |column|>
-          {{#component "table-column-header" columnContent=column}}
-            {{column.name}}
-          {{/component}}
-        </r.cell>
-      </h.row>
-    </t.head>
-    <t.body 
-      @rows={{this.rows}} 
-      @staticHeight={{false}}
-      @key="id" 
-      as |b|
-    >
-      <b.row as |r|>
-        <r.cell as |cell column row|>
-          <div class="px-1">
-            {{#if column.cellComponent}}
-              {{#component column.cellComponent cellContent=cell row=row}}
-                {{cell}}
-              {{/component}}
-            {{else}}
-              {{cell}}
-            {{/if}}
-          </div>
-        </r.cell>
-      </b.row>
-    </t.body>
-  </EmberTable>
+  <table>
+    <thead>
+      <tr>
+        {{#each this.columns as |column|}}
+          <th>
+            {{#component "table-column-header" columnContent=column}}
+              {{column.label}}
+            {{/component}}
+          </th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this.entries as |entry|}}
+        <tr>
+          {{#each this.columns as |column|}}
+            <td>
+              {{component column.cellComponent 
+                cellContent=(get entry column.valuePath)
+                entry=entry
+                property=column.valuePath
+              }}
+            </td>
+          {{/each}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
+

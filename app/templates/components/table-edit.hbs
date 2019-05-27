@@ -1,8 +1,9 @@
 <div class="table-edit py-1">
   <span class="hidden">{{@cellContent}}</span>
-  <input
-    type="text"
-    value={{@cellContent}}
+  {{input 
+    type="text" 
+    value=(get this.args.entry this.args.property)
     class="inline-editor"
-  >
+    focus-out=(action this.saveCell)
+  }}
 </div>

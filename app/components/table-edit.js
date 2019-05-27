@@ -3,24 +3,12 @@ import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 
 export default class TableEditComponent extends Component {
-  @tracked isEditing = false;
-
-  @action
-  toggleEditing() {
-    if (this.isEditing) {
-      this._saveChange();
-      this.isEditing = false;
-    } else {
-      this.isEditing = true;
-    }
-  }
+  @tracked previousValue = null;
 
   @action
   saveCell() {
-    return true;
+    if (this.args.entry.hasDirtyAttributes) {
+      this.args.entry.save();
+    }
   }
-
-  // _saveChange() {
-  //   console.log(this.args.row);
-  // }
 }
