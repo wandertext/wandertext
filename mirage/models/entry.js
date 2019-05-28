@@ -1,7 +1,7 @@
 import { Model, hasMany, belongsTo } from "ember-cli-mirage";
 
 export default Model.extend({
-  place: belongsTo(),
-  text: belongsTo(),
-  contributors: hasMany()
+  place: belongsTo("place", { async: false }),
+  text: belongsTo("text", { async: false }),
+  contributors: hasMany("contributor", { async: false })
 });

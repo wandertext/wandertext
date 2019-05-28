@@ -92,6 +92,7 @@
   },
   "dependencies": {
     "ember-cli-tailwind": "^0.7.0",
+    "eslint-plugin-ember-data-sync-relationships": "^1.0.0",
     "leaflet": "^1.4.0"
   },
   "xo": {
@@ -111,7 +112,8 @@
     ],
     "plugins": [
       "chai-friendly",
-      "ember"
+      "ember",
+      "ember-data-sync-relationships"
     ],
     "space": 2,
     "rules": {
@@ -119,7 +121,8 @@
       "no-unused-expressions": 0,
       "chai-friendly/no-unused-expressions": 2,
       "import/no-unresolved": 0,
-      "import/no-extraneous-dependencies": 1
+      "import/no-extraneous-dependencies": 1,
+      "ember-data-sync-relationships/no-async-relationships": "warn"
     },
     "overrides": [
       {

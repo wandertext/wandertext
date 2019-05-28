@@ -6316,6 +6316,13 @@ eslint-plugin-chai-friendly@^0.4.1:
   resolved "https://registry.yarnpkg.com/eslint-plugin-chai-friendly/-/eslint-plugin-chai-friendly-0.4.1.tgz#9eeb17f92277ba80bb64f0e946c6936a3ae707b4"
   integrity sha512-hkpLN7VVoGGsofZjUhcQ+sufC3FgqMJwD0DvAcRfxY1tVRyQyVsqpaKnToPHJQOrRo0FQ0fSEDwW2gr4rsNdGA==
 
+eslint-plugin-ember-data-sync-relationships@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember-data-sync-relationships/-/eslint-plugin-ember-data-sync-relationships-1.0.0.tgz#cc896a221564df4d1eafdee139c7f26968b4dd3d"
+  integrity sha512-cM4KDbKbTOhuzOZ8nplLUG8zwhnks4nurZcZEKHGMgWjLB4oqsy9G5CAhdQpq0xvRQRkmZFP11h6vWq7qT95QA==
+  dependencies:
+    require-folder-tree "^1.4.5"
+
 eslint-plugin-ember@^6.4.1:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-6.4.1.tgz#9b6fc99bbd86b4f43e9098a5c07c446eb2e64a08"
@@ -11458,6 +11465,13 @@ require-directory@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/require-directory/-/require-directory-2.1.1.tgz#8c64ad5fd30dab1c976e2344ffe7f792a6a6df42"
   integrity sha1-jGStX9MNqxyXbiNE/+f3kqam30I=
+
+require-folder-tree@^1.4.5:
+  version "1.4.7"
+  resolved "https://registry.yarnpkg.com/require-folder-tree/-/require-folder-tree-1.4.7.tgz#fdb5acaeae4aab4a8417f54cf241a9ecc8c8a237"
+  integrity sha512-8nkJYEUuMzYdWQcNdMBe04jloJc5RQ6gnHJC7+aHYFFbkqljsxfpPGSy+9NBtw5rSRcXI/2khC+V48atKd0bUQ==
+  dependencies:
+    lodash "^4.17.11"
 
 require-main-filename@^1.0.1:
   version "1.0.1"

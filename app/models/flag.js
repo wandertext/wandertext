@@ -11,11 +11,11 @@ export default class Flag extends DS.Model {
 
   @attr() nywalkerProperties;
 
-  @belongsTo("contributor") contributor;
+  @belongsTo("contributor", { async: false }) contributor;
 
-  @belongsTo("text") text;
+  @belongsTo("text", { async: false }) text;
 
-  @belongsTo("entry") entry;
+  @belongsTo("entry", { async: false }) entry;
 
-  @belongsTo("place") place;
+  @belongsTo("place", { async: false }) place;
 }
