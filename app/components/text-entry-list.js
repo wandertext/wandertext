@@ -5,7 +5,18 @@ import { capitalize } from "@ember/string";
 export default class TextEntryListComponent extends Component {
   @tracked sorts = [];
 
-  @tracked columns = [];
+  @tracked columns = [
+    {
+      cellComponent: "table-edit",
+      label: "Attested Name",
+      valuePath: "attestedName"
+    },
+    {
+      cellComponent: "table-place",
+      label: "Linked Place",
+      valuePath: "place"
+    }
+  ];
 
   @tracked entries = this.args.text.entries;
 
@@ -16,11 +27,6 @@ export default class TextEntryListComponent extends Component {
   }
 
   _buildColumns(text) {
-    this.columns.pushObject({
-      cellComponent: "table-edit",
-      label: "Attested Name",
-      valuePath: "attestedName"
-    });
     text.entryProperties.forEach(propObj => {
       const label = propObj.inputLabel || capitalize(propObj.name);
       const valuePath = `properties.${propObj.name}`;
