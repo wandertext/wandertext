@@ -22,6 +22,7 @@ Router.map(function() {
       this.route("new");
     });
     this.route("places");
+    this.route("entries");
   });
   this.route("help");
   this.route("about");

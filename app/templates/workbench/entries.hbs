@@ -1,0 +1,8 @@
+<h2>Entries</h2>
+<ul>
+  {{#each this.model as |entry|}}
+    {{log entry}}
+    <li>{{entry.attestedName}}, {{entry.place.properties.name}}</li>
+  {{/each}}
+</ul>
+{{outlet}}
