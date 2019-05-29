@@ -1,7 +1,8 @@
 import Route from "@ember/routing/route";
 
 export default class TextsIndexRoute extends Route {
-  model() {
-    return this.store.findAll("text");
+  async model() {
+    await this.store.loadRecords("text");
+    return this.store.peekAll("text");
   }
 }
