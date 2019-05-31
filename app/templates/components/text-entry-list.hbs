@@ -20,6 +20,7 @@
                 cellContent=(get entry column.valuePath)
                 entry=entry
                 property=column.valuePath
+                showModal=this.showModal
               }}
             </td>
           {{/each}}
@@ -28,4 +29,14 @@
     </tbody>
   </table>
 </div>
+
+{{#if this.isShowingModal}}
+  {{#modal-dialog
+    onClose=this.toggleModal
+    targetAttachment="center"
+    translucentOverlay=true
+    }}
+    place: {{this.modalPlace.properties.name}}
+  {{/modal-dialog}}
+{{/if}}
 

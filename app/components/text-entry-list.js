@@ -1,8 +1,12 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { capitalize } from "@ember/string";
+import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 
 export default class TextEntryListComponent extends Component {
+  @service store;
+
   @tracked sorts = [];
 
   @tracked columns = [
@@ -19,6 +23,24 @@ export default class TextEntryListComponent extends Component {
   ];
 
   @tracked entries = this.args.text.entries;
+
+  @tracked isShowingModal = false;
+
+  @tracked modalPlace = null;
+
+  @action
+  toggleModal() {
+    this.isShowingModal = !this.isShowingModal;
+  }
+
+  @action
+  async showModal(e) {
+    this.isShowingModal = true;
+    this.modalPlace = await this.store.loadRecord(
+      "place",
+      Number(e.path[0].dataset.placeid)
+    );
+  }
 
   constructor(...args) {
     super(...args);

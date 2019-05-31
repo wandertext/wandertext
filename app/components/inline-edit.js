@@ -84,7 +84,7 @@ export default class InlineEditComponent extends Component {
 
   @action
   save() {
-    console.log("saving", this.value);
+    // Console.log("saving", this.value);
 
     // TryInvoke(this, "onSave", [this.value]);
 
