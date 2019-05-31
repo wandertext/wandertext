@@ -14,12 +14,6 @@ module.exports = function(environment) {
         }
       }
     },
-    fontawesome: {
-      icons: {
-        "free-solid-svg-icons": ["info-circle", "map", "database", "home"],
-        "free-brands-svg-icons": ["github", "ember"]
-      }
-    },
     EmberENV: {
       FEATURES: {
         EMBER_NATIVE_DECORATOR_SUPPORT: true,
