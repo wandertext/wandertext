@@ -9,7 +9,8 @@ export default function(server) {
       coordinates: [78.02, 27.18]
     },
     properties: {
-      name: "Agraname"
+      name: "آگرہ",
+      geonameId: 1279259
     }
   });
   const belarus = server.create("place", {
@@ -18,7 +19,8 @@ export default function(server) {
       coordinates: [27, 52]
     },
     properties: {
-      name: "Belaname"
+      name: "Republic of Belarus",
+      geonameId: 630336
     }
   });
   const chile = server.create("place", {
@@ -27,7 +29,8 @@ export default function(server) {
       coordinates: [-71, -30]
     },
     properties: {
-      name: "Chilname"
+      name: "Republic of Chile",
+      geonameId: 3895114
     }
   });
   const muziejus = server.create("contributor", {
