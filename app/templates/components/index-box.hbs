@@ -4,29 +4,29 @@
   </h2>
 
   {{#if this.session.isAuthenticated}}
-    {{#paper-button onClick=this.logout}}
+    <Button @onClick=this.logout>
       Logout
-    {{/paper-button}}
+    </Button>
   {{else}}
-    {{#paper-button onClick=this.login}}
+    <Button @onClick=this.login>
       Login
-    {{/paper-button}}
+    </Button>
   {{/if}}
 
   <p class="lead">Create and share semantically rich geospatial datasets.</p>
 
   <div>
-  {{#paper-button primary=true raised=true href=(href-to "view.text" "nightwood-1936")}}
+  {{#link-to "view.text" "nightwood-1936" tagName="button" class="btn btn-primary"}}
     <i>Nightwood</i>
-  {{/paper-button}}  
+  {{/link-to}}  
   &nbsp;
-  {{#paper-button primary=true raised=true href=(href-to "view.text" "baburnama-1530")}}
+  {{#link-to "view.text" "baburnama-1530" tagName="button" class="btn btn-primary"}}
     <i>Bāburnāma</i>
-  {{/paper-button}}  
+  {{/link-to}}  
   &nbsp;
-  {{#paper-button primary=true raised=true href=(href-to "view.text" "lcaaj")}}
+  {{#link-to "view.text" "lcaaj" tagName="button" class="btn btn-primary"}}
     LCAAJ
-  {{/paper-button}}  
+  {{/link-to}}  
   </div>
   <div style="max-width: 50%; margin-top: 1rem;">
     <img style="max-width: 100%; height: auto;" src="/assets/cul-logo.png" alt="Columbia University Libraries logo" >
