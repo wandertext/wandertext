@@ -1,41 +1,27 @@
 {{#if @shown}}
-  {{#paper-dialog class="flex-77" onClose=(action @close "cancel") origin=dialogOrigin clickOutsideToClose=true}}
-    {{#paper-toolbar}}
-      {{#paper-toolbar-tools}}
         {{#if this.githubUser}}
           <h2>Hello, @{{this.githubUser.login}}!</h2>
         {{else}}
           <h2>Hello, Contributor!</h2>
         {{/if}}
-        <span class="flex"></span>
-        {{#paper-button iconButton=true onClick=(action @close "cancel")}}&times;{{/paper-button}}
-      {{/paper-toolbar-tools}}
-    {{/paper-toolbar}}
 
-    {{#paper-dialog-content}}
       {{#if this.session.isAuthenticated }}
-        {{#paper-list}}
-          {{#paper-item class="md-3-line"}}
             {{#if this.awaitingAuthentication }}
               {{svg-jar "check-circle"}}
             {{else}}
-              {{paper-progress-circular}}
+              <p>Spinner!</p>
             {{/if}}
-            <div class="md-list-item-text">
+            <div>
               <h3>Awaiting GitHub authentication</h3>
             </div>
-          {{/paper-item}}
-          {{#paper-item class="md-3-line"}}
             {{#if this.awaitingGithubProfile }}
               {{svg-jar "check-circle"}}
             {{else}}
-              {{paper-progress-circular}}
+              <p>Spinner!</p>
             {{/if}}
             <div class="md-list-item-text">
               <h3>Awaiting GitHub profile</h3>
             </div>
-          {{/paper-item}}
-        {{/paper-list}}
       {{else}}
         <p>Welcome to Wandertext. Use the button below to log in via GitHub.  If
           you are an approved contributor, you will be forwarded to your
@@ -43,12 +29,10 @@
           contributor but are not yet, please contact Manan.</p>
 
         <div class="layout-row layout-align-center-center">
-          {{#paper-button id="login-to-github-button" raised=true primary=true onClick=this.login}}
+          <Button @onClick={{ this.login }}>
             {{svg-jar "github"}}            
             Log In via GitHub
-          {{/paper-button}}
+          </Button>
         </div>
       {{/if}}
-    {{/paper-dialog-content}}
-  {{/paper-dialog}}
 {{/if}}

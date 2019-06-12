@@ -1,23 +1,21 @@
-{{#paper-content padding=true}}
-  {{#paper-list}}
+<ul>
     {{#each this.sidenav.linkList as |item|}}
-      {{#paper-item class="md-2-line" href=(href-to item.route)}}
+    <li>
         <p>{{item.text}}</p>
-      {{/paper-item}}
+      </li>
     {{/each}}
     {{#if this.session.isAuthenticated}}
-      {{#paper-item id="edit" class="md-2-line" href=(href-to "workbench") }}
+    <li>
         <p>Wandertext Workbench</p>
-      {{/paper-item}}
-      {{#paper-item id="login-button" class="md-2-line" onClick=(action this.logout) }}
+    </li>
+    <li>
         <p>Log Out @{{this.currentContributor.contributor.username}}</p>
-      {{/paper-item}}
+    </li>
     {{else}}
-      {{#paper-item id="login-button" class="md-2-line" onClick=(action this.showContributorAuthModal) }}
+    <li>
         <p>Log In</p>
-      {{/paper-item}}
+    </li>
     {{/if}}
-  {{/paper-list}}
+  </ul>
   {{yield}}
-{{/paper-content}}
 <ContributorAuthModal @close={{this.closeContributorAuthModal}} @shown={{this.showModal}} />

@@ -1,20 +1,5 @@
 <div id="text-detail">
   {{#if this.docs}}
-    {{#paper-expansion-panel expanded=true as |panel|}}
-      {{#panel.collapsed rippleInkColor="green"}}
-        <div class="md-panel-title">Overview</div>
-        <div class="md-panel-summary"></div>
-        {{svg-jar "arrow_down"}}
-      {{/panel.collapsed}}
-
-      {{#panel.expanded as |expanded|}}
-        {{#expanded.header}}
-          <div class="md-panel-title">Overview</div>
-          <div class="md-panel-summary"></div>
-          {{svg-jar "arrow_up"}}
-        {{/expanded.header}}
-
-        {{#expanded.content}}
           <div class="layout-row">
             <div id="overview-content">
               {{#if text.markdownBlurb }}
@@ -28,91 +13,9 @@
               {{/if}}
             </div>
           </div>
-        {{/expanded.content}}
-
-      {{/panel.expanded}}
-    {{/paper-expansion-panel}}
-
-    {{#paper-expansion-panel expanded=false as |panel|}}
-      {{#panel.collapsed}}
-        <div class="md-panel-title">Contributors</div>
-        <div class="md-panel-summary">{{this.contributorsEtAl}}</div>
-        {{svg-jar "arrow_down"}}
-      {{/panel.collapsed}}
-
-      {{#panel.expanded as |expanded|}}
-        {{#expanded.header}}
-          <div class="md-panel-title">Contributors</div>
-          <div class="md-panel-summary"></div>
-          {{svg-jar "arrow_up"}}
-        {{/expanded.header}}
-
-        {{#expanded.content}}
           <TextContributors @contributorsSentence={{this.contributorsSentence}} />
-        {{/expanded.content}}
-
-      {{/panel.expanded}}
-    {{/paper-expansion-panel}}
-
-    {{#paper-expansion-panel expanded=false as |panel|}}
-      {{#panel.collapsed}}
-        <div class="md-panel-title">Entries</div>
-        <div class="md-panel-summary">
-          {{#if this.entriesCount}}
-            {{this.entriesCount}} entries
-          {{/if}}
-        </div>
-        {{svg-jar "arrow_down"}}
-      {{/panel.collapsed}}
-
-      {{#panel.expanded as |expanded|}}
-        {{#expanded.header}}
-          <div class="md-panel-title">Entries</div>
-          <div class="md-panel-summary"></div>
-          {{svg-jar "arrow_up"}}
-        {{/expanded.header}}
-
-        {{#expanded.content}}
           <TextEntries @entries={{this.entries}} @entrySort={{this.text.entrySort}} />
-        {{/expanded.content}}
-
-      {{/panel.expanded}}
-    {{/paper-expansion-panel}}
-
-    {{#paper-expansion-panel expanded=this.expandedPlace as |panel|}}
-      {{#panel.collapsed}}
-          {{#if this.selectedPlace}}
-            <div class="md-panel-title">
-              {{this.selectedPlace.attestedName}}
-            </div>
-            <div class="md-panel-summary">{{this.selectedPlace.entryCount}} entries</div>
-          {{else}}
-            <div class="md-panel-title">No place selected</div>
-            <div class="md-panel-summary"></div>
-          {{/if}}
-        {{svg-jar "arrow_down"}}
-      {{/panel.collapsed}}
-
-      {{#panel.expanded as |expanded|}}
-        {{#expanded.header}}
-          {{#if this.selectedPlace}}
-            <div class="md-panel-title">
-              {{this.selectedPlace.attestedName}}
-            </div>
-            <div class="md-panel-summary">{{this.selectedPlace.entryCount}} entries</div>
-          {{else}}
-            <div class="md-panel-title">No place selected</div>
-            <div class="md-panel-summary"></div>
-          {{/if}}
-          {{svg-jar "arrow_up"}}
-        {{/expanded.header}}
-
-        {{#expanded.content}}
         <TextPlaces @entries={{this.entries}} @entrySort={{this.text.entrySort}} @place={{this.selectedPlace}} />
-        {{/expanded.content}}
-
-      {{/panel.expanded}}
-    {{/paper-expansion-panel}}
   {{else}}
     <FloatingBoxSpinner />
   {{/if}}

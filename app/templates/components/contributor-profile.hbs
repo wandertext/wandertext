@@ -1,56 +1,15 @@
-{{#paper-card as |card|}}
-  {{#card.title as |title|}}
-    {{#title.text as |text|}}
-      {{#text.headline id="card-headline"}}{{@model.firstName}} {{@model.lastName}}{{/text.headline}}
-      {{#text.subhead id="card-subhead"}}
-        <a href="http://github.com/{{@model.username}}">@{{@model.username}}</a>
-      {{/text.subhead}}
-    {{/title.text}}
-    {{#if this.isMe}}
-      {{title.media size="lg" src=this.currentContributor.contributor.githubAvatarUrl alt=(concat "GitHub Avatar for @" @model.username) title=(concat "GitHub Avatar for @" @model.username)}}
-    {{/if}}
-  {{/card.title}}
+<h2>{{@model.firstName}} {{@model.lastName}}</h2>
+<h3><a href="http://github.com/{{@model.username}}">@{{@model.username}}</a></h3>
 
-  {{#card.content}}
-    {{#paper-expansion-panel expanded=false as |panel|}}
-      {{#panel.collapsed rippleInkColor="green"}}
-        <div class="md-panel-title">Texts</div>
-        <div class="md-panel-summary"></div>
-        {{svg-jar "arrow_down"}}
-      {{/panel.collapsed}}
-
-      {{#panel.expanded as |expanded|}}
-        {{#expanded.header}}
-          <div class="md-panel-title">Texts</div>
-          <div class="md-panel-summary"></div>
-          {{svg-jar "arrow_up"}}
-        {{/expanded.header}}
-
-        {{#expanded.content}}
-        <TextList @texts={{@model.texts}} />
-        {{/expanded.content}}
-
-      {{/panel.expanded}}
-    {{/paper-expansion-panel}}
-    {{#paper-expansion-panel expanded=false as |panel|}}
-      {{#panel.collapsed rippleInkColor="green"}}
-        <div class="md-panel-title">Places</div>
-        <div class="md-panel-summary"></div>
-        {{svg-jar "arrow_down"}}
-      {{/panel.collapsed}}
-
-      {{#panel.expanded as |expanded|}}
-        {{#expanded.header}}
-          <div class="md-panel-title">Places</div>
-          <div class="md-panel-summary"></div>
-          {{svg-jar "arrow_up"}}
-        {{/expanded.header}}
-
-        {{#expanded.content}}
-        Places List
-        {{/expanded.content}}
-
-      {{/panel.expanded}}
-    {{/paper-expansion-panel}}
-  {{/card.content}}
-{{/paper-card}}
+<div>
+  <div>
+    <div>Texts {{svg-jar "arrow_down"}}</div>
+    <div>
+      Texts {{svg-jar "arrow_up"}}
+      <TextList @texts={{@model.texts}} />
+    </div>
+  </div>
+  <div>
+    <div>Texts {{svg-jar "arrow_down"}}</div>
+  </div>
+</div>
