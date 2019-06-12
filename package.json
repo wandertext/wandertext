@@ -21,6 +21,7 @@
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",
     "@ember/test-helpers": "^1.5.0",
+    "@fullhuman/postcss-purgecss": "^1.2.0",
     "@glimmer/component": "^0.14.0-alpha.5",
     "@glimmer/tracking": "^0.14.0-alpha.5",
     "babel-eslint": "^9.0.0",
@@ -45,6 +46,7 @@
     "ember-cli-mirage": "^1.0.0",
     "ember-cli-moment-shim": "^3.7.1",
     "ember-cli-netlify": "^0.2.0",
+    "ember-cli-postcss": "^4.2.1",
     "ember-cli-sass": "^10.0.0",
     "ember-cli-showdown": "^4.4.4",
     "ember-cli-sri": "^2.1.1",
@@ -81,7 +83,9 @@
     "ghooks": "^2.0.4",
     "handlebars": "^4.1.2",
     "loader.js": "^4.7.0",
+    "postcss-import": "^12.0.1",
     "sass": "^1.20.1",
+    "tailwindcss": "^1.0.4",
     "torii": "^0.10.1",
     "xo": "^0.24.0"
   },
