@@ -8,7 +8,7 @@
           <h2>Hello, Contributor!</h2>
         {{/if}}
         <span class="flex"></span>
-        {{#paper-button iconButton=true onClick=(action @close "cancel")}}{{paper-icon icon="close"}}{{/paper-button}}
+        {{#paper-button iconButton=true onClick=(action @close "cancel")}}&times;{{/paper-button}}
       {{/paper-toolbar-tools}}
     {{/paper-toolbar}}
 
@@ -17,7 +17,7 @@
         {{#paper-list}}
           {{#paper-item class="md-3-line"}}
             {{#if this.awaitingAuthentication }}
-              {{paper-icon "check-circle" class="md-avatar-icon"}}
+              {{svg-jar "check-circle"}}
             {{else}}
               {{paper-progress-circular}}
             {{/if}}
@@ -27,7 +27,7 @@
           {{/paper-item}}
           {{#paper-item class="md-3-line"}}
             {{#if this.awaitingGithubProfile }}
-              {{paper-icon "check-circle" class="md-avatar-icon"}}
+              {{svg-jar "check-circle"}}
             {{else}}
               {{paper-progress-circular}}
             {{/if}}

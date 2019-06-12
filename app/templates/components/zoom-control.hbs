@@ -1,13 +1,13 @@
 <div id="zoom-control" class="zoom-control visible sm:invisible md:visible">
   <div style="margin-bottom: 16px;">
-    {{#paper-button raised=true mini=true primary=true iconButton=true onClick=(action this.zoomIn) }}
-      {{paper-icon "zoom_in"}}
-    {{/paper-button}}
+    <Button @onClick={{this.zoomIn}}>
+      {{svg-jar "plus-circle"}}
+    </Button>
   </div>
   <div>
-    {{#paper-button raised=true mini=true primary=true iconButton=true onClick=(action this.zoomOut)}}
-      {{paper-icon "zoom_out"}}
-    {{/paper-button}}
+    <Button @onClick={{this.zoomOut}}>
+      {{svg-jar "minus-circle"}}
+    </Button>
   </div>
 </div>
 

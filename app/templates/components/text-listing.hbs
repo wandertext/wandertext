@@ -2,7 +2,7 @@
   {{#if @text.imgSrc}}
     <img src={{@text.imgSrc}} alt={{@text.name}} class="md-avatar">
   {{else}}
-    {{paper-icon "book" class="md-avatar"}}
+    {{svg-jar "book"}}
   {{/if}}
   <div class="md-list-item-text">
     <h3>{{#link-to "workbench.texts.text" @text.slug}}{{text-title @text}}{{/link-to}}</h3>

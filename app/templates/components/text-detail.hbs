@@ -4,14 +4,14 @@
       {{#panel.collapsed rippleInkColor="green"}}
         <div class="md-panel-title">Overview</div>
         <div class="md-panel-summary"></div>
-        {{paper-icon "keyboard_arrow_down"}}
+        {{svg-jar "arrow_down"}}
       {{/panel.collapsed}}
 
       {{#panel.expanded as |expanded|}}
         {{#expanded.header}}
           <div class="md-panel-title">Overview</div>
           <div class="md-panel-summary"></div>
-          {{paper-icon "keyboard_arrow_up"}}
+          {{svg-jar "arrow_up"}}
         {{/expanded.header}}
 
         {{#expanded.content}}
@@ -37,14 +37,14 @@
       {{#panel.collapsed}}
         <div class="md-panel-title">Contributors</div>
         <div class="md-panel-summary">{{this.contributorsEtAl}}</div>
-        {{paper-icon "keyboard_arrow_down"}}
+        {{svg-jar "arrow_down"}}
       {{/panel.collapsed}}
 
       {{#panel.expanded as |expanded|}}
         {{#expanded.header}}
           <div class="md-panel-title">Contributors</div>
           <div class="md-panel-summary"></div>
-          {{paper-icon "keyboard_arrow_up"}}
+          {{svg-jar "arrow_up"}}
         {{/expanded.header}}
 
         {{#expanded.content}}
@@ -62,14 +62,14 @@
             {{this.entriesCount}} entries
           {{/if}}
         </div>
-        {{paper-icon "keyboard_arrow_down"}}
+        {{svg-jar "arrow_down"}}
       {{/panel.collapsed}}
 
       {{#panel.expanded as |expanded|}}
         {{#expanded.header}}
           <div class="md-panel-title">Entries</div>
           <div class="md-panel-summary"></div>
-          {{paper-icon "keyboard_arrow_up"}}
+          {{svg-jar "arrow_up"}}
         {{/expanded.header}}
 
         {{#expanded.content}}
@@ -90,7 +90,7 @@
             <div class="md-panel-title">No place selected</div>
             <div class="md-panel-summary"></div>
           {{/if}}
-        {{paper-icon "keyboard_arrow_down"}}
+        {{svg-jar "arrow_down"}}
       {{/panel.collapsed}}
 
       {{#panel.expanded as |expanded|}}
@@ -104,7 +104,7 @@
             <div class="md-panel-title">No place selected</div>
             <div class="md-panel-summary"></div>
           {{/if}}
-          {{paper-icon "keyboard_arrow_up"}}
+          {{svg-jar "arrow_up"}}
         {{/expanded.header}}
 
         {{#expanded.content}}
