@@ -1,5 +1,5 @@
 #the-map {
-  @apply .absolute .pin-t .pin-l .h-screen .w-screen
+  @apply .absolute .top-0 .left-0 .h-screen .w-screen
 }
 
 #the-map > .leaflet-div-icon {
@@ -10,11 +10,11 @@
 #the-map > path.dot-marker {
   fill-opacity: 0.2;
   stroke-width: 6;
-  @apply .fill-current .text-primary .stroke-current .text-primary-light
+  @apply .fill-current .text-primary-500 .stroke-current .text-primary-400
 }
 
 #the-map > path.selected-dot {
   fill-opacity: 1.0;
   stroke-width: 6;
-  @apply .fill-current .text-accent .stroke-current .text-primary-darkest
+  @apply .fill-current .text-accent-500 .stroke-current .text-primary-800
 }

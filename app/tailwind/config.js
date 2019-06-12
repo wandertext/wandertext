@@ -17,6 +17,28 @@ module.exports = {
       black: "#000",
       white: "#fff",
 
+      primary: {
+        100: "#6696ff",
+        200: "#3374ff",
+        300: "#0051ff",
+        400: "#0041cc",
+        500: "#0033a0",
+        600: "#003099",
+        700: "#002880",
+        800: "#002066",
+        900: "#00184d"
+      },
+      accent: {
+        100: "#ffffff",
+        200: "#ebf4f9",
+        300: "#d7e9f4",
+        400: "#c3deee",
+        500: "#b9d9eb",
+        600: "#9cc9e3",
+        700: "#74b3d8",
+        800: "#4c9dcd",
+        900: "#3284b3"
+      },
       gray: {
         100: "#f7fafc",
         200: "#edf2f7",
@@ -240,15 +262,44 @@ module.exports = {
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"'
       ],
-      serif: ["Georgia", "Cambria", '"Times New Roman"', "Times", "serif"],
+      serif: [
+        "Adobe Garamond",
+        "EB Garamond",
+        "Garamond",
+        "DejaVu Serif",
+        "Bitstream Vera Serif",
+        "Liberation Serif",
+        "Georgia",
+        "serif"
+      ],
       mono: [
+        "Source Code Pro",
         "Menlo",
         "Monaco",
         "Consolas",
         '"Liberation Mono"',
         '"Courier New"',
         "monospace"
-      ]
+      ],
+      nastaliq: [
+        "IranNastaliq",
+        "Urdu Emad Nastaleeq",
+        "Noto Nastaliq Urdu",
+        "Noto Nastaliq Urdu Draft",
+        "Awami Nastaliq",
+        "Awami Nastaliq Beta3",
+        "Awami Nastaliq Beta2",
+        "Awami Nastaliq Beta1",
+        "Urdu Typesetting",
+        "Jameel Noori Nastaleeq",
+        "Hussaini Nastaleeq",
+        "AlQalam Taj Nastaleeq",
+        "Nafees Nastaleeq",
+        "Pak Nastaleeq",
+        "PDMS_Jauhar",
+        "Alvi Lahori Nastaleeq"
+      ],
+      title: ["Trajan Pro", "Cinzel", "serif"]
     },
     fontSize: {
       xs: "0.75rem",
@@ -414,7 +465,8 @@ module.exports = {
       "20": "20",
       "30": "30",
       "40": "40",
-      "50": "50"
+      "50": "50",
+      "51": "51"
     }
   },
   variants: {

@@ -1,4 +1,4 @@
 .sidenav {
   transform: translate3d(-100%, 0, 0);
-  @apply .shadow-md .flex .flex-col .pin-t .pin-l .absolute .z-50 .h-screen .w-64 .max-w-xs .bg-grey-lightest
+  @apply .shadow-md .flex .flex-col .top-0 .left-0 .absolute .z-50 .h-screen .w-64 .max-w-xs .bg-gray-200
 }

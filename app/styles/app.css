@@ -1,22 +1,11 @@
-@import "./fonts";
-@import "./colors";
-@import "ember-modal-dialog/ember-modal-structure";
-@import "ember-modal-dialog/ember-modal-appearance";
-@import "tailwind";
+@import "fonts.css";
 
-// @import "ember-paper";
-// @import "ember-paper-expansion-panel";
-// @import "./links";
-@import "./leaflet";
-// @import "./zoom-control";
-// @import "./floating-box";
-// @import "./svg";
+@import "tailwindcss/base";
 
+@import "tailwindcss/components";
+@import "components.css";
 
-// html, body {
-//   height: 100%;
-//   width: 100%;
-// }
+@import "tailwindcss/utilities";
 
 body {
   background: #b9d9eb;

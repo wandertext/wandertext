@@ -1,0 +1,3 @@
+.zoom-control {
+  @apply .top-0 .right-0 .absolute
+}

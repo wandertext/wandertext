@@ -3,9 +3,9 @@
 }
 
 .btn-primary {
-  @apply .bg-primary .text-grey-lightest .border-primary-darkest
+  @apply .bg-primary-500 .text-gray-200 .border-primary-800
 }
 
 .btn-primary:hover {
-  @apply .bg-primary-dark .border-primary-lightest .text-white
+  @apply .bg-primary-600 .border-primary-200 .text-white
 }

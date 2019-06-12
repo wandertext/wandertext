@@ -1,10 +1,39 @@
 "use strict";
 
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
+const postcssImport = require("postcss-import");
+
+const isProduction = EmberApp.env() === "production";
 // Const Funnel = require("broccoli-funnel");
+
+const purgeCSS = {
+  module: require("@fullhuman/postcss-purgecss"),
+  options: {
+    content: [
+      // Add extra paths here for components/controllers which include tailwind classes
+      "./app/index.html",
+      "./app/templates/**/*.hbs"
+    ],
+    defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+  }
+};
 
 module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
+    postcssOptions: {
+      compile: {
+        plugins: [
+          {
+            module: postcssImport,
+            options: {
+              path: ["node_modules"]
+            }
+          },
+          require("tailwindcss")("./app/tailwind/config.js"),
+          ...(isProduction ? [purgeCSS] : [])
+        ]
+      }
+    },
     fingerprint: {
       exclude: [
         "images/layers-2x.png",
