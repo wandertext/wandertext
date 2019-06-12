@@ -13,6 +13,6 @@ describe("Integration | Component | floating-box-spinner", function() {
 
     await render(hbs`<FloatingBoxSpinner />`);
 
-    expect(this.element.textContent.trim()).to.equal("");
+    expect(this.element.textContent.trim()).to.equal("Spinner!");
   });
 });
