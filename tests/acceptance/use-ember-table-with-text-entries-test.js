@@ -68,7 +68,7 @@ describe("Acceptance | use ember table with text entries", function() {
       .and.have.length(3);
   });
 
-  it("sorts by page descending when I click on page header", async function() {
+  it.skip("sorts by page descending when I click on page header", async function() {
     const pageHeader = Array.prototype.filter.call(
       this.element.querySelectorAll("th"),
       th => /Page/.test(th.textContent)
@@ -88,7 +88,7 @@ describe("Acceptance | use ember table with text entries", function() {
     expect(rows.map(r => r.page)).to.deep.equal([3, 2, 1]);
   });
 
-  it("sorts by sequence descending when I click on sequence header", async function() {
+  it.skip("sorts by sequence descending when I click on sequence header", async function() {
     const seqHeader = Array.prototype.filter.call(
       this.element.querySelectorAll("th"),
       th => /Sequence/.test(th.textContent)
@@ -108,7 +108,7 @@ describe("Acceptance | use ember table with text entries", function() {
     expect(rows.map(r => r.sequence)).to.deep.equal([3, 2, 1]);
   });
 
-  it("sorts by attestedName descending when I click on attestedName header", async function() {
+  it.skip("sorts by attestedName descending when I click on attestedName header", async function() {
     const nameHeader = Array.prototype.filter.call(
       this.element.querySelectorAll("th"),
       th => /Attested/.test(th.textContent)
