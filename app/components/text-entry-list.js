@@ -34,12 +34,9 @@ export default class TextEntryListComponent extends Component {
   }
 
   @action
-  async showModal(e) {
+  async showModal(data) {
     this.isShowingModal = true;
-    this.modalPlace = await this.store.loadRecord(
-      "place",
-      Number(e.path[0].dataset.placeid)
-    );
+    this.modalPlace = data;
   }
 
   constructor(...args) {
