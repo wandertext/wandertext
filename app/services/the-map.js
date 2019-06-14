@@ -21,7 +21,7 @@ export default class TheMapService extends Service {
   iconUrl =
     "<svg height=20 width=20 xmlns='http://www.w3.org/2000/svg'><path class='dot-marker' d='M0,29L26,0l1.8,1.1c7.4,8.6,16.4,17,26.9,25.3c-5.4,6.2-14,15.1-25.8,26.5c-4.3-0.7-8.7-3.1-13.3-7.2 c-4.5-4.1-8.8-8.1-12.7-12L0,29z' transform='scale(0.32)' /></svg>";
 
-  addPoints(points = this.points, opts = { padding: true }) {
+  addPoints(points = this.points, opts = { recenter: true, padding: true }) {
     this.removePoints();
     const pointsLayer = L.featureGroup();
     const icon = L.divIcon({ html: this.iconUrl, iconSize: [20, 20] });
@@ -42,13 +42,16 @@ export default class TheMapService extends Service {
             .forEach(dot => dot.classList.remove("selected-dot"));
           this.activePlaceId = e.target.options.id;
           e.originalEvent.srcElement.classList.add("selected-dot");
+          e.originalEvent.srcElement.classList.remove("dot-marker");
         });
         marker.addTo(pointsLayer);
       }
     });
     this.pointsLayer = pointsLayer;
     this.pointsLayer.addTo(this.map);
-    this._recenterMap(opts.padding);
+    if (opts.recenter) {
+      this._recenterMap(opts.padding);
+    }
   }
 
   removePoints() {

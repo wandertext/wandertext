@@ -1,20 +1,3 @@
 #the-map {
   @apply .absolute .top-0 .left-0 .h-screen .w-screen
 }
-
-#the-map > .leaflet-div-icon {
-  background: none;
-  border: none;
-}
-
-#the-map > path.dot-marker {
-  fill-opacity: 0.2;
-  stroke-width: 6;
-  @apply .fill-current .text-primary-500 .stroke-current .text-primary-400
-}
-
-#the-map > path.selected-dot {
-  fill-opacity: 1.0;
-  stroke-width: 6;
-  @apply .fill-current .text-accent-500 .stroke-current .text-primary-800
-}

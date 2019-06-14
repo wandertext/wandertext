@@ -1,3 +1,22 @@
+.leaflet-div-icon {
+  background: none;
+  border: none;
+}
+
+.dot-marker {
+  fill-opacity: 0.8;
+  stroke-width: 6;
+  fill: #b9d9eb;
+  stroke: #0041cc;
+}
+
+.selected-dot {
+  fill-opacity: 1.0;
+  stroke-width: 6;
+  fill: #b9d9eb;
+  stroke: #002880;
+}
+
 .leaflet-zoom-box { z-index: 8; }
 .leaflet-pane         { z-index: 3; }
 .leaflet-tile-pane    { z-index: 2; }
@@ -10,3 +29,21 @@
 .leaflet-map-pane svg    { z-index: 2; }
 .leaflet-control { z-index: 8; }
 .leaflet-top, .leaflet-bottom { z-index: 10;}
+
+#modal-map {
+  width: 50vw;
+  height: 50vh;
+}
+
+#modal-map > .leaflet-zoom-box { z-index: 58; }
+#modal-map > .leaflet-pane         { z-index: 53; }
+#modal-map > .leaflet-tile-pane    { z-index: 52; }
+#modal-map > .leaflet-overlay-pane { z-index: 53; }
+#modal-map > .leaflet-shadow-pane  { z-index: 54; }
+#modal-map > .leaflet-marker-pane  { z-index: 55; }
+#modal-map > .leaflet-tooltip-pane   { z-index: 56; }
+#modal-map > .leaflet-popup-pane   { z-index: 57; }
+#modal-map > .leaflet-map-pane canvas { z-index: 51; }
+#modal-map > .leaflet-map-pane svg    { z-index: 52; }
+#modal-map > .leaflet-control { z-index: 58; }
+#modal-map > .leaflet-top, .leaflet-bottom { z-index: 60;}
