@@ -56,7 +56,7 @@
     "ember-d3": "^0.5.1",
     "ember-data": "^3.10.0",
     "ember-data-github": "^0.8.1",
-    "ember-data-storefront": "^0.16.1",
+    "ember-data-storefront": "^0.16.2",
     "ember-export-application-global": "^2.0.0",
     "ember-fetch": "^6.5.1",
     "ember-href-to": "^3.1.0",
