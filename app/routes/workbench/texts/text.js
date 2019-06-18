@@ -5,6 +5,6 @@ export default class TextsTextRoute extends Route.extend(
   AuthenticatedRouteMixin
 ) {
   model({ id }) {
-    return this.store.loadRecord("text", id);
+    return this.store.findRecord("text", id);
   }
 }
