@@ -21,13 +21,13 @@ export default class Contributor extends DS.Model {
 
   @attr() nywalkerProperties;
 
-  @hasMany("entry", { async: false }) entries;
+  @hasMany("entry", { async: true }) entries;
 
-  @hasMany("flag", { async: false }) flags;
+  @hasMany("flag", { async: true }) flags;
 
-  @hasMany("place", { async: false }) places;
+  @hasMany("place", { async: true }) places;
 
-  @hasMany("text", { async: false }) texts;
+  @hasMany("text", { async: true }) texts;
 
   @attr("date") createdOn;
 
