@@ -65,7 +65,7 @@ export default class TextDetailComponent extends Component {
 
     this.theMap.activePlaceId = null;
     this.getData();
-    if (this.args.text.slug === "lcaaj") {
+    if (this.args.text.id === "lcaaj") {
       this.card.logo = this.card.vov;
     } else {
       this.card.logo = this.card.waw;

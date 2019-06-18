@@ -11,14 +11,14 @@ Router.map(function() {
   this.route("workbench", function() {
     this.route("texts", function() {
       this.route("new");
-      this.route("text", { path: ":slug" }, function() {
+      this.route("text", { path: ":id" }, function() {
         this.route("entries", function() {
           this.route("new");
         });
       });
     });
     this.route("contributors", function() {
-      this.route("contributor", { path: ":username" });
+      this.route("contributor", { path: ":id" });
       this.route("new");
     });
     this.route("places");
@@ -29,7 +29,7 @@ Router.map(function() {
   this.route("places");
   this.route("texts");
   this.route("view", function() {
-    this.route("text", { path: "text/:slug" });
+    this.route("text", { path: "text/:id" });
   });
   this.route("login");
 });
