@@ -6,7 +6,7 @@ import showdown from "showdown";
 export default helper(function textTitle(texts) {
   const text = texts.firstObject;
   const converter = new showdown.Converter();
-  const title = text.markdownName || text.name;
+  const title = text.markdownName || text.name || "No title";
   return htmlSafe(
     converter
       .makeHtml(title)
