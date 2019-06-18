@@ -9,8 +9,8 @@ export default class CurrentContributorService extends Service {
   @tracked contributor;
 
   async load() {
-    let contributor;
-    if (this.session.isAuthenticated) {
+    const contributor = "blah";
+    /*    If (this.session.isAuthenticated) {
       if (this.contributor) {
         contributor = this.contributor;
       } else {
@@ -29,7 +29,8 @@ export default class CurrentContributorService extends Service {
       this.contributor = null;
       contributor = null;
     }
-
+*/
+    this.contributor = "zigmorf";
     return contributor;
   }
 }

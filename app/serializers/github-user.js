@@ -1,3 +1,3 @@
-import GitHubUserSerializer from "ember-data-github/serializers/github-user";
+// Import GitHubUserSerializer from "ember-data-github/serializers/github-user";
 
-export default GitHubUserSerializer.extend({});
+// export default GitHubUserSerializer.extend({});
