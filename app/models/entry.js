@@ -12,13 +12,13 @@ export default class Entry extends DS.Model.extend(LoadableModel) {
 
   // @attr() nywalkerProperties;
 
-  @belongsTo("place", { async: true }) place;
+  @belongsTo("place", { async: false }) place;
 
-  @belongsTo("text", { async: true }) text;
+  @belongsTo("text", { async: false }) text;
 
-  @hasMany("contributor", { async: true }) contributors;
+  @hasMany("contributor", { async: false }) contributors;
 
-  @hasMany("flag", { async: true }) flags;
+  @hasMany("flag", { async: false }) flags;
 
   @attr("date") createdOn;
 
