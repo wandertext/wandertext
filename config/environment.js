@@ -6,8 +6,9 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
+    backendHost: process.env.BACKEND_HOST,
     apollo: {
-      apiURL: "http://localhost:4000"
+      apiURL: `${process.env.BACKEND_HOST}/graphql`
     },
     torii: {
       sessionServiceName: "session",
