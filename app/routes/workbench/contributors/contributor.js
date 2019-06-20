@@ -1,13 +1,9 @@
-import Route from "@ember/routing/route";
-import AuthenticatedRouteMixin from "ember-simple-auth/mixins/authenticated-route-mixin";
+import WorkbenchRoute from "wandertext/routes/workbench";
+import query from "wandertext/gql/queries/contributor";
 
-export default class WorkbenchContributorsContributorRoute extends Route.extend(
-  AuthenticatedRouteMixin
-) {
-  async model({ username }) {
-    const contributors = await this.store.loadRecords("contributor", {
-      filter: { username }
-    });
-    return contributors.firstObject;
+export default class WorkbenchContributorsContributorRoute extends WorkbenchRoute {
+  model({ id }) {
+    const variables = { id };
+    return this.get("apollo").watchQuery({ query, variables }, "contributor");
   }
 }

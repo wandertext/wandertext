@@ -5,8 +5,6 @@ export default class ContributorProfileComponent extends Component {
   @service currentContributor;
 
   isMe() {
-    return (
-      this.args.model.username === this.currentContributor.contributor.username
-    );
+    return this.args.model.id === this.currentContributor.contributor.username;
   }
 }

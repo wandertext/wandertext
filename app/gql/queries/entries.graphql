@@ -1,0 +1,11 @@
+query entries {
+  entries {
+    id
+    attestedName
+    place {
+      id
+      name
+    }
+  }
+}
+

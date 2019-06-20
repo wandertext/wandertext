@@ -1,7 +1,8 @@
-import Route from "@ember/routing/route";
+import WorkbenchRoute from "wandertext/routes/workbench";
+import query from "wandertext/gql/queries/entries";
 
-export default class WorkbenchEntriesRoute extends Route {
-  async model() {
-    return this.store.findAll("entry");
+export default class WorkbenchEntriesRoute extends WorkbenchRoute {
+  model() {
+    return this.get("apollo").watchQuery({ query }, "entries");
   }
 }
