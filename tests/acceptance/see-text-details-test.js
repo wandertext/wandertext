@@ -24,11 +24,11 @@ describe("Acceptance | see Text details", function() {
     this.attestedNames.forEach(attestedName => {
       this.server.create("entry", { text: this.text, attestedName });
     });
-    await visit(`/workbench/texts/${this.text.slug}`);
+    await visit(`/workbench/texts/${this.text.id}`);
   });
 
-  it("can visit /workbench/texts/:slug", function() {
-    expect(currentURL()).to.equal(`/workbench/texts/${this.text.slug}`);
+  it("can visit /workbench/texts/:id", function() {
+    expect(currentURL()).to.equal(`/workbench/texts/${this.text.id}`);
   });
 
   it.skip("shows the Text.name as h3#text-name", function() {

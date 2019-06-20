@@ -23,7 +23,7 @@ describe("Acceptance | use ember table with text entries", function() {
     // Set up text.
     this.text = await this.server.create("text", {
       name: "Babur-test",
-      slug: "babur-test"
+      id: "babur-test"
     });
     // Set up entries.
     await this.server.create("entry", {
