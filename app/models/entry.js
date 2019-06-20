@@ -10,7 +10,9 @@ export default class Entry extends DS.Model.extend(LoadableModel) {
 
   @attr() properties;
 
-  // @attr() nywalkerProperties;
+  @attr("date") createdOn;
+
+  @attr("date") modifiedOn;
 
   @belongsTo("place", { async: false }) place;
 
@@ -19,8 +21,4 @@ export default class Entry extends DS.Model.extend(LoadableModel) {
   @hasMany("contributor", { async: false }) contributors;
 
   @hasMany("flag", { async: false }) flags;
-
-  @attr("date") createdOn;
-
-  @attr("date") modifiedOn;
 }

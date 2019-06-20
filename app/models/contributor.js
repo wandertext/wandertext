@@ -1,10 +1,9 @@
 import DS from "ember-data";
+import LoadableModel from "ember-data-storefront/mixins/loadable-model";
 
 const { attr, hasMany } = DS;
 
-export default class Contributor extends DS.Model {
-  @attr("string") username;
-
+export default class Contributor extends DS.Model.extend(LoadableModel) {
   @attr("string", { defaultValue: "github" }) authentication; // "github" or "uni"
 
   @attr("string", { defaultValue: "" }) githubAvatarUrl;
@@ -19,7 +18,9 @@ export default class Contributor extends DS.Model {
 
   @attr("boolean", { defaultValue: false }) admin;
 
-  @attr() nywalkerProperties;
+  @attr("date") createdOn;
+
+  @attr("date") modifiedOn;
 
   @hasMany("entry", { async: false }) entries;
 
@@ -28,8 +29,4 @@ export default class Contributor extends DS.Model {
   @hasMany("place", { async: false }) places;
 
   @hasMany("text", { async: false }) texts;
-
-  @attr("date") createdOn;
-
-  @attr("date") modifiedOn;
 }

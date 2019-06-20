@@ -6,6 +6,8 @@ const { attr, hasMany } = DS;
 export default class Text extends DS.Model.extend(LoadableModel) {
   @attr("string") name;
 
+  @attr("string") note;
+
   @attr("string") popupTemplate;
 
   @attr("string") markdownName;
@@ -20,19 +22,19 @@ export default class Text extends DS.Model.extend(LoadableModel) {
 
   @attr("string") imgHref;
 
+  @attr("number") year;
+
   @attr() entryProperties;
 
   @attr() entrySort;
 
-  @attr() nywalkerProperties;
+  @attr("date") createdOn;
+
+  @attr("date") modifiedOn;
 
   @hasMany("entry", { async: false }) entries;
 
   @hasMany("contributor", { async: false }) contributors;
 
   @hasMany("flag", { async: false }) flags;
-
-  @attr("date") createdOn;
-
-  @attr("date") modifiedOn;
 }
