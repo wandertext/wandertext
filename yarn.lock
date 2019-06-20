@@ -5517,10 +5517,10 @@ ember-data-github@^0.8.1:
     broccoli-merge-trees "^3.0.1"
     ember-cli-babel "^6.9.0"
 
-ember-data-storefront@^0.16.1:
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/ember-data-storefront/-/ember-data-storefront-0.16.1.tgz#5f5fd4d045fc5aa3e3c45c026b64f296a6d93d72"
-  integrity sha512-rrvQLZwG72z0d0+HsM7+My9Gfp7uvVrMRASySZjk+uyzpYA2Otnt6gh7/8DyAuRZMhHU7k442nhEbT7A3XDGcQ==
+ember-data-storefront@^0.16.2:
+  version "0.16.2"
+  resolved "https://registry.yarnpkg.com/ember-data-storefront/-/ember-data-storefront-0.16.2.tgz#393ed04b1ef435baf1749a9601000ac853b13614"
+  integrity sha512-ff92/IwJlN6/0FfNU5eXUu5ZaSTiU3yMgF1YDiwzMHMjXz6qgNoJ5Dsw3CRLNMubsoILHI7O8wW4U+CxN8K2Eg==
   dependencies:
     ember-cli-babel "^7.5.0"
     global "^4.3.2"
