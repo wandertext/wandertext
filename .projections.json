@@ -1,4 +1,7 @@
 {
+  "app/gql/queries/*.graphql": {
+    "type": "query",
+  },
   "app/controllers/*.js": {
     "type": "controller",
     "alternate": "tests/unit/controllers/{}-test.js"

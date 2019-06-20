@@ -1,0 +1,12 @@
+query text($id: ID!) {
+  text(id: $id) {
+    id
+    name
+    markdownName
+    markdownBlurb
+    entries {
+      id
+    }
+  }
+}
+

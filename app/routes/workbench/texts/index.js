@@ -1,8 +1,9 @@
 import Route from "@ember/routing/route";
+import { RouteQueryManager } from "ember-apollo-client";
+import query from "wandertext/gql/queries/texts";
 
-export default class TextsIndexRoute extends Route {
-  async model() {
-    await this.store.loadRecords("text");
-    return this.store.peekAll("text");
+export default class TextsIndexRoute extends Route.extend(RouteQueryManager) {
+  model() {
+    return this.get("apollo").watchQuery({ query }, "texts");
   }
 }

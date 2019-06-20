@@ -1,0 +1,7 @@
+query texts {
+  texts {
+    id
+    name
+    markdownName
+  }
+}

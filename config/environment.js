@@ -6,6 +6,9 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
+    apollo: {
+      apiURL: "http://localhost:4000"
+    },
     torii: {
       sessionServiceName: "session",
       providers: {
