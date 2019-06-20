@@ -17,6 +17,7 @@ query text($id: ID!) {
     entries {
       id
       attestedName
+      properties
       place {
         id
         latitude
