@@ -1,8 +1,7 @@
-import Route from "@ember/routing/route";
-import { RouteQueryManager } from "ember-apollo-client";
+import WorkbenchRoute from "wandertext/routes/workbench";
 import query from "wandertext/gql/queries/texts";
 
-export default class TextsIndexRoute extends Route.extend(RouteQueryManager) {
+export default class TextsIndexRoute extends WorkbenchRoute {
   model() {
     return this.get("apollo").watchQuery({ query }, "texts");
   }
