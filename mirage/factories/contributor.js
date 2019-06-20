@@ -2,7 +2,7 @@ import { Factory } from "ember-cli-mirage";
 import { name, date, internet } from "faker";
 
 export default Factory.extend({
-  username() {
+  id() {
     return internet.username();
   },
 

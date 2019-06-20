@@ -4,43 +4,34 @@ export default function(server) {
     This data will not be loaded in your tests.
   */
   const agra = server.create("place", {
-    id: 1,
-    geometry: {
-      coordinates: [78.02, 27.18]
-    },
-    properties: {
-      name: "آگرہ",
-      geonameId: 1279259
-    }
+    id: "agra",
+    latitude: 27.18,
+    longitude: 78.02,
+    name: "آگرہ",
+    geonameId: 1279259
   });
   const belarus = server.create("place", {
-    id: 2,
-    geometry: {
-      coordinates: [27, 52]
-    },
-    properties: {
-      name: "Republic of Belarus",
-      geonameId: 630336
-    }
+    id: "belarus",
+    latitude: 52,
+    longitude: 27,
+    name: "Republic of Belarus",
+    geonameId: 630336
   });
   const chile = server.create("place", {
-    id: 3,
-    geometry: {
-      coordinates: [-71, -30]
-    },
-    properties: {
-      name: "Republic of Chile",
-      geonameId: 3895114
-    }
+    id: "chile",
+    latitude: -30,
+    longitude: -71,
+    name: "Republic of Chile",
+    geonameId: 3895114
   });
   const muziejus = server.create("contributor", {
-    username: "muziejus",
+    id: "muziejus",
+    firstName: "Moacir",
     admin: true
   });
   const text = server.create("text", {
-    id: 1,
+    id: "baburnama-1530",
     name: "Baburnama",
-    slug: "baburnama-1530",
     markdownName: "_Bāburnāma_",
     markdownBlurb: "markdown blurb for _Bāburnāma_",
     contributors: [muziejus]

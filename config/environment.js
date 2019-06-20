@@ -51,6 +51,7 @@ module.exports = function(environment) {
       process.env.GITHUB_DEV_REDIRECT_URI;
     ENV.torii.providers["github-oauth2"].tokenExchangeUri =
       process.env.DEV_TOKEN_EXCHANGE_URL;
+    ENV.backendHost = "";
   }
 
   if (environment === "test") {
@@ -78,6 +79,7 @@ module.exports = function(environment) {
       process.env.GITHUB_PRODUCTION_REDIRECT_URI;
     ENV.torii.providers["github-oauth2"].tokenExchangeUri =
       process.env.PRODUCTION_TOKEN_EXCHANGE_URL;
+    ENV["ember-cli-mirage"] = { enabled: false };
   }
 
   return ENV;

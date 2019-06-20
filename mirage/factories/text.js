@@ -6,7 +6,7 @@ export default Factory.extend({
     return lorem.words();
   },
 
-  slug() {
+  id() {
     return lorem.slug();
   },
 

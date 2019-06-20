@@ -1,22 +1,28 @@
 import { Factory } from "ember-cli-mirage";
-import { date, address, helpers } from "faker";
+import { random, date, address, lorem } from "faker";
 
 export default Factory.extend({
-  type: "Feature",
-
-  geometry() {
-    return {
-      type: "Point",
-      coordinates: [address.longitude(), address.latitude()]
-    };
+  name() {
+    return address.city();
   },
 
-  properties() {
-    const name = address.city();
-    return {
-      createdOn: date.past(),
-      name,
-      slug: helpers.slugify(name)
-    };
+  latitude() {
+    return address.latitude();
+  },
+
+  longitude() {
+    return address.longitude();
+  },
+
+  createdOn() {
+    return date.past();
+  },
+
+  id() {
+    return lorem.slug();
+  },
+
+  geonameId() {
+    return random.number();
   }
 });
