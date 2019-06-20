@@ -5055,12 +5055,10 @@ ember-cli-moment-shim@^3.7.1:
     moment "^2.19.3"
     moment-timezone "^0.5.13"
 
-ember-cli-netlify@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-netlify/-/ember-cli-netlify-0.2.0.tgz#1190bafd1acc88fbf37769428b7e2b10409dde12"
-  integrity sha512-BE1Ja06sqXh/et149MAMEGVnLafDG+c7mZUgd6g+h3/dJtZzqBzt72pnJmMWqUw/IlVGSUft1A6ItUTfllf6ig==
-  dependencies:
-    fs-extra "^5.0.0"
+ember-cli-netlify@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-netlify/-/ember-cli-netlify-0.3.0.tgz#940a31817063d9a7f50e8ae152a91337739688ca"
+  integrity sha512-LpbDfDOBhCV7SysBeiaPbyj/XU32dCn4q8MVz0+kF3ki9T0YFD/Cwrm7f0gdzP8T6C2eoCyp4C03xUXeB6ZbTQ==
 
 ember-cli-node-assets@^0.2.2:
   version "0.2.2"
