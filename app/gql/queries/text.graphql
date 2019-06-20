@@ -4,9 +4,6 @@ query text($id: ID!) {
     name
     markdownName
     markdownBlurb
-    entries {
-      id
-    }
   }
 }
 
