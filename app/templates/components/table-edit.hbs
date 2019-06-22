@@ -2,8 +2,8 @@
   <span class="hidden">{{@cellContent}}</span>
   {{input 
     type="text" 
-    value=(get this.args.entry this.args.property)
-    class="inline-editor"
+    value=this.currentValue
     focus-out=(action this.saveCell)
+    class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" @entry.id)
   }}
 </div>
