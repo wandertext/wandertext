@@ -6,8 +6,6 @@ const { attr, hasMany } = DS;
 export default class Text extends DS.Model.extend(LoadableModel) {
   @attr("string") name;
 
-  @attr("string") note;
-
   @attr("string") popupTemplate;
 
   @attr("string") markdownName;

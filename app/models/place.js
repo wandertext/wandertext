@@ -8,6 +8,8 @@ export default class Place extends DS.Model.extend(LoadableModel) {
 
   @attr("string") note;
 
+  @attr("string") source;
+
   @attr("number") latitude;
 
   @attr("number") longitude;
