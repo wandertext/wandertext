@@ -1,8 +1,6 @@
+import { random } from "faker";
+
 export default function(server) {
-  /*
-    Seed your development database using your factories.
-    This data will not be loaded in your tests.
-  */
   const agra = server.create("place", {
     id: "agra",
     latitude: 27.18,
@@ -37,7 +35,7 @@ export default function(server) {
     contributors: [muziejus]
   });
   server.create("entry", {
-    id: 1,
+    id: random.uuid(),
     properties: {
       page: 3,
       sequence: 2
@@ -47,7 +45,7 @@ export default function(server) {
     text
   });
   server.create("entry", {
-    id: 2,
+    id: random.uuid(),
     properties: {
       page: 1,
       sequence: 3
@@ -57,7 +55,7 @@ export default function(server) {
     text
   });
   server.create("entry", {
-    id: 3,
+    id: random.uuid(),
     properties: {
       page: 2,
       sequence: 1
