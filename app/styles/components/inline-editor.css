@@ -5,3 +5,7 @@
 .inline-editor:focus {
   @apply .bg-accent-500 .border-primary-500
 }
+
+.inline-editor:disabled {
+  @apply .bg-gray-100 .cursor-not-allowed
+}
