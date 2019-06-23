@@ -32,7 +32,9 @@ describe("Integration | Component | table-cell", function() {
         diffOwner: "diffOwner"
       }
     });
-    this.entry = await this.store.findRecord("entry", entry.id);
+    this.entry = await this.store.findRecord("entry", entry.id, {
+      include: "place"
+    });
     this.column = {
       label: "label",
       valuePath: "attestedName",
@@ -48,7 +50,7 @@ describe("Integration | Component | table-cell", function() {
     expect(this.element.querySelector("input").value).to.equal("Place");
   });
 
-  it.only("updates the entry's property when the input loses focus", async function() {
+  it("updates the entry's property on the model", async function() {
     await render(
       hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
     );
@@ -75,7 +77,7 @@ describe("Integration | Component | table-cell", function() {
     expect(this.element.querySelector("input").disabled).to.be.true;
   });
 
-  it("shows the place name when the column is a Place", async function() {
+  it.only("shows the place name when the column is a Place", async function() {
     this.set("showModal", function() {
       return true;
     });
