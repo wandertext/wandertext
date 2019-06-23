@@ -3,7 +3,7 @@ import { tracked } from "@glimmer/tracking";
 import { capitalize } from "@ember/string";
 import { action } from "@ember/object";
 
-export default class TextEntryListComponent extends Component {
+export default class EntryGridComponent extends Component {
   @tracked sorts = [];
 
   @tracked activeEntry = null;
