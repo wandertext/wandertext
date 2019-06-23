@@ -2,27 +2,22 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { capitalize } from "@ember/string";
 import { action } from "@ember/object";
-import { inject as service } from "@ember/service";
 
 export default class TextEntryListComponent extends Component {
-  @service store;
-
   @tracked sorts = [];
 
   @tracked columns = [
     {
-      cellComponent: "table-edit",
       label: "Attested Name",
       valuePath: "attestedName"
     },
     {
-      cellComponent: "table-place",
       label: "Linked Place",
       valuePath: "place"
     }
   ];
 
-  @tracked entries = this.args.text.entries;
+  // @tracked entries = this.args.text.entries;
 
   @tracked isShowingModal = false;
 
@@ -49,11 +44,9 @@ export default class TextEntryListComponent extends Component {
     text.entryProperties.forEach(propObj => {
       const label = propObj.inputLabel || capitalize(propObj.name);
       const valuePath = `properties.${propObj.name}`;
-      const cellComponent = propObj.readOnly ? "table-readonly" : "table-edit";
-      this.columns.pushObject({ valuePath, label, cellComponent });
+      this.columns.pushObject({ valuePath, label, property: propObj });
     });
     this.columns.pushObject({
-      cellComponent: "table-date",
       label: "Created On",
       valuePath: "createdOn"
     });

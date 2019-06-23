@@ -1,4 +1,5 @@
 <div id="text-entry-list" class="h-64 flex-grow text-sm">
+  {{log this.columns }}
   <table>
     <thead>
       <tr>
@@ -15,14 +16,11 @@
       {{#each this.entries as |entry|}}
         <tr>
           {{#each this.columns as |column|}}
-            <td>
-              {{component column.cellComponent 
-                cellContent=(get entry column.valuePath)
-                entry=entry
-                property=column.valuePath
-                showModal=this.showModal
-              }}
-            </td>
+            <TableCell
+              @entry=entry
+              @column=column
+              showModal=this.showModal
+            /> 
           {{/each}}
         </tr>
       {{/each}}
