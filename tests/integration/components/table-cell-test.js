@@ -77,7 +77,7 @@ describe("Integration | Component | table-cell", function() {
     expect(this.element.querySelector("input").disabled).to.be.true;
   });
 
-  it.only("shows the place name when the column is a Place", async function() {
+  it("shows the place name when the column is a Place", async function() {
     this.set("showModal", function() {
       return true;
     });

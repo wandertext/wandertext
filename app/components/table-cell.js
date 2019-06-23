@@ -4,6 +4,12 @@ import { inject as service } from "@ember/service";
 export default class TableCellComponent extends Component {
   @service currentContributor;
 
+  get classes() {
+    return `p-1 cell-${this.property.replace(".", "-")} cell-id-${
+      this.args.entry.id
+    }`;
+  }
+
   get isPlace() {
     return this.args.column.valuePath === "place";
   }
