@@ -18,7 +18,8 @@ export default Factory.extend({
     return [
       {
         name: "page",
-        type: "number"
+        type: "number",
+        help: "thee page number"
       },
       {
         name: "sequence",
@@ -37,6 +38,11 @@ export default Factory.extend({
         name: "specialInputLabel",
         type: "string",
         inputLabel: "special-input-label"
+      },
+      {
+        name: "diffOwner",
+        type: "string",
+        owner: "other-owner"
       }
     ];
   },
