@@ -12,14 +12,14 @@ export default function(server) {
     id: "belarus",
     latitude: 52,
     longitude: 27,
-    name: "Republic of Belarus",
+    name: "Belarus",
     geonameId: 630336
   });
   const chile = server.create("place", {
     id: "chile",
     latitude: -30,
     longitude: -71,
-    name: "Republic of Chile",
+    name: "Chile",
     geonameId: 3895114
   });
   const muziejus = server.create("contributor", {
@@ -50,7 +50,7 @@ export default function(server) {
       page: 1,
       sequence: 3
     },
-    attestedName: "Belarus",
+    attestedName: "Беларусь",
     place: belarus,
     text
   });
