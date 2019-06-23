@@ -13,6 +13,7 @@
       value=(get @entry this.property)
       class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" @entry.id)
       disabled=this.isDisabled
+      focus-out=(action this.saveCell)
     }}
   {{/if}}
 </td>

@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { describe, it } from "mocha";
 import { setupRenderingTest } from "ember-mocha";
-import { render } from "@ember/test-helpers";
+import { triggerEvent, fillIn, render } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import hbs from "htmlbars-inline-precompile";
@@ -44,6 +44,16 @@ describe("Integration | Component | table-cell", function() {
       hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
     );
     expect(this.element.querySelector("input").value).to.equal("2");
+  });
+
+  it("updates the entry's property when the input loses focus", async function() {
+    await render(
+      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
+    );
+    await fillIn(this.element.querySelector("input"), "new value");
+    await triggerEvent("input", "focus-out");
+    expect(this.entry.properties.page).to.equal("new value");
+    expect(this.server.db.entries[0].properties.page).to.equal("new value");
   });
 
   it("has a disabled input when the property is owned by another", async function() {

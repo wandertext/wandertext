@@ -27,4 +27,9 @@ export default class TableCellComponent extends Component {
 
     return false;
   }
+
+  @action
+  saveCell() {
+    return true;
+  }
 }
