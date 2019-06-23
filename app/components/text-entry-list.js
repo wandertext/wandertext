@@ -17,8 +17,6 @@ export default class TextEntryListComponent extends Component {
     }
   ];
 
-  // @tracked entries = this.args.text.entries;
-
   @tracked isShowingModal = false;
 
   @tracked modalPlace = null;
