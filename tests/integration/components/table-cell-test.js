@@ -62,7 +62,7 @@ describe("Integration | Component | table-cell", function() {
     expect(this.element.querySelector("input").disabled).to.be.true;
   });
 
-  it.only("shows the place name when the column is a Place", async function() {
+  it("shows the place name when the column is a Place", async function() {
     this.set("showModal", function() {
       return true;
     });
@@ -71,5 +71,15 @@ describe("Integration | Component | table-cell", function() {
       hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @showModal={{this.showModal}} />`
     );
     expect(this.element).to.contain.text("Testing Ground");
+  });
+
+  it("shows the date if the column is a date", async function() {
+    const date = new Date("May 6, 1976");
+    this.entry.createdOn = date;
+    this.column.valuePath = "createdOn";
+    await render(
+      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
+    );
+    expect(this.element).to.contain.text("1976-05-06");
   });
 });

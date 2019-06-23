@@ -1,15 +1,16 @@
 import Component from "@glimmer/component";
+import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 
 export default class TableCellComponent extends Component {
   @service currentContributor;
 
-  // This.args.entry is a regular Entry
-  // this.args.column has a label, a valuePath, and a property object
-  // with name, type, help, owner, readOnly, inputLabel
-
   get isPlace() {
     return this.args.column.valuePath === "place";
+  }
+
+  get isDate() {
+    return /(creat|modifi)edOn/.test(this.args.column.valuePath);
   }
 
   property = this.args.column.valuePath;

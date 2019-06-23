@@ -5,8 +5,9 @@
       onclick=(action @showModal @entry.place)
     }} 
     {{@entry.place.name}}
+  {{else if this.isDate}}
+    {{moment-format (get @entry this.property) "YYYY-MM-DD"}}
   {{else}}
-    {{log @entry}}
     {{input
       type="text"
       value=(get @entry this.property)
