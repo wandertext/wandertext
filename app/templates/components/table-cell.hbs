@@ -1,0 +1,9 @@
+<td class="p-1">
+  {{log @entry}}
+  {{input
+    type="text"
+    value=(get @entry this.property)
+    class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" @entry.id)
+    disabled=this.isDisabled
+  }}
+</td>
