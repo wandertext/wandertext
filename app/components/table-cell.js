@@ -1,5 +1,4 @@
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
 
 export default class TableCellComponent extends Component {
@@ -9,7 +8,9 @@ export default class TableCellComponent extends Component {
   // this.args.column has a label, a valuePath, and a property object
   // with name, type, help, owner, readOnly, inputLabel
 
-  @tracked isPlace = false;
+  get isPlace() {
+    return this.args.column.valuePath === "place";
+  }
 
   property = this.args.column.valuePath;
 

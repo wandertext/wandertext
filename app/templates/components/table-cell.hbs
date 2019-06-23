@@ -1,9 +1,17 @@
 <td class="p-1">
-  {{log @entry}}
-  {{input
-    type="text"
-    value=(get @entry this.property)
-    class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" @entry.id)
-    disabled=this.isDisabled
-  }}
+  {{#if this.isPlace}}
+    {{svg-jar "map-marker" 
+      class="inline mr-1 cursor-pointer" 
+      onclick=(action @showModal @entry.place)
+    }} 
+    {{@entry.place.name}}
+  {{else}}
+    {{log @entry}}
+    {{input
+      type="text"
+      value=(get @entry this.property)
+      class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" @entry.id)
+      disabled=this.isDisabled
+    }}
+  {{/if}}
 </td>

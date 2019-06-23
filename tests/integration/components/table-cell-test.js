@@ -54,11 +54,22 @@ describe("Integration | Component | table-cell", function() {
     expect(this.element.querySelector("input").disabled).to.be.true;
   });
 
-  it.only("has a disabled input when the property is readOnly", async function() {
+  it("has a disabled input when the property is readOnly", async function() {
     this.column.property.readOnly = true;
     await render(
       hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
     );
     expect(this.element.querySelector("input").disabled).to.be.true;
+  });
+
+  it.only("shows the place name when the column is a Place", async function() {
+    this.set("showModal", function() {
+      return true;
+    });
+    this.column.valuePath = "place";
+    await render(
+      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @showModal={{this.showModal}} />`
+    );
+    expect(this.element).to.contain.text("Testing Ground");
   });
 });
