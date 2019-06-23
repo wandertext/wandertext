@@ -30,7 +30,12 @@ export default class CurrentContributorService extends Service {
       contributor = null;
     }
 */
-    this.contributor = "zigmorf";
+    this.contributor = {
+      id: "zigmorf",
+      firstName: "Zig",
+      lastName: "Morf"
+    };
+
     return contributor;
   }
 }
