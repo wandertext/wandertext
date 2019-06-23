@@ -6,6 +6,8 @@ import { action } from "@ember/object";
 export default class TextEntryListComponent extends Component {
   @tracked sorts = [];
 
+  @tracked activeEntry = null;
+
   @tracked columns = [
     {
       label: "Attested Name",
@@ -30,6 +32,19 @@ export default class TextEntryListComponent extends Component {
   async showModal(data) {
     this.isShowingModal = true;
     this.modalPlace = data;
+  }
+
+  @action
+  setActiveEntry(entry) {
+    if (
+      this.activeEntry !== null &&
+      this.activeEntry !== entry &&
+      this.activeEntry.hasDirtyAttributes
+    ) {
+      this.activeEntry.save();
+    }
+
+    this.activeEntry = entry;
   }
 
   constructor(...args) {
