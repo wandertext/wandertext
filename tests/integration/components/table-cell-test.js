@@ -34,7 +34,7 @@ describe("Integration | Component | table-cell", function() {
     });
     this.column = {
       label: "label",
-      valuePath: "properties.page",
+      valuePath: "attestedName",
       property: { name: "page" }
     };
   });
@@ -43,17 +43,17 @@ describe("Integration | Component | table-cell", function() {
     await render(
       hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
     );
-    expect(this.element.querySelector("input").value).to.equal("2");
+    expect(this.element.querySelector("input").value).to.equal("Place");
   });
 
   it("updates the entry's property when the input loses focus", async function() {
     await render(
       hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
     );
-    await fillIn(this.element.querySelector("input"), "new value");
+    await fillIn(this.element.querySelector("input"), "New Placename");
     await triggerEvent("input", "focus-out");
-    expect(this.entry.properties.page).to.equal("new value");
-    expect(this.server.db.entries[0].properties.page).to.equal("new value");
+    expect(this.entry.attestedName).to.equal("New Placename");
+    expect(this.server.db.entries[0].attestedName).to.equal("New Placename");
   });
 
   it("has a disabled input when the property is owned by another", async function() {
