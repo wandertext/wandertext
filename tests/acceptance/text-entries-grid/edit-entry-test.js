@@ -4,13 +4,12 @@ import { setupApplicationTest } from "ember-mocha";
 import { visit, fillIn } from "@ember/test-helpers";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import { lorem } from "faker";
 
 describe("Acceptance | text/entries grid | edit entry", function() {
   const hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it.only("can edit an entry", async function() {
+  it.skip("can edit an entry", async function() {
     authenticateSession();
     this.store = this.owner.lookup("service:store");
     this.currentContributor = this.owner.lookup("service:currentContributor");
@@ -21,16 +20,24 @@ describe("Acceptance | text/entries grid | edit entry", function() {
     };
     this.text = await this.server.create("text");
     // Create two dummy entries ahead of time.
-    this.entries = await this.server.createList("entry", 2, {
+    this.entry1 = await this.server.create("entry", {
       text: this.text,
       properties: {
-        special: lorem.word(),
-        page: 2
+        page: 1,
+        special: "entry one"
       }
     });
+    this.entry2 = await this.server.create("entry", {
+      text: this.text,
+      properties: {
+        page: 1,
+        special: "entry two"
+      }
+    });
+
     await visit(`/workbench/texts/${this.text.id}/entries/`);
     const propSpecialCells = document.querySelectorAll(
-      ".table-edit-input.entry-property-properties-special"
+      ".table-edit-input.entry-property-properties-page"
     );
     expect(propSpecialCells.length).to.equal(2);
     const specialCell = propSpecialCells[0];
@@ -39,15 +46,15 @@ describe("Acceptance | text/entries grid | edit entry", function() {
       .split(" ")
       .filter(klass => klass.startsWith("entry-id"))[0]
       .replace("entry-id-", "");
-    await fillIn(specialCell, "new special");
+    await fillIn(specialCell, "new page");
     await fillIn(
       document.querySelector(
         `.entry-property-properties-page.entry-id-${updatedEntryId}`
       ),
       "boogie"
     );
-    const updatedEntry = await this.store.findRecord("entry", updatedEntryId);
-    expect(updatedEntry.properties.special).to.equal("new special");
+    const updatedEntry = await this.server.db.entries[0];
+    expect(updatedEntry.properties.page).to.equal("new page");
     // Contrib should get added to contribs array
   });
 });
