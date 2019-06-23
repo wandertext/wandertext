@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { describe, it } from "mocha";
 import { setupRenderingTest } from "ember-mocha";
-import { triggerEvent, fillIn, render } from "@ember/test-helpers";
+import { fillIn, render } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import hbs from "htmlbars-inline-precompile";
@@ -21,7 +21,7 @@ describe("Integration | Component | table-cell", function() {
       lastName: "contrib-last"
     };
     this.place = await this.server.create("place", { name: "Testing Ground" });
-    this.entry = await this.server.create("entry", {
+    const entry = await this.server.create("entry", {
       attestedName: "Place",
       place: this.place,
       properties: {
@@ -32,34 +32,37 @@ describe("Integration | Component | table-cell", function() {
         diffOwner: "diffOwner"
       }
     });
+    this.entry = await this.store.findRecord("entry", entry.id);
     this.column = {
       label: "label",
       valuePath: "attestedName",
       property: { name: "page" }
     };
+    this.focusIn = () => true;
   });
 
   it("renders with the property's name", async function() {
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
+      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
     );
     expect(this.element.querySelector("input").value).to.equal("Place");
   });
 
-  it("updates the entry's property when the input loses focus", async function() {
+  it.only("updates the entry's property when the input loses focus", async function() {
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
+      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
     );
-    await fillIn(this.element.querySelector("input"), "New Placename");
-    await triggerEvent("input", "focus-out");
+    const input = this.element.querySelector("input");
+    expect(this.entry.hasDirtyAttributes).to.be.false;
+    await fillIn(input, "New Placename");
+    expect(this.entry.hasDirtyAttributes).to.be.true;
     expect(this.entry.attestedName).to.equal("New Placename");
-    expect(this.server.db.entries[0].attestedName).to.equal("New Placename");
   });
 
   it("has a disabled input when the property is owned by another", async function() {
     this.column.property.owner = "someone-else";
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
+      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
     );
     expect(this.element.querySelector("input").disabled).to.be.true;
   });
@@ -67,7 +70,7 @@ describe("Integration | Component | table-cell", function() {
   it("has a disabled input when the property is readOnly", async function() {
     this.column.property.readOnly = true;
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
+      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
     );
     expect(this.element.querySelector("input").disabled).to.be.true;
   });
@@ -78,7 +81,7 @@ describe("Integration | Component | table-cell", function() {
     });
     this.column.valuePath = "place";
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @showModal={{this.showModal}} />`
+      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @showModal={{this.showModal}} @focusIn={{this.focusIn}} />`
     );
     expect(this.element).to.contain.text("Testing Ground");
   });
@@ -88,7 +91,7 @@ describe("Integration | Component | table-cell", function() {
     this.entry.createdOn = date;
     this.column.valuePath = "createdOn";
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} />`
+      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
     );
     expect(this.element).to.contain.text("1976-05-06");
   });
