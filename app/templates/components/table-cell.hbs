@@ -2,18 +2,31 @@
   {{#if this.isPlace}}
     {{svg-jar "map-marker" 
       class="inline mr-1 cursor-pointer" 
-      onclick=(action @showModal @entry.place)
+      onclick=(action @showModal @changeset.place)
     }} 
-    {{@entry.place.name}}
+    {{@changeset.place.name}}
   {{else if this.isDate}}
-    {{moment-format (get @entry this.property) "YYYY-MM-DD"}}
+    {{moment-format (get @changeset this.property) "YYYY-MM-DD"}}
   {{else}}
     {{input
       type="text"
-      value=(get @entry this.property)
-      class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" @entry.id)
+      id=(concat this.property "-" (get @changeset "id"))
+      value=this.currentValue
+      class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" (get @changeset "id"))
       disabled=this.isDisabled
-      focus-in=(action @focusIn @entry)
+      focus-in=(action @focusIn @changeset)
+      focus-out=(action @validate)
+      key-up=(action this.updateChangeset value=target.value)
     }}
+      {{#if this.changesetErrors}}
+      <br>
+        <small>
+          <ul>
+            {{#each (get this.changesetErrors "validation") as |message|}}
+              <li>{{message}}</li>
+            {{/each}}
+          </ul>
+        </small>
+      {{/if}}
   {{/if}}
 </td>
