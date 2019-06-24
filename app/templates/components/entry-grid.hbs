@@ -13,16 +13,19 @@
     </thead>
     <tbody>
       {{#each @text.entries as |entry|}}
-        <tr>
-          {{#each this.columns as |column|}}
-            <TableCell
-              @entry={{entry}}
-              @column={{column}}
-              @showModal={{this.showModal}}
-              @focusIn={{this.setActiveEntry}}
-            /> 
-          {{/each}}
-        </tr>
+        {{#with (changeset entry this.EntryValidations) as |changeset|}}
+          <tr>
+            {{#each this.columns as |column|}}
+              <TableCell
+                @changeset={{changeset}}
+                @column={{column}}
+                @showModal={{this.showModal}}
+                @focusIn={{this.setActiveEntry}}
+                @validate={{action this.validateProperty changeset column.valuePath}}
+              /> 
+            {{/each}}
+          </tr>
+        {{/with}}
       {{/each}}
     </tbody>
   </table>

@@ -2,6 +2,10 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { capitalize } from "@ember/string";
 import { action } from "@ember/object";
+import {
+  validateNumber,
+  validatePresence
+} from "ember-changeset-validations/validators";
 
 export default class EntryGridComponent extends Component {
   @tracked sorts = [];
@@ -29,6 +33,20 @@ export default class EntryGridComponent extends Component {
   }
 
   @action
+  async validateProperty(changeset, property) {
+    const validate = await changeset.validate(property);
+    console.log(
+      "validating",
+      property,
+      "is invalid:",
+      changeset.get("isInvalid"),
+      changeset.get("errors")
+    );
+    // Return changeset.validate(property);
+    return validate;
+  }
+
+  @action
   async showModal(data) {
     this.isShowingModal = true;
     this.modalPlace = data;
@@ -39,7 +57,7 @@ export default class EntryGridComponent extends Component {
     if (
       this.activeEntry !== null &&
       this.activeEntry !== entry &&
-      this.activeEntry.hasDirtyAttributes
+      this.activeEntry.get("hasDirtyAttributes")
     ) {
       this.activeEntry.save();
     }
@@ -72,5 +90,32 @@ export default class EntryGridComponent extends Component {
         isAscending: true
       });
     });
+  }
+
+  get EntryValidations() {
+    const validator = {
+      attestedName: validatePresence(true)
+    };
+
+    this.args.text.entryProperties.forEach(property => {
+      const validations = [];
+      if (property.type === "number") {
+        // validations.push(validateNumber({ allowString: true }));
+        // validations.push(validateNumber({ integer: true }));
+        validations.push(validateNumber(true));
+      }
+
+      if (!property.nullable) {
+        validations.push(validatePresence(true));
+      }
+
+      if (validations.length > 1) {
+        validator[`properties.${property.name}`] = validations;
+      } else if (validations.length === 1) {
+        validator[`properties.${property.name}`] = validations[0];
+      }
+    });
+
+    return validator;
   }
 }
