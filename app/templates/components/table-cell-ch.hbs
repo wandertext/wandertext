@@ -1,0 +1,18 @@
+{{get @changeset @column}}<br>
+{{input
+  class="inline-editor"
+	type="text"
+  value=(get @changeset @column)
+  onchange=(action (mut (get @changeset @column)) value="target.value")
+  focus-out=(action @validateProperty)
+                                                       }}
+{{#if (get @changeset.error @column)}}
+  <small>
+  	<ul>
+    	{{#each (get (get @changeset.error @column) "validation") as |message|}}
+    		<li>{{message}}</li>
+    	{{/each}}
+    </ul>
+  </small>
+{{/if}}
+
