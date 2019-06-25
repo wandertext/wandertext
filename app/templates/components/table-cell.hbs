@@ -8,25 +8,25 @@
   {{else if this.isDate}}
     {{moment-format (get @changeset this.property) "YYYY-MM-DD"}}
   {{else}}
+    hi.
     {{input
       type="text"
-      id=(concat this.property "-" (get @changeset "id"))
-      value=this.currentValue
+      value=(get @changeset this.property)
       class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" (get @changeset "id"))
       disabled=this.isDisabled
-      focus-in=(action @focusIn @changeset)
+      focus-in=(action @focusIn)
       focus-out=(action @validate)
-      key-up=(action this.updateChangeset value=target.value)
+      key-up=(action (changeset-set @changeset this.property) value=target.value)
     }}
-      {{#if this.changesetErrors}}
-      <br>
-        <small>
-          <ul>
-            {{#each (get this.changesetErrors "validation") as |message|}}
-              <li>{{message}}</li>
-            {{/each}}
-          </ul>
-        </small>
-      {{/if}}
+    {{#if (get @changeset.error this.property)}}
+    <br>
+      <small>
+        <ul>
+          {{#each (get (get @changeset.error this.property) "validation") as |message|}}
+            <li>{{message}}</li>
+          {{/each}}
+        </ul>
+      </small>
+    {{/if}}
   {{/if}}
 </td>

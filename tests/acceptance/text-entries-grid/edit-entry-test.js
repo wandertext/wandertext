@@ -24,6 +24,7 @@ describe("Acceptance | text/entries grid | edit entry", function() {
       text: this.text,
       properties: {
         page: 1,
+        sequence: 2,
         special: "entry one"
       }
     });
@@ -32,6 +33,7 @@ describe("Acceptance | text/entries grid | edit entry", function() {
       text: this.text,
       properties: {
         page: 1,
+        sequence: 2,
         special: "entry two"
       }
     });
@@ -43,11 +45,11 @@ describe("Acceptance | text/entries grid | edit entry", function() {
       find(`.cell-attestedName.cell-id-${this.entry1.id} > input`),
       "new place"
     );
-    expect(entryModel.hasDirtyAttributes).to.be.true;
     await fillIn(
       find(`.cell-attestedName.cell-id-${this.entry2.id} > input`),
       "new place"
     );
     expect(entryModel.hasDirtyAttributes).to.be.false;
+    expect(entryModel.attestedName).to.equal("new place");
   });
 });

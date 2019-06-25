@@ -20,7 +20,7 @@
                 @changeset={{changeset}}
                 @column={{column}}
                 @showModal={{this.showModal}}
-                @focusIn={{this.setActiveEntry}}
+                @focusIn={{action this.setActiveEntry changeset}}
                 @validate={{action this.validateProperty changeset column.valuePath}}
               /> 
             {{/each}}

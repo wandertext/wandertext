@@ -8,8 +8,6 @@ import {
 } from "ember-changeset-validations/validators";
 
 export default class EntryGridComponent extends Component {
-  @tracked sorts = [];
-
   @tracked activeEntry = null;
 
   @tracked columns = [
@@ -34,16 +32,7 @@ export default class EntryGridComponent extends Component {
 
   @action
   async validateProperty(changeset, property) {
-    const validate = await changeset.validate(property);
-    console.log(
-      "validating",
-      property,
-      "is invalid:",
-      changeset.get("isInvalid"),
-      changeset.get("errors")
-    );
-    // Return changeset.validate(property);
-    return validate;
+    return changeset.validate(property);
   }
 
   @action
@@ -54,12 +43,8 @@ export default class EntryGridComponent extends Component {
 
   @action
   setActiveEntry(entry) {
-    if (
-      this.activeEntry !== null &&
-      this.activeEntry !== entry &&
-      this.activeEntry.get("hasDirtyAttributes")
-    ) {
-      this.activeEntry.save();
+    if (this.activeEntry !== null && this.activeEntry !== entry) {
+      this._save(this.activeEntry);
     }
 
     this.activeEntry = entry;
@@ -68,7 +53,6 @@ export default class EntryGridComponent extends Component {
   constructor(...args) {
     super(...args);
     this._buildColumns(this.args.text);
-    this._buildSorts(this.args.text);
   }
 
   _buildColumns(text) {
@@ -83,38 +67,24 @@ export default class EntryGridComponent extends Component {
     });
   }
 
-  _buildSorts(text) {
-    text.entrySort.forEach(sort => {
-      this.sorts.pushObject({
-        valuePath: `properties.${sort}`,
-        isAscending: true
-      });
-    });
+  async _save(changeset) {
+    const snapshot = changeset.snapshot();
+    try {
+      await changeset.validate();
+      if (changeset.get("isValid")) {
+        return changeset.save();
+      }
+    } catch {
+      changeset.restore(snapshot);
+    }
   }
 
   get EntryValidations() {
     const validator = {
-      attestedName: validatePresence(true)
+      attestedName: validatePresence(true),
+      "properties.page": validateNumber(true),
+      "properties.sequence": validateNumber(true)
     };
-
-    this.args.text.entryProperties.forEach(property => {
-      const validations = [];
-      if (property.type === "number") {
-        // validations.push(validateNumber({ allowString: true }));
-        // validations.push(validateNumber({ integer: true }));
-        validations.push(validateNumber(true));
-      }
-
-      if (!property.nullable) {
-        validations.push(validatePresence(true));
-      }
-
-      if (validations.length > 1) {
-        validator[`properties.${property.name}`] = validations;
-      } else if (validations.length === 1) {
-        validator[`properties.${property.name}`] = validations[0];
-      }
-    });
 
     return validator;
   }

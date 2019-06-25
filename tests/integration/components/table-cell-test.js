@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { describe, it } from "mocha";
 import { setupRenderingTest } from "ember-mocha";
-import { fillIn, render } from "@ember/test-helpers";
+import { render } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import hbs from "htmlbars-inline-precompile";
@@ -41,30 +41,33 @@ describe("Integration | Component | table-cell", function() {
       property: { name: "page" }
     };
     this.focusIn = () => true;
+    this.validate = () => true;
+    this.showModal = () => true;
   });
 
   it("renders with the property's name", async function() {
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
+      hbs`<TableCell 
+      @column={{this.column}}
+      @changeset={{changeset this.entry}}
+      @showModal={{this.showModal}}
+      @focusIn={{action this.focusIn this.entry}}
+      @validate={{action this.validate this.entry this.column.valuePath}}
+      />`
     );
     expect(this.element.querySelector("input").value).to.equal("Place");
-  });
-
-  it("updates the entry's property on the model", async function() {
-    await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
-    );
-    const input = this.element.querySelector("input");
-    expect(this.entry.hasDirtyAttributes).to.be.false;
-    await fillIn(input, "New Placename");
-    expect(this.entry.hasDirtyAttributes).to.be.true;
-    expect(this.entry.attestedName).to.equal("New Placename");
   });
 
   it("has a disabled input when the property is owned by another", async function() {
     this.column.property.owner = "someone-else";
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
+      hbs`<TableCell 
+      @column={{this.column}}
+      @changeset={{changeset this.entry}}
+      @showModal={{this.showModal}}
+      @focusIn={{action this.focusIn this.entry}}
+      @validate={{action this.validate this.entry this.column.valuePath}}
+      />`
     );
     expect(this.element.querySelector("input").disabled).to.be.true;
   });
@@ -72,18 +75,27 @@ describe("Integration | Component | table-cell", function() {
   it("has a disabled input when the property is readOnly", async function() {
     this.column.property.readOnly = true;
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
+      hbs`<TableCell 
+      @column={{this.column}}
+      @changeset={{changeset this.entry}}
+      @showModal={{this.showModal}}
+      @focusIn={{action this.focusIn this.entry}}
+      @validate={{action this.validate this.entry this.column.valuePath}}
+      />`
     );
     expect(this.element.querySelector("input").disabled).to.be.true;
   });
 
   it("shows the place name when the column is a Place", async function() {
-    this.set("showModal", function() {
-      return true;
-    });
     this.column.valuePath = "place";
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @showModal={{this.showModal}} @focusIn={{this.focusIn}} />`
+      hbs`<TableCell 
+      @column={{this.column}}
+      @changeset={{changeset this.entry}}
+      @showModal={{this.showModal}}
+      @focusIn={{action this.focusIn this.entry}}
+      @validate={{action this.validate this.entry this.column.valuePath}}
+      />`
     );
     expect(this.element).to.contain.text("Testing Ground");
   });
@@ -93,7 +105,13 @@ describe("Integration | Component | table-cell", function() {
     this.entry.createdOn = date;
     this.column.valuePath = "createdOn";
     await render(
-      hbs`<TableCell @column={{this.column}} @entry={{this.entry}} @focusIn={{this.focusIn}} />`
+      hbs`<TableCell 
+      @column={{this.column}}
+      @changeset={{changeset this.entry}}
+      @showModal={{this.showModal}}
+      @focusIn={{action this.focusIn this.entry}}
+      @validate={{action this.validate this.entry this.column.valuePath}}
+      />`
     );
     expect(this.element).to.contain.text("1976-05-06");
   });
