@@ -9,3 +9,7 @@
 .inline-editor:disabled {
   @apply .bg-gray-100 .cursor-not-allowed
 }
+
+.inline-editor.warning {
+  @apply .bg-yellow-300 .text-yellow-700
+}

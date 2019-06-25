@@ -1,5 +1,6 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
+import { inject as service } from "@ember/service";
 import { capitalize } from "@ember/string";
 import { action } from "@ember/object";
 import {
@@ -8,6 +9,8 @@ import {
 } from "ember-changeset-validations/validators";
 
 export default class EntryGridComponent extends Component {
+  @service notify;
+
   @tracked activeEntry = null;
 
   @tracked columns = [
@@ -72,9 +75,15 @@ export default class EntryGridComponent extends Component {
     try {
       await changeset.validate();
       if (changeset.get("isValid")) {
-        return changeset.save();
+        await changeset.save();
+        return this.notify.success(
+          `Entry “${changeset.get("attestedName")}” (re-)saved.`
+        );
       }
-    } catch {
+
+      throw changeset.errors;
+    } catch (error) {
+      error.forEach(message => this.notify.error(message.validation[0]));
       changeset.restore(snapshot);
     }
   }

@@ -1,9 +1,14 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
+import { action, get } from "@ember/object";
 import { inject as service } from "@ember/service";
 
 export default class TableCellComponent extends Component {
+  @service notify;
+
   @service currentContributor;
+
+  @tracked validationClass = "";
 
   @tracked currentValue = this.args.changeset.get(this.property);
 
@@ -20,6 +25,20 @@ export default class TableCellComponent extends Component {
 
   get isDate() {
     return /(creat|modifi)edOn/.test(this.args.column.valuePath);
+  }
+
+  @action
+  validate() {
+    this.validationClass = "";
+    if (get(this.args.changeset.error, this.property)) {
+      get(this.args.changeset.error, this.property).validation.forEach(
+        message =>
+          this.notify.warning(message, {
+            id: `${this.args.changeset.get("id")}-${message}`
+          })
+      );
+      this.validationClass = "warning";
+    }
   }
 
   property = this.args.column.valuePath;
