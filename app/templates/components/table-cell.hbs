@@ -8,7 +8,6 @@
   {{else if this.isDate}}
     {{moment-format (get @changeset this.property) "YYYY-MM-DD"}}
   {{else}}
-    hi.
     {{input
       type="text"
       value=(get @changeset this.property)
