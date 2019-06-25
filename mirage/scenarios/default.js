@@ -38,7 +38,8 @@ export default function(server) {
     id: random.uuid(),
     properties: {
       page: 3,
-      sequence: 2
+      sequence: 2,
+      special: "Agra specialty"
     },
     attestedName: "Agra",
     place: agra,
@@ -48,7 +49,8 @@ export default function(server) {
     id: random.uuid(),
     properties: {
       page: 1,
-      sequence: 3
+      sequence: 3,
+      special: "Belarusian specialty"
     },
     attestedName: "Беларусь",
     place: belarus,
@@ -58,7 +60,8 @@ export default function(server) {
     id: random.uuid(),
     properties: {
       page: 2,
-      sequence: 1
+      sequence: 1,
+      special: "Chile chili"
     },
     attestedName: "Chile",
     place: chile,

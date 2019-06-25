@@ -27,22 +27,26 @@ export default Factory.extend({
       },
       {
         name: "special",
-        type: "string"
+        type: "string",
+        nullable: true
       },
       {
         name: "specialReadonly",
         type: "string",
-        readOnly: true
+        readOnly: true,
+        nullable: true
       },
       {
         name: "specialInputLabel",
         type: "string",
-        inputLabel: "special-input-label"
+        inputLabel: "special-input-label",
+        nullable: true
       },
       {
         name: "diffOwner",
         type: "string",
-        owner: "other-owner"
+        owner: "other-owner",
+        nullable: true
       }
     ];
   },
