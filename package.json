@@ -22,7 +22,7 @@
     "@ember/optional-features": "^0.7.0",
     "@ember/test-helpers": "^1.5.0",
     "@fullhuman/postcss-purgecss": "^1.2.0",
-    "@glimmer/component": "^0.14.0-alpha.5",
+    "@glimmer/component": "^0.14.0-alpha.8",
     "@glimmer/tracking": "^0.14.0-alpha.5",
     "babel-eslint": "^9.0.0",
     "broccoli-asset-rev": "^3.0.0",
