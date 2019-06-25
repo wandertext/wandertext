@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
+    firestoreOn: false,
     backendHost: process.env.BACKEND_HOST,
     apollo: {
       apiURL: `${process.env.BACKEND_HOST}/graphql`
@@ -51,7 +52,11 @@ module.exports = function(environment) {
       process.env.GITHUB_DEV_REDIRECT_URI;
     ENV.torii.providers["github-oauth2"].tokenExchangeUri =
       process.env.DEV_TOKEN_EXCHANGE_URL;
-    ENV.backendHost = "";
+    if (ENV.firestoreOn) {
+      ENV["ember-cli-mirage"] = { enabled: false };
+    } else {
+      ENV.backendHost = "";
+    }
   }
 
   if (environment === "test") {
