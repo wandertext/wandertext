@@ -9,32 +9,22 @@ export default class CurrentContributorService extends Service {
   @tracked contributor;
 
   async load() {
-    const contributor = "blah";
-    /*    If (this.session.isAuthenticated) {
+    let contributor;
+    if (this.session.isAuthenticated) {
       if (this.contributor) {
         contributor = this.contributor;
       } else {
         const githubUser = await this.store.findRecord("github-user", "#");
-        const contributors = await this.store.query("contributor", {
-          filter: { username: githubUser.login }
-        });
-        if (contributors) {
-          contributor = contributors.firstObject;
-          contributor.githubAvatarUrl = githubUser.avatarUrl;
-        }
-
+        const contributor = await this.store.findRecord(
+          "contributor",
+          githubUser.login
+        );
         this.contributor = contributor;
       }
     } else {
       this.contributor = null;
       contributor = null;
     }
-*/
-    this.contributor = {
-      id: "zigmorf",
-      firstName: "Zig",
-      lastName: "Morf"
-    };
 
     return contributor;
   }
