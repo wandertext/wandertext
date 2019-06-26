@@ -9,7 +9,8 @@ describe("Acceptance | text/entries grid | edit entry", function() {
   const hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it("saves the entry when the row changes", async function() {
+  it("saves the entry when the row changes", async function(done) {
+    this.timeout(5000);
     authenticateSession();
     this.store = this.owner.lookup("service:store");
     this.currentContributor = this.owner.lookup("service:currentContributor");
@@ -51,5 +52,7 @@ describe("Acceptance | text/entries grid | edit entry", function() {
     );
     expect(entryModel.hasDirtyAttributes).to.be.false;
     expect(entryModel.attestedName).to.equal("new place");
+
+    done();
   });
 });
