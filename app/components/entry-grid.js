@@ -88,13 +88,24 @@ export default class EntryGridComponent extends Component {
     }
   }
 
-  get EntryValidations() {
-    const validator = {
-      attestedName: validatePresence(true),
-      "properties.page": validateNumber(true),
-      "properties.sequence": validateNumber(true)
-    };
+  entryProps = this.args.text.entryProperties.toArray();
 
-    return validator;
+  get EntryValidations() {
+    const validations = {
+      attestedName: validatePresence(true)
+    };
+    this.entryProps.forEach(property => {
+      const validators = [];
+      if (!property.nullable) {
+        validators.push(validatePresence(true));
+      }
+
+      if (property.type === "number") {
+        validators.push(validateNumber(true));
+      }
+
+      validations[`properties.${property.name}`] = validators;
+    });
+    return validations;
   }
 }
