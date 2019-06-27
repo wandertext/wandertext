@@ -12,3 +12,11 @@ body {
   background: #b9d9eb;
   background-image: linear-gradient(#a2cae2, #dcecf5);
 }
+
+p > a {
+  @apply .bg-gray-300 .px-1 .text-primary-500
+}
+
+p > a:hover {
+  @apply .bg-gray-500
+}

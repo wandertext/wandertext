@@ -12,10 +12,17 @@ export default class IndexBoxComponent extends Component {
 
   @service session;
 
+  @tracked isShowingModal = false;
+
   @tracked githubUser = null;
 
   didInsertElement() {
     this.card.reset();
+  }
+
+  @action
+  toggleModal() {
+    this.isShowingModal = !this.isShowingModal;
   }
 
   @action
@@ -27,9 +34,6 @@ export default class IndexBoxComponent extends Component {
   async login() {
     await this.session.authenticate("authenticator:torii", "github");
     this.githubUser = await this.store.findRecord("github-user", "#");
-    this.router.transitionTo(
-      "workbench.contributors.contributor",
-      this.githubUser.login
-    );
+    this.router.transitionTo("workbench");
   }
 }

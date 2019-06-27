@@ -1,38 +1,39 @@
-{{#if @shown}}
-        {{#if this.githubUser}}
-          <h2>Hello, @{{this.githubUser.login}}!</h2>
-        {{else}}
-          <h2>Hello, Contributor!</h2>
-        {{/if}}
+<div class="contributor-auth-modal">
+  {{#if this.githubUser}}
+    <h2 class="text-2xl">Hello, @{{this.githubUser.login}}!</h2>
+  {{else}}
+    <h2 class="text-2xl">Hello, Contributor!</h2>
+  {{/if}}
 
-      {{#if this.session.isAuthenticated }}
-            {{#if this.awaitingAuthentication }}
-              {{svg-jar "check-circle"}}
-            {{else}}
-              <p>Spinner!</p>
-            {{/if}}
-            <div>
-              <h3>Awaiting GitHub authentication</h3>
-            </div>
-            {{#if this.awaitingGithubProfile }}
-              {{svg-jar "check-circle"}}
-            {{else}}
-              <p>Spinner!</p>
-            {{/if}}
-            <div class="md-list-item-text">
-              <h3>Awaiting GitHub profile</h3>
-            </div>
-      {{else}}
-        <p>Welcome to Wandertext. Use the button below to log in via GitHub.  If
-          you are an approved contributor, you will be forwarded to your
-          contributor profile.  If you believe you should be an approved
-          contributor but are not yet, please contact Manan.</p>
+  {{#if this.session.isAuthenticated }}
+    {{#if this.awaitingAuthentication }}
+      {{svg-jar "check-circle"}}
+    {{else}}
+      <p>Spinner!</p>
+    {{/if}}
+    <div>
+      <h3>Awaiting GitHub authentication</h3>
+    </div>
+    {{#if this.awaitingGithubProfile }}
+      {{svg-jar "check-circle"}}
+    {{else}}
+      <p>Spinner!</p>
+    {{/if}}
+    <div class="md-list-item-text">
+      <h3>Awaiting GitHub profile</h3>
+    </div>
+  {{else}}
+    <p class="mb-4">Welcome to Wandertext. Use the button below to login via <a
+        href="http://github.com" target="_blank">GitHub {{svg-jar "github"
+        class="-mt-1 fill-current inline"}}</a>.  If you are an approved
+      contributor, you will be forwarded to your contributor profile.  If you
+      believe you should be an approved contributor but are not yet, please
+      contact Manan.</p>
 
-        <div class="layout-row layout-align-center-center">
-          <Button @onClick={{ this.login }}>
-            {{svg-jar "github"}}            
-            Log In via GitHub
-          </Button>
-        </div>
-      {{/if}}
-{{/if}}
+    <div class="layout-row layout-align-center-center">
+      <Button @onClick={{@login}}>
+        Login via GitHub
+      </Button>
+    </div>
+  {{/if}}
+</div>

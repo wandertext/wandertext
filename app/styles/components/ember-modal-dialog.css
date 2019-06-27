@@ -1,5 +1,5 @@
 .ember-modal-dialog {
-  @apply .bg-white .p-4 .fixed .rounded-lg .shadow-lg .z-51;
+  @apply .bg-white .p-4 .fixed .rounded-lg .shadow-lg .z-51 .font-serif;
 }
 
 .ember-modal-overlay.translucent {
