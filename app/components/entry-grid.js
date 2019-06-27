@@ -11,6 +11,8 @@ import {
 export default class EntryGridComponent extends Component {
   @service notify;
 
+  @service currentContributor;
+
   @tracked activeEntry = null;
 
   @tracked columns = [
@@ -96,12 +98,21 @@ export default class EntryGridComponent extends Component {
     };
     this.entryProps.forEach(property => {
       const validators = [];
-      if (!property.nullable) {
-        validators.push(validatePresence(true));
-      }
+      // Skip read only properties and
+      // properties that aren't owned by the current user
+      if (
+        !property.readOnly &&
+        (property.owner === null ||
+          property.owner === undefined ||
+          property.owner === this.currentContributor.contributor.id)
+      ) {
+        if (!property.nullable) {
+          validators.push(validatePresence(true));
+        }
 
-      if (property.type === "number") {
-        validators.push(validateNumber(true));
+        if (property.type === "number") {
+          validators.push(validateNumber(true));
+        }
       }
 
       validations[`properties.${property.name}`] = validators;

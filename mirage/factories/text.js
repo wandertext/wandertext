@@ -27,14 +27,12 @@ export default Factory.extend({
       },
       {
         name: "special",
-        type: "string",
-        nullable: true
+        type: "string"
       },
       {
         name: "specialReadonly",
         type: "string",
-        readOnly: true,
-        nullable: true
+        readOnly: true
       },
       {
         name: "specialInputLabel",
@@ -45,8 +43,7 @@ export default Factory.extend({
       {
         name: "diffOwner",
         type: "string",
-        owner: "other-owner",
-        nullable: true
+        owner: "other-owner"
       }
     ];
   },
