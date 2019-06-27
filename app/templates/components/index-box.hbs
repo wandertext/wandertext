@@ -1,16 +1,22 @@
 <div id="index-box">
-  <h2 class="text-3xl">
+  <h2>
     Welcome to Wandertext.
   </h2>
 
-  <p class="text-2xl"><i>Create and share semantically rich geospatial datasets.</i></p>
+  <p class="lead"><i>Create and share semantically rich geospatial datasets.</i></p>
 
   {{#if this.session.isAuthenticated}}
     <Button @classes="logout-button" @onClick={{action this.logout}}>
       Logout
     </Button>
   {{else}}
-    <p class="mb-4">Login with your <a href="http://github.com" target="_blank">GitHub
+    <p>Wandertext is currently in private beta. You can follow the development
+      by <a href="http://github.com/wandertext/wandertext"
+        target="_blank">viewing our source code repository</a>. Similarly, you
+      can read our {{#link-to "about"}}About{{/link-to}} page for more
+      information on the project.</p>
+
+    <p class="mb-4">If you have already have access, please login with your <a href="http://github.com" target="_blank">GitHub
         {{svg-jar "github" class="-mt-1 fill-current inline"}}</a> account by clicking on the
       button below.</p>
 
