@@ -8,10 +8,10 @@ describe("Acceptance | contributor can log in", function() {
   const hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it.only("lets contributors log in if they're allowed", async function() {
+  it("Takes unlogged in users to the login modal", async function() {
     await visit("/");
     expect(currentURL()).to.equal("/");
-    await click(".login-button");
+    await click("button.login-button");
     expect(find(".contributor-auth-modal")).to.be.ok;
   });
 });

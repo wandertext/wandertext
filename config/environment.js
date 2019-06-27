@@ -67,7 +67,7 @@ module.exports = function(environment) {
     ENV.torii.providers["github-oauth2"].redirectUri =
       process.env.GITHUB_DEV_REDIRECT_URI;
     ENV.torii.providers["github-oauth2"].tokenExchangeUri =
-      process.env.DEV_TOKEN_EXCHANGE_URL;
+      process.env.TEST_TOKEN_EXCHANGE_URL;
 
     // Keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
