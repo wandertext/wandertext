@@ -2,8 +2,9 @@
 
 # Wandertext
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Below is the boilerplate text for running Wandertext on your computer and
+contributing to its development. A more thorough description of the project is
+available on the [Wandertext “About” page](http://wandertext.space/about).
 
 ## Prerequisites
 
