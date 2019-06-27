@@ -24,14 +24,15 @@ describe("Acceptance | see Text details", function() {
     this.attestedNames.forEach(attestedName => {
       this.server.create("entry", { text: this.text, attestedName });
     });
-    await visit(`/workbench/texts/${this.text.id}`);
   });
 
-  it("can visit /workbench/texts/:id", function() {
+  it("can visit /workbench/texts/:id", async function() {
+    await visit(`/workbench/texts/${this.text.id}`);
     expect(currentURL()).to.equal(`/workbench/texts/${this.text.id}`);
   });
 
-  it.skip("shows the Text.name as h3#text-name", function() {
+  it.skip("shows the Text.name as h3#text-name", async function() {
+    await visit(`/workbench/texts/${this.text.id}`);
     expect(
       this.element.querySelector("h3#text-name").textContent.trim()
     ).to.equal(this.text.name);
