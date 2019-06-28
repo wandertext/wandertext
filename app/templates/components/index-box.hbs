@@ -12,13 +12,12 @@
   {{else}}
     <p>Wandertext is currently in private beta. You can follow the development
       by <a href="http://github.com/wandertext/wandertext"
-        target="_blank">viewing our source code repository</a>. Similarly, you
+        target="_blank">viewing our source code repository on GitHub {{svg-jar "github" class="-mt-1 fill-current inline"}}</a>. Similarly, you
       can read our {{#link-to "about"}}About{{/link-to}} page for more
       information on the project.</p>
 
-    <p class="mb-4">If you have already have access, please login with your <a href="http://github.com" target="_blank">GitHub
-        {{svg-jar "github" class="-mt-1 fill-current inline"}}</a> account by clicking on the
-      button below.</p>
+    <p class="mb-4">If you have already have access, please login with your
+      GitHub account by clicking on the button below.</p>
 
     <Button @classes="login-button" @onClick={{action this.toggleModal}}>
       Login
