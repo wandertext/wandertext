@@ -1,4 +1,5 @@
 @import "fonts.css";
+@import "leaflet.css";
 
 @import "tailwindcss/base";
 
@@ -6,26 +7,6 @@
 @import "components.css";
 
 @import "tailwindcss/utilities";
-
-.leaflet-div-icon {
-  background: none;
-  border: none;
-}
-
-.dot-marker {
-  fill-opacity: 0.8;
-  stroke-width: 6;
-  fill: #b9d9eb;
-  stroke: #0041cc;
-}
-
-.selected-dot {
-  fill-opacity: 1.0;
-  stroke-width: 6;
-  fill: #b9d9eb;
-  stroke: #002880;
-}
-
 
 body {
   background: #b9d9eb;

@@ -62,7 +62,7 @@ module.exports = function(defaults) {
   // app.import("node_modules/leaflet/dist/");
   const leaflet = new Funnel("node_modules/leaflet/", {
     srcDir: "/dist",
-    include: ["images/*.png"],
+    include: ["leaflet.js", "leaflet.js.map", "leaflet.css", "images/*.png"],
     destDir: "/assets",
     overwrite: true
   });
