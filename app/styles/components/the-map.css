@@ -1,3 +1,16 @@
 .the-map {
   @apply .absolute .top-0 .left-0 .h-screen .w-screen
 }
+
+.the-map .leaflet-zoom-box { z-index: 8; }
+.the-map .leaflet-pane         { z-index: 3; }
+.the-map .leaflet-tile-pane    { z-index: 2; }
+.the-map .leaflet-overlay-pane { z-index: 3; }
+.the-map .leaflet-shadow-pane  { z-index: 4; }
+.the-map .leaflet-marker-pane  { z-index: 5; }
+.the-map .leaflet-tooltip-pane   { z-index: 6; }
+.the-map .leaflet-popup-pane   { z-index: 7; }
+.the-map .leaflet-map-pane canvas { z-index: 1; }
+.the-map .leaflet-map-pane svg    { z-index: 2; }
+.the-map .leaflet-control { z-index: 8; }
+.the-map .leaflet-top, .the-map .leaflet-bottom { z-index: 10;}
