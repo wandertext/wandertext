@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/muziejus/wandertext.svg?branch=master)](https://travis-ci.com/muziejus/wandertext/) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b87c91a8-4bd4-4baf-a6a6-79844eec24f9/deploy-status)](https://app.netlify.com/sites/festive-meninsky-4e4f22/deploys) [![Build Status](https://travis-ci.com/muziejus/wandertext.svg?branch=master)](https://travis-ci.com/muziejus/wandertext/) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
 
 # Wandertext
 
