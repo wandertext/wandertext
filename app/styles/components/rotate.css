@@ -1,0 +1,10 @@
+/* purgecss start ignore */
+@keyframes spin {
+  0% {transform: rotate(0deg); }
+  100% {transform:rotate(359deg); }
+}
+
+.rotate {
+  animation: spin 2s linear infinite;
+}
+/* purgecss end ignore */

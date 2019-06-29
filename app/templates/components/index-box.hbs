@@ -29,7 +29,11 @@
         targetAttachment="center"
         translucentOverlay=true
         }}
-        <ContributorAuthModal @login={{this.login}} />
+        <ContributorAuthModal
+          @login={{this.login}}
+          @awaitingAuthentication={{this.awaitingAuthentication}}
+          @awaitingGithubProfile={{this.awaitingGithubProfile}}
+        />
       {{/modal-dialog}}
     {{/if}}
 

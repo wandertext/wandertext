@@ -1,6 +1,12 @@
 /* purgecss start ignore */
 .ember-modal-dialog {
-  @apply .bg-white .p-4 .fixed .rounded-lg .shadow-lg .z-51 .font-serif;
+  @apply .bg-white .p-4 .fixed .rounded-lg .shadow-lg .z-51 .font-serif .w-5/6
+}
+
+@screen md {
+  .ember-modal-dialog {
+    @apply .w-1/2
+  }
 }
 
 .ember-modal-overlay.translucent {

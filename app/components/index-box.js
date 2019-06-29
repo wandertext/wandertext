@@ -16,6 +16,10 @@ export default class IndexBoxComponent extends Component {
 
   @tracked githubUser = null;
 
+  @tracked awaitingAuthentication = false;
+
+  @tracked awaitingGithubProfile = false;
+
   didInsertElement() {
     this.card.reset();
   }
@@ -32,7 +36,9 @@ export default class IndexBoxComponent extends Component {
 
   @action
   async login() {
+    this.awaitingAuthentication = true;
     await this.session.authenticate("authenticator:torii", "github");
+    this.awaitingGithubProfile = true;
     this.githubUser = await this.store.findRecord("github-user", "#");
     this.router.transitionTo("workbench");
   }
