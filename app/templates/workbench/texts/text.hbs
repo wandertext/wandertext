@@ -10,12 +10,9 @@
     {{/if}}
   </div>
   <div class="my-4 flex flex-row">
-    <div>
-      {{#link-to "workbench.texts.text.entries" this.model }}Entries{{/link-to}}
-    </div>
-    <div>
-      Some other button
-    </div>
+      {{#link-to "workbench.texts.text.entries" this.model }}
+        <Button>Entries</Button>
+      {{/link-to}}
   </div>
   {{outlet}}
 {{/if}}
