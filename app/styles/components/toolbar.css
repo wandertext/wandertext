@@ -1,7 +1,7 @@
 .toolbar {
-  @apply .bg-primary-500 .opacity-100 .flex .flex-row .min-h-16 .h-16 .w-full .text-white .z-10 .justify-between .px-4
+  @apply .bg-primary-500 .opacity-100 .flex .flex-row .min-h-16 .h-16 .w-full .text-white .z-10 .justify-between .px-4 .items-center .flex-wrap
 }
 
 .toolbar h2 {
-  @apply .font-normal .font-title .self-center .text-2xl .mt-2
+  @apply .font-normal .font-title .self-center .text-2xl .mt-2 .mr-6
 }
