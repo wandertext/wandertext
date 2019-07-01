@@ -20,6 +20,12 @@ export default class IndexBoxComponent extends Component {
 
   @tracked awaitingGithubProfile = false;
 
+  @tracked awaitingContributor = false;
+
+  @tracked loggedIn = false;
+
+  @tracked loginError = false;
+
   didInsertElement() {
     this.card.reset();
   }
@@ -39,7 +45,14 @@ export default class IndexBoxComponent extends Component {
     this.awaitingAuthentication = true;
     await this.session.authenticate("authenticator:torii", "github");
     this.awaitingGithubProfile = true;
-    this.githubUser = await this.store.findRecord("github-user", "#");
-    this.router.transitionTo("workbench");
+    const githubUser = await this.store.findRecord("github-user", "#");
+    this.awaitingContributor = true;
+    try {
+      await this.store.findRecord("contributor", githubUser.login);
+      this.loggedIn = true;
+      this.router.transitionTo("workbench");
+    } catch (error) {
+      this.loginError = true;
+    }
   }
 }

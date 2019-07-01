@@ -15,11 +15,15 @@ export default class CurrentContributorService extends Service {
         contributor = this.contributor;
       } else {
         const githubUser = await this.store.findRecord("github-user", "#");
-        const contributor = await this.store.findRecord(
-          "contributor",
-          githubUser.login
-        );
-        this.contributor = contributor;
+        try {
+          const contributor = await this.store.findRecord(
+            "contributor",
+            githubUser.login
+          );
+          this.contributor = contributor;
+        } catch {
+          this.session.invalidate();
+        }
       }
     } else {
       this.contributor = null;
