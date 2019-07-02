@@ -26,9 +26,9 @@ export default class Text extends DS.Model.extend(LoadableModel) {
 
   @attr() entrySort;
 
-  @attr() createdOn; // Timestamp from Firestore;
+  @attr("date") createdOn; // Timestamp from Firestore;
 
-  @attr() modifiedOn; // Timestamp from Firestore;
+  @attr("date") modifiedOn; // Timestamp from Firestore;
 
   @hasMany("entry", { async: false }) entries;
 

@@ -20,9 +20,9 @@ export default class Place extends DS.Model.extend(LoadableModel) {
 
   @attr() bbox;
 
-  @attr() createdOn; // Timestamp from Firestore;
+  @attr("date") createdOn; // Timestamp from Firestore;
 
-  @attr() modifiedOn; // Timestamp from Firestore;
+  @attr("date") modifiedOn; // Timestamp from Firestore;
 
   @hasMany("entry", { async: false }) entries;
 
