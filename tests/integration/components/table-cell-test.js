@@ -101,7 +101,7 @@ describe("Integration | Component | table-cell", function() {
   });
 
   it("shows the date if the column is a date", async function() {
-    const date = { _seconds: new Date("May 6, 1976").getTime() / 1000 };
+    const date = new Date("May 6, 1976");
     this.entry.createdOn = date;
     this.column.valuePath = "createdOn";
     await render(
