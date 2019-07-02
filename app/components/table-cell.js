@@ -27,14 +27,6 @@ export default class TableCellComponent extends Component {
     return /(creat|modifi)edOn/.test(this.args.column.valuePath);
   }
 
-  get dateAsString() {
-    if (this.currentValue) {
-      return this.currentValue._seconds.toString();
-    }
-
-    return null;
-  }
-
   @action
   validate() {
     this.validationClass = "";

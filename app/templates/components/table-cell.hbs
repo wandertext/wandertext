@@ -6,11 +6,7 @@
     }} 
     {{@changeset.place.name}}
   {{else if this.isDate}}
-    {{#if this.dateAsString}}
-      {{moment-format (unix this.dateAsString) "YYYY-MM-DD"}}
-    {{else}}
-      Null date
-    {{/if}}
+    {{moment-format (get @changeset this.property) "YYYY-MM-DD"}}
   {{else}}
     {{input
       type="text"
