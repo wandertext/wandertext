@@ -6,7 +6,7 @@ export default class CurrentContributorService extends Service {
 
   @service store;
 
-  @tracked contributor;
+  @tracked contributor = null;
 
   async load() {
     let contributor;
@@ -20,7 +20,11 @@ export default class CurrentContributorService extends Service {
             "contributor",
             githubUser.login
           );
-          this.contributor = contributor;
+          if (contributor.enabled) {
+            this.contributor = contributor;
+          } else {
+            throw new Error("user is not enabled");
+          }
         } catch {
           this.session.invalidate();
         }

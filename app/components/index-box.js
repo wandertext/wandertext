@@ -12,6 +12,8 @@ export default class IndexBoxComponent extends Component {
 
   @service session;
 
+  @service currentContributor;
+
   @tracked isShowingModal = false;
 
   @tracked githubUser = null;
@@ -41,6 +43,12 @@ export default class IndexBoxComponent extends Component {
   }
 
   @action
+  closeFailure() {
+    this.toggleModal();
+    this.session.invalidate();
+  }
+
+  @action
   async login() {
     this.awaitingAuthentication = true;
     await this.session.authenticate("authenticator:torii", "github");
@@ -48,10 +56,18 @@ export default class IndexBoxComponent extends Component {
     const githubUser = await this.store.findRecord("github-user", "#");
     this.awaitingContributor = true;
     try {
-      await this.store.findRecord("contributor", githubUser.login);
-      this.loggedIn = true;
-      this.router.transitionTo("workbench");
+      const contributor = await this.store.findRecord(
+        "contributor",
+        githubUser.login
+      );
+      if (contributor.enabled) {
+        this.loggedIn = true;
+        this.router.transitionTo("workbench");
+      } else {
+        throw new Error("Contributor not enabled");
+      }
     } catch (error) {
+      this.currentContributor.contributor = null;
       this.loginError = true;
     }
   }

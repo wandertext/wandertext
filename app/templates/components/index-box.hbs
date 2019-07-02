@@ -5,7 +5,7 @@
 
   <p class="lead"><i>Create and share semantically rich geospatial datasets.</i></p>
 
-  {{#if this.session.isAuthenticated}}
+  {{#if this.currentContributor.contributor}}
     <Button @classes="logout-button" @onClick={{action this.logout}}>
       Logout
     </Button>
@@ -30,7 +30,8 @@
         translucentOverlay=true
         }}
         <ContributorAuthModal
-          @login={{this.login}}
+          @login={{action this.login}}
+          @closeFailure={{this.closeFailure}}
           @awaitingAuthentication={{this.awaitingAuthentication}}
           @awaitingGithubProfile={{this.awaitingGithubProfile}}
           @awaitingContributor={{this.awaitingContributor}}

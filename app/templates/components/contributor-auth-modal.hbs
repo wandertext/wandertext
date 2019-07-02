@@ -39,6 +39,11 @@
       <div class="alert alert-error mt-3" role="alert">
         Oops! Your account could not be found on Wandertext. Please try again later or check with your instructor.
       </div>
+      <div class="mt-3">
+        <Button @classes="ml-auto" @onClick={{@closeFailure}}>
+          Close
+        </Button>
+      </div>
     {{/if}}
   </div>
   {{else}}
