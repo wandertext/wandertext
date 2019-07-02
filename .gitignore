@@ -9,6 +9,7 @@
 /bower_components
 
 # misc
+.netlify
 .env
 /.sass-cache
 /connect.lock
