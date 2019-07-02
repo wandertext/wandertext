@@ -3,7 +3,7 @@ import { name, date, internet } from "faker";
 
 export default Factory.extend({
   id() {
-    return internet.username();
+    return internet.userName();
   },
 
   authentication: "github",
