@@ -10,9 +10,9 @@ export default class Entry extends DS.Model.extend(LoadableModel) {
 
   @attr() properties;
 
-  @attr("date") createdOn;
+  @attr() createdOn; // Timestamp from Firestore;
 
-  @attr("date") modifiedOn;
+  @attr() modifiedOn; // Timestamp from Firestore;
 
   @belongsTo("place", { async: false }) place;
 

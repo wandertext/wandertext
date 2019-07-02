@@ -15,7 +15,9 @@ export default Factory.extend({
   },
 
   createdOn() {
-    return date.past();
+    return {
+      _seconds: date.past().getTime() / 1000
+    };
   },
 
   id() {

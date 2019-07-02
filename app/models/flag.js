@@ -5,9 +5,9 @@ const { attr, belongsTo } = DS;
 export default class Flag extends DS.Model {
   @attr("string") comment;
 
-  @attr("date") createdOn;
+  @attr() createdOn; // Timestamp from Firestore;
 
-  @attr("date") modifiedOn;
+  @attr() modifiedOn; // Timestamp from Firestore;
 
   @attr() nywalkerProperties;
 

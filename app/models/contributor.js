@@ -18,9 +18,9 @@ export default class Contributor extends DS.Model.extend(LoadableModel) {
 
   @attr("boolean", { defaultValue: false }) admin;
 
-  @attr("date") createdOn;
+  @attr() createdOn; // Timestamp from Firestore;
 
-  @attr("date") modifiedOn;
+  @attr() modifiedOn; // Timestamp from Firestore;
 
   @hasMany("entry", { async: false }) entries;
 
