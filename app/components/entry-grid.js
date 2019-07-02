@@ -15,6 +15,8 @@ export default class EntryGridComponent extends Component {
 
   @tracked activeEntry = null;
 
+  activeUntrackedEntry = null;
+
   @tracked columns = [
     {
       label: "Attested Name",
@@ -49,8 +51,17 @@ export default class EntryGridComponent extends Component {
   @action
   setActiveEntry(entry) {
     if (this.activeEntry !== null && this.activeEntry !== entry) {
-      this._save(this.activeEntry);
+      if (
+        !this._isEquivalentEntry(this.activeEntry, this.activeUntrackedEntry)
+      ) {
+        this._save(this.activeEntry);
+      }
     }
+
+    this.activeUntrackedEntry = {
+      attestedName: entry.get("attestedName"),
+      properties: { ...entry.get("properties") }
+    };
 
     this.activeEntry = entry;
   }
@@ -67,7 +78,11 @@ export default class EntryGridComponent extends Component {
       this.columns.pushObject({ valuePath, label, property: propObj });
     });
     this.columns.pushObject({
-      label: "Created On",
+      label: "Modified on",
+      valuePath: "modifiedOn"
+    });
+    this.columns.pushObject({
+      label: "Created on",
       valuePath: "createdOn"
     });
   }
@@ -79,7 +94,7 @@ export default class EntryGridComponent extends Component {
       if (changeset.get("isValid")) {
         await changeset.save();
         return this.notify.success(
-          `Entry “${changeset.get("attestedName")}” (re-)saved.`
+          `Entry “${changeset.get("attestedName")}” updated.`
         );
       }
 
@@ -118,5 +133,28 @@ export default class EntryGridComponent extends Component {
       validations[`properties.${property.name}`] = validators;
     });
     return validations;
+  }
+
+  _isEquivalentEntry(a, b) {
+    if (a.get("attestedName") !== b.attestedName) {
+      return false;
+    }
+
+    const aProps = a.get("properties");
+    const bProps = b.properties;
+    if (
+      Object.keys(bProps).filter(prop => {
+        // eslint-disable-next-line eqeqeq
+        if (aProps[prop] != bProps[prop]) {
+          return true;
+        }
+
+        return false;
+      }).length > 0
+    ) {
+      return false;
+    }
+
+    return true;
   }
 }
