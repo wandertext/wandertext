@@ -104,7 +104,6 @@ export default class EntryGridComponent extends Component {
 
       throw changeset.errors;
     } catch (error) {
-      console.log("error", error);
       if (Array.isArray(error)) {
         error.forEach(message => this.notify.error(message.validation[0]));
       } else {
