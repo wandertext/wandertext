@@ -24,9 +24,9 @@ export default class Place extends DS.Model.extend(LoadableModel) {
 
   @attr("date") modifiedOn; // Timestamp from Firestore;
 
-  @hasMany("entry", { async: false }) entries;
+  @hasMany("entry") entries;
 
-  @hasMany("flag", { async: false }) flags;
+  @hasMany("flag") flags;
 
-  @hasMany("contributor", { async: false }) contributors;
+  @hasMany("contributor") contributors;
 }

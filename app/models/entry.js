@@ -14,11 +14,11 @@ export default class Entry extends DS.Model.extend(LoadableModel) {
 
   @attr("date") modifiedOn; // Timestamp from Firestore;
 
-  @belongsTo("place", { async: false }) place;
+  @belongsTo("place") place;
 
-  @belongsTo("text", { async: false }) text;
+  @belongsTo("text") text;
 
-  @hasMany("contributor", { async: false }) contributors;
+  @hasMany("contributor") contributors;
 
-  @hasMany("flag", { async: false }) flags;
+  @hasMany("flag") flags;
 }
