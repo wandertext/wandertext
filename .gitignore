@@ -9,6 +9,8 @@
 /bower_components
 
 # misc
+.firebaserc
+.firebase
 .netlify
 .env
 /.sass-cache
