@@ -6,7 +6,7 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
-    firestoreOn: false,
+    firestoreOn: true,
     backendHost: process.env.BACKEND_HOST,
     apollo: {
       apiURL: `${process.env.BACKEND_HOST}/graphql`
