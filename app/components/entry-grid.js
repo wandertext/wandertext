@@ -93,6 +93,9 @@ export default class EntryGridComponent extends Component {
     try {
       await changeset.validate();
       if (changeset.get("isValid")) {
+        changeset
+          .get("contributors")
+          .pushObject(this.currentContributor.contributor);
         await changeset.save();
         return this.notify.success(
           `Entry “${changeset.get("attestedName")}” updated.`
@@ -101,6 +104,7 @@ export default class EntryGridComponent extends Component {
 
       throw changeset.errors;
     } catch (error) {
+      console.log("error", error);
       if (Array.isArray(error)) {
         error.forEach(message => this.notify.error(message.validation[0]));
       } else {
