@@ -1,13 +1,11 @@
 import WorkbenchRoute from "wandertext/routes/workbench";
 import { inject as service } from "@ember/service";
 
-export default class TextsTextRoute extends WorkbenchRoute {
+export default class WorkbenchTextsTextRoute extends WorkbenchRoute {
   @service currentContributor;
 
   model({ id }) {
-    return this.store.findRecord("text", id, {
-      include: "entries,entries.place"
-    });
+    return this.store.loadRecord("text", id);
   }
 
   /*
