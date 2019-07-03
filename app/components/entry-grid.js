@@ -54,7 +54,7 @@ export default class EntryGridComponent extends Component {
       if (
         !this._isEquivalentEntry(this.activeEntry, this.activeUntrackedEntry)
       ) {
-        this._save(this.activeEntry);
+        this._save();
       }
     }
 
@@ -87,7 +87,8 @@ export default class EntryGridComponent extends Component {
     });
   }
 
-  async _save(changeset) {
+  async _save() {
+    const changeset = this.activeEntry;
     const snapshot = changeset.snapshot();
     try {
       await changeset.validate();
