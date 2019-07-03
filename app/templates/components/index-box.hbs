@@ -6,7 +6,12 @@
   <p class="lead"><i>Create and share semantically rich geospatial datasets.</i></p>
 
   {{#if this.currentContributor.contributor}}
-    <Button @classes="logout-button" @onClick={{action this.logout}}>
+    {{#link-to "workbench.index"}}
+      <Button >
+        Wandertext Workbench
+      </Button>
+    {{/link-to}}
+    <Button @classes="logout-button ml-2" @onClick={{action this.logout}}>
       Logout
     </Button>
   {{else}}
