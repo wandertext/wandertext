@@ -1,12 +1,16 @@
 <div class="text-listing">
-  {{#if @text.imgSrc}}
-    <img src={{@text.imgSrc}} alt={{@text.name}} class="md-avatar">
-  {{else}}
-    {{svg-jar "book"}}
-  {{/if}}
-  <div class="md-list-item-text">
-    <h3>{{#link-to "workbench.texts.text" @text}}{{text-title @text}}{{/link-to}}</h3>
-    <h4>{{@text.id}}</h4>
+  {{log @text}}
+  <div class="text-image-div">
+    {{#if @text.imgSrc}}
+      {{#link-to "workbench.texts.text" @text }}
+        <img class="text-image" src={{@text.imgSrc}} alt={{@text.name}}>
+      {{/link-to}}
+    {{else}}
+      {{svg-jar "book"}}
+    {{/if}}
+  </div>
+  <div class="ml-4">
+    <h3 class="text-4xl">{{#link-to "workbench.texts.text" @text}}{{text-title @text}}{{/link-to}}</h3>
   </div>
 </div>
 
