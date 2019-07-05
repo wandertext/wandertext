@@ -96,6 +96,12 @@ export default class EntryGridComponent extends Component {
         changeset
           .get("contributors")
           .pushObject(this.currentContributor.contributor);
+        this.entryProps.forEach(property => {
+          if (property.type === "number") {
+            const number = changeset.get(`properties.${property.name}`);
+            changeset.set(`properties.${property.name}`, parseInt(number, 10));
+          }
+        });
         await changeset.save();
         return this.notify.success(
           `Entry “${changeset.get("attestedName")}” updated.`
