@@ -43,6 +43,17 @@ export default class TableCellComponent extends Component {
 
   property = this.args.column.valuePath;
 
+  get inputType() {
+    if (
+      this.args.column.property &&
+      this.args.column.property.type === "number"
+    ) {
+      return "number";
+    }
+
+    return "text";
+  }
+
   get isDisabled() {
     if (this.args.column.property) {
       return (

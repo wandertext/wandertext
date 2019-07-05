@@ -9,7 +9,7 @@
     {{moment-format (get @changeset this.property) "YYYY-MM-DD"}}
   {{else}}
     {{input
-      type="text"
+      type=this.inputType
       value=(get @changeset this.property)
       class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" (get @changeset "id") " " this.validationClass)
       disabled=this.isDisabled
