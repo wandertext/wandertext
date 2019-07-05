@@ -65,7 +65,6 @@
     "ember-href-to": "^3.1.0",
     "ember-light-table": "^2.0.0-beta.3",
     "ember-load-initializers": "^2.0.0",
-    "ember-lodash": "^4.19.4",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-mocha": "^0.16.0",
     "ember-modal-dialog": "^3.0.0-beta.4",
@@ -76,6 +75,7 @@
     "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/cb4233bf416127d626304fa33ca9125310a7d959.tgz",
     "ember-svg-jar": "^1.2.2",
     "ember-table": "github:Addepar/ember-table#1c3b87a4722089cd11c27e7a39ec4a1e0dd210c2",
+    "emberfire": "^3.0.0-rc.3",
     "eslint-plugin-chai-friendly": "^0.4.1",
     "eslint-plugin-ember": "^6.7.1",
     "eslint-plugin-node": "^9.0.1",
@@ -95,7 +95,8 @@
   "dependencies": {
     "ember-changeset-validations": "^2.1.0",
     "eslint-plugin-ember-data-sync-relationships": "^1.0.0",
-    "leaflet": "^1.4.0"
+    "leaflet": "^1.4.0",
+    "lodash": "^4.17.11"
   },
   "xo": {
     "envs": [
@@ -171,7 +172,6 @@
     "d3-axis": "^1.0.12",
     "d3-scale": "^3.0.0",
     "d3-selection": "^1.4.0",
-    "lodash": "^4.17.11",
     "mocha": "^6.1.4",
     "rsvp": "^4.8.5",
     "showdown": "^1.9.0"
