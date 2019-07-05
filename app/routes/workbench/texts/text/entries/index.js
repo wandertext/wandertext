@@ -6,9 +6,12 @@ export default class TextsTextEntriesIndexRoute extends WorkbenchRoute {
     const text = await this.modelFor("workbench/texts/text").sideload(
       "entries,entries.place"
     );
+    const entries = text.entries.sortBy(
+      ...text.entrySort.map(property => `properties.${property}`)
+    );
     return hash({
       text,
-      entries: text.entries
+      entries
     });
   }
 }
