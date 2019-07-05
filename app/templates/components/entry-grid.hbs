@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each @text.entries as |entry|}}
+      {{#each @entries as |entry|}}
         {{#with (changeset entry this.EntryValidations) as |changeset|}}
           <tr>
             {{#each this.columns as |column|}}
