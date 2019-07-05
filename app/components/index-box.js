@@ -1,3 +1,4 @@
+/* eslint no-console: 1 */
 import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { action } from "@ember/object";
@@ -67,6 +68,7 @@ export default class IndexBoxComponent extends Component {
         throw new Error("Contributor not enabled");
       }
     } catch (error) {
+      console.log("error", error);
       this.currentContributor.contributor = null;
       this.loginError = true;
     }
