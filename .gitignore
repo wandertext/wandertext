@@ -9,6 +9,7 @@
 /bower_components
 
 # misc
+wandertext-firebase-admin-sdk-dd77.json
 .firebaserc
 .firebase
 .netlify
