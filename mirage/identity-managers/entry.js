@@ -25,7 +25,7 @@ export default class {
    * Must throw if identifier is already used.
    *
    * @method set
-   * @param {String|Number} id
+   * @param {String|Number} id The model's id.
    * @public
    */
   set(id) {
