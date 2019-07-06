@@ -21,6 +21,7 @@ wandertext-firebase-admin-sdk-dd77.json
 npm-debug.log*
 yarn-error.log
 testem.log
+firebase-debug.log
 
 # ember-try
 .node_modules.ember-try/
