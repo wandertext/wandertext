@@ -5,7 +5,7 @@
 
   <p class="lead"><i>Create and share semantically rich geospatial datasets.</i></p>
 
-  {{#if this.currentContributor.contributor}}
+  {{#if this.session.isAuthenticated}}
     {{#link-to "workbench.index"}}
       <Button >
         Wandertext Workbench
@@ -22,10 +22,10 @@
       information on the project.</p>
 
     <p class="mb-4">If you have already have access, please login with your
-      GitHub account by clicking on the button below.</p>
+      Google account by clicking on the button below.</p>
 
     <Button @classes="login-button" @onClick={{action this.toggleModal}}>
-      Login
+      Login via Google
     </Button>
 
     {{#if this.isShowingModal}}

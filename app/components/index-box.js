@@ -3,17 +3,20 @@ import Component from "@ember/component";
 import { inject as service } from "@ember/service";
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
+import firebase from "firebase/app";
 
 export default class IndexBoxComponent extends Component {
+  @service firebaseApp;
+
   @service router;
 
   @service store;
 
+  @service currentContributor;
+
   @service card;
 
   @service session;
-
-  @service currentContributor;
 
   @tracked isShowingModal = false;
 
@@ -21,7 +24,7 @@ export default class IndexBoxComponent extends Component {
 
   @tracked awaitingAuthentication = false;
 
-  @tracked awaitingGithubProfile = false;
+  @tracked awaitingWandertextProfile = false;
 
   @tracked awaitingContributor = false;
 
@@ -52,23 +55,27 @@ export default class IndexBoxComponent extends Component {
   @action
   async login() {
     this.awaitingAuthentication = true;
-    await this.session.authenticate("authenticator:torii", "github");
-    this.awaitingGithubProfile = true;
-    const githubUser = await this.store.findRecord("github-user", "#");
-    this.awaitingContributor = true;
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope("profile");
+    provider.addScope("email");
     try {
-      const contributor = await this.store.findRecord(
-        "contributor",
-        githubUser.login
-      );
+      const auth = await this.firebaseApp.auth();
+      const signinResult = await auth.signInWithPopup(provider);
+      this.awaitingWandertextProfile = true;
+      const query = await this.store.query("contributor", {
+        query: ref => ref.where("email", "==", signinResult.user.email)
+      });
+      const contributor = query.firstObject;
       if (contributor.enabled) {
+        this.currentContributor.contributor = contributor;
         this.loggedIn = true;
+        this.isShowingModal = false;
         this.router.transitionTo("workbench");
       } else {
         throw new Error("Contributor not enabled");
       }
     } catch (error) {
-      console.log("error", error);
+      console.log("error in login", error);
       this.currentContributor.contributor = null;
       this.loginError = true;
     }

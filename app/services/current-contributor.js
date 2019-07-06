@@ -9,31 +9,29 @@ export default class CurrentContributorService extends Service {
   @tracked contributor = null;
 
   async load() {
-    let contributor;
     if (this.session.isAuthenticated) {
-      if (this.contributor) {
-        contributor = this.contributor;
-      } else {
-        const githubUser = await this.store.findRecord("github-user", "#");
+      if (!this.contributor) {
         try {
-          const contributor = await this.store.findRecord(
-            "contributor",
-            githubUser.login
-          );
+          const { email } = this.session.data.authenticated.user;
+          const query = await this.store.query("contributor", {
+            query: ref => ref.where("email", "==", email)
+          });
+          const contributor = query.firstObject;
           if (contributor.enabled) {
             this.contributor = contributor;
-          } else {
-            throw new Error("user is not enabled");
+            return this.contributor;
           }
+
+          throw new Error("user is not enabled");
         } catch {
           this.session.invalidate();
         }
       }
-    } else {
-      this.contributor = null;
-      contributor = null;
+
+      return this.contributor;
     }
 
-    return contributor;
+    this.contributor = null;
+    return null;
   }
 }

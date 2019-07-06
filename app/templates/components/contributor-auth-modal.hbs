@@ -4,19 +4,9 @@
   {{#if @awaitingAuthentication}}
   <div class="w-full">
     <div class="flex w-full mb-3">
-      <div> Awaiting authentication from GitHub: </div>
+      <div> Awaiting authentication from Google: </div>
       <div class="ml-auto -mt-1 text-primary-500">
-        {{#if @awaitingGithubProfile }}
-          {{svg-jar "check-circle" class="inline fill-current" width="24" height="24"}}
-        {{else}}
-          {{svg-jar "circle-o-notch" class="inline fill-current rotate" width="24" height="24"}}
-        {{/if}}
-      </div>
-    </div>
-    <div class="flex w-full mb-3">
-      <div> Awaiting profile from GitHub: </div>
-      <div class="ml-auto -mt-1 text-primary-500">
-        {{#if @awaitingContributor }}
+        {{#if @awaitingWandertextProfile }}
           {{svg-jar "check-circle" class="inline fill-current" width="24" height="24"}}
         {{else}}
           {{svg-jar "circle-o-notch" class="inline fill-current rotate" width="24" height="24"}}
@@ -48,17 +38,16 @@
   </div>
   {{else}}
 
-    <p class="mb-4">Please use the button below to login via <a
-       href="http://github.com" target="_blank">GitHub</a>.  If you are an
-     approved contributor, you will be forwarded to the Wandertext Workbench.
-     If you believe you should be an approved contributor but are not yet
-     added, please contact <code>moacir.p@columbia.edu</code>.</p>
+    <p class="mb-4">Please use the button below to login via Google.  If you
+      are an approved contributor, you will be forwarded to the Wandertext
+      Workbench.  If you believe you should be an approved contributor but are
+      not yet added, please contact <code class="text-sm">moacir.p@columbia.edu</code>.</p>
 
     <div class="layout-row layout-align-center-center">
       <Button 
         @onClick={{@login}} 
-        @classes="login-via-github">
-        Login via GitHub
+        @classes="login-via-google">
+        Login via Google
       </Button>
     </div>
   {{/if}}
