@@ -1,4 +1,4 @@
-<h2>Welcome to the Wandertext Workbench, {{this.model.firstName}}.</h2>
+<h2>Welcome to the Wandertext Workbench, {{this.model.contributor.firstName}}.</h2>
 
 <p class="lead">The Wandertext Workbench is the portal into working with
   Wandertext to create or edit geospatial data. Access is limited to Wandertext
@@ -9,7 +9,7 @@
 for <i>Bāburnāma</i>. Please click on the button below to access those
 entries.</p>
 
-{{#link-to "workbench.texts.text.entries.index" this.model }}
+{{#link-to "workbench.texts.text.entries.index" this.model.text }}
   <Button>
     Edit <i>Bāburnāma</i> entries
   </Button>
