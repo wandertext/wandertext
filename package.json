@@ -12,6 +12,7 @@
   "homepage": "https://github.com/muziejus/wandertext#readme",
   "repository": "https://github.com/muziejus/wandertext.git",
   "scripts": {
+    "deploy": "ember build -e production && firebase deploy",
     "build": "ember build",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "xo --fix",
