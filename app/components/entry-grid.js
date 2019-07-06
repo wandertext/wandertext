@@ -77,6 +77,7 @@ export default class EntryGridComponent extends Component {
       const valuePath = `properties.${propObj.name}`;
       this.columns.pushObject({ valuePath, label, property: propObj });
     });
+    /* Save figuring out dates for later.
     this.columns.pushObject({
       label: "Modified on",
       valuePath: "modifiedOn"
@@ -85,6 +86,7 @@ export default class EntryGridComponent extends Component {
       label: "Created on",
       valuePath: "createdOn"
     });
+    */
   }
 
   async _save() {
