@@ -7,7 +7,7 @@ import hbs from "htmlbars-inline-precompile";
 describe("Integration | Component | error-modal", function() {
   setupRenderingTest();
 
-  it("renders", async function() {
+  it.skip("renders", async function() {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
