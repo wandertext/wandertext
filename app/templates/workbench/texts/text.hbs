@@ -1,18 +1,16 @@
-{{#if this.model.isRunning}}
-  <p>Spinner!</p>
-{{else}}
+<div class="flex flex-row">
   <h2>{{text-title this.model }}</h2>
-  <div>
-    {{#if this.model.markdownBlurb }}
-      {{markdown-to-html this.model.markdownBlurb }}
-    {{else}}
-      _non_ markdown blurb
-    {{/if}}
-  </div>
-  <div class="my-4 flex flex-row">
+  <div class="ml-4">
       {{#link-to "workbench.texts.text.entries" this.model }}
         <Button>Entries</Button>
       {{/link-to}}
   </div>
-  {{outlet}}
-{{/if}}
+</div>
+<div>
+  {{#if this.model.markdownBlurb }}
+    {{markdown-to-html this.model.markdownBlurb }}
+  {{else}}
+    _non_ markdown blurb
+  {{/if}}
+</div>
+{{outlet}}
