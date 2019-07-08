@@ -1,5 +1,5 @@
 .card-content {
-  @apply .p-4 .overflow-y-auto
+  @apply .p-4 .overflow-hidden
 }
 
 .card-content h2 {
