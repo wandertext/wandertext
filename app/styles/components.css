@@ -4,6 +4,7 @@
 @import "./components/card-content.css";
 @import "./components/ember-modal-dialog.css";
 @import "./components/ember-table.css";
+@import "./components/entry-grid.css";
 @import "./components/floating-box.css";
 @import "./components/inline-editor.css";
 @import "./components/modal-map.css";
