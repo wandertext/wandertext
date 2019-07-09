@@ -37,6 +37,8 @@ export default class EntryGridComponent extends Component {
 
   limit = 200;
 
+  @tracked page = 1;
+
   @tracked isLoading = false;
 
   @tracked isShowingModal = false;
@@ -57,6 +59,19 @@ export default class EntryGridComponent extends Component {
   async showModal(data) {
     this.isShowingModal = true;
     this.modalPlace = data;
+  }
+
+  @action
+  fetchNewPage(page) {
+    page = parseInt(page, 10);
+    this.model = [];
+    if (page > 0) {
+      this.page = page;
+    } else {
+      this.page = 1;
+    }
+
+    this.fetchRecords();
   }
 
   @action
@@ -99,7 +114,8 @@ export default class EntryGridComponent extends Component {
       query: ref =>
         ref
           .where("text", "==", "baburnama-1530") // Hardcode this in.
-          .orderBy("properties.folio", "asc")
+          .where("properties.folio", "==", this.page)
+          // .orderBy("properties.folio", "asc")
           .orderBy("properties.sequence", "asc")
           .limit(this.limit)
     });
@@ -110,9 +126,9 @@ export default class EntryGridComponent extends Component {
   _buildColumns() {
     const { text } = this.args;
     text.entryProperties.forEach(propObj => {
-      let width = "120px";
+      let width = "150px";
       if (propObj.type === "number") {
-        width = "50px";
+        width = "75px";
       }
 
       const label = propObj.inputLabel || capitalize(propObj.name);

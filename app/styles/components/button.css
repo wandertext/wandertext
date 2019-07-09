@@ -17,3 +17,7 @@
 .btn-secondary:hover {
   @apply .bg-white .text-primary-800 .border-accent-900
 }
+
+.press-play:hover {
+  @apply .bg-gray-200
+}
