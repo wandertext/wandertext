@@ -1,0 +1,11 @@
+<tr class="table-row">
+  {{#with (changeset entry EntryValidations) as |changeset|}}
+    {{#each @columns as |column|}}
+      <TableCell
+        @changeset={{changeset}}
+        @column={{column}}
+        @showModal={{this.showModal}}
+      /> 
+    {{/each}}
+  {{/with}}
+</tr>

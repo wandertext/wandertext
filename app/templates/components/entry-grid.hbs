@@ -1,34 +1,45 @@
 <div class="entry-grid flex-grow text-sm">
-  <table>
+  <table style={{this.tableWidth}}>
     <thead>
       <tr>
         {{#each this.columns as |column|}}
-          <th>
-            {{#component "table-column-header" columnContent=column}}
-              {{column.label}}
-            {{/component}}
-          </th>
+          {{#component "table-column-header" columnContent=column}}
+            {{column.label}}
+          {{/component}}
         {{/each}}
       </tr>
     </thead>
-    <tbody>
-      {{#each @entries as |entry|}}
-        {{#with (changeset entry this.EntryValidations) as |changeset|}}
-          <tr>
-            {{#each this.columns as |column|}}
-              <TableCell
-                @changeset={{changeset}}
-                @column={{column}}
-                @showModal={{this.showModal}}
-                @focusIn={{action this.setActiveEntry changeset}}
-                @validate={{action this.validateProperty changeset column.valuePath}}
-              /> 
-            {{/each}}
-          </tr>
-        {{/with}}
-      {{/each}}
-    </tbody>
   </table>
+  {{#if this.isLoading}}
+    <div class="h-full flex justify-center">
+      <div class="m-auto flex flex-col">
+        <p class="text-3xl">Loading Entries…</p>
+        <div class="mt-2">
+          {{svg-jar "circle-o-notch" class="mx-auto text-primary-500 fill-current rotate" width="48" height="48"}}
+        </div>
+      </div>
+    </div>
+  {{else}}
+      <table style={{this.tableWidth}}>
+        <tbody>
+          {{#each this.model as |entry|}}
+            {{#with (changeset entry this.EntryValidations) as |changeset|}}
+              <tr>
+                {{#each this.columns as |column|}}
+                  <TableCell
+                    @changeset={{changeset}}
+                    @column={{column}}
+                    @showModal={{this.showModal}}
+                    @focusIn={{action this.setActiveEntry changeset}}
+                    @validate={{action this.validateProperty changeset column.valuePath}}
+                  /> 
+                {{/each}}
+              </tr>
+            {{/with}}
+          {{/each}}
+        </tbody>
+      </table>
+  {{/if}}
 </div>
 
 {{#if this.isShowingModal}}

@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
-import { capitalize } from "@ember/string";
+import { htmlSafe, capitalize } from "@ember/string";
 import { action } from "@ember/object";
 import {
   validateNumber,
@@ -9,6 +9,8 @@ import {
 } from "ember-changeset-validations/validators";
 
 export default class EntryGridComponent extends Component {
+  @service store;
+
   @service notify;
 
   @service currentContributor;
@@ -17,16 +19,24 @@ export default class EntryGridComponent extends Component {
 
   activeUntrackedEntry = null;
 
+  @tracked model = [];
+
   @tracked columns = [
     {
       label: "Attested Name",
+      width: "120px",
       valuePath: "attestedName"
     },
     {
       label: "Linked Place",
+      width: "120px",
       valuePath: "place"
     }
   ];
+
+  limit = 200;
+
+  @tracked isLoading = false;
 
   @tracked isShowingModal = false;
 
@@ -68,14 +78,45 @@ export default class EntryGridComponent extends Component {
 
   constructor(...args) {
     super(...args);
-    this._buildColumns(this.args.text);
+    this._buildColumns();
+    this.fetchRecords();
   }
 
-  _buildColumns(text) {
+  get tableWidth() {
+    return htmlSafe(
+      "width: " +
+        this.columns.reduce((accumulator, column) => {
+          return accumulator + parseInt(column.width.replace("px", ""), 10);
+        }, 0) +
+        "px;"
+    );
+  }
+
+  async fetchRecords() {
+    this.isLoading = true;
+    const records = await this.store.query("entry", {
+      query: ref =>
+        ref
+          .where("text", "==", "baburnama-1530") // Hardcode this in.
+          .orderBy("properties.folio", "asc")
+          .orderBy("properties.sequence", "asc")
+          .limit(this.limit)
+    });
+    this.model.pushObjects(records.toArray());
+    this.isLoading = false;
+  }
+
+  _buildColumns() {
+    const { text } = this.args;
     text.entryProperties.forEach(propObj => {
+      let width = "120px";
+      if (propObj.type === "number") {
+        width = "50px";
+      }
+
       const label = propObj.inputLabel || capitalize(propObj.name);
       const valuePath = `properties.${propObj.name}`;
-      this.columns.pushObject({ valuePath, label, property: propObj });
+      this.columns.pushObject({ valuePath, width, label, property: propObj });
     });
     /* Save figuring out dates for later.
     this.columns.pushObject({
