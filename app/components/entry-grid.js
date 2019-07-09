@@ -7,6 +7,7 @@ import {
   validateNumber,
   validatePresence
 } from "ember-changeset-validations/validators";
+import { task } from "ember-concurrency";
 
 export default class EntryGridComponent extends Component {
   @service store;
@@ -39,8 +40,6 @@ export default class EntryGridComponent extends Component {
 
   @tracked page = 1;
 
-  @tracked isLoading = false;
-
   @tracked isShowingModal = false;
 
   @tracked modalPlace = null;
@@ -71,7 +70,7 @@ export default class EntryGridComponent extends Component {
       this.page = 1;
     }
 
-    this.fetchRecords();
+    this.fetchRecords.perform();
   }
 
   @action
@@ -95,7 +94,7 @@ export default class EntryGridComponent extends Component {
   constructor(...args) {
     super(...args);
     this._buildColumns();
-    this.fetchRecords();
+    this.fetchRecords.perform();
   }
 
   get tableWidth() {
@@ -108,9 +107,8 @@ export default class EntryGridComponent extends Component {
     );
   }
 
-  async fetchRecords() {
-    this.isLoading = true;
-    const records = await this.store.query("entry", {
+  @(task(function*() {
+    const records = yield this.store.query("entry", {
       query: ref =>
         ref
           .where("text", "==", "baburnama-1530") // Hardcode this in.
@@ -120,8 +118,8 @@ export default class EntryGridComponent extends Component {
           .limit(this.limit)
     });
     this.model.pushObjects(records.toArray());
-    this.isLoading = false;
-  }
+  }).restartable())
+  fetchRecords;
 
   _buildColumns() {
     const { text } = this.args;
