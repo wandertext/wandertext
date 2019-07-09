@@ -25,7 +25,8 @@ export default class EntryGridComponent extends Component {
     {
       label: "Attested Name",
       width: "120px",
-      valuePath: "attestedName"
+      valuePath: "attestedName",
+      owner: "admin"
     },
     {
       label: "Linked Place",
@@ -116,7 +117,12 @@ export default class EntryGridComponent extends Component {
 
       const label = propObj.inputLabel || capitalize(propObj.name);
       const valuePath = `properties.${propObj.name}`;
-      this.columns.pushObject({ valuePath, width, label, property: propObj });
+      if (
+        propObj.owner === this.currentContributor.contributor.id ||
+        propObj.owner === "admin"
+      ) {
+        this.columns.pushObject({ valuePath, width, label, property: propObj });
+      }
     });
     /* Save figuring out dates for later.
     this.columns.pushObject({
