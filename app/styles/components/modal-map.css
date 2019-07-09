@@ -1,6 +1,6 @@
 .modal-map {
-  width: 50vw;
   height: 50vh;
+  width: 100%;
 }
 
 .modal-map .leaflet-zoom-box { z-index: 58; }

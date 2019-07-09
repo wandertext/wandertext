@@ -1,10 +1,21 @@
 <td class={{ this.classes }} style={{this.cellWidth}}>
   {{#if this.isPlace}}
-    {{svg-jar "map-marker" 
-      class="inline mr-1 cursor-pointer" 
-      onclick=(action @showModal @changeset.place)
-    }} 
-    {{@changeset.place.name}}
+    <div class="flex flex-row">
+      {{#if this.fetchPlace.isRunning}}
+        <div>Thinking…</div>
+        <div class="ml-auto">
+          {{svg-jar "circle-o-notch" class="text-primary-500 fill-current rotate"}}
+        </div>
+      {{else}}
+        <div>{{this.place.name}}</div>
+        {{#if this.isMappable}}
+          <button class="block press-play px-1 ml-auto" 
+            onClick={{action @showModal this.place}} >
+            {{svg-jar "map-marker" class="fill-current text-primary-500" }} 
+          </button>
+        {{/if}}
+      {{/if}}
+    </div>
   {{else if this.isDate}}
     {{moment-format (get @changeset this.property) "YYYY-MM-DD"}}
   {{else}}
