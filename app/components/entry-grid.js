@@ -27,12 +27,19 @@ export default class EntryGridComponent extends Component {
       label: "Attested Name",
       width: "120px",
       valuePath: "attestedName",
-      owner: "admin"
+      property: {
+        owner: "admin",
+        help: "How the place is referred to in the text"
+      }
     },
     {
       label: "Linked Place",
       width: "120px",
-      valuePath: "place"
+      valuePath: "place",
+      property: {
+        help:
+          "The place as it appears in the Wandertext database. A marker means it is mappable."
+      }
     }
   ];
 
