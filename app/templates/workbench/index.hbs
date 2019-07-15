@@ -1,4 +1,10 @@
-<h2>Welcome to the Wandertext Workbench, {{this.model.contributor.firstName}}.</h2>
+{{#if this.model.contributor.firstName}}
+  <h2>Welcome to the Wandertext Workbench, {{this.model.contributor.firstName}}.</h2>
+{{else if this.model.contributor.lastName}}
+  <h2>Welcome to the Wandertext Workbench, {{this.model.contributor.lastName}}.</h2>
+{{else}}
+  <h2>Welcome to the Wandertext Workbench.</h2>
+{{/if}}
 
 <p class="lead">The Wandertext Workbench is the portal into working with
   Wandertext to create or edit geospatial data. Access is limited to Wandertext
