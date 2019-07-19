@@ -227,6 +227,11 @@ export default class EntryGridComponent extends Component {
 
     const aProps = a.get("properties");
     const bProps = b.properties;
+
+    if (Object.keys(aProps).length > Object.keys(bProps).length) {
+      return false;
+    }
+
     if (
       Object.keys(bProps).filter(prop => {
         // eslint-disable-next-line eqeqeq
