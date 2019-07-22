@@ -1,5 +1,9 @@
 <div class="entry-grid flex-grow text-sm">
-  <EntryGridControls @fetch={{this.fetchNewPage}} @page={{this.page}} />
+  <EntryGridControls
+    @save={{action this.setActiveEntry null}}
+    @fetch={{this.fetchNewPage}}
+    @page={{this.page}}
+  />
     <table style={{this.tableWidth}}>
       <thead>
         <tr>

@@ -82,12 +82,18 @@ export default class EntryGridComponent extends Component {
 
   @action
   setActiveEntry(entry) {
+    console.log("entries", entry, this.activeEntry);
     if (this.activeEntry !== null && this.activeEntry !== entry) {
       if (
         !this._isEquivalentEntry(this.activeEntry, this.activeUntrackedEntry)
       ) {
         this._save();
       }
+    }
+
+    if (entry === null) {
+      this.activeEntry = null;
+      return true;
     }
 
     this.activeUntrackedEntry = {

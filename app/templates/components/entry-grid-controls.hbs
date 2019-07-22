@@ -1,6 +1,6 @@
 <div class="flex p-2 w-64 shadow-md border mb-2">
   <div class="mx-auto">
-    <button onClick={{action @fetch (dec @page)}} class="press-play px-2 mr-2">
+    <button onClick={{queue (action @save) (action @fetch (dec @page))}} class="press-play px-2 mr-2">
       {{svg-jar "step-backward" class="-mt-1 fill-current text-primary-500 inline"}}
     </button>
 
@@ -8,10 +8,10 @@
       type="number"
       value=@page
       class="inline-editor w-16 ml-2"
-      enter=(action @fetch (mut @page))
+      enter=(queue (action @save) (action @fetch (mut @page)))
       }}
       
-    <button onClick={{action @fetch (inc @page)}} class="press-play px-2 ml-2">
+    <button onClick={{queue (action @save) (action @fetch (inc @page))}} class="press-play px-2 ml-2">
       {{svg-jar "step-forward" class="-mt-1 fill-current text-primary-500 inline"}}
     </button>
   </div>
