@@ -92,7 +92,7 @@
   },
   "dependencies": {
     "ember-changeset-validations": "^2.1.0",
-    "firebase": "^6.3.1",
+    "firebase": "^6.3.2",
     "firebase-admin": "^8.2.0",
     "firebase-functions": "^3.1.0",
     "leaflet": "^1.4.0",
