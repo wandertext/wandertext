@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 .ember-notify {
   @apply .bg-white .shadow-lg
 }
@@ -17,3 +18,4 @@
 .ember-notify.error {
   @apply .bg-red-300 .border-red-800 .text-red-800
 }
+/* purgecss end ignore */
