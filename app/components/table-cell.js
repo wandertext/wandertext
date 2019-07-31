@@ -15,7 +15,7 @@ export default class TableCellComponent extends Component {
   @tracked currentValue = this.args.changeset.get(this.property);
 
   get classes() {
-    return `p-1 cell-${this.property.replace(
+    return `cell-${this.property.replace(
       ".",
       "-"
     )} cell-id-${this.args.changeset.get("id")}`;

@@ -2,3 +2,6 @@
   @apply .overflow-auto
 }
 
+.entry-grid td {
+  @apply .p-1
+}
