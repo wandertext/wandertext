@@ -73,7 +73,7 @@ export default class TableCellComponent extends Component {
         this.args.column.property.readOnly ||
         (this.args.column.property.owner &&
           this.args.column.property.owner !==
-            this.currentContributor.contributor.id)
+            this.currentContributor.contributor.wandertextId)
       );
     }
 

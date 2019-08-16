@@ -62,10 +62,10 @@ export default class IndexBoxComponent extends Component {
       const auth = await this.firebaseApp.auth();
       const signinResult = await auth.signInWithPopup(provider);
       this.awaitingWandertextProfile = true;
-      const query = await this.store.query("contributor", {
-        query: ref => ref.where("email", "==", signinResult.user.email)
-      });
-      const contributor = query.firstObject;
+      const contributor = await this.store.loadRecord(
+        "contributor",
+        signinResult.user.uid
+      );
       if (contributor.enabled) {
         this.currentContributor.contributor = contributor;
         this.loggedIn = true;

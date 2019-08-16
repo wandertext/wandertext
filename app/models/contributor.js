@@ -12,6 +12,8 @@ export default class Contributor extends DS.Model.extend(LoadableModel) {
 
   @attr("string") lastName;
 
+  @attr("string") wandertextId;
+
   @attr("boolean", { defaultValue: false }) enabled;
 
   @attr("boolean", { defaultValue: false }) editor;

@@ -12,11 +12,8 @@ export default class CurrentContributorService extends Service {
     if (this.session.isAuthenticated) {
       if (!this.contributor) {
         try {
-          const { email } = this.session.data.authenticated.user;
-          const query = await this.store.query("contributor", {
-            query: ref => ref.where("email", "==", email)
-          });
-          const contributor = query.firstObject;
+          const { uid } = this.session.data.authenticated.user;
+          const contributor = await this.store.loadRecord("contributor", uid);
           if (contributor.enabled) {
             this.contributor = contributor;
             return this.contributor;
