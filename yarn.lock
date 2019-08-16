@@ -6342,18 +6342,18 @@ ember-test-waiters@^1.0.0:
   dependencies:
     ember-cli-babel "^7.1.2"
 
-ember-tooltips@^3.3.3:
-  version "3.3.3"
-  resolved "https://registry.yarnpkg.com/ember-tooltips/-/ember-tooltips-3.3.3.tgz#7b25842f1adc977897c9a4ad69b3388d4239942d"
-  integrity sha512-PvibtNZZKNEYFtRes/bJZOefDXIuopgkqF89XFu0ARe10Gu9Mgy5cB9SSI1sP8zp4TampyvA3TOJ/kGJcxlrqA==
+ember-tooltips@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/ember-tooltips/-/ember-tooltips-3.4.0.tgz#1477567df49ab4b9a1e2c178a6c40d1f25b99de2"
+  integrity sha512-OH8NYEsRgljj410GaDpcqo9i7Wl99hW4So4NgfGWQgjBc5baxMFDpcTPvXTid6kPshrAEorte7OGV+/4ozmEqw==
   dependencies:
     broccoli-file-creator "^2.1.1"
     broccoli-funnel "^2.0.2"
     broccoli-merge-trees "^2.0.0"
     broccoli-source "^2.0.0"
     broccoli-string-replace "^0.1.2"
-    ember-cli-babel "^6.16.0"
-    ember-cli-htmlbars "^3.0.0"
+    ember-cli-babel "^7.7.3"
+    ember-cli-htmlbars "^3.0.1"
     ember-get-config "^0.2.4"
     ember-wormhole "^0.5.5"
     popper.js "^1.12.5"
