@@ -1,7 +1,5 @@
-import FirestoreAdapter from "emberfire/adapters/firestore";
+import DS from "ember-data";
 
-export default class ApplicationAdapter extends FirestoreAdapter {
-  enablePersistence = true;
-
-  persistenceSettings = { synchronizeTabs: true };
+export default class ApplicationAdapter extends DS.JSONAPIAdapter {
+  host = "https://api.wandertext.space";
 }

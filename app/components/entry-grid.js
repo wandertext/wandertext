@@ -121,13 +121,19 @@ export default class EntryGridComponent extends Component {
 
   @(task(function*() {
     const records = yield this.store.query("entry", {
-      query: ref =>
-        ref
-          .where("text", "==", "baburnama-1530") // Hardcode this in.
-          .where("properties.folio", "==", this.page)
-          // .orderBy("properties.folio", "asc")
-          .orderBy("properties.sequence", "asc")
-          .limit(this.limit)
+      filter: {
+        text: this.args.text,
+        properties: {
+          folio: this.page
+        }
+      },
+      // query: ref =>
+      //   ref
+      //     .where("text", "==", "baburnama-1530") // Hardcode this in.
+      //     .where("properties.folio", "==", this.page)
+      //     // .orderBy("properties.folio", "asc")
+      //     .orderBy("properties.sequence", "asc")
+      //     .limit(this.limit)
     });
     this.model.pushObjects(records.toArray());
   }).restartable())
