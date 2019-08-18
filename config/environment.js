@@ -15,10 +15,7 @@ module.exports = function(environment) {
       storageBucket: process.env.FIREBASE_STORAGEBUCKET,
       messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID
     },
-    backendHost: process.env.BACKEND_HOST,
-    apollo: {
-      apiURL: `${process.env.BACKEND_HOST}/graphql`
-    },
+    apiHost: "https://api.wandertext.space",
     torii: {
       sessionServiceName: "session",
       providers: {
@@ -61,17 +58,9 @@ module.exports = function(environment) {
     ENV.torii.providers["github-oauth2"].tokenExchangeUri =
       process.env.DEV_TOKEN_EXCHANGE_URL;
     if (ENV.firestoreOn) {
-      ENV.firebase = {
-        apiKey: process.env.FIREBASE_APIKEY,
-        authDomain: process.env.FIREBASE_AUTHDOMAIN,
-        databaseURL: process.env.FIREBASE_DATABASEURL,
-        projectId: process.env.FIREBASE_PROJECTID,
-        storageBucket: process.env.FIREBASE_STORAGEBUCKET,
-        messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID
-      };
       ENV["ember-cli-mirage"] = { enabled: false };
     } else {
-      ENV.backendHost = "";
+      ENV["ember-cli-mirage"] = { enabled: true };
     }
   }
 
