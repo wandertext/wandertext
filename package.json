@@ -33,7 +33,6 @@
     "ember-auto-import": "^1.5.2",
     "ember-bind-helper": "^1.0.0",
     "ember-changeset": "^2.1.2",
-    "ember-cli": "github:ember-cli/ember-cli#807f56e2e434f716757de02fd1f2c3251dadaf6f",
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^7.8.0",
     "ember-cli-chai": "^0.5.0",
@@ -53,7 +52,6 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-template-lint": "^1.0.0-beta.3",
     "ember-cli-uglify": "^3.0.0",
-    "ember-cli-update": "^0.39.0",
     "ember-composable-helpers": "^2.3.1",
     "ember-concurrency": "^1.0.0",
     "ember-concurrency-decorators": "^1.0.0-beta.2",
@@ -93,6 +91,7 @@
   },
   "dependencies": {
     "ember-changeset-validations": "^2.1.0",
+    "ember-cli": "^3.12.0",
     "firebase": "^6.3.1",
     "firebase-admin": "^8.2.0",
     "firebase-functions": "^3.2.0",
