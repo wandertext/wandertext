@@ -1,5 +1,6 @@
 import Service, { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import config from "wandertext/config/environment";
 
 export default class CurrentContributorService extends Service {
   @service session;
@@ -12,8 +13,17 @@ export default class CurrentContributorService extends Service {
     if (this.session.isAuthenticated) {
       if (!this.contributor) {
         try {
-          const { uid } = this.session.data.authenticated.user;
-          const contributor = await this.store.loadRecord("contributor", uid);
+          let contributor;
+          if (config.environment === "production") {
+            const { uid } = this.session.data.authenticated.user;
+            contributor = await this.store.loadRecord("contributor", uid);
+          } else {
+            contributor = await this.store.loadRecord(
+              "contributor",
+              "muziejus"
+            );
+          }
+
           if (contributor.enabled) {
             this.contributor = contributor;
             return this.contributor;

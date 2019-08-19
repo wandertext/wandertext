@@ -126,8 +126,8 @@ export default class EntryGridComponent extends Component {
         properties: {
           folio: this.page
         }
-      },
-      // query: ref =>
+      }
+      // Query: ref =>
       //   ref
       //     .where("text", "==", "baburnama-1530") // Hardcode this in.
       //     .where("properties.folio", "==", this.page)

@@ -4,6 +4,7 @@ import { inject as service } from "@ember/service";
 import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 import firebase from "firebase/app";
+import config from "wandertext/config/environment";
 
 export default class IndexBoxComponent extends Component {
   @service firebaseApp;
@@ -55,6 +56,21 @@ export default class IndexBoxComponent extends Component {
   @action
   async login() {
     this.awaitingAuthentication = true;
+    let loginSuccess = this._loginWithGitHub();
+    if (config.environment === "production") {
+      loginSuccess = this._loginWithGoogle();
+    }
+
+    if (loginSuccess) {
+      this.loggedIn = true;
+      this.isShowingModal = false;
+      this.router.transitionTo("workbench");
+    } else {
+      throw new Error("unsuccessful login");
+    }
+  }
+
+  async _loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope("profile");
     provider.addScope("email");
@@ -62,22 +78,20 @@ export default class IndexBoxComponent extends Component {
       const auth = await this.firebaseApp.auth();
       const signinResult = await auth.signInWithPopup(provider);
       this.awaitingWandertextProfile = true;
-      const contributor = await this.store.loadRecord(
-        "contributor",
-        signinResult.user.uid
-      );
-      if (contributor.enabled) {
-        this.currentContributor.contributor = contributor;
-        this.loggedIn = true;
-        this.isShowingModal = false;
-        this.router.transitionTo("workbench");
-      } else {
-        throw new Error("Contributor not enabled");
-      }
+      // All of the below might be surplus to requirements as currentContributor.load already does this.
+      const query = await this.store.query("contributor", {
+        query: ref => ref.where("email", "==", signinResult.user.email)
+      });
+      return query.firstObject;
     } catch (error) {
       console.log("error in login", error);
       this.currentContributor.contributor = null;
       this.loginError = true;
     }
+  }
+
+  async _loginWithGitHub() {
+    await this.session.authenticate("authenticator:torii", "github");
+    return true;
   }
 }

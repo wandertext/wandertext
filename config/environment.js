@@ -6,7 +6,7 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
-    firestoreOn: true,
+    firestoreOn: false,
     firebase: {
       apiKey: process.env.FIREBASE_APIKEY,
       authDomain: process.env.FIREBASE_AUTHDOMAIN,
