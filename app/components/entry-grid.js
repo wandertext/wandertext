@@ -122,11 +122,11 @@ export default class EntryGridComponent extends Component {
   @(task(function*() {
     const records = yield this.store.query("entry", {
       filter: {
-        text: this.args.text,
-        properties: {
-          folio: this.page
-        }
+        text: this.args.text.id
+        // Properties: {
+        //   folio: this.page
       }
+      // }
       // Query: ref =>
       //   ref
       //     .where("text", "==", "baburnama-1530") // Hardcode this in.
