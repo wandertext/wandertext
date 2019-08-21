@@ -57,7 +57,7 @@ export default class IndexBoxComponent extends Component {
   async login() {
     this.awaitingAuthentication = true;
     let loginSuccess = this._loginWithGitHub();
-    if (config.environment === "production") {
+    if (config.firestoreOn === true) {
       loginSuccess = this._loginWithGoogle();
     }
 
@@ -76,7 +76,7 @@ export default class IndexBoxComponent extends Component {
     provider.addScope("email");
     try {
       const auth = await this.firebaseApp.auth();
-      const signinResult = await auth.signInWithPopup(provider);
+      const signinResult = await auth.signInWithRedirect(provider);
       this.awaitingWandertextProfile = true;
       // All of the below might be surplus to requirements as currentContributor.load already does this.
       const query = await this.store.query("contributor", {
