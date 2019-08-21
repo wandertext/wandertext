@@ -6,7 +6,7 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
-    firestoreOn: false,
+    firestoreOn: true,
     firebase: {
       apiKey: process.env.FIREBASE_APIKEY,
       authDomain: process.env.FIREBASE_AUTHDOMAIN,
@@ -91,6 +91,7 @@ module.exports = function(environment) {
     ENV.torii.providers["github-oauth2"].tokenExchangeUri =
       process.env.PRODUCTION_TOKEN_EXCHANGE_URL;
     ENV["ember-cli-mirage"] = { enabled: false };
+    ENV.firestoreOn = true;
   }
 
   return ENV;
