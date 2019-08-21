@@ -14,7 +14,7 @@ export default class CurrentContributorService extends Service {
       if (!this.contributor) {
         try {
           let contributor;
-          if (config.environment === "production") {
+          if (config.firestoreOn === true) {
             const { uid } = this.session.data.authenticated.user;
             contributor = await this.store.loadRecord("contributor", uid);
           } else {
