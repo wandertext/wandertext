@@ -15,7 +15,8 @@ module.exports = function(environment) {
       storageBucket: process.env.FIREBASE_STORAGEBUCKET,
       messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID
     },
-    apiHost: "https://api.wandertext.space",
+    apiHost: "http://localhost:4040",
+    // ApiHost: "https://api.wandertext.space",
     torii: {
       sessionServiceName: "session",
       providers: {
