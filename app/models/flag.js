@@ -9,8 +9,6 @@ export default class Flag extends DS.Model {
 
   @attr("date") modifiedOn; // Timestamp from Firestore;
 
-  @attr() nywalkerProperties;
-
   @belongsTo("contributor") contributor;
 
   @belongsTo("text") text;

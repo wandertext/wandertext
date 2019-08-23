@@ -6,8 +6,6 @@ const { attr, hasMany } = DS;
 export default class Contributor extends DS.Model.extend(LoadableModel) {
   @attr("string", { defaultValue: "github" }) authentication; // "github" or "uni"
 
-  @attr("string", { defaultValue: "" }) githubAvatarUrl;
-
   @attr("string") firstName;
 
   @attr("string") lastName;
