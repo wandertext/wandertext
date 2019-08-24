@@ -20,6 +20,9 @@ const purgeCSS = {
 
 module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
+    emberApolloClient: {
+      keepGraphqlFileExtension: true
+    },
     postcssOptions: {
       compile: {
         plugins: [
