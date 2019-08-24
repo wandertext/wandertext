@@ -1,11 +1,13 @@
 import WorkbenchRoute from "wandertext/routes/workbench";
 import { inject as service } from "@ember/service";
+import query from "wandertext/gql/queries/text.graphql";
 
 export default class WorkbenchTextsTextRoute extends WorkbenchRoute {
   @service currentContributor;
 
   model({ id }) {
-    return this.store.loadRecord("text", id);
+    const variables = { id };
+    return this.apollo.watchQuery({ query, variables }, "text");
   }
 
   /*
