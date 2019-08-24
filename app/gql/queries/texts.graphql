@@ -3,5 +3,6 @@ query texts {
     id
     name
     markdownName
+    imgSrc
   }
 }
