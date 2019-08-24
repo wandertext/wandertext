@@ -1,0 +1,8 @@
+query publicTexts {
+  publicTexts {
+    id
+    name
+    markdownName
+    imgSrc
+  }
+}

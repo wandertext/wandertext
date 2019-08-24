@@ -10,9 +10,9 @@ query text($id: ID!) {
       type
       readOnly
       inputLabel
-      owner {
-        id
-      }
+      # owner {
+      #   id
+      # }
     } 
     entries {
       id
@@ -20,13 +20,10 @@ query text($id: ID!) {
       properties
       place {
         id
-        latitude
-        longitude
-        name
       }
-      contributors {
-        id
-      }
+      # contributors {
+      #   id
+      # }
     }
   }
 }
