@@ -10,20 +10,12 @@ query text($id: ID!) {
       type
       readOnly
       inputLabel
-      # owner {
-      #   id
-      # }
+      owner
     } 
-    entries {
+    sortedEntries {
       id
       attestedName
       properties
-      place {
-        id
-      }
-      # contributors {
-      #   id
-      # }
     }
   }
 }
