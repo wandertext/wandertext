@@ -24,6 +24,8 @@ export default class EntryGridComponent extends Component {
 
   activeUntrackedEntry = null;
 
+  @tracked cursor = null;
+
   @tracked model = [];
 
   @tracked columns = [
@@ -114,10 +116,14 @@ export default class EntryGridComponent extends Component {
     this.fetchRecords.perform(null);
   }
 
-  @(task(function*(cursor = null) {
-    const variables = { cursor, limit: this.limit, id: this.args.text.id };
+  @(task(function*() {
+    const variables = {
+      cursor: this.cursor,
+      limit: this.limit,
+      id: this.args.text.id
+    };
     const text = yield this.apollo.watchQuery({ query, variables }, "text");
-    this.model = text.sortedEntryFeed.sortedEntries;
+    this.model = this.model.concat(text.sortedEntryFeed.sortedEntries);
     this.cursor = text.sortedEntryFeed.cursor;
   }).restartable())
   fetchRecords;
