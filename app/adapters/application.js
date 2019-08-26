@@ -15,6 +15,6 @@ export default class ApplicationAdapter extends DS.JSONAPIAdapter {
       return `${this.host}/${namespace}${name}/${id}/${pluralize(model)}`;
     }
 
-    return this._super(...arguments);
+    return super.urlForQuery(...arguments);
   }
 }
