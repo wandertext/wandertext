@@ -4,6 +4,15 @@ query text($id: ID!) {
     name
     markdownName
     markdownBlurb
+    entryProperties {
+      name
+      type
+      help
+      readOnly
+      inputLabel
+      owner
+      nullable
+    }
   }
 }
 
