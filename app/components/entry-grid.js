@@ -10,6 +10,7 @@ import {
 import { queryManager } from "ember-apollo-client";
 import { task } from "ember-concurrency";
 import query from "wandertext/gql/queries/sortedEntriesFeed.graphql";
+import mutation from "wandertext/gql/mutations/update-entry.graphql";
 
 export default class EntryGridComponent extends Component {
   @service store;
@@ -173,19 +174,25 @@ export default class EntryGridComponent extends Component {
     try {
       await changeset.validate();
       if (changeset.get("isValid")) {
-        changeset
-          .get("contributors")
-          .pushObject(this.currentContributor.contributor);
         this.entryProps.forEach(property => {
           if (property.type === "number") {
             const number = changeset.get(`properties.${property.name}`);
             changeset.set(`properties.${property.name}`, parseInt(number, 10));
           }
         });
-        await changeset.save();
-        return this.notify.success(
-          `Entry “${changeset.get("attestedName")}” updated.`
+        const variables = {
+          id: changeset.get("id"),
+          attestedName: changeset.get("attestedName"),
+          properties: changeset.get("properties"),
+          contributor: this.currentContributor.contributor.id
+        };
+        const response = await this.apollo.mutate(
+          { mutation, variables },
+          "updateEntry"
         );
+        if (response.success) {
+          return this.notify.success(response.message);
+        }
       }
 
       throw changeset.errors;
