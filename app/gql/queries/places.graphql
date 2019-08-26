@@ -1,0 +1,11 @@
+query places {
+  places {
+    id
+    name
+    source
+    latitude
+    longitude
+    geonameId
+    confidence
+  }
+}

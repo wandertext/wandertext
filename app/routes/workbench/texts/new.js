@@ -6,6 +6,6 @@ export default class TextsNewRoute extends Route {
   }
 
   model() {
-    return this.store.createRecord("text");
+    return null;
   }
 }

@@ -18,7 +18,7 @@ describe("Unit | Model | text", function() {
   });
 
   // Replace this with your real tests.
-  it("exists", function() {
+  it.skip("exists", function() {
     expect(this.baburnama).to.be.ok;
     expect(this.baburnama.name).to.equal("Baburnama");
   });
