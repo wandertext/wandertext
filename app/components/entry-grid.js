@@ -143,7 +143,7 @@ export default class EntryGridComponent extends Component {
       const label = propObj.inputLabel || capitalize(propObj.name);
       const valuePath = `properties.${propObj.name}`;
       if (
-        propObj.owner === this.currentContributor.contributor.wandertextId ||
+        propObj.owner === this.currentContributor.contributor.id ||
         propObj.owner === "admin"
       ) {
         this.columns.pushObject({ valuePath, width, label, property: propObj });
