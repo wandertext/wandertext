@@ -1,0 +1,13 @@
+query sortedEntryFeed($id: ID!, $cursor: String, $limit: Int) {
+  text(id: $id) {
+    id
+    sortedEntryFeed(cursor: $cursor, limit: $limit) {
+      cursor
+      sortedEntries {
+        id
+        attestedName
+        properties
+      }
+    }
+  }
+}

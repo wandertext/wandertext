@@ -36,7 +36,7 @@ export default class TableCellComponent extends Component {
   constructor(...args) {
     super(...args);
     if (this.isPlace) {
-      this.fetchPlace.perform();
+      // This.fetchPlace.perform();
     }
   }
 

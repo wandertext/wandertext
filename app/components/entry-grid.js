@@ -7,10 +7,14 @@ import {
   validateNumber,
   validatePresence
 } from "ember-changeset-validations/validators";
+import { queryManager } from "ember-apollo-client";
 import { task } from "ember-concurrency";
+import query from "wandertext/gql/queries/sortedEntriesFeed.graphql";
 
 export default class EntryGridComponent extends Component {
   @service store;
+
+  @queryManager apollo;
 
   @service notify;
 
@@ -43,7 +47,7 @@ export default class EntryGridComponent extends Component {
     }
   ];
 
-  limit = 200;
+  limit = 20;
 
   @tracked page = 1;
 
@@ -106,8 +110,17 @@ export default class EntryGridComponent extends Component {
   constructor(...args) {
     super(...args);
     this._buildColumns();
-    this.fetchRecords.perform();
+    // Const observable = getObservable(result);
+    this.fetchRecords.perform(null);
   }
+
+  @(task(function*(cursor = null) {
+    const variables = { cursor, limit: this.limit, id: this.args.text.id };
+    const text = yield this.apollo.watchQuery({ query, variables }, "text");
+    this.model = text.sortedEntryFeed.sortedEntries;
+    this.cursor = text.sortedEntryFeed.cursor;
+  }).restartable())
+  fetchRecords;
 
   get tableWidth() {
     return htmlSafe(
@@ -118,26 +131,6 @@ export default class EntryGridComponent extends Component {
         "px;"
     );
   }
-
-  @(task(function*() {
-    const records = yield this.store.query("entry", {
-      filter: {
-        text: this.args.text.id
-        // Properties: {
-        //   folio: this.page
-      }
-      // }
-      // Query: ref =>
-      //   ref
-      //     .where("text", "==", "baburnama-1530") // Hardcode this in.
-      //     .where("properties.folio", "==", this.page)
-      //     // .orderBy("properties.folio", "asc")
-      //     .orderBy("properties.sequence", "asc")
-      //     .limit(this.limit)
-    });
-    this.model.pushObjects(records.toArray());
-  }).restartable())
-  fetchRecords;
 
   _buildColumns() {
     const { text } = this.args;
