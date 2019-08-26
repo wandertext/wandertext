@@ -1,6 +1,6 @@
 {
   "name": "wandertext",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "description": "Create and share semantically rich geospatial datasets",
   "license": "GPL-3.0",
