@@ -17,7 +17,8 @@
     "lint:hbs": "ember-template-lint .",
     "lint:js": "xo --fix",
     "start": "ember serve",
-    "test": "ember test"
+    "test": "ember test",
+    "release": "standard-version --dry-run"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",
@@ -85,6 +86,7 @@
     "handlebars": "^4.1.2",
     "loader.js": "^4.7.0",
     "postcss-import": "^12.0.1",
+    "standard-version": "^7.0.0",
     "tailwindcss": "^1.1.2",
     "torii": "^0.10.1",
     "xo": "^0.24.0"
@@ -125,7 +127,13 @@
       "require-await": 0,
       "no-unused-expressions": 0,
       "chai-friendly/no-unused-expressions": 2,
-      "import/extensions": ["error", "never", {"graphql": "always"}],
+      "import/extensions": [
+        "error",
+        "never",
+        {
+          "graphql": "always"
+        }
+      ],
       "import/no-unresolved": 0,
       "import/no-extraneous-dependencies": 1
     },
