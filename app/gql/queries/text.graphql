@@ -2,6 +2,7 @@ query text($id: ID!) {
   text(id: $id) {
     id
     name
+    imgSrc
     markdownName
     markdownBlurb
     entryProperties {
