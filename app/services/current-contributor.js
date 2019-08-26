@@ -1,11 +1,13 @@
 import Service, { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
+import { queryManager } from "ember-apollo-client";
+import query from "wandertext/gql/queries/contributor.graphql";
 import config from "wandertext/config/environment";
 
 export default class CurrentContributorService extends Service {
-  @service session;
+  @queryManager apollo;
 
-  @service store;
+  @service session;
 
   @tracked contributor = null;
 
@@ -15,12 +17,12 @@ export default class CurrentContributorService extends Service {
         try {
           let contributor;
           if (config.firestoreOn === true) {
-            const { uid } = this.session.data.authenticated.user;
-            contributor = await this.store.loadRecord("contributor", uid);
-          } else {
-            contributor = await this.store.loadRecord(
-              "contributor",
-              "muziejus"
+            const variables = {
+              id: this.session.data.authenticated.user.uid
+            };
+            contributor = await this.apollo.watchQuery(
+              { query, variables },
+              "contributor"
             );
           }
 

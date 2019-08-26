@@ -2,10 +2,7 @@ query contributor($id: ID!) {
   contributor(id: $id) {
     id
     firstName
-    texts {
-      id
-      name
-      markdownName
-    }
+    lastName
+    enabled
   }
 }
