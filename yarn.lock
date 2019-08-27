@@ -5748,11 +5748,6 @@ dom-storage@2.1.0:
   resolved "https://registry.yarnpkg.com/dom-storage/-/dom-storage-2.1.0.tgz#00fb868bc9201357ea243c7bcfd3304c1e34ea39"
   integrity sha512-g6RpyWXzl0RR6OTElHKBl7nwnK87GUyZMYC7JWsB/IA73vpqK2K6LT39x4VepLxlSsWBFrPVLnsSR5Jyty0+2Q==
 
-dom-walk@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.1.tgz#672226dc74c8f799ad35307df936aba11acd6018"
-  integrity sha1-ZyIm3HTI95mtNTB9+TaroRrNYBg=
-
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -6579,15 +6574,7 @@ ember-d3@^0.5.1:
     d3-selection-multi "^1.0.1"
     ember-cli-babel "^7.1.2"
 
-ember-data-storefront@^0.17.1:
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/ember-data-storefront/-/ember-data-storefront-0.17.1.tgz#5075a7bfd0d794520c2a0bd021f8ae2992d3f794"
-  integrity sha512-XrN6JNlm8V6Gv7w+Ty/XTPCQC3arOssAO/CRaThLQhluPOKT3pu7KrlBuK5x3BMXZ5wZXjsCSqMPmhljrZFzLw==
-  dependencies:
-    ember-cli-babel "^7.5.0"
-    global "^4.3.2"
-
-ember-data@^3.11.0:
+ember-data@^3.12.0:
   version "3.12.0"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-3.12.0.tgz#ce20c41163ce50124d12a4370641fd9b4a21c3e2"
   integrity sha512-muSyUGQXxxd3jyGwLJetKdI1X15Vi/HjdBSg02oj5m9tKRVEfDtE133c+KohgHbut9ko1fsBUXxy7pMdY2d5jQ==
@@ -8596,14 +8583,6 @@ global-prefix@^1.0.1:
     ini "^1.3.4"
     is-windows "^1.0.1"
     which "^1.2.14"
-
-global@^4.3.2:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
-  integrity sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==
-  dependencies:
-    min-document "^2.19.0"
-    process "^0.11.10"
 
 globals@^11.1.0, globals@^11.7.0:
   version "11.12.0"
@@ -10932,13 +10911,6 @@ mimic-response@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/mimic-response/-/mimic-response-1.0.1.tgz#4923538878eef42063cb8a3e3b0798781487ab1b"
   integrity sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ==
-
-min-document@^2.19.0:
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/min-document/-/min-document-2.19.0.tgz#7bd282e3f5842ed295bb748cdd9f1ffa2c824685"
-  integrity sha1-e9KC4/WELtKVu3SM3Z8f+iyCRoU=
-  dependencies:
-    dom-walk "^0.1.0"
 
 minimalistic-assert@^1.0.0, minimalistic-assert@^1.0.1:
   version "1.0.1"
