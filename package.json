@@ -73,7 +73,7 @@
     "ember-responsive": "^3.0.5",
     "ember-simple-auth": "^1.9.2",
     "ember-source": "https://s3.amazonaws.com/builds.emberjs.com/canary/shas/cb4233bf416127d626304fa33ca9125310a7d959.tgz",
-    "ember-svg-jar": "^2.1.0",
+    "ember-svg-jar": "^2.2.1",
     "ember-table": "^2.1.2",
     "ember-tooltips": "^3.3.3",
     "emberfire": "^3.0.0-rc.3",
