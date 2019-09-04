@@ -847,10 +847,10 @@
     ember-cli-babel "^6.16.0"
     ember-compatibility-helpers "^1.1.1"
 
-"@ember/test-helpers@^1.5.0", "@ember/test-helpers@^1.6.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-1.6.0.tgz#e928c0190a19c312bf40dc8a6f4159735af48a7f"
-  integrity sha512-t6K15t4p/iW1D7rUAfGZZwIWqLV8HoVm9Dxn44L9PwMFjw3GAJf4bHdwCbdr3jpsgjG14HH+5XzF9IBIvmOZ4A==
+"@ember/test-helpers@^1.5.0", "@ember/test-helpers@^1.6.1":
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/@ember/test-helpers/-/test-helpers-1.6.1.tgz#5eb0b58486524c54f1b617a83e4ab327b7c62f07"
+  integrity sha512-gXLXR0XdZKfyXHFP+QLpG55TlrDtvrZI6TMQVQxdZwsz589kN8idmc01rDjyy53jx430tZTEsdhJvC2LrHXPwg==
   dependencies:
     broccoli-debug "^0.6.5"
     broccoli-funnel "^2.0.2"
@@ -968,17 +968,17 @@
     faye-websocket "0.11.3"
     tslib "1.10.0"
 
-"@firebase/firestore-types@1.4.4":
-  version "1.4.4"
-  resolved "https://registry.yarnpkg.com/@firebase/firestore-types/-/firestore-types-1.4.4.tgz#3051a9c163b4b76ae04544629ff5e0777e452548"
-  integrity sha512-kFpmzkUKfzrXkcMad+TQlMs55dWNY0q1UxGICW82EneX3Yg6HN3Nx36kYfqH+SLBFUN1ZTikN07alMp0MA9p9g==
+"@firebase/firestore-types@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@firebase/firestore-types/-/firestore-types-1.5.0.tgz#f05700220f882773ca01e818bf10b1dc456ee5be"
+  integrity sha512-VhRHNbEbak+R2iK8e1ir2Lec7eaHMZpGTRy6LMtzATYthlkwNHF9tO8JU8l6d1/kYkI4+DWzX++i3HhTziHEWA==
 
-"@firebase/firestore@1.4.12":
-  version "1.4.12"
-  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-1.4.12.tgz#3e0dba9e17a673c67ad0b01824e7df000ffcc53d"
-  integrity sha512-jkedv/QW7hGlVyiCr0h4m7pcuzUbQngDDH/5TY5xUDAF87sUId5VBbRFC8x+XQ94EdEeMYHbQkqn7uIYQVEJIA==
+"@firebase/firestore@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-1.5.0.tgz#01e7e8c669e358836ee2fd536898e3efb915d06a"
+  integrity sha512-apZIwUWfWnIqoYD5QjpDKmZ9H5ghmT5wFJKMQsmniU+uQYaMo4CtQYcmw+WdvwAUXfqRBAaP0l/UErr4aqcn9w==
   dependencies:
-    "@firebase/firestore-types" "1.4.4"
+    "@firebase/firestore-types" "1.5.0"
     "@firebase/logger" "0.1.23"
     "@firebase/util" "0.2.26"
     "@firebase/webchannel-wrapper" "0.2.25"
@@ -2540,12 +2540,12 @@ babel-plugin-dynamic-import-node@^2.3.0:
   dependencies:
     object.assign "^4.1.0"
 
-babel-plugin-ember-modules-api-polyfill@^2.11.0, babel-plugin-ember-modules-api-polyfill@^2.6.0:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-ember-modules-api-polyfill/-/babel-plugin-ember-modules-api-polyfill-2.11.0.tgz#3a67bdeb05a929a96776b45fa784bd3798517acc"
-  integrity sha512-S3bw77LglkWIstoF+hBLyRPyyNAUsdzqK6zLxktuM6EniVt06st/ikhPDUttMWixS2LNA+jnBfGerYO1D/VvDw==
+babel-plugin-ember-modules-api-polyfill@^2.12.0, babel-plugin-ember-modules-api-polyfill@^2.6.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-ember-modules-api-polyfill/-/babel-plugin-ember-modules-api-polyfill-2.12.0.tgz#a5e703205ba4e625a7fab9bb1aea64ef3222cf75"
+  integrity sha512-ZQU4quX0TJ1yYyosPy5PFigKdCFEVHJ6H0b3hwjxekIP9CDwzk0OhQuKhCOPti+d52VWjjCjxu2BrXEih29mFw==
   dependencies:
-    ember-rfc176-data "^0.3.11"
+    ember-rfc176-data "^0.3.12"
 
 babel-plugin-feature-flags@^0.3.1:
   version "0.3.1"
@@ -2564,6 +2564,11 @@ babel-plugin-htmlbars-inline-precompile@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-htmlbars-inline-precompile/-/babel-plugin-htmlbars-inline-precompile-1.0.0.tgz#a9d2f6eaad8a3f3d361602de593a8cbef8179c22"
   integrity sha512-4jvKEHR1bAX03hBDZ94IXsYCj3bwk9vYsn6ux6JZNL2U5pvzCWjqyrGahfsGNrhERyxw8IqcirOi9Q6WCo3dkQ==
+
+babel-plugin-htmlbars-inline-precompile@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-htmlbars-inline-precompile/-/babel-plugin-htmlbars-inline-precompile-2.0.0.tgz#e08e0107468637f93625d159d3670dc19cf55e4f"
+  integrity sha512-08vtZNHseQ+uxN5DxK0ca1Qs1MWqzieuWF+pYkEzFohF+WxVNLiM1FN6ss5YP3BrigE68sI/yFrbJlO0bSb1XA==
 
 babel-plugin-module-resolver@^3.1.1, babel-plugin-module-resolver@^3.2.0:
   version "3.2.0"
@@ -3269,7 +3274,7 @@ broccoli-clean-css@^1.1.0:
     inline-source-map-comment "^1.0.5"
     json-stable-stringify "^1.0.0"
 
-broccoli-concat@^3.2.2, broccoli-concat@^3.7.1, broccoli-concat@^3.7.3:
+broccoli-concat@^3.2.2, broccoli-concat@^3.7.1, broccoli-concat@^3.7.3, broccoli-concat@^3.7.4:
   version "3.7.4"
   resolved "https://registry.yarnpkg.com/broccoli-concat/-/broccoli-concat-3.7.4.tgz#7371e846eb7a97cb44ccff10f68582bcadcafacd"
   integrity sha512-9gRv1tyCQuq2+48DT9DQyxRNLOuwDtHybDeYuWA3g26HFqZd0PGAOeXcLXHpKRhxzrEbU6Gm28dZ/KolMr04cQ==
@@ -3517,7 +3522,7 @@ broccoli-node-info@^2.1.0:
   resolved "https://registry.yarnpkg.com/broccoli-node-info/-/broccoli-node-info-2.1.0.tgz#ca84560e8570ff78565bea1699866ddbf58ad644"
   integrity sha512-l6qDuboJThHfRVVWQVaTs++bFdrFTP0gJXgsWenczc1PavRVUmL1Eyb2swTAXXMpDOnr2zhNOBLx4w9AxkqbPQ==
 
-broccoli-persistent-filter@^1.1.5, broccoli-persistent-filter@^1.1.6, broccoli-persistent-filter@^1.2.0, broccoli-persistent-filter@^1.4.3:
+broccoli-persistent-filter@^1.1.5, broccoli-persistent-filter@^1.1.6, broccoli-persistent-filter@^1.4.3:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/broccoli-persistent-filter/-/broccoli-persistent-filter-1.4.6.tgz#80762d19000880a77da33c34373299c0f6a3e615"
   integrity sha512-0RejLwoC95kv4kta8KAa+FmECJCK78Qgm8SRDEK7YyU0N9Cx6KpY3UCDy9WELl3mCXLN8TokNxc7/hp3lL4lfw==
@@ -3754,17 +3759,6 @@ broccoli-svg-optimizer@2.0.0:
     lodash "^4.17.15"
     rsvp "^4.8.5"
     svgo "1.3.0"
-
-broccoli-symbolizer@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/broccoli-symbolizer/-/broccoli-symbolizer-0.6.0.tgz#1ece00fba329f19ab42d920350a5f2014f8d0b52"
-  integrity sha512-ZwVDX+kkJ7/TXdhl2ChRZARNAeBiru1+53HHafN5UcnpIzJaE+CbyuSQdxEtnIakSKIZtgI/J6uJIffGDgft3g==
-  dependencies:
-    broccoli-concat "^3.2.2"
-    broccoli-persistent-filter "^1.2.0"
-    cheerio "^0.22.0"
-    json-stable-stringify "^1.0.1"
-    lodash "^4.17.10"
 
 broccoli-templater@^2.0.1:
   version "2.0.2"
@@ -5318,10 +5312,10 @@ d3-scale@2:
     d3-time "1"
     d3-time-format "2"
 
-d3-scale@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/d3-scale/-/d3-scale-3.0.1.tgz#f7b5e7046ad83b35399639455bf5218a3cc1d1bc"
-  integrity sha512-f+OsXyd0claf6ufjI52zBHyOnm6mmfFvYiGUU8UB2VumZpqCcxds5iWN1rcOACIHgw9MntTFLXmi4LBRmY4DwQ==
+d3-scale@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/d3-scale/-/d3-scale-3.1.0.tgz#e8af005101502dbf26c505d9f40cf88bcb75b2e1"
+  integrity sha512-3edyEBwbwQG400VbgaepQC9ZYFX3h92flLHIUa1+nvZp/mqCYdxNM9zGTjKtPcSAuBCyPePdMQOapsD0qNALrg==
   dependencies:
     d3-array "1.2.0 - 2"
     d3-format "1"
@@ -6027,10 +6021,10 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.10.0, ember-cli-babel@^7.5.0, ember-cli-babel@^7.7.0, ember-cli-babel@^7.7.3, ember-cli-babel@^7.8.0, ember-cli-babel@^7.9.0:
-  version "7.10.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.10.0.tgz#5505254b21f3c98400c91bf565dc1c0cf408b6b4"
-  integrity sha512-eNgPXobC+Pke5L3XzoJ0BXbb2+eYzZI+LljqbwXNuG4q63pF000aARFpTQ0p/NWkfGQxKi2L6tVIa1ZOYdQS+A==
+ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.10.0, ember-cli-babel@^7.11.0, ember-cli-babel@^7.5.0, ember-cli-babel@^7.7.0, ember-cli-babel@^7.7.3, ember-cli-babel@^7.8.0, ember-cli-babel@^7.9.0:
+  version "7.11.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.11.0.tgz#a2f4e4f123a4690968b512b87b4ff4bfa57ec244"
+  integrity sha512-ykEsr7XoEPaADCBCJMViycCok1grtBRGvZ1k/atlL/gQYCQ1W4E4OROY/Mm2YBgyLftBv6buH7IZsULyQRZUmg==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/plugin-proposal-class-properties" "^7.3.4"
@@ -6042,7 +6036,7 @@ ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cl
     "@babel/runtime" "^7.2.0"
     amd-name-resolver "^1.2.1"
     babel-plugin-debug-macros "^0.3.0"
-    babel-plugin-ember-modules-api-polyfill "^2.11.0"
+    babel-plugin-ember-modules-api-polyfill "^2.12.0"
     babel-plugin-module-resolver "^3.1.1"
     broccoli-babel-transpiler "^7.1.2"
     broccoli-debug "^0.6.4"
@@ -6159,7 +6153,7 @@ ember-cli-get-component-path-option@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-cli-get-component-path-option/-/ember-cli-get-component-path-option-1.0.0.tgz#0d7b595559e2f9050abed804f1d8eff1b08bc771"
   integrity sha1-DXtZVVni+QUKvtgE8djv8bCLx3E=
 
-ember-cli-htmlbars-inline-precompile@^2.0.0, ember-cli-htmlbars-inline-precompile@^2.1.0:
+ember-cli-htmlbars-inline-precompile@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars-inline-precompile/-/ember-cli-htmlbars-inline-precompile-2.1.0.tgz#61b91ff1879d44ae504cadb46fb1f2604995ae08"
   integrity sha512-BylIHduwQkncPhnj0ZyorBuljXbTzLgRo6kuHf1W+IHFxThFl2xG+r87BVwsqx4Mn9MTgW9SE0XWjwBJcSWd6Q==
@@ -6167,6 +6161,17 @@ ember-cli-htmlbars-inline-precompile@^2.0.0, ember-cli-htmlbars-inline-precompil
     babel-plugin-htmlbars-inline-precompile "^1.0.0"
     ember-cli-version-checker "^2.1.2"
     hash-for-dep "^1.2.3"
+    heimdalljs-logger "^0.1.9"
+    silent-error "^1.1.0"
+
+ember-cli-htmlbars-inline-precompile@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars-inline-precompile/-/ember-cli-htmlbars-inline-precompile-3.0.0.tgz#df67c7c3e69406063d57d3d9b7a27812bb2835de"
+  integrity sha512-OI/xDQkYm+uo0rbMAtRFWwuYv+MKekyzDac4xm42kWKNVClCABL56U7X7Z18BEWXhp5twYVbc3PSnjwA/eZN3w==
+  dependencies:
+    babel-plugin-htmlbars-inline-precompile "^2.0.0"
+    ember-cli-version-checker "^3.1.3"
+    hash-for-dep "^1.5.1"
     heimdalljs-logger "^0.1.9"
     silent-error "^1.1.0"
 
@@ -6794,6 +6799,11 @@ ember-rfc176-data@^0.3.11:
   resolved "https://registry.yarnpkg.com/ember-rfc176-data/-/ember-rfc176-data-0.3.11.tgz#9042e96aa4e962bf5bd5433939c92a1cf3a63de8"
   integrity sha512-c46uisicHswFHo0R515LPM0L/X/Ju+N7KonJPuHx9C6cWD3AWzkNG9ASv+Bc85mq/9l3LFFsFpljdM1m2YnQ6A==
 
+ember-rfc176-data@^0.3.12:
+  version "0.3.12"
+  resolved "https://registry.yarnpkg.com/ember-rfc176-data/-/ember-rfc176-data-0.3.12.tgz#90d82878e69e2ac9a5438e8ce14d12c6031c5bd2"
+  integrity sha512-g9HeZj/gU5bfIIrGXkP7MhS2b3Vu5DfNUrYr14hy99TgIvtZETO+96QF4WOEUXGjIJdfTRjerVnQlqngPQSv1g==
+
 ember-router-generator@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/ember-router-generator/-/ember-router-generator-1.2.3.tgz#8ed2ca86ff323363120fc14278191e9e8f1315ee"
@@ -6843,20 +6853,22 @@ ember-source-channel-url@^1.1.0:
     jquery "^3.4.0"
     resolve "^1.10.1"
 
-ember-svg-jar@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/ember-svg-jar/-/ember-svg-jar-2.1.0.tgz#663d9cf7f63b046cc27862ddd0a946af718637e3"
-  integrity sha512-UGW+wSXqFq6agZR4yD2ukfqiFylFHOwrD+Ku347tHubicvccpSqlhpiZsDHC/zpISIWLCE+Bo/75zPsb7Mh31Q==
+ember-svg-jar@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/ember-svg-jar/-/ember-svg-jar-2.2.1.tgz#89c672162a7b479e10c08acfd3eabe93d1eb0275"
+  integrity sha512-NHG2go9iX+xggX0J65kKPjDMhJPF2r237CTqFlVM857acWqxS1XkHnpPP6Tesihk/S0y6+fjefuf2GzK/NtchA==
   dependencies:
     broccoli-caching-writer "^3.0.3"
+    broccoli-concat "^3.7.4"
     broccoli-funnel "^2.0.2"
     broccoli-merge-trees "^3.0.2"
+    broccoli-persistent-filter "^2.3.1"
     broccoli-string-replace "^0.1.2"
     broccoli-svg-optimizer "2.0.0"
-    broccoli-symbolizer "^0.6.0"
     cheerio "^0.22.0"
     ember-assign-polyfill "^2.5.0"
     ember-cli-babel "^7.7.3"
+    json-stable-stringify "^1.0.1"
     lodash "^4.17.15"
     mkdirp "^0.5.1"
     path-posix "^1.0.0"
@@ -7303,12 +7315,12 @@ eslint-plugin-ember@^7.0.0:
     ember-rfc176-data "^0.3.11"
     snake-case "^2.1.0"
 
-eslint-plugin-es@^1.3.1, eslint-plugin-es@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-es/-/eslint-plugin-es-1.4.0.tgz#475f65bb20c993fc10e8c8fe77d1d60068072da6"
-  integrity sha512-XfFmgFdIUDgvaRAlaXUkxrRg5JSADoRC8IkKLc/cISeR3yHVMefFHQZpcyXXEUUPHfy5DwviBcrfqlyqEwlQVw==
+eslint-plugin-es@^1.3.1, eslint-plugin-es@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-es/-/eslint-plugin-es-1.4.1.tgz#12acae0f4953e76ba444bfd1b2271081ac620998"
+  integrity sha512-5fa/gR2yR3NxQf+UXkeLeP8FBBl6tSgdrAz1+cF84v1FMM4twGwQoqTnn+QxFLcPOrF4pdKEJKDB/q9GoyJrCA==
   dependencies:
-    eslint-utils "^1.3.0"
+    eslint-utils "^1.4.2"
     regexpp "^2.0.1"
 
 eslint-plugin-eslint-comments@^3.0.1:
@@ -7358,13 +7370,13 @@ eslint-plugin-node@^8.0.0:
     resolve "^1.8.1"
     semver "^5.5.0"
 
-eslint-plugin-node@^9.0.1:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-9.1.0.tgz#f2fd88509a31ec69db6e9606d76dabc5adc1b91a"
-  integrity sha512-ZwQYGm6EoV2cfLpE1wxJWsfnKUIXfM/KM09/TlorkukgCAwmkgajEJnPCmyzoFPQQkmvo5DrW/nyKutNIw36Mw==
+eslint-plugin-node@^9.2.0:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-9.2.0.tgz#b1911f111002d366c5954a6d96d3cd5bf2a3036a"
+  integrity sha512-2abNmzAH/JpxI4gEOwd6K8wZIodK3BmHbTxz4s79OIYwwIt2gkpEXlAouJXu4H1c9ySTnRso0tsuthSOZbUMlA==
   dependencies:
-    eslint-plugin-es "^1.4.0"
-    eslint-utils "^1.3.1"
+    eslint-plugin-es "^1.4.1"
+    eslint-utils "^1.4.2"
     ignore "^5.1.1"
     minimatch "^3.0.4"
     resolve "^1.10.1"
@@ -7409,7 +7421,7 @@ eslint-scope@^4.0.0, eslint-scope@^4.0.3:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-utils@^1.3.0, eslint-utils@^1.3.1:
+eslint-utils@^1.3.1, eslint-utils@^1.4.2:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/eslint-utils/-/eslint-utils-1.4.2.tgz#166a5180ef6ab7eb462f162fd0e6f2463d7309ab"
   integrity sha512-eAZS2sEUMlIeCjBeubdj45dmBHQwPHWyBcT1VSYB7o9x9WRRqKxyUoiXlRjyAwzN7YEzHJlYg0NmzDRWx6GP4Q==
@@ -8029,16 +8041,16 @@ firebase-functions@^3.2.0:
     jsonwebtoken "^8.5.1"
     lodash "^4.17.14"
 
-firebase@^6.0.2, firebase@^6.4.2:
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-6.4.2.tgz#bcb5da227d64ea1ca4421db8e405473f2306e93e"
-  integrity sha512-2WxHVrd+4iIvAu30RGLYJbsZfXZMBEJON29dCMy+S22BstYvj1VnupYpV07/HUn6t38QcgoP8QGduKNgjSF3ng==
+firebase@^6.0.2, firebase@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-6.5.0.tgz#4298cd2e66ab9827fc5f3fe00791154188b89848"
+  integrity sha512-J65gV0LMf0Cikrn1MNqQRLgnFUZMGDntRqCzZAua4YfzS5QSXsFx39wEKbjGuoOyzMLnwg5lTBCxcf1iBEZ7yA==
   dependencies:
     "@firebase/app" "0.4.15"
     "@firebase/app-types" "0.4.3"
     "@firebase/auth" "0.11.8"
     "@firebase/database" "0.5.1"
-    "@firebase/firestore" "1.4.12"
+    "@firebase/firestore" "1.5.0"
     "@firebase/functions" "0.4.16"
     "@firebase/installations" "0.2.5"
     "@firebase/messaging" "0.4.9"
@@ -8710,10 +8722,10 @@ graphql-tag@^2.10.0:
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.1.tgz#10aa41f1cd8fae5373eaf11f1f67260a3cad5e02"
   integrity sha512-jApXqWBzNXQ8jYa/HLkZJaVw9jgwNqZkywa2zfFn16Iv1Zb7ELNHkJaXHR7Quvd5SIGsy6Ny7SUKATgnu05uEg==
 
-graphql@^14.0.2, graphql@^14.5.3:
-  version "14.5.3"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.5.3.tgz#e025851cc413e153220f4edbbb25d49f55104fa0"
-  integrity sha512-W8A8nt9BsMg0ZK2qA3DJIVU6muWhxZRYLTmc+5XGwzWzVdUdPVlAAg5hTBjiTISEnzsKL/onasu6vl3kgGTbYg==
+graphql@^14.0.2, graphql@^14.5.4:
+  version "14.5.4"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.5.4.tgz#b33fe957854e90c10d4c07c7d26b6c8e9f159a13"
+  integrity sha512-dPLvHoxy5m9FrkqWczPPRnH0X80CyvRE6e7Fa5AWEqEAzg9LpxHvKh24po/482E6VWHigOkAmb4xCp6P9yT9gw==
   dependencies:
     iterall "^1.2.2"
 
@@ -8758,7 +8770,18 @@ hammerjs@^2.0.8:
   resolved "https://registry.yarnpkg.com/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
   integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
 
-handlebars@^4.0.1, handlebars@^4.0.11, handlebars@^4.0.13, handlebars@^4.0.4, handlebars@^4.1.2, handlebars@~4.1.2:
+handlebars@^4.0.1, handlebars@^4.0.11, handlebars@^4.0.13, handlebars@^4.0.4, handlebars@^4.1.2, handlebars@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.2.0.tgz#57ce8d2175b9bbb3d8b3cf3e4217b1aec8ddcb2e"
+  integrity sha512-Kb4xn5Qh1cxAKvQnzNWZ512DhABzyFNmsaJf3OAkWNa4NkaqWcNI8Tao8Tasi0/F4JD9oyG0YxuFyvyR57d+Gw==
+  dependencies:
+    neo-async "^2.6.0"
+    optimist "^0.6.1"
+    source-map "^0.6.1"
+  optionalDependencies:
+    uglify-js "^3.1.4"
+
+handlebars@~4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.1.2.tgz#b6b37c1ced0306b221e094fc7aca3ec23b131b67"
   integrity sha512-nvfrjqvt9xQ8Z/w0ijewdD/vvWDTOweBUm96NTr66Wfvo1mJenBLwcYmPs3TIBP5ruzYGD7Hx/DaM9RmhroGPw==
