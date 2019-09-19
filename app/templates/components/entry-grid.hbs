@@ -1,47 +1,34 @@
 <div class="entry-grid flex-grow text-sm">
-  <EntryGridControls
+  <!-- <EntryGridControls
     @save={{action this.setActiveEntry null}}
     @fetch={{this.fetchNewPage}}
     @page={{this.page}}
-  />
-    <table style={{this.tableWidth}}>
-      <thead>
-        <tr>
-          {{#each this.columns as |column|}}
-            {{#component "table-column-header" columnContent=column}}
-              {{column.label}}
-            {{/component}}
-          {{/each}}
-        </tr>
-      </thead>
-    </table>
-    {{#if this.fetchRecords.isRunning}}
-      <div class="h-full flex justify-center">
-        <div class="m-auto flex flex-col">
-          <p class="text-3xl">Loading Entries…</p>
-          <div class="mt-2">
-            {{svg-jar "circle-o-notch" class="mx-auto text-primary-500 fill-current rotate" width="48" height="48"}}
-          </div>
-        </div>
-      </div>
-    {{else}}
-        <table style={{this.tableWidth}}>
-          <tbody>
-            {{#each this.model as |entry|}}
-              <tr>
-                {{#each this.columns as |column|}}
-                  <TableCell
-                    @entry={{entry}}
-                    @column={{column}}
-                    @showModal={{this.showModal}}
-                    @focusIn={{action this.setActiveEntry entry}}
-                  /> 
-                {{/each}}
-                </tr>
-            {{/each}}
-          </tbody>
-        </table>
-    {{/if}}
+    /> -->
+
+  <EmberTable as |t|>
+    <t.head @columns={{this.columns}} as |h|>
+      <h.row as |r|>
+        <r.cell as |column|>
+          {{#component "table-column-header" columnContent=column}}
+            {{column.name}}
+          {{/component}}
+        </r.cell>
+      </h.row>
+    </t.head>
+  <t.body @rows={{this.model}} as |b|>
+    <b.row as |r|>
+      <r.cell as |cell column entry|>
+        <TableCell
+          @entry={{entry}}
+          @column={{column}}
+          @showModal={{this.showModal}}
+          @focusIn={{action this.setActiveEntry entry}}
+        /> 
+      </r.cell>
+    </b.row>  
+  </t.body>
+  </EmberTable>
+
 </div>
 
 {{#if this.isShowingModal}}

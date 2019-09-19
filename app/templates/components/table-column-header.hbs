@@ -1,13 +1,11 @@
-<th style={{this.cellWidth}}>
-  <div class="text-primary p-2 table-header-{{@columnContent.valuePath}} flex flex-row">
-    <div>{{yield}}</div>
-    {{#if @columnContent.property.help}}
-      <div class="ml-auto">
-        {{svg-jar "info-circle" class="mt-1 text-accent-500 fill-current"}}
-        {{#ember-tooltip}}
-          {{@columnContent.property.help}}
-        {{/ember-tooltip}}
-      </div>
-    {{/if}}
-  </div>
-</th>
+<div class="text-primary p-2 table-header-{{@columnContent.valuePath}} flex flex-row">
+  <div>{{yield}}</div>
+  {{#if @columnContent.property.help}}
+    <div class="ml-auto">
+      {{svg-jar "info-circle" class="mt-1 text-accent-500 fill-current"}}
+      {{#ember-tooltip}}
+        {{@columnContent.property.help}}
+      {{/ember-tooltip}}
+    </div>
+  {{/if}}
+</div>

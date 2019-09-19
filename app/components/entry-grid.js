@@ -27,7 +27,7 @@ export default class EntryGridComponent extends Component {
 
   @tracked columns = [
     {
-      label: "Attested Name",
+      name: "Attested Name",
       width: "120px",
       valuePath: "attestedName",
       property: {
@@ -36,7 +36,7 @@ export default class EntryGridComponent extends Component {
       }
     },
     {
-      label: "Linked Place",
+      name: "Linked Place",
       width: "120px",
       valuePath: "place",
       property: {
@@ -138,13 +138,13 @@ export default class EntryGridComponent extends Component {
         width = "75px";
       }
 
-      const label = propObj.inputLabel || capitalize(propObj.name);
+      const name = propObj.inputLabel || capitalize(propObj.name);
       const valuePath = `properties.${propObj.name}`;
       if (
         propObj.owner === this.currentContributor.contributor.id ||
         propObj.owner === "admin"
       ) {
-        this.columns.pushObject({ valuePath, width, label, property: propObj });
+        this.columns.pushObject({ valuePath, width, name, property: propObj });
       }
     });
     /* Save figuring out dates for later.
