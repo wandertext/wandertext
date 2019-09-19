@@ -1,0 +1,3 @@
+.ember-table th {
+  @apply bg-white
+}
