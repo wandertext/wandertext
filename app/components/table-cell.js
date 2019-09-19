@@ -1,6 +1,5 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
-import { action, get } from "@ember/object";
 import { inject as service } from "@ember/service";
 import { htmlSafe } from "@ember/string";
 import { task } from "ember-concurrency";
@@ -12,13 +11,12 @@ export default class TableCellComponent extends Component {
 
   @tracked validationClass = "";
 
-  @tracked currentValue = this.args.changeset.get(this.property);
+  @tracked currentValue = this.args.entry[this.property];
 
   get classes() {
-    return `cell-${this.property.replace(
-      ".",
-      "-"
-    )} cell-id-${this.args.changeset.get("id")}`;
+    return `cell-${this.property.replace(".", "-")} cell-id-${
+      this.args.entry.id
+    }`;
   }
 
   get cellWidth() {
@@ -37,20 +35,6 @@ export default class TableCellComponent extends Component {
     super(...args);
     if (this.isPlace) {
       // This.fetchPlace.perform();
-    }
-  }
-
-  @action
-  validate() {
-    this.validationClass = "";
-    if (get(this.args.changeset.error, this.property)) {
-      get(this.args.changeset.error, this.property).validation.forEach(
-        message =>
-          this.notify.warning(message, {
-            id: `${this.args.changeset.get("id")}-${message}`
-          })
-      );
-      this.validationClass = "warning";
     }
   }
 
@@ -85,7 +69,7 @@ export default class TableCellComponent extends Component {
   @tracked place = null;
 
   @task(function*() {
-    this.place = yield this.args.changeset.get("place");
+    this.place = yield this.args.entry.place;
     if (this.place.latitude && this.place.longitude) {
       this.isMappable = true;
     }

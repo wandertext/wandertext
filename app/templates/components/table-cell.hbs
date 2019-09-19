@@ -17,16 +17,14 @@
       {{/if}}
     </div>
   {{else if this.isDate}}
-    {{moment-format (get @changeset this.property) "YYYY-MM-DD"}}
+    {{moment-format (get @entry this.property) "YYYY-MM-DD"}}
   {{else}}
     {{input
       type=this.inputType
-      value=(get @changeset this.property)
-      class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" (get @changeset "id") " " this.validationClass)
+      value=(mut (get @entry this.property))
+      class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" (get @entry "id"))
       disabled=this.isDisabled
-      focus-out=(action this.validate)
       focus-in=(action @focusIn)
-      key-up=(queue (action this.validate) (action (changeset-set @changeset this.property) value=target.value))
     }}
   {{/if}}
 </td>

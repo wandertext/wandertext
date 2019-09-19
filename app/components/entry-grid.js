@@ -3,10 +3,6 @@ import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
 import { htmlSafe, capitalize } from "@ember/string";
 import { action } from "@ember/object";
-import {
-  validateNumber,
-  validatePresence
-} from "ember-changeset-validations/validators";
 import { queryManager } from "ember-apollo-client";
 import { task } from "ember-concurrency";
 import query from "wandertext/gql/queries/sortedEntriesFeed.graphql";
@@ -64,11 +60,6 @@ export default class EntryGridComponent extends Component {
   }
 
   @action
-  async validateProperty(changeset, property) {
-    return changeset.validate(property);
-  }
-
-  @action
   async showModal(data) {
     this.isShowingModal = true;
     this.modalPlace = data;
@@ -103,8 +94,8 @@ export default class EntryGridComponent extends Component {
     }
 
     this.activeUntrackedEntry = {
-      attestedName: entry.get("attestedName"),
-      properties: { ...entry.get("properties") }
+      attestedName: entry.attestedName,
+      properties: { ...entry.properties }
     };
 
     this.activeEntry = entry;
@@ -169,80 +160,44 @@ export default class EntryGridComponent extends Component {
   }
 
   async _save() {
-    const changeset = this.activeEntry;
-    const snapshot = changeset.snapshot();
+    const entry = this.activeEntry;
     try {
-      await changeset.validate();
-      if (changeset.get("isValid")) {
-        this.entryProps.forEach(property => {
-          if (property.type === "number") {
-            const number = changeset.get(`properties.${property.name}`);
-            changeset.set(`properties.${property.name}`, parseInt(number, 10));
-          }
-        });
-        const variables = {
-          id: changeset.get("id"),
-          attestedName: changeset.get("attestedName"),
-          properties: changeset.get("properties"),
-          contributor: this.currentContributor.contributor.id
-        };
-        const response = await this.apollo.mutate(
-          { mutation, variables },
-          "updateEntry"
-        );
-        if (response.success) {
-          return this.notify.success(response.message);
+      this.entryProps.forEach(property => {
+        if (property.type === "number") {
+          const number = entry[`properties.${property.name}`];
+          entry[`properties.${property.name}`] = parseInt(number, 10);
         }
+      });
+      const variables = {
+        id: entry.id,
+        attestedName: entry.attestedName,
+        properties: entry.properties,
+        contributor: this.currentContributor.contributor.id
+      };
+      const response = await this.apollo.mutate(
+        { mutation, variables },
+        "updateEntry"
+      );
+      if (response.success) {
+        return this.notify.success(response.message);
       }
-
-      throw changeset.errors;
     } catch (error) {
       if (Array.isArray(error)) {
         error.forEach(message => this.notify.error(message.validation[0]));
       } else {
         this.notify.error(error.message);
       }
-
-      changeset.restore(snapshot);
     }
   }
 
   entryProps = this.args.text.entryProperties.toArray();
 
-  get EntryValidations() {
-    const validations = {
-      attestedName: validatePresence(true)
-    };
-    this.entryProps.forEach(property => {
-      const validators = [];
-      // Skip read only properties and
-      // properties that aren't owned by the current user
-      if (
-        !property.readOnly &&
-        (property.owner === null ||
-          property.owner === undefined ||
-          property.owner === this.currentContributor.contributor.wandertextId)
-      ) {
-        if (!property.nullable) {
-          validators.push(validatePresence(true));
-        }
-
-        if (property.type === "number") {
-          validators.push(validateNumber(true));
-        }
-      }
-
-      validations[`properties.${property.name}`] = validators;
-    });
-    return validations;
-  }
-
   _isEquivalentEntry(a, b) {
-    if (a.get("attestedName") !== b.attestedName) {
+    if (a.attestedName !== b.attestedName) {
       return false;
     }
 
-    const aProps = a.get("properties");
+    const aProps = a.properties;
     const bProps = b.properties;
 
     if (Object.keys(aProps).length > Object.keys(bProps).length) {
