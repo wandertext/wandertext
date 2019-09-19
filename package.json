@@ -97,7 +97,7 @@
   },
   "dependencies": {
     "firebase": "^6.5.0",
-    "firebase-admin": "^8.4.0",
+    "firebase-admin": "^8.6.0",
     "firebase-functions": "^3.2.0",
     "leaflet": "^1.4.0",
     "lodash": "^4.17.15"
