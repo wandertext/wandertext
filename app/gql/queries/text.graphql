@@ -5,6 +5,7 @@ query text($id: ID!) {
     imgSrc
     markdownName
     markdownBlurb
+    entryCount
     entryProperties {
       name
       type
