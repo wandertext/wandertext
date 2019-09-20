@@ -1,10 +1,4 @@
 <div class="entry-grid flex-grow text-sm">
-  <!-- <EntryGridControls
-    @save={{action this.setActiveEntry null}}
-    @fetch={{this.fetchNewPage}}
-    @page={{this.page}}
-    /> -->
-
   <EmberTable as |t|>
     <t.head @columns={{this.columns}} as |h|>
       <h.row as |r|>
@@ -15,7 +9,11 @@
         </r.cell>
       </h.row>
     </t.head>
-  <t.body @rows={{this.model}} as |b|>
+  <t.body
+    @rows={{this.model}} 
+    @key="id"
+    @lastReached={{perform this.fetchRecords}}
+    as |b|>
     <b.row as |r|>
       <r.cell as |cell column entry|>
         <TableCell
@@ -28,7 +26,6 @@
     </b.row>  
   </t.body>
   </EmberTable>
-
 </div>
 
 {{#if this.isShowingModal}}

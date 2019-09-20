@@ -105,7 +105,7 @@ export default class EntryGridComponent extends Component {
     super(...args);
     this._buildColumns();
     // Const observable = getObservable(result);
-    this.fetchRecords.perform(null);
+    this.fetchRecords.perform();
   }
 
   @(task(function*() {
