@@ -1,0 +1,13 @@
+mutation createEntry($contributor: ID!, $entry: Entry) {
+  createEntry(contributor: $contributor, entry: $entry) {
+    contributor
+    success
+    message
+    entry {
+      id
+      attestedName
+      properties
+    }
+  }
+}
+    
