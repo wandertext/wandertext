@@ -24,27 +24,9 @@
     <p class="mb-4">If you have already have access, please login with your
       Google account by clicking on the button below.</p>
 
-    <Button @classes="login-button" @onClick={{action this.toggleModal}}>
+    <Button @classes="login-button" @onClick={{action this.login}}>
       Login via Google
     </Button>
-
-    {{#if this.isShowingModal}}
-      {{#modal-dialog
-        onClose=(action this.toggleModal)
-        targetAttachment="center"
-        translucentOverlay=true
-        }}
-        <ContributorAuthModal
-          @login={{action this.login}}
-          @closeFailure={{this.closeFailure}}
-          @awaitingAuthentication={{this.awaitingAuthentication}}
-          @awaitingGithubProfile={{this.awaitingGithubProfile}}
-          @awaitingContributor={{this.awaitingContributor}}
-          @loginError={{this.loginError}}
-        />
-      {{/modal-dialog}}
-    {{/if}}
-
 
   {{/if}}
 

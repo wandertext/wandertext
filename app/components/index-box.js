@@ -8,27 +8,11 @@ import firebase from "firebase/app";
 export default class IndexBoxComponent extends Component {
   @service firebaseApp;
 
-  @service router;
-
-  @service store;
-
   @service currentContributor;
 
   @service card;
 
   @service session;
-
-  @tracked isShowingModal = false;
-
-  @tracked githubUser = null;
-
-  @tracked awaitingAuthentication = false;
-
-  @tracked awaitingWandertextProfile = false;
-
-  @tracked awaitingContributor = false;
-
-  @tracked loggedIn = false;
 
   @tracked loginError = false;
 
@@ -37,24 +21,12 @@ export default class IndexBoxComponent extends Component {
   }
 
   @action
-  toggleModal() {
-    this.isShowingModal = !this.isShowingModal;
-  }
-
-  @action
   logout() {
     this.session.invalidate();
   }
 
   @action
-  closeFailure() {
-    this.toggleModal();
-    this.session.invalidate();
-  }
-
-  @action
   async login() {
-    this.awaitingAuthentication = true;
     this._loginWithGoogleAndRedirectToIndex();
   }
 
