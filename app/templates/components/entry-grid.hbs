@@ -1,4 +1,5 @@
-<div class="entry-grid flex-grow text-sm">
+<div class="entry-grid text-sm">
+  <EntryGridControls @columns={{this.columns}}/>
   <EmberTable as |t|>
     <t.head @columns={{this.columns}} as |h|>
       <h.row as |r|>
