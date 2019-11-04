@@ -93,7 +93,7 @@
     "node": "8.* || >= 10.*"
   },
   "dependencies": {
-    "firebase": "^6.5.0",
+    "firebase": "^7.2.3",
     "firebase-admin": "^8.4.0",
     "firebase-functions": "^3.2.0",
     "leaflet": "^1.4.0",
