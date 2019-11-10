@@ -9,17 +9,14 @@ export default class EntryGridControlsComponent extends Component {
 
   constructor(...args) {
     super(...args);
-    const model = { properties: {} };
-    this.args.columns.map(column => {
-      if (column.valuePath.startsWith("properties.")) {
-        model.properties[column.valuePath.replace("properties.", "")] = null;
-      } else {
-        model[column.valuePath] = "boo";
-      }
+    const newModel = { attestedName: "", place: "", properties: {} };
+    for (const column of this.args.columns.filter(column =>
+      column.valuePath.startsWith("properties.")
+    )) {
+      newModel.properties[column.valuePath.replace("properties.", "")] = null;
+    }
 
-      return true;
-    });
-    this.model.push(model);
+    this.model.push(newModel);
   }
 
   @action
