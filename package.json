@@ -21,11 +21,9 @@
     "release": "standard-version --dry-run"
   },
   "devDependencies": {
-    "@ember/edition-utils": "^1.1.1",
     "@ember/optional-features": "^1.0.0",
     "@ember/test-helpers": "^1.6.1",
     "@fullhuman/postcss-purgecss": "^1.3.0",
-    "@glimmer/component": "^0.14.0-alpha.13",
     "@glimmer/tracking": "^0.14.0-alpha.13",
     "babel-eslint": "^10.0.3",
     "broccoli-asset-rev": "^3.0.0",
