@@ -21,7 +21,7 @@ export default class EntryGridComponent extends Component {
 
   activeUntrackedEntry = null;
 
-  @tracked cursor = null;
+  @tracked cursor = "0";
 
   @tracked model = [];
 
@@ -190,7 +190,7 @@ export default class EntryGridComponent extends Component {
     }
   }
 
-  entryProps = this.args.text.entryProperties.toArray();
+  entryProps = this.args.text.entryProperties;
 
   _isEquivalentEntry(a, b) {
     if (a.attestedName !== b.attestedName) {
