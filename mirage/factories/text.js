@@ -10,6 +10,10 @@ export default Factory.extend({
     return lorem.slug();
   },
 
+  imgSrc() {
+    return "http://lorempixel.com/200/300/technics/";
+  },
+
   markdownBlurb() {
     return lorem.paragraph();
   },

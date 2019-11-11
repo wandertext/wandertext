@@ -1,3 +1,6 @@
+import env from "wandertext/config/environment";
+import graphQLHandler from "./handlers/graphql";
+
 export default function() {
   // These comments are here to help you get started. Feel free to delete them.
   /*
@@ -5,8 +8,7 @@ export default function() {
 
     Note: these only affect routes defined *after* them!
   */
-  this.urlPrefix = "http://localhost:4040"; // Make this `http://localhost:8080`, for example, if your API is on a different server
-  // this.urlPrefix = "http://api.wandertext.space"; // Make this `http://localhost:8080`, for example, if your API is on a different server
+  this.urlPrefix = env.apollo.apiURL; // Make this `http://localhost:8080`, for example, if your API is on a different server
   this.namespace = ""; // Make this `/api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
   /*
@@ -21,11 +23,13 @@ export default function() {
     http://www.ember-cli-mirage.com/docs/v0.4.x/shorthands/
   */
 
-  this.resource("entries");
-  this.resource("contributors");
-  this.resource("texts");
-  this.resource("places");
+  this.post(env.apollo.apiURL, graphQLHandler);
 
-  this.passthrough("https://wandertext-github-gatekeeper.herokuapp.com/**");
-  this.passthrough("https://api.github.com/**");
+  // This.resource("entries");
+  // this.resource("contributors");
+  // this.resource("texts");
+  // this.resource("places");
+
+  // this.passthrough("https://wandertext-github-gatekeeper.herokuapp.com/**");
+  // this.passthrough("https://api.github.com/**");
 }

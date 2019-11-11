@@ -1,0 +1,132 @@
+directive @cacheControl(maxAge: Int, scope: CacheControlScope) on FIELD_DEFINITION | OBJECT | INTERFACE
+
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
+
+type Contributor {
+  id: ID!
+  authentication: String
+  firstName: String
+  lastName: String
+  enabled: Boolean
+  editor: Boolean
+  admin: Boolean
+  createdOn: Timestamp
+  modifiedOn: Timestamp
+  entries: [Entry]
+  texts: [Text]
+  flags: [Flag]
+}
+
+type Entry {
+  id: ID!
+  properties: JSON
+  attestedName: String
+  note: String
+  createdOn: Timestamp
+  modifiedOn: Timestamp
+  contributors: [Contributor]
+  place: Place
+  flags: [Flag]
+}
+
+type EntryProperty {
+  name: String
+  type: String
+  help: String
+  readOnly: Boolean
+  inputLabel: String
+  owner: String
+  nullable: Boolean
+}
+
+type Flag {
+  id: ID!
+  comment: String!
+  createdOn: Timestamp
+  modifiedOn: Timestamp
+  entry: Entry
+  place: Place
+  text: Text
+  contributor: Contributor
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+type Mutation {
+  updateEntry(id: ID!, attestedName: String, properties: JSON, contributor: ID!): updateEntryResponse!
+}
+
+type Place {
+  id: ID!
+  name: String!
+  note: String
+  source: String
+  latitude: Float
+  longitude: Float
+  geonameId: Int
+  confidence: Int
+  createdOn: Timestamp
+  modifiedOn: Timestamp
+  entries: [Entry]
+  contributors: [Contributor]
+  flags: [Flag]
+}
+
+type Query {
+  contributor(id: ID!): Contributor
+  contributors: [Contributor]
+  entries: [Entry]
+  places: [Place]
+  place(id: ID!): Place
+  text(id: ID!): Text
+  texts: [Text]
+  publicTexts: [Text]
+}
+
+type SortedEntryFeed {
+  cursor: String!
+  sortedEntries: [Entry]!
+}
+
+type Text {
+  id: ID!
+  name: String!
+  popupTemplate: String
+  markdownName: String
+  markdownBlurb: String
+  url: String
+  imgSrc: String
+  imgCredit: String
+  imgHref: String
+  year: Int
+  entryCount: Int
+  entryProperties: [EntryProperty]
+  entrySort: [String]
+  createdOn: Timestamp
+  modifiedOn: Timestamp
+  contributors: [Contributor]
+  sortedEntries: [Entry]
+  sortedEntryFeed(cursor: String, limit: Int): SortedEntryFeed
+  flags: [Flag]
+}
+
+"""
+Google Firestore Timestamp type. See https://firebase.google.com/docs/reference/js/firebase.firestore.Timestamp.html
+"""
+scalar Timestamp
+
+type updateEntryResponse {
+  contributor: String
+  success: Boolean!
+  message: String
+  entry: Entry
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
