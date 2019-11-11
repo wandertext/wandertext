@@ -10,22 +10,22 @@
         </r.cell>
       </h.row>
     </t.head>
-  <t.body
-    @rows={{this.model}} 
-    @key="id"
-    @lastReached={{perform this.fetchRecords}}
-    as |b|>
-    <b.row as |r|>
-      <r.cell as |cell column entry|>
-        <TableCell
-          @entry={{entry}}
-          @column={{column}}
-          @showModal={{this.showModal}}
-          @focusIn={{action this.setActiveEntry entry}}
-        /> 
-      </r.cell>
-    </b.row>  
-  </t.body>
+    <t.body
+      @rows={{this.model}} 
+      @key="id"
+      @lastReached={{perform this.fetchRecords}}
+      as |b|>
+      <b.row as |r|>
+        <r.cell as |cell column entry|>
+          <TableCell
+            @entry={{entry}}
+            @column={{column}}
+            @showModal={{this.showModal}}
+            @focusIn={{action this.setActiveEntry entry}}
+          /> 
+        </r.cell>
+      </b.row>  
+    </t.body>
   </EmberTable>
 </div>
 

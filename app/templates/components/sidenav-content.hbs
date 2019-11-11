@@ -1,21 +1,29 @@
 <ul>
-    {{#each this.sidenav.linkList as |item|}}
+  {{#each this.sidenav.linkList as |item|}}
     <li>
-        <p>{{item.text}}</p>
-      </li>
-    {{/each}}
-    {{#if this.session.isAuthenticated}}
+      <p>
+        {{item.text}}
+      </p>
+    </li>
+  {{/each}}
+  {{#if this.session.isAuthenticated}}
     <li>
-        <p>Wandertext Workbench</p>
+      <p>
+        Wandertext Workbench
+      </p>
     </li>
     <li>
-        <p>Log Out @{{this.currentContributor.contributor.username}}</p>
+      <p>
+        Log Out @{{this.currentContributor.contributor.username}}
+      </p>
     </li>
-    {{else}}
+  {{else}}
     <li>
-        <p>Log In</p>
+      <p>
+        Log In
+      </p>
     </li>
-    {{/if}}
-  </ul>
-  {{yield}}
+  {{/if}}
+</ul>
+{{yield}}
 <ContributorAuthModal @close={{this.closeContributorAuthModal}} @shown={{this.showModal}} />

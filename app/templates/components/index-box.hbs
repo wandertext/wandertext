@@ -3,7 +3,9 @@
     Welcome to Wandertext.
   </h2>
 
-  <p class="lead"><i>Create and share semantically rich geospatial datasets.</i></p>
+  <p class="lead">
+    <i>Create and share semantically rich geospatial datasets.</i>
+  </p>
 
   {{#if this.session.isAuthenticated}}
     {{#link-to "workbench.index"}}
@@ -15,14 +17,20 @@
       Logout
     </Button>
   {{else}}
-    <p>Wandertext is currently in private beta. You can follow the development
-      by <a href="http://github.com/wandertext/wandertext"
-        target="_blank">viewing our source code repository on GitHub {{svg-jar "github" class="-mt-1 fill-current inline"}}</a>. Similarly, you
+    <p>
+      Wandertext is currently in private beta. You can follow the development
+      by 
+      <a href="http://github.com/wandertext/wandertext" target="_blank" rel="noopener">
+        viewing our source code repository on GitHub {{svg-jar "github" class="-mt-1 fill-current inline"}}
+      </a>. Similarly, you
       can read our {{#link-to "about"}}About{{/link-to}} page for more
-      information on the project.</p>
+      information on the project.
+    </p>
 
-    <p class="mb-4">If you have already have access, please login with your
-      Google account by clicking on the button below.</p>
+    <p class="mb-4">
+      If you have already have access, please login with your
+      Google account by clicking on the button below.
+    </p>
 
     <Button @classes="login-button" @onClick={{action this.login}}>
       Login via Google

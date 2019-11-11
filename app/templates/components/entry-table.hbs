@@ -12,7 +12,7 @@
     <t.body @rows={{this.rows}} as |b|>
       {{#with (changeset b.rowValue this.EntryValidations) as |changeset|}}
         <b.row as |r|>
-          <r.cell as |cell column entry|>
+          <r.cell as |cell column|>
             <TableCell
               @changeset={{changeset}}
               @column={{column}}

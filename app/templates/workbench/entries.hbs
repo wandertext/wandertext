@@ -1,7 +1,6 @@
 <h2>Entries</h2>
 <ul>
   {{#each this.model as |entry|}}
-    {{log entry}}
     <li>{{entry.attestedName}}, {{entry.place.name}}</li>
   {{/each}}
 </ul>

@@ -1,5 +1,5 @@
 <tr class="table-row">
-  {{#with (changeset entry EntryValidations) as |changeset|}}
+  {{#with (changeset @entry this.EntryValidations) as |changeset|}}
     {{#each @columns as |column|}}
       <TableCell
         @changeset={{changeset}}
