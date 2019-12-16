@@ -12,7 +12,7 @@ export default class CurrentContributorService extends Service {
 
   async load() {
     const variables = {
-      id: "Z4aKFSu4FNYvB17YJUOx0hjlPH52"
+      id: "muziejus"
     };
     const contributor = await this.apollo.watchQuery(
       { query, variables },
