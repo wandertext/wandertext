@@ -6,6 +6,9 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
+    "ember-cli-mirage": {
+      discoverEmberDataModels: false
+    },
     apollo: {
       apiURL: "http://localhost:4040/graphql"
     },
@@ -78,7 +81,7 @@ module.exports = function(environment) {
       process.env.GITHUB_PRODUCTION_REDIRECT_URI;
     ENV.torii.providers["github-oauth2"].tokenExchangeUri =
       process.env.PRODUCTION_TOKEN_EXCHANGE_URL;
-    ENV["ember-cli-mirage"] = { enabled: false };
+    ENV["ember-cli-mirage"].enabled = false;
   }
 
   return ENV;
