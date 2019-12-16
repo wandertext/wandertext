@@ -5754,10 +5754,10 @@ ember-cli-lodash-subset@^2.0.1:
   resolved "https://registry.yarnpkg.com/ember-cli-lodash-subset/-/ember-cli-lodash-subset-2.0.1.tgz#20cb68a790fe0fde2488ddfd8efbb7df6fe766f2"
   integrity sha1-IMtop5D+D94kiN39jvu332/nZvI=
 
-ember-cli-mirage-graphql@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/ember-cli-mirage-graphql/-/ember-cli-mirage-graphql-0.2.1.tgz#f228de1878f7b04d681cfb923c65bccce2e1225a"
-  integrity sha512-w297kJAKBI3eN/HQkRBQw7yU3b/39bxUHkRNoGcnrp63+3KuT0832luM96tor8B3iBzje2sqCaoEjp+RSgu7WA==
+ember-cli-mirage-graphql@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/ember-cli-mirage-graphql/-/ember-cli-mirage-graphql-0.2.2.tgz#ce88d466a2fe05c735df3443ff21aa25dc34fae4"
+  integrity sha512-46OURqH0QbbcAf35X0NEZ0Ayb/+NruW2SPO6eR9FQnQi6uhWblul446u+A/Pa9hl05/n3+5kX0nYwTLM1Qfd+w==
   dependencies:
     ember-auto-import "^1.5.3"
     ember-cli-babel "^7.11.1"
