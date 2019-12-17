@@ -1,4 +1,5 @@
 const contributorIds = ["muziejus"];
+const entryPropertyIds = ["page", "sequence", "special", "tree"];
 
 export default [
   {
@@ -13,43 +14,7 @@ export default [
     url: "https://archive.org/details/dli.bengal.10689.18150/page/n5",
     year: 1530,
     contributorIds,
-    entryProperties: [
-      {
-        name: "page",
-        type: "number",
-        help: "thee page number",
-        inputLabel: "Page",
-        readOnly: false,
-        owner: "admin",
-        nullable: true
-      },
-      {
-        name: "sequence",
-        type: "number",
-        inputLabel: "Seq.",
-        readOnly: false,
-        owner: "admin",
-        nullable: true
-      },
-      {
-        name: "special",
-        type: "string",
-        help: "something special",
-        readOnly: false,
-        inputLabel: "Speciale",
-        owner: "muziejus",
-        nullable: true
-      },
-      {
-        name: "tree",
-        type: "string",
-        help: "A Tree",
-        readOnly: false,
-        inputLabel: "Treee",
-        owner: "muziejus",
-        nullable: true
-      }
-    ]
+    entryPropertyIds
   },
   {
     id: "nightwood-1936",
