@@ -2,6 +2,7 @@ export default [
   {
     id: "muziejus",
     firstName: "Moacir",
-    admin: true
+    admin: true,
+    textIds: ["baburnama-1530"]
   }
 ];
