@@ -25,7 +25,8 @@ export default function() {
 
   this.post(env.apollo.apiURL, graphQLHandler);
 
-  // This.resource("entries");
+  // Not needed because of graphql.
+  // this.resource("entries");
   // this.resource("contributors");
   // this.resource("texts");
   // this.resource("places");
