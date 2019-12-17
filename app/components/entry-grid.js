@@ -21,6 +21,8 @@ export default class EntryGridComponent extends Component {
 
   activeUntrackedEntry = null;
 
+  @tracked text = null; // Set in constructor.
+
   @tracked cursor = "0";
 
   @tracked model = [];
@@ -103,6 +105,7 @@ export default class EntryGridComponent extends Component {
 
   constructor(...args) {
     super(...args);
+    this.text = this.args.text;
     this._buildColumns();
     // Const observable = getObservable(result);
     this.fetchRecords.perform();
@@ -112,11 +115,14 @@ export default class EntryGridComponent extends Component {
     const variables = {
       cursor: this.cursor,
       limit: this.limit,
-      id: this.args.text.id
+      id: this.text.id
     };
-    const text = yield this.apollo.watchQuery({ query, variables }, "text");
-    this.model = this.model.concat(text.sortedEntryFeed.sortedEntries);
-    this.cursor = text.sortedEntryFeed.cursor;
+    const textQuery = yield this.apollo.watchQuery(
+      { query, variables },
+      "text"
+    );
+    this.model = this.model.concat(textQuery.sortedEntryFeed.sortedEntries);
+    this.cursor = textQuery.sortedEntryFeed.cursor;
   }).restartable())
   fetchRecords;
 
@@ -131,8 +137,8 @@ export default class EntryGridComponent extends Component {
   }
 
   _buildColumns() {
-    const { text } = this.args;
-    text.entryProperties.forEach(propObj => {
+    console.log("text", this.text);
+    this.text.entryProperties.forEach(propObj => {
       let width = "150px";
       if (propObj.type === "number") {
         width = "75px";
@@ -190,7 +196,7 @@ export default class EntryGridComponent extends Component {
     }
   }
 
-  entryProps = this.args.text.entryProperties;
+  @tracked entryProps = this.text.entryProperties;
 
   _isEquivalentEntry(a, b) {
     if (a.attestedName !== b.attestedName) {
