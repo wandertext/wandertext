@@ -82,6 +82,7 @@ type Query {
   contributor(id: ID!): Contributor
   contributors: [Contributor]
   entries: [Entry]
+  entryProperties: [EntryProperty]
   places: [Place]
   place(id: ID!): Place
   text(id: ID!): Text
@@ -111,6 +112,7 @@ type Text {
   createdOn: Timestamp
   modifiedOn: Timestamp
   contributors: [Contributor]
+  entries: [Entry]
   sortedEntries: [Entry]
   sortedEntryFeed(cursor: String, limit: Int): SortedEntryFeed
   flags: [Flag]
