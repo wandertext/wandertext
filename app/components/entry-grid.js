@@ -137,7 +137,6 @@ export default class EntryGridComponent extends Component {
   }
 
   _buildColumns() {
-    console.log("text", this.text);
     this.text.entryProperties.forEach(propObj => {
       let width = "150px";
       if (propObj.type === "number") {
