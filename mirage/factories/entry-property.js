@@ -24,5 +24,9 @@ export default Factory.extend({
 
   nullable() {
     return true;
+  },
+
+  owner() {
+    return "muziejus";
   }
 });

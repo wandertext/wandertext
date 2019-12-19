@@ -1,6 +1,3 @@
-const contributorIds = ["muziejus"];
-const entryPropertyIds = ["page", "sequence", "special", "tree"];
-
 export default [
   {
     id: "baburnama-1530",
@@ -12,16 +9,13 @@ export default [
     imgCredit: "Internet Archive",
     imgHref: "https://archive.org/details/dli.bengal.10689.18150/page/n5",
     url: "https://archive.org/details/dli.bengal.10689.18150/page/n5",
-    year: 1530,
-    contributorIds,
-    entryPropertyIds
+    year: 1530
   },
   {
     id: "nightwood-1936",
     name: "Nightwood",
     slug: "nightwood-1936",
     markdownBlurb: "fixture markdown blurb for nightwood",
-    markdownName: "_Nightwood_",
-    contributorIds
+    markdownName: "_Nightwood_"
   }
 ];

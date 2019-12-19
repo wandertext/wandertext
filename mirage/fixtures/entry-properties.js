@@ -1,5 +1,3 @@
-const textId = "baburnama-1530";
-
 export default [
   {
     id: "page",
@@ -9,8 +7,7 @@ export default [
     inputLabel: "Page",
     readOnly: false,
     owner: "admin",
-    nullable: true,
-    textId
+    nullable: true
   },
   {
     id: "sequence",
@@ -19,8 +16,7 @@ export default [
     inputLabel: "Seq.",
     readOnly: false,
     owner: "admin",
-    nullable: true,
-    textId
+    nullable: true
   },
   {
     id: "special",
@@ -30,8 +26,7 @@ export default [
     readOnly: false,
     inputLabel: "Speciale",
     owner: "muziejus",
-    nullable: true,
-    textId
+    nullable: true
   },
   {
     id: "tree",
@@ -41,7 +36,6 @@ export default [
     readOnly: false,
     inputLabel: "Treee",
     owner: "muziejus",
-    nullable: true,
-    textId
+    nullable: true
   }
 ];
