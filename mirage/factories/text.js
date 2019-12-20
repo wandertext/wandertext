@@ -18,6 +18,10 @@ export default Factory.extend({
     return lorem.paragraph();
   },
 
+  markdownName() {
+    return `_${lorem.words()}_`;
+  },
+
   entrySort() {
     return ["page", "sequence"];
   }

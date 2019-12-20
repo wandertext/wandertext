@@ -8,7 +8,7 @@ describe("Acceptance | list texts", function() {
   const hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(function() {
     this.server.createList("text", 3);
   });
 
