@@ -25,7 +25,7 @@ export default class EntryGridComponent extends Component {
 
   @tracked cursor = "0";
 
-  @tracked model = [];
+  @tracked rows = [];
 
   @tracked columns = [
     {
@@ -68,19 +68,6 @@ export default class EntryGridComponent extends Component {
   }
 
   @action
-  fetchNewPage(page) {
-    page = parseInt(page, 10);
-    this.model = [];
-    if (page > 0) {
-      this.page = page;
-    } else {
-      this.page = 1;
-    }
-
-    this.fetchRecords.perform();
-  }
-
-  @action
   setActiveEntry(entry) {
     if (this.activeEntry !== null && this.activeEntry !== entry) {
       if (
@@ -107,7 +94,6 @@ export default class EntryGridComponent extends Component {
     super(...args);
     this.text = this.args.text;
     this._buildColumns();
-    // Const observable = getObservable(result);
     this.fetchRecords.perform();
   }
 
@@ -121,7 +107,13 @@ export default class EntryGridComponent extends Component {
       { query, variables },
       "text"
     );
-    this.model = this.model.concat(textQuery.sortedEntryFeed.sortedEntries);
+    this.rows = textQuery.sortedEntryFeed.sortedEntries;
+    // Put off until cursor problems are solved.
+    // if(this.rows) {
+    //   this.rows = this.rows.concat(textQuery.sortedEntryFeed.sortedEntries);
+    // } else {
+    //   this.rows = textQuery.sortedEntryFeed.sortedEntries;
+    // }
     this.cursor = textQuery.sortedEntryFeed.cursor;
   }).restartable())
   fetchRecords;
