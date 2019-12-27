@@ -4,7 +4,6 @@ const EmberApp = require("ember-cli/lib/broccoli/ember-app");
 const postcssImport = require("postcss-import");
 
 const isProduction = EmberApp.env() === "production";
-const Funnel = require("broccoli-funnel");
 
 const purgeCSS = {
   module: require("@fullhuman/postcss-purgecss"),
@@ -61,14 +60,5 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  // app.import("node_modules/leaflet/dist/leaflet.css");
-  // app.import("node_modules/leaflet/dist/");
-  const leaflet = new Funnel("node_modules/leaflet/", {
-    srcDir: "/dist",
-    include: ["leaflet.js", "leaflet.js.map", "leaflet.css", "images/*.png"],
-    destDir: "/assets",
-    overwrite: true
-  });
-
-  return app.toTree(leaflet);
+  return app.toTree();
 };
