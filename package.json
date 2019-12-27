@@ -76,7 +76,7 @@
     "ember-tooltips": "^3.3.3",
     "eslint-plugin-chai-friendly": "^0.5.0",
     "eslint-plugin-ember": "^7.1.0",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.0.0",
     "faker": "^4.1.0",
     "get-graphql-schema": "^2.1.2",
     "ghooks": "^2.0.4",
