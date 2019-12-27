@@ -3,6 +3,15 @@ import Service from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 
 export default class TheMapService extends Service {
+  defaultOptions = {
+    lat: 0,
+    lng: 0,
+    maxZoom: 19,
+    minZoom: 2,
+    zoom: 4,
+    zoomControl: false
+  };
+
   constructor(...args) {
     super(...args);
     this.activePlaceId = null;
@@ -106,4 +115,10 @@ export default class TheMapService extends Service {
       }
     );
   }
+
+  tileURL =
+    "https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}";
+
+  tileAttribution =
+    "Tiles &copy; Esri &mdash; Source: US National Park Service";
 }
