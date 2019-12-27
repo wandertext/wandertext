@@ -33,7 +33,7 @@
     "type": "route",
     "alternate": "app/templates/{}.hbs"
   },
-  "app/templates/components/*.hbs": {
+  "app/components/*.hbs": {
     "type": "ctemplate",
     "alternate": "tests/integration/components/{}-test.js"
   },
@@ -43,7 +43,7 @@
   },
   "app/components/*.js": {
     "type": "component",
-    "alternate": "app/templates/components/{}.hbs"
+    "alternate": "app/components/{}.hbs"
   },
   "app/styles/components/*.css": {
     "type": "sass"
