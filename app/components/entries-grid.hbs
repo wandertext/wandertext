@@ -1,5 +1,4 @@
-<div class="entry-grid text-sm">
-  <EntryGridControls @columns={{this.columns}}/>
+<div class="entries-grid text-sm">
   {{#if this.fetchRecords.isIdle }}
     <EmberTable as |t|>
       <t.head @columns={{this.columns}} as |h|>

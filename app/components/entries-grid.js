@@ -1,15 +1,17 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { inject as service } from "@ember/service";
-import { htmlSafe, capitalize } from "@ember/string";
+import { htmlSafe } from "@ember/string";
 import { action } from "@ember/object";
 import { queryManager } from "ember-apollo-client";
 import { task } from "ember-concurrency";
 import query from "wandertext/gql/queries/sortedEntriesFeed.graphql";
 import mutation from "wandertext/gql/mutations/update-entry.graphql";
 
-export default class EntryGridComponent extends Component {
+export default class EntriesGridComponent extends Component {
   @service store;
+
+  @service entriesEnvironment;
 
   @queryManager apollo;
 
@@ -27,28 +29,15 @@ export default class EntryGridComponent extends Component {
 
   @tracked rows = [];
 
-  @tracked columns = [
-    {
-      name: "Attested Name",
-      width: "120px",
-      valuePath: "attestedName",
-      property: {
-        owner: "admin",
-        help: "How the place is referred to in the text"
-      }
-    },
-    {
-      name: "Linked Place",
-      width: "120px",
-      valuePath: "place",
-      property: {
-        help:
-          "The place as it appears in the Wandertext database. A marker means it is mappable."
-      }
-    }
-  ];
-
   limit = 20;
+
+  get columns() {
+    if (this.entriesEnvironment.currentText === this.args.text.id) {
+      return this.entriesEnvironment.columns;
+    }
+
+    return this.entriesEnvironment.buildColumns(this.args.text);
+  }
 
   @tracked page = 1;
 
@@ -93,7 +82,6 @@ export default class EntryGridComponent extends Component {
   constructor(...args) {
     super(...args);
     this.text = this.args.text;
-    this._buildColumns();
     this.fetchRecords.perform();
   }
 
@@ -121,39 +109,12 @@ export default class EntryGridComponent extends Component {
   get tableWidth() {
     return htmlSafe(
       "width: " +
-        this.columns.reduce((accumulator, column) => {
-          return accumulator + parseInt(column.width.replace("px", ""), 10);
-        }, 0) +
+        100 +
+        // This.args.columns.reduce((accumulator, column) => {
+        //   return accumulator + parseInt(column.width.replace("px", ""), 10);
+        // }, 0) +
         "px;"
     );
-  }
-
-  _buildColumns() {
-    this.text.entryProperties.forEach(propObj => {
-      let width = "150px";
-      if (propObj.type === "number") {
-        width = "75px";
-      }
-
-      const name = propObj.inputLabel || capitalize(propObj.name);
-      const valuePath = `properties.${propObj.name}`;
-      if (
-        propObj.owner === this.currentContributor.contributor.id ||
-        propObj.owner === "admin"
-      ) {
-        this.columns.pushObject({ valuePath, width, name, property: propObj });
-      }
-    });
-    /* Save figuring out dates for later.
-    this.columns.pushObject({
-      label: "Modified on",
-      valuePath: "modifiedOn"
-    });
-    this.columns.pushObject({
-      label: "Created on",
-      valuePath: "createdOn"
-    });
-    */
   }
 
   async _save() {

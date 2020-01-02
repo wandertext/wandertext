@@ -1,7 +1,7 @@
-.entry-grid {
+.entries-grid {
   @apply .overflow-auto
 }
 
-.entry-grid td {
+.entries-grid td {
   @apply .p-1
 }

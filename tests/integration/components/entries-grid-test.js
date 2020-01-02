@@ -5,7 +5,7 @@ import { findAll, find, render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 import faker from "faker";
 
-describe("Integration | Component | entry-grid", function() {
+describe("Integration | Component | entries-grid", function() {
   const hooks = setupRenderingTest();
 
   hooks.beforeEach(async function() {
@@ -17,7 +17,7 @@ describe("Integration | Component | entry-grid", function() {
     this.entries = this.placeNames.map(attestedName => {
       return { attestedName };
     });
-    await render(hbs`<EntryGrid @entries={{this.entries}} />`);
+    await render(hbs`<EntriesGrid @entries={{this.entries}} />`);
   });
 
   it.skip("renders as #text-entry-list", function() {
