@@ -1,9 +1,12 @@
 <section class="overflow-auto">
-  {{#link-to "workbench.texts.text.entries.new" this.model}}
-    <Button>New Entry</Button>
-  {{/link-to}}
+  <EntriesControls>
+    {{#link-to "workbench.texts.text.entries.new" this.model}}
+      <Button>New Entry</Button>
+    {{/link-to}}
+    <Button>Some other control</Button>
+  </EntriesControls>
 
   {{outlet}}
-    
+
   <EntryGrid @text={{ this.model }} />
 </section>
