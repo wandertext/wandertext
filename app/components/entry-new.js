@@ -1,11 +1,20 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
-import { tracked } from "@glimmer/tracking";
+import { inject as service } from "@ember/service";
+import mutation from "wandertext/gql/mutations/create-entry.graphql";
 
 export default class EntryNewComponent extends Component {
-  @tracked newShowing = false;
+  @service apollo;
 
-  @tracked model = [];
+  @service entriesEnvironment;
+
+  get columns() {
+    if (this.entriesEnvironment.currentText === this.args.text.id) {
+      return this.entriesEnvironment.columns;
+    }
+
+    return this.entriesEnvironment.buildColumns(this.args.text);
+  }
 
   constructor(...args) {
     super(...args);
@@ -16,16 +25,27 @@ export default class EntryNewComponent extends Component {
     //   newModel.properties[column.valuePath.replace("properties.", "")] = null;
     // }
 
-    this.model.push(newModel);
-  }
-
-  @action
-  toggleNew() {
-    this.newShowing = !this.newShowing;
+    this.newEntry = newModel;
+    this.rows = [newModel];
   }
 
   @action
   focusIn() {
+    // This action has to stay here because of focusIn on the TableCell
+    // component.
     return true;
+  }
+
+  @action
+  createEntry() {
+    const variables = {
+      contributor: "borg",
+      entry: {
+        id: "somid",
+        attestedName: "place",
+        properties: "some props"
+      }
+    };
+    return this.apollo.mutate({ mutation, variables }, "entry");
   }
 }

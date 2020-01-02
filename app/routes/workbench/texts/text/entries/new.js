@@ -1,3 +1,7 @@
-import Route from "@ember/routing/route";
+import WorkbenchRoute from "wandertext/routes/workbench";
 
-export default class TextsTextEntriesNewRoute extends Route {}
+export default class TextsTextEntriesNewRoute extends WorkbenchRoute {
+  model() {
+    return this.modelFor("workbench/texts/text");
+  }
+}
