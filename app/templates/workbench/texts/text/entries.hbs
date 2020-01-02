@@ -1,1 +1,9 @@
-{{outlet}}
+<section class="overflow-auto">
+  {{#link-to "workbench.texts.text.entries.new" this.model}}
+    <Button>New Entry</Button>
+  {{/link-to}}
+
+  {{outlet}}
+    
+  <EntryGrid @text={{ this.model }} />
+</section>
