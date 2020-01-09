@@ -82,7 +82,7 @@
     "get-graphql-schema": "^2.1.2",
     "ghooks": "^2.0.4",
     "graphql": "^14.5.7",
-    "handlebars": "^4.4.3",
+    "handlebars": "^4.6.0",
     "loader.js": "^4.7.0",
     "postcss-import": "^12.0.1",
     "standard-version": "^7.0.0",
