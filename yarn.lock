@@ -6519,10 +6519,10 @@ ember-svg-jar@^2.2.1:
     mkdirp "^0.5.1"
     path-posix "^1.0.0"
 
-ember-table@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/ember-table/-/ember-table-2.2.1.tgz#f7bd4d872af145dec64c338200b08bcdabd3ab45"
-  integrity sha512-5c6n2koxr4QkseN+I+Bn3u0HOE4JO6WGyDb4Fq9i0E5EJPjLNkXI4t6IOfCdrinEyFZjMyBTYFYgsU1dHRHoAw==
+ember-table@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/ember-table/-/ember-table-2.2.2.tgz#1f1c0daf77521bd99f712f88f0185bc84c8db919"
+  integrity sha512-pSwbJIDnpiLm7yzObW8dIM2fOk5sfs0WTKxhoQxInqisaxtWLVs0iINX/Ks2n1HlCvsn84FgqOGU1R8GZAufEQ==
   dependencies:
     "@html-next/vertical-collection" "^1.0.0-beta.14"
     broccoli-string-replace "^0.1.2"
