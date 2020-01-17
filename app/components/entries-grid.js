@@ -25,11 +25,11 @@ export default class EntriesGridComponent extends Component {
 
   @tracked text = null; // Set in constructor.
 
-  @tracked cursor = "0";
+  @tracked cursor = null;
 
   @tracked rows = [];
 
-  limit = 20;
+  limit = 10;
 
   get columns() {
     if (this.entriesEnvironment.currentText === this.args.text.id) {
@@ -56,25 +56,30 @@ export default class EntriesGridComponent extends Component {
     this.modalPlace = data;
   }
 
+  @action updateEntry(entry) {
+    return entry;
+  }
+
   @action
   setActiveEntry(entry) {
-    if (this.activeEntry !== null && this.activeEntry !== entry) {
-      if (
-        !this._isEquivalentEntry(this.activeEntry, this.activeUntrackedEntry)
-      ) {
-        this._save();
-      }
-    }
+    // Worry about this later.
+    // if (this.activeEntry !== null && this.activeEntry !== entry) {
+    //   if (
+    //     !this._isEquivalentEntry(this.activeEntry, this.activeUntrackedEntry)
+    //   ) {
+    //     this._save();
+    //   }
+    // }
 
-    if (entry === null) {
-      this.activeEntry = null;
-      return true;
-    }
+    // if (entry === null) {
+    //   this.activeEntry = null;
+    //   return true;
+    // }
 
-    this.activeUntrackedEntry = {
-      attestedName: entry.attestedName,
-      properties: { ...entry.properties }
-    };
+    // this.activeUntrackedEntry = {
+    //   attestedName: entry.attestedName,
+    //   properties: { ...entry.properties }
+    // };
 
     this.activeEntry = entry;
   }

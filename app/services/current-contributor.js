@@ -12,15 +12,22 @@ export default class CurrentContributorService extends Service {
 
   async load() {
     const variables = {
-      id: "muziejus"
+      id: "Z4aKFSu4FNYvB17YJUOx0hjlPH52"
     };
     const contributor = await this.apollo.watchQuery(
       { query, variables },
       "contributor"
     );
-    if (contributor.enabled) {
-      this.contributor = contributor;
-      return this.contributor;
-    }
+    // Dev database does not seed me as enabled.
+    contributor.enabled = true;
+    contributor.admin = true;
+    contributor.editor = true;
+    // Reenable muziejus as contributor.
+    // if (contributor.enabled) {
+    //   this.contributor = contributor;
+    //   return this.contributor;
+    // }
+    this.contributor = contributor;
+    return this.contributor;
   }
 }
