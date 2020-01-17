@@ -7,6 +7,7 @@ module.exports = function(environment) {
     rootURL: "/",
     locationType: "auto",
     "ember-cli-mirage": {
+      enabled: false,
       discoverEmberDataModels: false
     },
     apollo: {

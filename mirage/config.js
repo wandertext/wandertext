@@ -1,5 +1,4 @@
 import env from "wandertext/config/environment";
-import graphQLHandler from "./handlers/graphql";
 
 export default function() {
   // These comments are here to help you get started. Feel free to delete them.
@@ -22,8 +21,6 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.4.x/shorthands/
   */
-
-  this.post(env.apollo.apiURL, graphQLHandler);
 
   // Not needed because of graphql.
   // this.resource("entries");
