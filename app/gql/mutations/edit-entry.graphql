@@ -1,0 +1,14 @@
+mutation editEntry($entryJSON: JSON!, $contributorId: ID!) {
+  editEntry(contributorId: $contributorId, entryJSON: $entryJSON) {
+    success
+    message
+    newEntry
+    entry {
+      id
+      attestedName
+      properties
+      modifiedAt
+    }
+  }
+}
+    

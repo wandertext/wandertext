@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
-import mutation from "wandertext/gql/mutations/create-entry.graphql";
+import mutation from "wandertext/gql/mutations/edit-entry.graphql";
 
 export default class EntryNewComponent extends Component {
   @service apollo;
@@ -39,12 +39,13 @@ export default class EntryNewComponent extends Component {
   @action
   createEntry() {
     const variables = {
-      contributor: "borg",
-      entry: {
-        id: "somid",
-        attestedName: "place",
-        properties: "some props"
-      }
+      contributorId: "Z4aKFSu4FNYvB17YJUOx0hjlPH52",
+      entryJSON: JSON.stringify({
+        attestedName: "BazmadorfCorso",
+        properties: { page: 1 },
+        textId: "baburnama-1530",
+        placeId: "agra"
+      })
     };
     return this.apollo.mutate({ mutation, variables }, "entry");
   }

@@ -6,7 +6,7 @@ import { action } from "@ember/object";
 import { queryManager } from "ember-apollo-client";
 import { task } from "ember-concurrency";
 import query from "wandertext/gql/queries/sortedEntriesFeed.graphql";
-import mutation from "wandertext/gql/mutations/update-entry.graphql";
+import mutation from "wandertext/gql/mutations/edit-entry.graphql";
 
 export default class EntriesGridComponent extends Component {
   @service store;
@@ -132,14 +132,12 @@ export default class EntriesGridComponent extends Component {
         }
       });
       const variables = {
-        id: entry.id,
-        attestedName: entry.attestedName,
-        properties: entry.properties,
-        contributor: this.currentContributor.contributor.id
+        contributorId: this.currentContributor.contributor.id,
+        entryJSON: JSON.stringify(entry)
       };
       const response = await this.apollo.mutate(
         { mutation, variables },
-        "updateEntry"
+        "editEntry"
       );
       if (response.success) {
         return this.notify.success(response.message);
