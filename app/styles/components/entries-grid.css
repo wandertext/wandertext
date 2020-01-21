@@ -1,5 +1,5 @@
 .entries-grid {
-  @apply .overflow-auto
+  @apply .overflow-auto .h-full
 }
 
 .entries-grid td {

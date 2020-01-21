@@ -1,5 +1,4 @@
 <div class="entries-grid text-sm">
-  {{#if this.fetchRecords.isIdle }}
     <EmberTable as |t|>
       <t.head @columns={{this.columns}} as |h|>
         <h.row as |r|>
@@ -12,6 +11,7 @@
       </t.head>
       <t.body
         @rows={{this.rows}} 
+        @lastReached={{perform this.fetchRecords}}
         @key="id"
         as |b|>
         <b.row as |r|>
@@ -27,9 +27,6 @@
         </b.row>  
       </t.body>
     </EmberTable>
-  {{else}}
-    <p>Loading…</p>
-  {{/if}}
 </div>
 
 {{#if this.isShowingModal}}

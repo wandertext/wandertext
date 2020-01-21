@@ -29,7 +29,7 @@ export default class EntriesGridComponent extends Component {
 
   @tracked rows = [];
 
-  limit = 10;
+  limit = 100;
 
   get columns() {
     if (this.entriesEnvironment.currentText === this.args.text.id) {
@@ -100,13 +100,12 @@ export default class EntriesGridComponent extends Component {
       { query, variables },
       "text"
     );
-    this.rows = textQuery.sortedEntryFeed.sortedEntries;
-    // Put off until cursor problems are solved.
-    // if(this.rows) {
-    //   this.rows = this.rows.concat(textQuery.sortedEntryFeed.sortedEntries);
-    // } else {
-    //   this.rows = textQuery.sortedEntryFeed.sortedEntries;
-    // }
+    if (this.rows) {
+      this.rows = this.rows.concat(textQuery.sortedEntryFeed.sortedEntries);
+    } else {
+      this.rows = textQuery.sortedEntryFeed.sortedEntries;
+    }
+
     this.cursor = textQuery.sortedEntryFeed.cursor;
   }).restartable())
   fetchRecords;
