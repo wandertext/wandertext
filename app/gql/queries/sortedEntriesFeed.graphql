@@ -7,6 +7,13 @@ query sortedEntryFeed($id: ID!, $cursor: String, $limit: Int) {
         id
         attestedName
         properties
+        placeId
+        place {
+          id
+          name
+          latitude
+          longitude
+        }
       }
     }
   }

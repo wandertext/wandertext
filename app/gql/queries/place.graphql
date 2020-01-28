@@ -1,0 +1,15 @@
+query place($id: ID!) {
+  place(id: $id) {
+    id
+    name
+    note
+    source
+    latitude
+    longitude
+    geonameId
+    confidence
+    createdAt
+    modifiedAt
+  }
+}
+
