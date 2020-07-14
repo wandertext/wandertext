@@ -164,7 +164,7 @@
   "config": {
     "ghooks": {
       "pre-commit": "yarn lint:js",
-      "pre-push": "yarn test"
+      "pre-push": "yarn lint:js"
     }
   },
   "optionalDependencies": {
