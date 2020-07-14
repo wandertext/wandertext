@@ -1,0 +1,7 @@
+.place-drawer {
+  @apply .w-1/3 .h-full
+}
+
+.place-drawer > .leaflet-container {
+  height: 80%;
+}

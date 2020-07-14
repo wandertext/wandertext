@@ -1,12 +1,16 @@
-<section class="overflow-hidden">
-  <EntriesControls>
-    {{#link-to "workbench.texts.text.entries.new" this.model}}
-      <Button>New Entry</Button>
-    {{/link-to}}
-    <Button>Some other control</Button>
-  </EntriesControls>
+<section class="overflow-hidden flex flex-row">
+  <div class="flex-grow entries-area">
+    <EntriesControls>
+      {{#link-to "workbench.texts.text.entries.new" this.model}}
+        <Button>New Entry</Button>
+      {{/link-to}}
+    </EntriesControls>
 
-  {{outlet}}
+    {{outlet}}
 
-  <EntriesGrid @text={{ this.model }} />
+    <EntriesGrid @text={{ this.model }} />
+  </div>
+  <PlaceDrawer>
+    <p>place-drawer</p>
+  </PlaceDrawer>
 </section>
