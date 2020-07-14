@@ -6734,10 +6734,10 @@ ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1, ember-cli-htmlbars@^3.1.0:
     json-stable-stringify "^1.0.1"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^4.0.0, ember-cli-htmlbars@^4.0.8, ember-cli-htmlbars@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.2.2.tgz#3db341a0c866b6e16919db071be9592b9702f014"
-  integrity sha512-xhVYhdbS2H+XNHzSYfOZKRFIpZ8zOrNGMuAc7vJd6oUE8Aad2r5xjncIVQDioPp8sQfUpXt0uvkUZaOll/thXw==
+ember-cli-htmlbars@^4.0.8, ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.2:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-4.3.1.tgz#4af8adc21ab3c4953f768956b7f7d207782cb175"
+  integrity sha512-CW6AY/yzjeVqoRtItOKj3hcYzc5dWPRETmeCzr2Iqjt5vxiVtpl0z5VTqHqIlT5fsFx6sGWBQXNHIe+ivYsxXQ==
   dependencies:
     "@ember/edition-utils" "^1.2.0"
     babel-plugin-htmlbars-inline-precompile "^3.0.1"
@@ -7356,6 +7356,13 @@ ember-maybe-import-regenerator@^0.1.6:
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
 
+ember-maybe-in-element@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/ember-maybe-in-element/-/ember-maybe-in-element-0.4.0.tgz#fe1994c60ee64527d2b2f3b4479ebf8806928bd8"
+  integrity sha512-ADQ9jewz46Y2MWiTAKrheIukHiU6p0QHn3xqz1BBDDOmubW1WdAjSrvtkEWsJQ08DyxIn3RdMuNDzAUo6HN6qw==
+  dependencies:
+    ember-cli-babel "^7.1.0"
+
 ember-mocha@^0.16.0:
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/ember-mocha/-/ember-mocha-0.16.2.tgz#1451cabb5543686f824f8dadda163ccc9d162f8f"
@@ -7599,20 +7606,19 @@ ember-test-waiters@^1.1.1:
     ember-cli-babel "^7.11.0"
     semver "^6.3.0"
 
-ember-tooltips@^3.3.3:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/ember-tooltips/-/ember-tooltips-3.4.1.tgz#76317e19effe468a5bbaef80094c64d2beee05a0"
-  integrity sha512-XGycNW5DYULdOCGLeCM92XlVdaU2ancpy3uBjFRio0hHUlLETY6EL0+EnKjdkg1WALzXSsGqzZA6n/SRIGPuhg==
+ember-tooltips@^3.4.3:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/ember-tooltips/-/ember-tooltips-3.4.3.tgz#a017de33e53a9b9ca6d38b8c2f829cc3024b8f8b"
+  integrity sha512-/swhfhodVvpKi6R+tkcqLgS0YTMo3S6Mzb8qtfTneFSz+tBhY/kd/+eI8OIZf9qocpJ9b54dbbqTw5ZBkeZe2g==
   dependencies:
     broccoli-file-creator "^2.1.1"
     broccoli-funnel "^2.0.2"
     broccoli-merge-trees "^2.0.0"
     broccoli-source "^2.0.0"
     broccoli-string-replace "^0.1.2"
-    ember-cli-babel "^7.11.1"
-    ember-cli-htmlbars "^4.0.0"
-    ember-get-config "^0.2.4"
-    ember-wormhole "^0.5.5"
+    ember-cli-babel "^7.13.0"
+    ember-cli-htmlbars "^4.2.0"
+    ember-maybe-in-element "^0.4.0"
     popper.js "^1.12.5"
     resolve "^1.10.1"
     tooltip.js "^1.1.5"
