@@ -13,11 +13,11 @@ const purgeCSS = {
       "./app/index.html",
       "./app/templates/**/*.hbs"
     ],
-    defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+    defaultExtractor: (content) => content.match(/[\w-:/]+/g) || []
   }
 };
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     emberApolloClient: {
       keepGraphqlFileExtension: true

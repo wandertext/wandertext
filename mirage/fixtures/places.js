@@ -1,4 +1,4 @@
-export default [
+const places = [
   {
     id: "agra",
     latitude: 27.18,
@@ -21,3 +21,5 @@ export default [
     geonameId: 3895114
   }
 ];
+
+export default places;

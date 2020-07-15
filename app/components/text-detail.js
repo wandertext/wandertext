@@ -23,7 +23,9 @@ export default class TextDetailComponent extends Component {
     this.expandedPlace = true;
     let place = null;
     if (this.theMap.activePlaceId) {
-      place = this.docs.filter(doc => doc.id === this.theMap.activePlaceId)[0];
+      place = this.docs.filter(
+        (doc) => doc.id === this.theMap.activePlaceId
+      )[0];
     }
 
     return place;
@@ -35,7 +37,7 @@ export default class TextDetailComponent extends Component {
 
   get entries() {
     return this.docs
-      ? this.docs.filter(d => d.type === "entry" && d.text === this.text.id)
+      ? this.docs.filter((d) => d.type === "entry" && d.text === this.text.id)
       : null;
   }
 
@@ -46,7 +48,7 @@ export default class TextDetailComponent extends Component {
   get placeIds() {
     let ids = null;
     if (this.entries) {
-      ids = this.entries.map(entry => entry.place);
+      ids = this.entries.map((entry) => entry.place);
     }
 
     return ids;
@@ -78,24 +80,24 @@ export default class TextDetailComponent extends Component {
       userIds = this.text.users;
     }
 
-    this.entries.forEach(entry => {
+    this.entries.forEach((entry) => {
       if (entry.users) {
-        entry.users.forEach(userId => {
+        entry.users.forEach((userId) => {
           userIds.push(userId);
         });
       }
     });
     const counts = {};
-    userIds.forEach(userId => {
+    userIds.forEach((userId) => {
       counts[userId] = counts[userId] ? counts[userId] + 1 : 1;
     });
     const contributors = _intersectionBy(
       this.docs,
-      Object.keys(counts).map(id => {
+      Object.keys(counts).map((id) => {
         return { id };
       }),
       "id"
-    ).map(user => {
+    ).map((user) => {
       return {
         firstname: user.firstname,
         lastname: user.lastname,
@@ -127,25 +129,25 @@ export default class TextDetailComponent extends Component {
   _makePlaces() {
     const sortKey = this.text.entrySort || "page";
     this.text.xValues = _uniqBy(this.entries, sortKey).map(
-      entry => entry[sortKey]
+      (entry) => entry[sortKey]
     );
     const points = _intersectionBy(
       this.docs,
-      this.distinctPlaceIds.map(id => {
+      this.distinctPlaceIds.map((id) => {
         return { id };
       }),
       "id"
     );
     if (points.length > 0) {
       this.distinctPlaces = points;
-      this.theMap.points = points.map(point => {
+      this.theMap.points = points.map((point) => {
         const theEntries = this.entries.filter(
-          entry => entry.place === point.id
+          (entry) => entry.place === point.id
         );
         point.entryCount = theEntries.length;
-        point.entriesXs = theEntries.map(entry => entry[sortKey]);
+        point.entriesXs = theEntries.map((entry) => entry[sortKey]);
         const names = _countBy(theEntries, "placeInText");
-        const attestedNames = Object.keys(names).map(key => ({
+        const attestedNames = Object.keys(names).map((key) => ({
           name: key,
           count: names[key]
         }));
@@ -163,7 +165,7 @@ export default class TextDetailComponent extends Component {
 
   _setContributorsSentence(contributors) {
     const namesArray = _sortBy(
-      contributors.map(user => {
+      contributors.map((user) => {
         user.count *= -1;
         return user;
       }),

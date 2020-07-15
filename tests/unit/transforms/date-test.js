@@ -2,15 +2,15 @@ import { expect } from "chai";
 import { describe, it } from "mocha";
 import { setupTest } from "ember-mocha";
 
-describe("Unit | Transform | date", function() {
+describe("Unit | Transform | date", function () {
   setupTest();
 
-  it("exists", function() {
+  it("exists", function () {
     const transform = this.owner.lookup("transform:date");
     expect(transform).to.be.ok;
   });
 
-  it("deserializes Firestore Timestamps", function() {
+  it("deserializes Firestore Timestamps", function () {
     const transform = this.owner.lookup("transform:date");
     const timestamp = {
       _seconds: 200203200,
@@ -21,7 +21,7 @@ describe("Unit | Transform | date", function() {
     );
   });
 
-  it("serializes nothing", function() {
+  it("serializes nothing", function () {
     const transform = this.owner.lookup("transform:date");
     const someDate = new Date();
     expect(transform.serialize(someDate)).to.eql(someDate);

@@ -2,7 +2,7 @@ import { random } from "faker";
 
 const textId = "baburnama-1530";
 
-export default [
+const entries = [
   {
     id: random.uuid(),
     properties: {
@@ -37,3 +37,5 @@ export default [
     textId
   }
 ];
+
+export default entries;

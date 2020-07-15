@@ -19,7 +19,7 @@ export default class TextEntriesComponent extends Component {
     const id = "#text-entries";
     return this.makeHistogram({
       id,
-      data: this.args.entries.map(entry => entry[this.args.entrySort]),
+      data: this.args.entries.map((entry) => entry[this.args.entrySort]),
       width: document.querySelector(id).clientWidth,
       height: 0.4 * window.innerHeight,
       entrySort: this.args.entrySort
@@ -33,19 +33,17 @@ export default class TextEntriesComponent extends Component {
       .domain(extent(data))
       .nice()
       .range([margin.left, width - margin.right]);
-    const bins = histogram()
-      .domain(x.domain())
-      .thresholds(x.ticks(20))(data);
+    const bins = histogram().domain(x.domain()).thresholds(x.ticks(20))(data);
     const y = scaleLinear()
-      .domain([0, max(bins, d => d.length)])
+      .domain([0, max(bins, (d) => d.length)])
       .nice()
       .range([height - margin.bottom, margin.top]);
 
-    const xAxis = g =>
+    const xAxis = (g) =>
       g
         .attr("transform", `translate(0, ${height - margin.bottom})`)
         .call(axisBottom(x).tickSizeOuter(0))
-        .call(g =>
+        .call((g) =>
           g
             .append("text")
             .attr("x", margin.left + 0.5 * (width - margin.left - margin.right))
@@ -55,7 +53,7 @@ export default class TextEntriesComponent extends Component {
             .text(entrySort)
         );
 
-    const yAxis = g =>
+    const yAxis = (g) =>
       g.attr("transform", `translate(${margin.left},0)`).call(axisLeft(y));
 
     const svg = select(id)
@@ -67,18 +65,18 @@ export default class TextEntriesComponent extends Component {
       .selectAll("rect")
       .data(bins)
       .join("rect")
-      .attr("x", d => x(d.x0) + 1)
-      .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
-      .attr("y", d => y(d.length))
-      .attr("height", d => y(0) - y(d.length))
+      .attr("x", (d) => x(d.x0) + 1)
+      .attr("width", (d) => Math.max(0, x(d.x1) - x(d.x0) - 1))
+      .attr("y", (d) => y(d.length))
+      .attr("height", (d) => y(0) - y(d.length))
       .classed("bar-chart", true)
-      .on("mouseover", function() {
+      .on("mouseover", function () {
         select(this).classed("hover", true);
       })
-      .on("mouseout", function() {
+      .on("mouseout", function () {
         select(this).classed("hover", false);
       })
-      .on("click", function(d) {
+      .on("click", function (d) {
         const bar = select(this);
         if (bar.classed("clicked")) {
           bar.classed("clicked", false);
@@ -87,7 +85,7 @@ export default class TextEntriesComponent extends Component {
           selectAll(".bar-chart").classed("clicked", false);
           bar.classed("clicked", true);
           const uniqs = [...new Set(d)];
-          const selectedPlaces = theMap.points.filter(place => {
+          const selectedPlaces = theMap.points.filter((place) => {
             let result = false;
             if (_intersection(place.entriesXs, uniqs).length > 0) {
               result = true;

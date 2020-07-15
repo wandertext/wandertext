@@ -6,11 +6,11 @@ import { currentURL, visit, click, fillIn } from "@ember/test-helpers";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import faker from "faker";
 
-describe("Acceptance | create new Text", function() {
+describe("Acceptance | create new Text", function () {
   const hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     authenticateSession();
     this.currentContributor = this.owner.lookup("service:currentContributor");
     this.currentContributor.contributor = {
@@ -21,12 +21,12 @@ describe("Acceptance | create new Text", function() {
     };
   });
 
-  it.skip("includes the text-form component", async function() {
+  it.skip("includes the text-form component", async function () {
     await visit("/workbench/texts/new");
     expect(this.element.querySelector("#text-form")).to.be.ok;
   });
 
-  it.skip("fills out the form, makes a Text, & transitions to workbench/texts/index", async function() {
+  it.skip("fills out the form, makes a Text, & transitions to workbench/texts/index", async function () {
     const name = faker.commerce.productName();
     const slug = faker.helpers.slugify(name) + "-" + faker.random.number();
     const store = this.owner.lookup("service:store");

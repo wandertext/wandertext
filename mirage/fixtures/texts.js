@@ -1,4 +1,4 @@
-export default [
+const texts = [
   {
     id: "baburnama-1530",
     name: "Baburnama",
@@ -19,3 +19,5 @@ export default [
     markdownName: "_Nightwood_"
   }
 ];
+
+export default texts;

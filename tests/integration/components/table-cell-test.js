@@ -7,11 +7,11 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import hbs from "htmlbars-inline-precompile";
 
-describe("Integration | Component | table-cell", function() {
+describe("Integration | Component | table-cell", function () {
   const hooks = setupRenderingTest();
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     authenticateSession();
     this.store = this.owner.lookup("service:store");
     this.currentContributor = this.owner.lookup("service:currentContributor");

@@ -4,10 +4,10 @@ import { setupRenderingTest } from "ember-mocha";
 import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
-describe("Integration | Helper | text-title", function() {
+describe("Integration | Helper | text-title", function () {
   setupRenderingTest();
 
-  it("uses the markdownName first", async function() {
+  it("uses the markdownName first", async function () {
     const markdownName = "Markdown Name";
     this.text = {
       markdownName,
@@ -19,7 +19,7 @@ describe("Integration | Helper | text-title", function() {
     expect(this.element.textContent.trim()).to.equal(markdownName);
   });
 
-  it("uses the regular name when no markdownName", async function() {
+  it("uses the regular name when no markdownName", async function () {
     this.text = {
       markdownName: null,
       name: "regular name"
@@ -30,7 +30,7 @@ describe("Integration | Helper | text-title", function() {
     expect(this.element.textContent.trim()).to.equal("regular name");
   });
 
-  it.skip("renders markdown in markdown", async function() {
+  it.skip("renders markdown in markdown", async function () {
     const markdownName = "_Markdown Name_";
     this.text = {
       markdownName,

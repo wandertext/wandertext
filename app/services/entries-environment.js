@@ -32,19 +32,24 @@ export default class EntriesEnvironmentService extends Service {
 
   buildColumns(text) {
     this.currentText = text.id;
-    text.entryProperties.forEach(propObj => {
+    text.entryProperties.forEach((propObject) => {
       let width = "150px";
-      if (propObj.type === "number") {
+      if (propObject.type === "number") {
         width = "75px";
       }
 
-      const name = propObj.inputLabel || capitalize(propObj.name);
-      const valuePath = `properties.${propObj.name}`;
+      const name = propObject.inputLabel || capitalize(propObject.name);
+      const valuePath = `properties.${propObject.name}`;
       if (
-        propObj.owner === this.currentContributor.contributor.id ||
-        propObj.owner === "admin"
+        propObject.owner === this.currentContributor.contributor.id ||
+        propObject.owner === "admin"
       ) {
-        this.columns.pushObject({ valuePath, width, name, property: propObj });
+        this.columns.pushObject({
+          valuePath,
+          width,
+          name,
+          property: propObject
+        });
       }
     });
     /* Save figuring out dates for later.

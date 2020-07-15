@@ -1,6 +1,6 @@
 import { random } from "faker";
 
-export default class {
+export default class EntryIdentifier {
   /**
    * Returns an unique identifier.
    *

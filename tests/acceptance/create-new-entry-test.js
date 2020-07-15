@@ -6,11 +6,11 @@ import { authenticateSession } from "ember-simple-auth/test-support";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import faker from "faker";
 
-describe("Acceptance | create new Entry", function() {
+describe("Acceptance | create new Entry", function () {
   const hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  hooks.beforeEach(async function() {
+  hooks.beforeEach(async function () {
     authenticateSession();
     this.store = this.owner.lookup("service:store");
     this.currentContributor = this.owner.lookup("service:currentContributor");
@@ -26,7 +26,7 @@ describe("Acceptance | create new Entry", function() {
     await visit(`/workbench/texts/${this.text.id}/entries/new`);
   });
 
-  it.skip("fills out the form, makes an entry, and saves it.", async function() {
+  it.skip("fills out the form, makes an entry, and saves it.", async function () {
     const randomName = `New York ${faker.random.number()}`;
     await fillIn("#input-attestedName", randomName);
     this.text.entryProperties.forEach(async (prop, i) => {
@@ -39,7 +39,7 @@ describe("Acceptance | create new Entry", function() {
     const entries = await this.store.findAll("entry");
     const ourEntries = entries
       .toArray()
-      .filter(entry => entry.attestedName === randomName);
+      .filter((entry) => entry.attestedName === randomName);
     expect(ourEntries.length).to.equal(1);
     const testEntry = ourEntries[0];
     this.text.entryProperties.forEach(async (prop, i) => {

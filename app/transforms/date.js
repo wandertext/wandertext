@@ -1,6 +1,4 @@
-import DS from "ember-data";
-
-const { Transform } = DS;
+import Transform from "@ember-data/serializer/transform";
 
 export default class DateTransform extends Transform {
   deserialize(serialized) {

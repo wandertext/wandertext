@@ -1,4 +1,4 @@
-export default function(server) {
+export default function defaultScenario(server) {
   const muziejus = server.create("contributor", {
     id: "muziejus",
     firstName: "Moacir",

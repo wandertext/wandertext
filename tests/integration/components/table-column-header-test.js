@@ -4,10 +4,10 @@ import { setupRenderingTest } from "ember-mocha";
 import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
-describe("Integration | Component | table-column-header", function() {
+describe("Integration | Component | table-column-header", function () {
   setupRenderingTest();
 
-  it.skip("renders", async function() {
+  it.skip("renders", async function () {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 

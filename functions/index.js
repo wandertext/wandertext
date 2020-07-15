@@ -3,7 +3,7 @@ const functions = require("firebase-functions");
 
 exports.updateEntry = functions.firestore
   .document("entries/{entryId}")
-  .onUpdate(change => {
+  .onUpdate((change) => {
     const previousValue = change.before.data();
     const newValue = change.after.data();
     // If the times are the same, then something else has changed.
@@ -14,10 +14,7 @@ exports.updateEntry = functions.firestore
       const now = admin.firestore.Timestamp.now();
       previousValue.archivedOn = now;
       return Promise.all([
-        ref
-          .collection("revisions")
-          .doc()
-          .set(previousValue),
+        ref.collection("revisions").doc().set(previousValue),
         ref.set({ modifiedOn: now }, { merge: true })
       ]);
     }
@@ -27,7 +24,7 @@ exports.updateEntry = functions.firestore
 
 exports.updatePlace = functions.firestore
   .document("places/{placeId}")
-  .onUpdate(change => {
+  .onUpdate((change) => {
     const previousValue = change.before.data();
     const newValue = change.after.data();
     if (previousValue.modifiedOn._seconds === newValue.modifiedOn._seconds) {
@@ -35,10 +32,7 @@ exports.updatePlace = functions.firestore
       const now = admin.firestore.Timestamp.now();
       previousValue.archivedOn = now;
       return Promise.all([
-        ref
-          .collection("revisions")
-          .doc()
-          .set(previousValue),
+        ref.collection("revisions").doc().set(previousValue),
         ref.set({ modifiedOn: now }, { merge: true })
       ]);
     }

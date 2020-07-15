@@ -6,7 +6,7 @@ import { click, visit, currentURL } from "@ember/test-helpers";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { setupMirage } from "ember-cli-mirage/test-support";
 
-describe("Acceptance | use ember table with text entries", function() {
+describe("Acceptance | use ember table with text entries", function () {
   const hooks = setupApplicationTest();
   setupMirage(hooks);
 
@@ -73,15 +73,15 @@ describe("Acceptance | use ember table with text entries", function() {
 
 */
 
-  it.skip("sorts by page descending when I click on page header", async function() {
+  it.skip("sorts by page descending when I click on page header", async function () {
     const pageHeader = Array.prototype.filter.call(
       this.element.querySelectorAll("th"),
-      th => /Page/.test(th.textContent)
+      (th) => /Page/.test(th.textContent)
     )[0];
     await click(`#${pageHeader.id}`);
     const rows = Array.prototype.map.call(
       this.element.querySelectorAll("tbody > tr"),
-      tr => {
+      (tr) => {
         return {
           id: tr.id,
           attestedName: tr.children[0].textContent.trim(),
@@ -90,18 +90,18 @@ describe("Acceptance | use ember table with text entries", function() {
         };
       }
     );
-    expect(rows.map(r => r.page)).to.deep.equal([3, 2, 1]);
+    expect(rows.map((r) => r.page)).to.deep.equal([3, 2, 1]);
   });
 
-  it.skip("sorts by sequence descending when I click on sequence header", async function() {
+  it.skip("sorts by sequence descending when I click on sequence header", async function () {
     const seqHeader = Array.prototype.filter.call(
       this.element.querySelectorAll("th"),
-      th => /Sequence/.test(th.textContent)
+      (th) => /Sequence/.test(th.textContent)
     )[0];
     await click(`#${seqHeader.id}`);
     const rows = Array.prototype.map.call(
       this.element.querySelectorAll("tbody > tr"),
-      tr => {
+      (tr) => {
         return {
           id: tr.id,
           attestedName: tr.children[0].textContent.trim(),
@@ -110,18 +110,18 @@ describe("Acceptance | use ember table with text entries", function() {
         };
       }
     );
-    expect(rows.map(r => r.sequence)).to.deep.equal([3, 2, 1]);
+    expect(rows.map((r) => r.sequence)).to.deep.equal([3, 2, 1]);
   });
 
-  it.skip("sorts by attestedName descending when I click on attestedName header", async function() {
+  it.skip("sorts by attestedName descending when I click on attestedName header", async function () {
     const nameHeader = Array.prototype.filter.call(
       this.element.querySelectorAll("th"),
-      th => /Attested/.test(th.textContent)
+      (th) => /Attested/.test(th.textContent)
     )[0];
     await click(`#${nameHeader.id}`);
     const rows = Array.prototype.map.call(
       this.element.querySelectorAll("tbody > tr"),
-      tr => {
+      (tr) => {
         return {
           id: tr.id,
           attestedName: tr.children[0].textContent.trim(),
@@ -130,7 +130,7 @@ describe("Acceptance | use ember table with text entries", function() {
         };
       }
     );
-    expect(rows.map(r => r.attestedName)).to.deep.equal([
+    expect(rows.map((r) => r.attestedName)).to.deep.equal([
       "Chile",
       "Belarus",
       "Agra"

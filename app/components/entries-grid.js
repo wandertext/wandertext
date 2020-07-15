@@ -90,7 +90,7 @@ export default class EntriesGridComponent extends Component {
     this.fetchRecords.perform();
   }
 
-  @(task(function*() {
+  @(task(function* () {
     const variables = {
       cursor: this.cursor,
       limit: this.limit,
@@ -124,10 +124,10 @@ export default class EntriesGridComponent extends Component {
   async _save() {
     const entry = this.activeEntry;
     try {
-      this.entryProps.forEach(property => {
+      this.entryProps.forEach((property) => {
         if (property.type === "number") {
           const number = entry[`properties.${property.name}`];
-          entry[`properties.${property.name}`] = parseInt(number, 10);
+          entry[`properties.${property.name}`] = Number.parseInt(number, 10);
         }
       });
       const variables = {
@@ -143,7 +143,7 @@ export default class EntriesGridComponent extends Component {
       }
     } catch (error) {
       if (Array.isArray(error)) {
-        error.forEach(message => this.notify.error(message.validation[0]));
+        error.forEach((message) => this.notify.error(message.validation[0]));
       } else {
         this.notify.error(error.message);
       }
@@ -165,7 +165,7 @@ export default class EntriesGridComponent extends Component {
     }
 
     if (
-      Object.keys(bProps).filter(prop => {
+      Object.keys(bProps).filter((prop) => {
         // eslint-disable-next-line eqeqeq
         if (aProps[prop] != bProps[prop]) {
           return true;

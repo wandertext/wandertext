@@ -1,4 +1,4 @@
-export default [
+const entryProperties = [
   {
     id: "page",
     name: "page",
@@ -39,3 +39,5 @@ export default [
     nullable: true
   }
 ];
+
+export default entryProperties;

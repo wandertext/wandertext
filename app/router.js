@@ -7,17 +7,17 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL
 });
 
-Router.map(function() {
-  this.route("workbench", function() {
-    this.route("texts", function() {
+Router.map(function () {
+  this.route("workbench", function () {
+    this.route("texts", function () {
       this.route("new");
-      this.route("text", { path: ":id" }, function() {
-        this.route("entries", function() {
+      this.route("text", { path: ":id" }, function () {
+        this.route("entries", function () {
           this.route("new");
         });
       });
     });
-    this.route("contributors", function() {
+    this.route("contributors", function () {
       this.route("contributor", { path: ":id" });
       this.route("new");
     });
@@ -28,7 +28,7 @@ Router.map(function() {
   this.route("about");
   this.route("places");
   this.route("texts");
-  this.route("view", function() {
+  this.route("view", function () {
     this.route("text", { path: "text/:id" });
   });
   this.route("login");

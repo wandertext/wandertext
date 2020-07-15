@@ -5,11 +5,11 @@ import { find, visit, fillIn } from "@ember/test-helpers";
 import { authenticateSession } from "ember-simple-auth/test-support";
 import { setupMirage } from "ember-cli-mirage/test-support";
 
-describe("Acceptance | text/entries grid | edit entry", function() {
+describe("Acceptance | text/entries grid | edit entry", function () {
   const hooks = setupApplicationTest();
   setupMirage(hooks);
 
-  it.skip("saves the entry when the row changes", async function(done) {
+  it.skip("saves the entry when the row changes", async function (done) {
     this.timeout(5000);
     authenticateSession();
     this.store = this.owner.lookup("service:store");

@@ -1,6 +1,6 @@
 import { lorem } from "faker";
 
-export default class {
+export default class ContributorIdentifier {
   /**
    * Returns an unique identifier.
    *

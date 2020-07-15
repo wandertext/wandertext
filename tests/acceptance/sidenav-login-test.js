@@ -7,10 +7,10 @@ import {
 } from "ember-simple-auth/test-support";
 import { find, visit, click, waitFor } from "@ember/test-helpers";
 
-describe.skip("Acceptance | sidenav login", function() {
+describe.skip("Acceptance | sidenav login", function () {
   setupApplicationTest();
 
-  it("sees the login button when not logged in", async function() {
+  it("sees the login button when not logged in", async function () {
     invalidateSession();
     await visit("/");
     await click("#sidenav-button");
@@ -18,7 +18,7 @@ describe.skip("Acceptance | sidenav login", function() {
     expect(find("#login-to-github-button")).to.be.ok;
   });
 
-  it("sees the logout sidenav button when logged in", async function() {
+  it("sees the logout sidenav button when logged in", async function () {
     authenticateSession();
     this.currentContributor = this.owner.lookup("service:currentContributor");
     this.currentContributor.contributor = {

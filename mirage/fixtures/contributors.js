@@ -1,4 +1,4 @@
-export default [
+const contributors = [
   {
     id: "muziejus",
     firstName: "Moacir",
@@ -7,3 +7,5 @@ export default [
     textIds: ["baburnama-1530"]
   }
 ];
+
+export default contributors;

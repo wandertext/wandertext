@@ -5,7 +5,7 @@ export default class InlineEditorComponent extends Component {
   focusOnInput() {
     const children = [...this.element.children];
 
-    children.forEach(child => {
+    children.forEach((child) => {
       if (child.tagName === "input") child.focus();
     });
   }
