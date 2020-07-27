@@ -64,7 +64,7 @@
     "ember-load-initializers": "^2.1.0",
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-mocha": "^0.16.0",
-    "ember-modal-dialog": "^3.0.0-beta.4",
+    "ember-modal-dialog": "^3.0.1",
     "ember-moment": "^8.0.0",
     "ember-notify": "^6.0.0",
     "ember-resolver": "^8.0.0",
