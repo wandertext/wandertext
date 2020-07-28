@@ -26,7 +26,7 @@
     "@ember/test-helpers": "^1.6.1",
     "@fullhuman/postcss-purgecss": "^2.0.5",
     "@glimmer/component": "^1.0.0",
-    "@glimmer/tracking": "^1.0.0",
+    "@glimmer/tracking": "^1.0.1",
     "babel-eslint": "^10.0.3",
     "broccoli-asset-rev": "^3.0.0",
     "chai-as-promised": "^7.1.1",
