@@ -169,7 +169,7 @@
   },
   "optionalDependencies": {
     "chai": "^4.2.0",
-    "d3-array": "^2.3.2",
+    "d3-array": "^2.9.1",
     "d3-axis": "^1.0.12",
     "d3-scale": "^3.1.0",
     "d3-selection": "^1.4.0",
