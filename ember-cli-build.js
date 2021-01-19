@@ -1,50 +1,10 @@
-"use strict";
+'use strict';
 
-const EmberApp = require("ember-cli/lib/broccoli/ember-app");
-const postcssImport = require("postcss-import");
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-const isProduction = EmberApp.env() === "production";
-
-const purgeCSS = {
-  module: require("@fullhuman/postcss-purgecss"),
-  options: {
-    content: [
-      // Add extra paths here for components/controllers which include tailwind classes
-      "./app/index.html",
-      "./app/templates/**/*.hbs"
-    ],
-    defaultExtractor: (content) => content.match(/[\w-:/]+/g) || []
-  }
-};
-
-module.exports = function (defaults) {
-  const app = new EmberApp(defaults, {
-    emberApolloClient: {
-      keepGraphqlFileExtension: true
-    },
-    postcssOptions: {
-      compile: {
-        plugins: [
-          {
-            module: postcssImport,
-            options: {
-              path: ["node_modules"]
-            }
-          },
-          require("tailwindcss")("./app/tailwind/config.js"),
-          ...(isProduction ? [purgeCSS] : [])
-        ]
-      }
-    },
-    fingerprint: {
-      exclude: [
-        "images/layers-2x.png",
-        "images/layers.png",
-        "images/marker-icon-2x.png",
-        "images/marker-icon.png",
-        "images/marker-shadow.png"
-      ]
-    }
+module.exports = function(defaults) {
+  let app = new EmberApp(defaults, {
+    // Add options here
   });
 
   // Use `app.import` to add additional libraries to the generated

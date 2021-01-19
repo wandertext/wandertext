@@ -1,7 +1,0 @@
-.waw-button {
-  @apply .ml-auto .bg-accent-500 .rounded-full .h-8 .w-8 .shadow-md .block .self-center
-}
-
-.waw-button:hover {
-  @apply .bg-white
-}

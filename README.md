@@ -1,10 +1,7 @@
-[![Build Status](https://travis-ci.com/wandertext/wandertext.svg?branch=master)](https://travis-ci.com/wandertext/wandertext/) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/xojs/xo)
+# wandertext
 
-# Wandertext
-
-Below is the boilerplate text for running Wandertext on your computer and
-contributing to its development. A more thorough description of the project is
-available on the [Wandertext “About” page](http://wandertext.space/about).
+This README outlines the details of collaborating on this Ember application.
+A short introduction of this app could easily go here.
 
 ## Prerequisites
 
@@ -39,6 +36,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Linting
 
+* `yarn lint:hbs`
 * `yarn lint:js`
 * `yarn lint:js --fix`
 

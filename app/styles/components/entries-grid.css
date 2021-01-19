@@ -1,7 +1,0 @@
-.entries-grid {
-  @apply .overflow-auto .h-full
-}
-
-.entries-grid td {
-  @apply .p-1
-}

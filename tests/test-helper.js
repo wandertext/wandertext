@@ -1,7 +1,8 @@
-import { setApplication } from "@ember/test-helpers";
-import { start } from "ember-mocha";
-import Application from "../app";
-import config from "../config/environment";
+import Application from 'wandertext/app';
+import config from 'wandertext/config/environment';
+import { setApplication } from '@ember/test-helpers';
+import { start } from 'ember-qunit';
 
 setApplication(Application.create(config.APP));
+
 start();

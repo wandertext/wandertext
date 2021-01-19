@@ -1,9 +1,0 @@
-<div class="table-edit py-1">
-  <span class="hidden">{{@cellContent}}</span>
-  {{input 
-    type="text" 
-    value=this.currentValue
-    focus-out=(action this.saveCell)
-    class=(concat "inline-editor table-edit-input entry-property-" this.property " entry-id-" @entry.id)
-  }}
-</div>

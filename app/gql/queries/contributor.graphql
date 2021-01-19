@@ -1,8 +1,0 @@
-query contributor($id: ID!) {
-  contributor(id: $id) {
-    id
-    firstName
-    lastName
-    enabled
-  }
-}
