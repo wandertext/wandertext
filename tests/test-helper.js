@@ -1,5 +1,5 @@
-import Application from 'wt2/app';
-import config from 'wt2/config/environment';
+import Application from 'wandertext/app';
+import config from 'wandertext/config/environment';
 import { setApplication } from '@ember/test-helpers';
 import { start } from 'ember-qunit';
 

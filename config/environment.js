@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'wt2',
+    modulePrefix: 'wandertext',
     environment,
     rootURL: '/',
     locationType: 'auto',
