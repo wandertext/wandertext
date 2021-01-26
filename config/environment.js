@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function (environment) {
-  let ENV = {
+  const ENV = {
     modulePrefix: "wandertext",
     environment,
     rootURL: "/",
@@ -35,7 +35,7 @@ module.exports = function (environment) {
     // Testem prefers this...
     ENV.locationType = "none";
 
-    // keep test console output quieter
+    // Keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
@@ -44,7 +44,7 @@ module.exports = function (environment) {
   }
 
   if (environment === "production") {
-    // here you can enable a production-specific feature
+    // Here you can enable a production-specific feature
   }
 
   return ENV;
