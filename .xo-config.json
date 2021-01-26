@@ -1,4 +1,15 @@
 {
   "prettier": true,
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "overrides": [
+    {
+      "files": "tests/*/steps/*.js",
+      "rules": {
+        "capitalized-comments": "off",
+        "import/extensions": "off",
+        "import/no-anonymous-default-export": "off",
+        "promise/prefer-await-to-then": "off"
+      }
+    }
+  ]
 }
