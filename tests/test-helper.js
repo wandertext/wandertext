@@ -1,7 +1,7 @@
-import Application from 'wandertext/app';
-import config from 'wandertext/config/environment';
-import { setApplication } from '@ember/test-helpers';
-import { start } from 'ember-qunit';
+import Application from "wandertext/app";
+import config from "wandertext/config/environment";
+import { setApplication } from "@ember/test-helpers";
+import { start } from "ember-qunit";
 
 setApplication(Application.create(config.APP));
 
