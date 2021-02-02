@@ -1,6 +1,6 @@
 {
   "app/gql/queries/*.graphql": {
-    "type": "query",
+    "type": "query"
   },
   "app/controllers/*.js": {
     "type": "controller",
@@ -72,5 +72,8 @@
   },
   "mirage/scenarios/*.js": {
     "type": "mscenario"
+  },
+  "tests/acceptance/steps/steps.js": {
+    "type": "gsteps"
   }
 }
