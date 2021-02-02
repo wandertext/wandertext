@@ -49,7 +49,7 @@
     "type": "bdd",
     "alternate": "tests/acceptance/steps/{}-steps.js"
   },
-  "tests/acceptance/*-steps.js": {
+  "tests/acceptance/steps/*-steps.js": {
     "type": "steps",
     "alternate": "tests/acceptance/{}.feature"
   },
