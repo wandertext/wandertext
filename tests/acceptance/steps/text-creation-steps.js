@@ -4,23 +4,7 @@ import steps from "./steps";
 // tests/acceptance/steps/steps.js file
 
 export default function (assert) {
-  return (
-    steps(assert)
-      .when("I visit the list of texts", () => {
-        console.log("in the when");
-        // assert.ok(true, this.step);
-      })
-      // // .when("I press the 'create a text' button", function () {
-      // //   assert.ok(true, this.step);
-      // // })
-      // // .when("I type in 'Moby-Dick' as the title", function () {
-      // //   assert.ok(true, this.step);
-      // // })
-      // // .when("I press the 'Submit' button", function () {
-      // //   assert.ok(true, this.step);
-      // // })
-      .then("I should create a text", function () {
-        assert.ok(true, this.step);
-      })
-  );
+  return steps(assert).then("I should create a text", function () {
+    return assert.ok(true, this.step);
+  });
 }
