@@ -6,6 +6,7 @@
     {
       "files": "tests/*/steps/*.js",
       "rules": {
+        "prefer-arrow-callback": "off",
         "capitalized-comments": "off",
         "import/extensions": "off",
         "import/no-anonymous-default-export": "off",
