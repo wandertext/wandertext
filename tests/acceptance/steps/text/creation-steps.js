@@ -1,11 +1,11 @@
 import steps from "./steps";
 
-// step definitions that are shared between features should be moved to the
-// tests/acceptance/steps/steps.js file
-
 export default function (assert) {
-  return steps(assert).then("I should create a text", async function () {
-    const texts = await this.owner.lookup("service:store").findAll("text");
-    return assert.deepEqual(texts.length, 1, this.step);
-  });
+  return steps(assert).then(
+    "I should see a text with the title $title",
+    async function (error) {
+      error = error.replaceAll(/"/g, "");
+      return assert.dom("li.text").hasText(error, this.step);
+    }
+  );
 }
