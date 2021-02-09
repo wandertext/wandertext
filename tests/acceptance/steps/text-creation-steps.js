@@ -4,7 +4,8 @@ import steps from "./steps";
 // tests/acceptance/steps/steps.js file
 
 export default function (assert) {
-  return steps(assert).then("I should create a text", function () {
-    return assert.ok(true, this.step);
+  return steps(assert).then("I should create a text", async function () {
+    const texts = await this.owner.lookup("service:store").findAll("text");
+    return assert.deepEqual(texts.length, 1, this.step);
   });
 }
