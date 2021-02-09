@@ -4,7 +4,7 @@
   "parser": "babel-eslint",
   "overrides": [
     {
-      "files": "tests/*/steps/*.js",
+      "files": ["tests/*/steps/*/*.js", "tests/*/steps/*.js"],
       "rules": {
         "prefer-arrow-callback": "off",
         "capitalized-comments": "off",
