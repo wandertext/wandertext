@@ -8,6 +8,7 @@ import {
   setupRenderingTest,
   setupTest,
 } from "ember-qunit";
+import { setupMirage } from "ember-cli-mirage/test-support";
 
 // This logic could be anything, but in this case...
 // if @ignore, then return skip (for backwards compatibility)
@@ -74,7 +75,10 @@ function setupScenario(featureAnnotations, scenarioAnnotations) {
 
 function setupYaddaTest(annotations) {
   if (annotations.setupapplicationtest) {
-    return setupApplicationTest;
+    return function (hooks) {
+      setupApplicationTest(hooks);
+      setupMirage(hooks);
+    };
   }
 
   if (annotations.setuprenderingtest) {
