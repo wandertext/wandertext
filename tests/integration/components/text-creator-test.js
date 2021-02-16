@@ -12,15 +12,6 @@ module("Integration | Component | text-creator", hooks => {
 
     await render(hbs`<TextCreator />`);
 
-    assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
-    await render(hbs`
-      <TextCreator>
-        template block text
-      </TextCreator>
-    `);
-
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.dom(this.element).exists();
   });
 });

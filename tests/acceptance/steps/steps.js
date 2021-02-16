@@ -21,5 +21,9 @@ export default function (assert) {
       value = value.replaceAll(/"/g, "");
       assert.dom(`input[name="${parameter}"]`).exists();
       assert.ok(true, this.step);
+    })
+    .then("I should receive an error", function () {
+      assert.dom(".error").exists();
+      assert.ok(true, this.step);
     });
 }
