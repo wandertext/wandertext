@@ -6,6 +6,7 @@
     {
       "files": ["tests/*/steps/*/*.js", "tests/*/steps/*.js"],
       "rules": {
+        "unicorn/catch-error-name": "off",
         "prefer-arrow-callback": "off",
         "capitalized-comments": "off",
         "import/extensions": "off",
