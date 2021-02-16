@@ -7,14 +7,16 @@ export default function (assert) {
     .given("I am a creator", function () {
       return assert.ok(true, this.step);
     })
-    .when("I visit the list of texts", async () => {
-      await visit("/texts");
+    .when("I visit the list of $model", async function (model) {
+      await visit(`/${model}`);
+      return assert.ok(true, this.step);
     })
-    .when("I press the $button button", async button => {
+    .when("I press the $button button", async function (button) {
       const buttonBody = button.replaceAll(/"/g, "");
       const buttonClass = buttonBody.replaceAll(/ /g, "-").toLowerCase();
       assert.dom(`button.${buttonClass}`).hasText(buttonBody);
       await click(`button.${buttonClass}`);
+      return assert.ok(true, this.step);
     })
     .when(
       "I type in $value as the $parameter",
