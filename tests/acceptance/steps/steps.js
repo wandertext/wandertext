@@ -1,5 +1,5 @@
 import yadda from "yadda";
-import { click, visit } from "@ember/test-helpers";
+import { click, fillIn, visit } from "@ember/test-helpers";
 
 export default function (assert) {
   return yadda.localisation.default
@@ -16,12 +16,16 @@ export default function (assert) {
       assert.dom(`button.${buttonClass}`).hasText(buttonBody);
       await click(`button.${buttonClass}`);
     })
-    .when("I type in $value as the $parameter", function (value, parameter) {
-      parameter = parameter.toLowerCase();
-      value = value.replaceAll(/"/g, "");
-      assert.dom(`input[name="${parameter}"]`).exists();
-      assert.ok(true, this.step);
-    })
+    .when(
+      "I type in $value as the $parameter",
+      async function (value, parameter) {
+        parameter = parameter.toLowerCase();
+        value = value.replaceAll(/"/g, "");
+        assert.dom(`input[name="${parameter}"]`).exists();
+        await fillIn(`input[name="${parameter}"]`, value);
+        assert.ok(true, this.step);
+      }
+    )
     .then("I should receive an error", function () {
       assert.dom(".error").exists();
       assert.ok(true, this.step);

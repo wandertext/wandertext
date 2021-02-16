@@ -1,6 +1,11 @@
-<button class="create-a-text" type="button">Create a Text</button>
-<button 
-  class="submit" type="submit"
-  {{on "click" this.createRecord}}
-  >Submit</button>
-<Input @value="" name="title" />
+<form href="#"
+  {{on "submit" this.createRecord}}
+>
+  <button class="create-a-text" type="button">Create a Text</button>
+  <Input @id="title" @type="text"
+    @value={{this.title}} name="title" 
+    />
+  <button 
+    class="submit" type="submit"
+    >Submit</button>
+</form>
