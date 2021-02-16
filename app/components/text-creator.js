@@ -13,9 +13,4 @@ export default class TextCreatorComponent extends Component {
     const newText = this.store.createRecord("text", { title: this.title });
     newText.save();
   }
-
-  @action updateTitle(event) {
-    console.log(`updating with ${event.target.value}`);
-    this.title = event.target.value;
-  }
 }
