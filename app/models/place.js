@@ -1,3 +1,5 @@
-import Model from "@ember-data/model";
+import Model, { hasMany } from "@ember-data/model";
 
-export default class PlaceModel extends Model {}
+export default class PlaceModel extends Model {
+  @hasMany("entry") entries;
+}
