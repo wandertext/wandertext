@@ -1,5 +1,6 @@
 import yadda from "yadda";
-import { click, fillIn, visit } from "@ember/test-helpers";
+import { pluralize } from "ember-inflector";
+import { click, fillIn, visit, currentURL } from "@ember/test-helpers";
 
 export default function (assert) {
   return yadda.localisation.default
@@ -7,10 +8,33 @@ export default function (assert) {
     .given("I am a creator", function () {
       return assert.ok(true, this.step);
     })
+    .given("an entry with the id $id", async function (id) {
+      this.server.create("entry", { id });
+      return assert.ok(true, this.step);
+    })
+    .given("a place named $name", async function (name) {
+      this.server.create("place", { name });
+      return assert.ok(true, this.step);
+    })
+    .given("a text entitled $title", async function (title) {
+      this.server.create("text", { title });
+      return assert.ok(true, this.step);
+    })
     .when("I visit the list of $model", async function (model) {
       await visit(`/${model}`);
       return assert.ok(true, this.step);
     })
+    .when(
+      "I visit the page for the $model with the id $id",
+      async function (model, id) {
+        await visit(`/${pluralize(model)}/${id}`);
+        return assert.equal(
+          currentURL(),
+          `/${pluralize(model)}/${id}`,
+          this.step
+        );
+      }
+    )
     .when("I press the $button button", async function (button) {
       const buttonBody = button.replaceAll(/"/g, "");
       const buttonClass = buttonBody.replaceAll(/ /g, "-").toLowerCase();

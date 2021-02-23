@@ -22,7 +22,7 @@ Feature: text creation
   @ignore
   Scenario: texts cannot be created with titles that already exist
     Given I am a creator
-    And a text entitled "Moby-Dick" exists
+    And a text entitled Moby-Dick
     When I visit the list of texts
     And I press the "Create a Text" button
     And I type in "Moby-Dick" as the title
