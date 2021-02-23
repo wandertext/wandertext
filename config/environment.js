@@ -7,7 +7,7 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "auto",
     "ember-cli-mirage": {
-      enabled: true
+      enabled: true,
     },
     EmberENV: {
       FEATURES: {
