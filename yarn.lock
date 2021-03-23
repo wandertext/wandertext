@@ -4904,7 +4904,7 @@ ember-assign-polyfill@^2.6.0:
     ember-cli-babel "^7.20.5"
     ember-cli-version-checker "^2.0.0"
 
-ember-auto-import@^1.8.0:
+ember-auto-import@^1.6.0, ember-auto-import@^1.8.0:
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/ember-auto-import/-/ember-auto-import-1.10.1.tgz#6c93a875e494aa0a58b759867d3f20adfd514ae3"
   integrity sha512-7bOWzPELlVwdWDOkB+phDIjg8BNW+/2RiLLQ+Xa/eIvCLT4ABYhHV5wqW5gs5BnXTDVLfE4ddKZdllnGuPGGDQ==
@@ -5040,7 +5040,7 @@ ember-cli-htmlbars@^3.0.1:
     json-stable-stringify "^1.0.1"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^5.7.1:
+ember-cli-htmlbars@^5.3.1, ember-cli-htmlbars@^5.7.1:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-5.7.1.tgz#eb5b88c7d9083bc27665fb5447a9b7503b32ce4f"
   integrity sha512-9laCgL4tSy48orNoQgQKEHp93MaqAs9ZOl7or5q+8iyGGJHW6sVXIYrVv5/5O9HfV6Ts8/pW1rSoaeKyLUE+oA==
@@ -5239,6 +5239,18 @@ ember-cli-version-checker@^5.1.1, ember-cli-version-checker@^5.1.2:
     resolve-package-path "^3.1.0"
     semver "^7.3.4"
     silent-error "^1.1.1"
+
+ember-cli-yadda@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-yadda/-/ember-cli-yadda-0.6.0.tgz#9a01b55091c4a61f58109af890990381eba77a60"
+  integrity sha512-lD+u9RwoKDtrSdHIF9vIrNtPosZHNVvjF4s0uWzh2nkOxM+qu+cdeEAQ3RPQvNaEj6fnLgR2tcPjS/28eqnE9Q==
+  dependencies:
+    broccoli-funnel "^3.0.3"
+    broccoli-persistent-filter "^3.1.2"
+    ember-auto-import "^1.6.0"
+    ember-cli-babel "^7.22.1"
+    ember-cli-htmlbars "^5.3.1"
+    yadda "*"
 
 ember-cli@3.25.2:
   version "3.25.2"
@@ -7127,6 +7139,11 @@ human-signals@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-1.1.1.tgz#c5b1cd14f50aeae09ab6c59fe63ba3395fe4dfa3"
   integrity sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==
+
+husky@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/husky/-/husky-5.2.0.tgz#fc5e1c2300d34855d47de4753607d00943fc0802"
+  integrity sha512-AM8T/auHXRBxlrfPVLKP6jt49GCM2Zz47m8G3FOMsLmTv8Dj/fKVWE0Rh2d4Qrvmy131xEsdQnb3OXRib67PGg==
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24:
   version "0.4.24"
@@ -11566,6 +11583,11 @@ y18n@^5.0.5:
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-5.0.5.tgz#8769ec08d03b1ea2df2500acef561743bbb9ab18"
   integrity sha512-hsRUr4FFrvhhRH12wOdfs38Gy7k2FFzB9qgN9v3aLykRq0dRcdcpz5C9FxdS2NuhOrI/628b/KSTJ3rwHysYSg==
+
+yadda@*:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/yadda/-/yadda-2.1.0.tgz#44b2279f552d0df49e5af663457ee65a796df7ef"
+  integrity sha512-jWEhhPemaU2OBNjOmwtdbNm7dHS43bNFexsV4aEDhlkz/vuGvYYHsySdSCM0YWdGLzlyqEJqLkXva+vFRTOblg==
 
 yallist@^3.0.0, yallist@^3.0.2:
   version "3.1.1"
