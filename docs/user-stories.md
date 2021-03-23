@@ -241,9 +241,11 @@ This document describes the user experience at every route in Wandertext.
 
 ## /visualizations
 
-// This whole section is candy. 
-// Let’s worry about what kinds of visualizations 
-// we’ll have once we have data.
+<!--
+This whole section is candy. 
+Let’s worry about what kinds of visualizations 
+we’ll have once we have data.
+-->
 
 ## /about
 
