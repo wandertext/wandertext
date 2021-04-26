@@ -1,4 +1,3 @@
-/* eslint  import/no-anonymous-default-export: off */
 export default function (server) {
   server.create("text", { title: "Typee" });
   server.create("text", { title: "Omoo" });

@@ -1,4 +1,3 @@
-/* eslint import/extensions: "off" */
 /* eslint no-console: "off" */
 
 import ENV from "../../config/environment";

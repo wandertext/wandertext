@@ -1,4 +1,3 @@
-/* eslint import/no-anonymous-default-export: "off" */
 import yadda from "yadda";
 
 export default function (assert) {
