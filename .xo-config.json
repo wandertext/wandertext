@@ -21,7 +21,7 @@
       }
     },
     {
-      "files": ["ember-cli-build.js", "config/*.js", "testem.js"],
+      "files": ["app/tailwind/config.js", "ember-cli-build.js", "config/*.js", "testem.js"],
       "rules": {
         "unicorn/prefer-module": "off"
       }
