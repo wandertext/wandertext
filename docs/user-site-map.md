@@ -7,6 +7,7 @@ for each.
   * /texts:
     * /texts/new
     * /texts/:text_id:
+      * /texts/:text_id/map 
       * /texts/:text_id/entries
       * /texts/:text_id/entries/new
       * /texts/:text_id/contributors
@@ -14,16 +15,19 @@ for each.
   * /places:
     * /places/new
     * /places/:place_id:
+      * /places/:place_id/map
       * /places/:place_id/entries
       * /places/:place_id/contributors
       * /places/:place_id/delete
   * /entries:
     * /entries/:entry_id:
+      * /entries/:entry_id/map
       * /entries/:entry_id/contributors
       * /entries/:entry_id/delete
   * /contributors:
     * /contributors/new
     * /contributors/:contributor_id:
+      * /contributors/:contributor_id/map
       * /contributors/:contributor_id/texts
       * /contributors/:contributor_id/entries
       * /contributors/:contributor_id/places
