@@ -8,25 +8,23 @@ module.exports = function (defaults) {
 
     postcssOptions: {
       compile: {
-        // enabled: true,
+        // Enabled: true,
         // cacheInclude: [/.*\.(css|scss)$/, /.tailwind\.js$/],
         plugins: [
           {
-            module: require('postcss-import'),
+            module: require("postcss-import"),
             options: {
-              path: ['node_modules']
-            }
+              path: ["node_modules"],
+            },
           },
-          tailwind('./app/tailwind/config.js'),
+          tailwind("./app/tailwind/config.js"),
           autoprefixer,
-          require("postcss-preset-env")(
-            {
-              stage: 1,
-            }
-          ),
+          require("postcss-preset-env")({
+            stage: 1,
+          }),
         ],
       },
-      // filter: {
+      // Filter: {
       //   enabled: true,
       //   include: ['styles/*.css'],
       // },
