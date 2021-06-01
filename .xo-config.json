@@ -13,6 +13,18 @@
         "import/no-anonymous-default-export": "off",
         "promise/prefer-await-to-then": "off"
       }
+    },
+    {
+      "files": ["mirage/**/*.js"],
+      "rules": {
+        "import/no-anonymous-default-export": "off"
+      }
+    },
+    {
+      "files": ["ember-cli-build.js", "config/*.js", "testem.js"],
+      "rules": {
+        "unicorn/prefer-module": "off"
+      }
     }
   ]
 }
