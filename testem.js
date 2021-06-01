@@ -1,6 +1,4 @@
 /* eslint camelcase: ["error", {properties: "never"}] */
-"use strict";
-
 module.exports = {
   test_page: "tests/index.html?hidepassed&nocontainer",
   disable_watching: true,

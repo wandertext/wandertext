@@ -1,6 +1,5 @@
 /* eslint no-console: "off" */
 
-import ENV from "../../config/environment";
 import { skip } from "qunit";
 import {
   setupApplicationTest,
@@ -8,6 +7,7 @@ import {
   setupTest,
 } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
+import ENV from "../../config/environment.js";
 
 // This logic could be anything, but in this case...
 // if @ignore, then return skip (for backwards compatibility)
