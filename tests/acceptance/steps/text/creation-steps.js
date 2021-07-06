@@ -1,4 +1,4 @@
-import steps from "./steps.js";
+import steps from "wandertext/tests/acceptance/steps/text/steps";
 
 export default function (assert) {
   return steps(assert).then(

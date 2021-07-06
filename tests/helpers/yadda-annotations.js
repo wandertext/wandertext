@@ -7,7 +7,7 @@ import {
   setupTest,
 } from "ember-qunit";
 import { setupMirage } from "ember-cli-mirage/test-support";
-import ENV from "../../config/environment.js";
+import ENV from "wandertext/config/environment";
 
 // This logic could be anything, but in this case...
 // if @ignore, then return skip (for backwards compatibility)
