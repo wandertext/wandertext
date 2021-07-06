@@ -13,14 +13,24 @@ module("Integration | Component | menu", hooks => {
     await render(hbs`<Menu />`);
 
     assert.equal(this.element.textContent.trim(), "");
+  });
 
-    // Template block usage:
-    await render(hbs`
-      <Menu>
-        template block text
-      </Menu>
-    `);
+  test("it is an <aside>", async function (assert) {
+    await render(hbs`<Menu />`);
 
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.dom(this.element.children[0]).hasTagName("aside");
+  });
+
+  test("it has a <header> and a <footer>", async function (assert) {
+    await render(hbs`<Menu />`);
+
+    assert.dom(this.element.children[0].children[0]).hasTagName("header");
+    assert
+      .dom(
+        this.element.children[0].children[
+          this.element.children[0].children.length - 1
+        ]
+      )
+      .hasTagName("footer");
   });
 });
