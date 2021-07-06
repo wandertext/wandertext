@@ -1,3 +1,4 @@
+@ignore
 @setupApplicationTest
 Feature: text creation
 

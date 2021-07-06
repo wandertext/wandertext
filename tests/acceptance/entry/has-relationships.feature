@@ -1,4 +1,4 @@
-@setupApplicationTest
+@ignore 
 Feature: has relationships
 
   Scenario: An entry has a place
