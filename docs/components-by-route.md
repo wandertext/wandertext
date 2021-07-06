@@ -1,6 +1,6 @@
 # Components by Route
 
-This document describes takes the Wandertext routes with the Figma designs and
+This document describes the Wandertext routes with the Figma designs and
 imagines the component/route tree.
 
 * application route:
