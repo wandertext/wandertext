@@ -13,14 +13,5 @@ module("Integration | Component | icon", hooks => {
     await render(hbs`<Icon />`);
 
     assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
-    await render(hbs`
-      <Icon>
-        template block text
-      </Icon>
-    `);
-
-    assert.equal(this.element.textContent.trim(), "template block text");
   });
 });

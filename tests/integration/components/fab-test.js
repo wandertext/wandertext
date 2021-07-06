@@ -13,14 +13,5 @@ module("Integration | Component | fab", hooks => {
     await render(hbs`<Fab />`);
 
     assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
-    await render(hbs`
-      <Fab>
-        template block text
-      </Fab>
-    `);
-
-    assert.equal(this.element.textContent.trim(), "template block text");
   });
 });
