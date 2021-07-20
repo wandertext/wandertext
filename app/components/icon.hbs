@@ -1,1 +1,9 @@
-<span>{{@icon}}</span>
+<span>
+  {{svg-jar this.icon 
+    title=this.title 
+    desc=this.desc 
+    class="icon" 
+    role=this.role
+    width="24px"}}
+</span>
+<span class="sr-only">{{this.title}}</span>
