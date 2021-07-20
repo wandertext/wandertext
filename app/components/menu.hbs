@@ -1,15 +1,14 @@
-<aside class="w-1/2 menu">
+<aside class="p-4 w-1/2 menu">
   <header>
-    <h2>Wandertext</h2>
+    <h2>Wandertext <Icon @icon="logo" /></h2>
   </header>
 
   <ul>
-    <Menu::Item @icon="texts">
-      Texts
-    </Menu::Item>
-    <Menu::Item @icon="places">
-      Places
-    </Menu::Item>
+    {{#each this.menuItems as |menuItem|}}
+      <Menu::Item @icon={{menuItem.slug}}>
+        {{menuItem.text}}
+      </Menu::Item>
+    {{/each}}
   </ul>
 
   <footer>
