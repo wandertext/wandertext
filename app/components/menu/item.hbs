@@ -1,4 +1,6 @@
 <li>
-  <p><Icon @role="img" @icon={{@icon}} />
-    {{yield}}</p>
+  <LinkTo @route={{@route}}>
+    <p><Icon @role="img" @icon={{@icon}} />
+      {{yield}}</p>
+  </LinkTo>
 </li>

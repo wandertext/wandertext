@@ -5,7 +5,7 @@
 
   <ul>
     {{#each this.menuItems as |menuItem|}}
-      <Menu::Item @icon={{menuItem.slug}}>
+      <Menu::Item @route={{menuItem.route}} @icon={{menuItem.slug}}>
         {{menuItem.text}}
       </Menu::Item>
     {{/each}}
