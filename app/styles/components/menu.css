@@ -1,3 +1,7 @@
 .menu {
-  @apply bg-white;
+  @apply bg-white font-sans;
+}
+
+.menu h2 {
+  @apply font-title;
 }
