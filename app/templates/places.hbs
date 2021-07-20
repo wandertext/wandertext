@@ -1,8 +1,9 @@
+{{page-title "Places"}}
+
 <h2>Places</h2>
 <ul>
   {{#each @model as |place|}}
     <li class="place">{{place.name}}</li>
   {{/each}}
 </ul>
-<PlaceCreator />
 {{outlet}}

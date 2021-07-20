@@ -1,8 +1,9 @@
+{{page-title "Texts"}}
+
 <h2>Texts</h2>
 <ul>
   {{#each @model as |text|}}
     <li class="text">{{text.title}}</li>
   {{/each}}
 </ul>
-<TextCreator />
 {{outlet}}
