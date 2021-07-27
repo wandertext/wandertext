@@ -4,10 +4,15 @@
   "parser": "babel-eslint",
   "overrides": [
     {
+      "files": ["tests/**/*.js"],
+      "rules": {
+        "prefer-arrow-callback": "off"
+      }
+    },
+    {
       "files": ["tests/*/steps/*/*.js", "tests/*/steps/*.js"],
       "rules": {
         "unicorn/catch-error-name": "off",
-        "prefer-arrow-callback": "off",
         "capitalized-comments": "off",
         "import/extensions": "off",
         "import/no-anonymous-default-export": "off",

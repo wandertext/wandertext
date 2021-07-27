@@ -1,4 +1,4 @@
-module.exports = {
+const appColors = {
   white: "#ffffff",
   black: "#000000",
   primary: "#012169",
@@ -12,3 +12,5 @@ module.exports = {
   gray: "#C4C4C4",
   grayLight: "#F0F0F0",
 };
+
+export default appColors;

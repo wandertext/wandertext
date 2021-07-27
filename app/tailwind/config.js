@@ -1,6 +1,6 @@
-const appColors = require("./colors");
+import appColors from "./colors.js";
 
-module.exports = {
+const tailwindConfig = {
   theme: {
     screens: {
       sm: "640px",
@@ -37,3 +37,5 @@ module.exports = {
     },
   },
 };
+
+export default tailwindConfig;

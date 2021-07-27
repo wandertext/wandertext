@@ -1,9 +1,9 @@
-const colors = require("tailwindcss/colors");
+import colors from "tailwindcss/colors.js";
 
-module.exports = {
+const tailwindConfig = {
   purge: [],
   presets: [],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false, // Or 'media' or 'class'
   theme: {
     screens: {
       sm: "640px",
@@ -1024,3 +1024,5 @@ module.exports = {
   },
   plugins: [],
 };
+
+export default tailwindConfig;

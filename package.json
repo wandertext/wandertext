@@ -19,8 +19,8 @@
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
-    "lint:js": "eslint . --cache",
-    "lint:js:fix": "eslint . --fix",
+    "lint:js": "xo . --cache",
+    "lint:js:fix": "xo . --fix",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test"
@@ -78,7 +78,7 @@
     "qunit": "^2.15.0",
     "qunit-dom": "^1.6.0",
     "tailwindcss": "^2.1.3",
-    "xo": "^0.40.1"
+    "xo": "^0.42.0"
   },
   "engines": {
     "node": "10.* || >= 12"

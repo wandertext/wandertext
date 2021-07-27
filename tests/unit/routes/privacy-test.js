@@ -5,7 +5,7 @@ module("Unit | Route | privacy", function (hooks) {
   setupTest(hooks);
 
   test("it exists", function (assert) {
-    let route = this.owner.lookup("route:privacy");
+    const route = this.owner.lookup("route:privacy");
     assert.ok(route);
   });
 });
