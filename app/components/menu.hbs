@@ -3,7 +3,7 @@
     <h2>Wandertext <Icon @icon="logo" /></h2>
   </header>
 
-  <ul>
+  <ul role="navigation">
     {{#each this.menuItems as |menuItem|}}
       <Menu::Item @route={{menuItem.route}} @icon={{menuItem.slug}}>
         {{menuItem.text}}

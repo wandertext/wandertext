@@ -1,0 +1,11 @@
+.menu-item {
+  @apply w-3/4;
+}
+
+.menu-item a p {
+  @apply p-1 hover:bg-columbiaBlue;
+}
+
+.menu-item a.active p {
+  @apply bg-columbiaBlue;
+} 
