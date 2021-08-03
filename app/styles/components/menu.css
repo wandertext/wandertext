@@ -1,5 +1,5 @@
 .menu {
-  @apply bg-white font-sans;
+  @apply w-full bg-white font-sans;
 }
 
 .menu h2 {

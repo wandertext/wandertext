@@ -1,0 +1,10 @@
+<div class="app-container">
+  <button type="button" {{on "click" this.toggleMenu}}>Toggle Menu</button>
+  <AnimatedContainer class="w-full">
+    {{#animated-if this.showMenu use=this.transition}}
+      <Menu />
+    {{else}}
+      {{yield}}
+    {{/animated-if}}
+  </AnimatedContainer>
+</div>
