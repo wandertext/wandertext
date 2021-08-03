@@ -35,6 +35,7 @@
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-a11y-testing": "^4.1.2",
+    "ember-animated": "^0.11.0",
     "ember-auto-import": "^1.11.3",
     "ember-cli": "3.27.0",
     "ember-cli-app-version": "^5.0.0",
