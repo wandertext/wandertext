@@ -1,3 +1,4 @@
+/* eslint unicorn/prefer-module: "off" */
 const appColors = {
   white: "#ffffff",
   black: "#000000",
@@ -13,4 +14,4 @@ const appColors = {
   grayLight: "#F0F0F0",
 };
 
-export default appColors;
+module.exports = appColors;

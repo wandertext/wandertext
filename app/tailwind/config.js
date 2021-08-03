@@ -1,4 +1,5 @@
-import appColors from "./colors.js";
+/* eslint unicorn/prefer-module: "off" */
+const appColors = require("./colors.js");
 
 const tailwindConfig = {
   theme: {
@@ -38,4 +39,4 @@ const tailwindConfig = {
   },
 };
 
-export default tailwindConfig;
+module.exports = tailwindConfig;
