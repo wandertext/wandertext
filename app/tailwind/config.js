@@ -16,10 +16,17 @@ const tailwindConfig = {
       black: appColors.black,
       white: appColors.white,
       primary: appColors.primary,
+      primaryDark: appColors.primaryDark,
+
       columbiaBlue: appColors.columbiaBlue,
+      columbiaBlueLight: appColors.columbiaBlueLight,
       error: appColors.error,
+      errorLight: appColors.errorLight,
       warning: appColors.warning,
+      warningLight: appColors.warningLight,
+
       gray: appColors.gray,
+      grayLight: appColors.grayLight,
     },
     fontFamily: {
       title: ["Elsie"],
