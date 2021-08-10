@@ -1,4 +1,6 @@
-<button class="border m-2 p-2" type="button">
+<button 
+  {{on "click" (fn this.click @icon)}} 
+  class="border m-2 p-2" type="button">
   <Icon @role="button" @icon={{@icon}} />
 </button>
 

@@ -1,20 +1,17 @@
 /* eslint unicorn/no-array-for-each: "off", unicorn/no-array-callback-reference: "off" */
 import Component from "@glimmer/component";
-import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
+import { inject as service } from "@ember/service";
 import { toLeft, toRight } from "ember-animated/transitions/move-over";
 
 export default class ContainerComponent extends Component {
-  @tracked
-  showMenu = false;
+  @service menuState;
 
-  @action toggleMenu() {
-    this.showMenu = !this.showMenu;
-  }
+  @action rules({ newItems }) {
+    if (newItems[0]) {
+      return toLeft;
+    }
 
-  @action
-  *transition({ insertedSprites, removedSprites }) {
-    yield insertedSprites.forEach(toLeft);
-    yield removedSprites.forEach(toRight);
+    return toRight;
   }
 }
