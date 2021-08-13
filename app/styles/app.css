@@ -5,6 +5,13 @@
 
 @import "tailwindcss/utilities";
 
-body {
+body, .app-container {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-width: 100vw;
   @apply text-primary;
+}
+
+html {
+  height: -webkit-fill-available;
 }

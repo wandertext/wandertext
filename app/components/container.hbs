@@ -1,5 +1,4 @@
 <div class="app-container">
-  <button type="button" {{on "click" this.menuState.toggleMenu}}>Toggle Menu</button>
   <AnimatedContainer class="w-full">
     {{#animated-if this.menuState.menuVisible rules=this.rules}}
       <Menu />

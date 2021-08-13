@@ -1,7 +1,11 @@
 .menu {
-  @apply w-full bg-white font-sans;
+  @apply h-full w-full bg-white font-sans;
 }
 
 .menu h2 {
   @apply font-title;
+}
+
+.menu .menu-close-button {
+  @apply absolute pt-4 pr-4 top-0 right-0;
 }
