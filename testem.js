@@ -1,4 +1,4 @@
-/* eslint camelcase: ["error", {properties: "never"}] */
+/* eslint node/prefer-global/process: "off", camelcase: ["error", {properties: "never"}] */
 module.exports = {
   test_page: "tests/index.html?hidepassed&nocontainer",
   disable_watching: true,
