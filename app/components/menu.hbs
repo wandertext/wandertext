@@ -1,5 +1,8 @@
 <aside class="p-4 menu">
-  <Menu::CloseButton @onClick={{this.menuState.toggleMenu}}/>
+  <CloseButton 
+    @onClick={{this.menuState.toggleMenu}}
+    @ariaLabel="Close menu"
+    />
   <header>
     <h2>Wandertext <Icon @icon="logo" /></h2>
   </header>

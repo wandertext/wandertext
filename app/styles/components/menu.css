@@ -6,6 +6,3 @@
   @apply font-title;
 }
 
-.menu .menu-close-button {
-  @apply absolute pt-4 pr-4 top-0 right-0;
-}
