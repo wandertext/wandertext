@@ -1,2 +1,5 @@
-<p class="p-3">Map component</p>
-{{yield}}
+<LeafletMap @lat={{this.lat}} @lng={{this.lng}} @zoom={{this.zoom}} as |layers|>
+
+  <layers.tile @url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}" />
+
+</LeafletMap>
