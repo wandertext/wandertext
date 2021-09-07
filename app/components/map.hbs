@@ -1,2 +1,12 @@
-<p class="p-3">Map component</p>
-{{yield}}
+<article
+  class="{{if @fullScreen "map-full-screen"}} bg-columbiaBlueLight">
+  {{#if @defaultModalOpen}}
+    <div 
+    class="hidden"
+    {{did-insert (fn this.openDefaultModal @modalContentComponent)}}
+    />
+  {{/if}}
+  <p class="p-3">Map component</p>
+</article>
+
+
