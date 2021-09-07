@@ -6,6 +6,6 @@ export default class MapComponent extends Component {
   @service modals;
 
   @action openDefaultModal(content) {
-    this.modals.open(content);
+    this.modals.open(`modals/${content}`);
   }
 }
