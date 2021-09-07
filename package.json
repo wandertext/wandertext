@@ -79,7 +79,7 @@
     "postcss-import": "^14.0.2",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.0",
-    "qunit": "^2.15.0",
+    "qunit": "^2.17.0",
     "qunit-dom": "^1.6.0",
     "tailwindcss": "^2.2.9",
     "webpack": "^5.51.1",
