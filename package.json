@@ -81,7 +81,7 @@
     "prettier": "^2.3.0",
     "qunit": "^2.15.0",
     "qunit-dom": "^1.6.0",
-    "tailwindcss": "^2.2.9",
+    "tailwindcss": "^2.2.11",
     "webpack": "^5.51.1",
     "xo": "^0.44.0"
   },
