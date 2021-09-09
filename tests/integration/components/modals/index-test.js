@@ -3,24 +3,24 @@ import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
-module("Integration | Component | pop-up", hooks => {
+module("Integration | Component | modals/index", function (hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<PopUp />`);
+    await render(hbs`<Modals::Index />`);
 
-    assert.equal(this.element.textContent.trim(), "");
+    assert.dom(this.element).hasText("");
 
     // Template block usage:
     await render(hbs`
-      <PopUp>
+      <Modals::Index>
         template block text
-      </PopUp>
+      </Modals::Index>
     `);
 
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.dom(this.element).hasText("template block text");
   });
 });

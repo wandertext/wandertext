@@ -1,4 +1,4 @@
 .app-container {
-  @apply bg-gray flex flex-row;
+  @apply w-screen h-screen relative flex flex-row;
 }
 

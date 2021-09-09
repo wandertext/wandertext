@@ -1,5 +1,15 @@
-<LeafletMap @lat={{this.lat}} @lng={{this.lng}} @zoom={{this.zoom}} as |layers|>
+<article
+  class="{{if @fullScreen "map-full-screen"}} bg-columbiaBlueLight">
+  {{#if @defaultModalOpen}}
+    <div 
+    class="hidden"
+    {{did-insert (fn this.openDefaultModal @modalContentComponent)}}
+    />
+  {{/if}}
+  <p class="p-3">Map component</p>
+  <LeafletMap @lat={{this.lat}} @lng={{this.lng}} @zoom={{this.zoom}} as |layers|>
 
-  <layers.tile @url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}" />
+    <layers.tile @url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}" />
 
-</LeafletMap>
+  </LeafletMap>
+</article>
