@@ -6,10 +6,9 @@
     {{did-insert (fn this.openDefaultModal @modalContentComponent)}}
     />
   {{/if}}
-  <p class="p-3">Map component</p>
-  <LeafletMap @lat={{this.lat}} @lng={{this.lng}} @zoom={{this.zoom}} as |layers|>
+  <LeafletMap class="h-full" @lat={{this.lat}} @lng={{this.lng}} @zoom={{this.zoom}} as |layers|>
 
-    <layers.tile @url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}" />
+    <layers.tile @url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" />
 
   </LeafletMap>
 </article>
