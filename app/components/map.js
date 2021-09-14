@@ -1,4 +1,5 @@
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 
@@ -7,11 +8,16 @@ export default class MapComponent extends Component {
 
   lng = -74.006_111;
 
-  zoom = 10;
+  @tracked
+  zoom = 8;
 
   @service modals;
 
   @action openDefaultModal(content) {
     this.modals.open(`modals/${content}`);
+  }
+
+  @action updateZoom(event) {
+    this.zoom = event.target.getZoom();
   }
 }

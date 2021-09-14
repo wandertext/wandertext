@@ -6,9 +6,19 @@
     {{did-insert (fn this.openDefaultModal @modalContentComponent)}}
     />
   {{/if}}
-  <LeafletMap class="h-full" @lat={{this.lat}} @lng={{this.lng}} @zoom={{this.zoom}} as |layers|>
+  <LeafletMap 
+    class="h-full" 
+    @lat={{this.lat}} 
+    @lng={{this.lng}} 
+    @zoom={{this.zoom}} 
+    @onZoomend={{this.updateZoom}}
+    as |layers|>
 
-    <layers.tile @url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" />
+    {{#if (lte this.zoom 8)}}
+      <layers.tile @url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}" />
+    {{else}}
+      <layers.tile @url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png" />
+    {{/if}}
 
   </LeafletMap>
 </article>
