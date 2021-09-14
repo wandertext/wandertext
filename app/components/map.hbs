@@ -11,13 +11,18 @@
     @lat={{this.lat}} 
     @lng={{this.lng}} 
     @zoom={{this.zoom}} 
-    @onZoomend={{this.updateZoom}}
+    @onZoom={{this.updateZoom}}
+    @onLoad={{this.placeAttribution}}
     as |layers|>
 
     {{#if (lte this.zoom 8)}}
-      <layers.tile @url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}" />
+      <layers.tile 
+        @url={{this.tiles.esriPhysical.url}}
+        />
     {{else}}
-      <layers.tile @url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png" />
+      <layers.tile 
+        @url={{this.tiles.alidadeSmooth.url}}
+      />
     {{/if}}
 
   </LeafletMap>
