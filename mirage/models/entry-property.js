@@ -1,7 +1,5 @@
 import { Model, hasMany } from "ember-cli-mirage";
 
 export default Model.extend({
-  entries: hasMany(),
-  contributors: hasMany(),
-  flags: hasMany(),
+  texts: hasMany(),
 });
