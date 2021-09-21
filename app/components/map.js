@@ -16,10 +16,10 @@ export default class MapComponent extends Component {
       url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}",
       attribution: "Tiles &copy;Esri &mdash; Source: US National Park Service",
     },
-    alidadeSmooth: {
-      url: "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
+    openStreetMapMapnik: {
+      url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       attribution:
-        "&copy;<a href='https://stadiamaps.com/'>Stadia Maps</a>, &copy;<a href='https://openmaptiles.org/'>OpenMapTiles</a> &copy;<a href='http://openstreetmap.org'>OpenStreetMap</a> contributors",
+        "&copy;<a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
     },
   };
 
@@ -34,13 +34,13 @@ export default class MapComponent extends Component {
     // tidy as it should be.
     this.zoom = event.target.getZoom();
     const esri = this.tiles.esriPhysical.attribution;
-    const stadia = this.tiles.alidadeSmooth.attribution;
+    const mapnik = this.tiles.openStreetMapMapnik.attribution;
     if (this.zoom <= 8) {
-      event.target.attributionControl.removeAttribution(stadia);
+      event.target.attributionControl.removeAttribution(mapnik);
       event.target.attributionControl.addAttribution(esri);
     } else {
       event.target.attributionControl.removeAttribution(esri);
-      event.target.attributionControl.addAttribution(stadia);
+      event.target.attributionControl.addAttribution(mapnik);
     }
   }
 
