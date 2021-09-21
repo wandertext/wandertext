@@ -70,7 +70,7 @@
     "ember-truth-helpers": "^3.0.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-ember": "^10.5.1",
+    "eslint-plugin-ember": "^10.5.5",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-qunit": "^6.1.1",
@@ -82,11 +82,11 @@
     "postcss": "^8.3.0",
     "postcss-import": "^14.0.2",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.4.0",
-    "qunit": "^2.17.1",
+    "prettier": "^2.4.1",
+    "qunit": "^2.17.2",
     "qunit-dom": "^2.0.0",
     "tailwindcss": "^2.2.15",
-    "webpack": "^5.52.1",
+    "webpack": "^5.53.0",
     "xo": "^0.44.0"
   },
   "engines": {
