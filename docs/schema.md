@@ -14,6 +14,7 @@
 * modifiedAt: DateTime
 * entries: [Entry]
 * texts: [Text]
+* places: [Place]
 * flags: [Flag]
 
 ## Entry
