@@ -1,8 +1,9 @@
 .menu {
   @apply h-full w-full bg-white font-sans;
-}
 
-.menu h2 {
-  @apply font-title;
+  & h2 {
+    @apply text-3xl font-title;
+  }
+
 }
 

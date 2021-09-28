@@ -25,6 +25,7 @@ module.exports = function (defaults) {
           },
           tailwind("./app/tailwind/config.js"),
           autoprefixer,
+          require("postcss-nesting"),
           require("postcss-preset-env")({
             stage: 1,
           }),
