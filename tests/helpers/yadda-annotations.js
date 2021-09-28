@@ -1,4 +1,4 @@
-/* eslint no-console: "off" */
+/* eslint no-console: "off", capitalized-comments: "off" */
 
 import { skip } from "qunit";
 import {
@@ -6,7 +6,7 @@ import {
   setupRenderingTest,
   setupTest,
 } from "ember-qunit";
-import { setupMirage } from "ember-cli-mirage/test-support";
+// import { setupMirage } from "ember-cli-mirage/test-support";
 import ENV from "wandertext/config/environment";
 
 // This logic could be anything, but in this case...
@@ -76,7 +76,7 @@ function setupYaddaTest(annotations) {
   if (annotations.setupapplicationtest) {
     return function (hooks) {
       setupApplicationTest(hooks);
-      setupMirage(hooks);
+      // setupMirage(hooks);
     };
   }
 
