@@ -75,6 +75,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-qunit": "^6.1.1",
+    "hammerjs": "^2.0.8",
     "husky": "^7.0.2",
     "leaflet": "^1.7.1",
     "loader.js": "^4.7.0",

@@ -6,37 +6,22 @@
  */
 
 import { modifier } from "ember-modifier";
+import Hammer from "hammerjs";
 
 export default modifier(function onSwipeLeft(element /* , params, hash */) {
-  const touchEvents = [];
+  const hammer = new Hammer.Manager(element);
 
-  function handleStart(event) {
-    event.preventDefault();
-    // We want only to react to two-finger events.
-    if (event.targetTouches.length === 2) {
-      for (let i = 0; i < event.targetTouches.length; i += 1) {
-        touchEvents.push(event.targetTouches[i]);
-      }
+  hammer.add(
+    new Hammer.Swipe({
+      event: "doubleswipeleft",
+      pointers: 2,
+      direction: Hammer.DIRECTION_LEFT,
+    })
+  );
 
-      alert(touchEvents);
-    } else {
-      alert("Just one touch");
-    }
-  }
+  hammer.on("doubleswipeleft", () => {
+    alert("doubleswipeleft");
+  });
 
-  function handleEnd(event) {}
-
-  function handleMove(event) {}
-
-  element.addEventListener("touchstart", handleStart);
-  element.addEventListener("touchend", handleEnd);
-  element.addEventListener("touchcancel", handleEnd);
-  element.addEventListener("touchmove", handleMove);
-
-  return () => {
-    element.removeEventListener("touchstart", handleStart);
-    element.removeEventListener("touchend", handleEnd);
-    element.removeEventListener("touchcancel", handleEnd);
-    element.removeEventListener("touchmove", handleMove);
-  };
+  return hammer.off("doubleswipeleft");
 });
