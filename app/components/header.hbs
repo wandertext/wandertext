@@ -1,0 +1,11 @@
+<header 
+  class="p-6 flex flex-row justify-between bg-columbiaBlue">
+  <Icon @icon="caret-left" />
+  <Icon @icon={{@icon}} />
+  <button 
+    {{on "click" this.handleMenuClick}}
+    type="button"
+    >
+    <Icon @icon="menu" @role="button" />
+  </button>
+</header>
