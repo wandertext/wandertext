@@ -50,6 +50,10 @@ export default class IconComponent extends Component {
       title: "Login Icon",
       desc: "A key icon indicating a login.",
     },
+    "caret-left": {
+      title: "Caret",
+      desc: "A Left-pointing Caret",
+    },
   };
 
   get title() {
