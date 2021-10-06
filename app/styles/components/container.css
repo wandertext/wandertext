@@ -1,4 +1,3 @@
 .app-container {
   @apply w-screen h-screen relative flex flex-row;
 }
-
