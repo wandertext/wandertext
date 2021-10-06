@@ -2,10 +2,11 @@
   @apply m-4 p-4 bg-white;
 }
 
-.epm-backdrop, .epm-modal-container {
+.epm-backdrop,
+.epm-modal-container {
   z-index: 2;
 }
 
 .epm-backdrop {
-  background-color: rgba(0, 13, 41, .3);
+  background-color: rgba(0, 13, 41, 0.3);
 }
