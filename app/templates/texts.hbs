@@ -4,7 +4,7 @@
 <h2>Texts</h2>
 <ul>
   {{#each @model as |text|}}
-    <li class="text">{{text.title}}</li>
+  <li class="text">{{text.name}} ({{text.markdownName}})</li>
   {{/each}}
 </ul>
 {{outlet}}
