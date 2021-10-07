@@ -1,7 +1,21 @@
 {
   "space": true,
   "prettier": true,
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    },
+    "babelOptions": {
+      "plugins": [
+        [
+          "@babel/plugin-proposal-decorators", 
+          { "legacy": true }
+        ]
+      ]
+    }
+  },
   "overrides": [
     {
       "files": ["tests/**/*.js"],
