@@ -1,10 +1,4 @@
 {{page-title "Texts"}}
 <Header @icon="text" />
-
-<h2>Texts</h2>
-<ul>
-  {{#each @model as |text|}}
-  <li class="text">{{text.name}} ({{text.markdownName}})</li>
-  {{/each}}
-</ul>
+<List @model={{@model}} />
 {{outlet}}

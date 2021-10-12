@@ -52,7 +52,15 @@ export default class IconComponent extends Component {
     },
     "caret-left": {
       title: "Caret",
-      desc: "A Left-pointing Caret",
+      desc: "A Left-pointing caret",
+    },
+    "caret-down": {
+      title: "Caret",
+      desc: "A down-pointing caret",
+    },
+    map: {
+      title: "Map",
+      desc: "A map",
     },
   };
 

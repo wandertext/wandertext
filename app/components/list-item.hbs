@@ -1,0 +1,18 @@
+{{! @type="text"}}
+<li class="list-item">
+  {{#if @data.imgSrc}}
+  <img src={{@data.imgSrc}} alt="cover of {{@data.name}}"/>
+  {{/if}}
+  <h3 class="flex-grow self-end text-3xl">
+    {{#if @data.markdownName}}
+      {{@data.markdownName}}
+    {{else}}
+      {{@data.name}}
+    {{/if}}
+  </h3>
+  <div class="flex flex-row justify-center items-center space-x-1">
+    <Icon @icon="map" />
+    <Icon @icon="caret-down" />
+  </div>
+</li>
+
