@@ -23,7 +23,7 @@ export default Factory.extend({
   },
 
   imgSrc() {
-    return faker.image.cats(200, 200);
+    return faker.image.animals(200, 200);
   },
 
   imgHref() {

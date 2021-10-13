@@ -1,4 +1,8 @@
 li.list-item {
   @apply p-2 flex flex-row h-16 space-x-2 w-full;
 
+  & h3 {
+    @apply flex-grow self-end text-3xl whitespace-nowrap overflow-x-auto overflow-ellipsis;
+  }
+
 }
