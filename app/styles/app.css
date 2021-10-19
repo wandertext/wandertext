@@ -16,3 +16,8 @@ body,
 html {
   height: -webkit-fill-available;
 }
+
+h3 {
+  @apply font-sans font-semibold;
+}
+
