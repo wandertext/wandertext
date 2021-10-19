@@ -1,5 +1,7 @@
-{{page-title "About"}}
-<Header @icon="about" />
+{{#let "About" as |title|}}
+  {{page-title title}}
+  <Header @icon="about" @title={{title}}/>
 
-  <h2>About</h2>
-{{outlet}}
+    <h2>{{title}}</h2>
+  {{outlet}}
+{{/let}}

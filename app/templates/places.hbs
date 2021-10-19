@@ -1,4 +1,6 @@
-{{page-title "Places"}}
-<Header @icon="place" />
-<List @model={{@model}} />
-{{outlet}}
+{{#let "Places" as |title|}}
+  {{page-title title}}
+  <Header @icon="place" @title={{title}} />
+  <List @model={{@model}} />
+  {{outlet}}
+{{/let}}

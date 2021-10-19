@@ -1,5 +1,7 @@
-{{page-title "Contributors"}}
-<Header @icon="contributors" />
+{{#let "Contributors" as |title|}}
+  {{page-title title}}
+  <Header @icon="contributors" @title={{title}} />
 
-  <h2>Contributors</h2>
-{{outlet}}
+    <h2>Contributors</h2>
+  {{outlet}}
+{{/let}}

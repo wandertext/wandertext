@@ -1,5 +1,7 @@
-{{page-title "Credits"}}
-<Header @icon="credits" />
+{{#let "Credits" as |title|}}
+  {{page-title title}}
+  <Header @icon="credits" @title={{title}} />
 
-  <h2>Credits</h2>
-{{outlet}}
+    <h2>{{title}}</h2>
+  {{outlet}}
+{{/let}}

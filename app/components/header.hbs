@@ -1,6 +1,9 @@
 <header class="header">
   <Icon @icon="caret-left" />
-  <Icon @icon={{@icon}} />
+  <div>
+    <h2 class="sr-only">{{@title}}</h2>
+    <Icon @icon={{@icon}} />
+  </div>
   <button 
     {{on "click" this.handleMenuClick}}
     type="button"

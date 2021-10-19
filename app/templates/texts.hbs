@@ -1,4 +1,6 @@
-{{page-title "Texts"}}
-<Header @icon="text" />
-<List @model={{@model}} />
-{{outlet}}
+{{#let "Texts" as |title|}}
+  {{page-title title}}
+  <Header @icon="text" @title={{title}} />
+  <List @model={{@model}} />
+  {{outlet}}
+{{/let}}

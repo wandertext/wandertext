@@ -1,5 +1,7 @@
-{{page-title "Help"}}
-<Header @icon="help" />
+{{#let "Help" as |title|}}
+  {{page-title title}}
+  <Header @icon="help" @title={{title}} />
 
-  <h2>Help</h2>
-{{outlet}}
+    <h2>Help</h2>
+  {{outlet}}
+{{/let}}
