@@ -3,13 +3,16 @@
   {{#if @data.imgSrc}}
   <img src={{@data.imgSrc}} alt="cover of {{@data.name}}"/>
   {{/if}}
-  <h3>
     {{#if @data.markdownName}}
-      {{@data.markdownName}}
+      <h3>
+        {{@data.markdownName}}
+      </h3>
+      {{!markdown-to-html (concat "### " @data.markdownName)}}
     {{else}}
-      {{@data.name}}
+      <h3>
+        {{@data.name}}
+      </h3>
     {{/if}}
-  </h3>
   <div class="flex flex-row justify-center items-center space-x-1">
     <Icon @icon="map" />
     <Icon @icon="caret-down" />
