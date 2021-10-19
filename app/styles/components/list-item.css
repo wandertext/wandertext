@@ -2,10 +2,12 @@ li.list-item {
   @apply p-2 flex flex-row h-16 space-x-2 w-full;
 
   & h3 {
-    @apply flex-grow self-end text-3xl;
+    @apply flex-grow self-end text-3xl whitespace-nowrap truncate;
+
+    & p, & div {
+     @apply inline;
+    }
+
   }
 
-  & h3, & h3 em {
-    @apply whitespace-nowrap truncate;
-  }
 }

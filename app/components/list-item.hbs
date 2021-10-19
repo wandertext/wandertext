@@ -1,13 +1,12 @@
 {{! @type="text"}}
 <li class="list-item">
   {{#if @data.imgSrc}}
-  <img src={{@data.imgSrc}} alt="cover of {{@data.name}}"/>
+  <img src={{@data.imgSrc}} class="h-full w-auto" alt="cover of {{@data.name}}"/>
   {{/if}}
     {{#if @data.markdownName}}
       <h3>
-        {{@data.markdownName}}
+        {{markdown-to-html @data.markdownName}}
       </h3>
-      {{!markdown-to-html (concat "### " @data.markdownName)}}
     {{else}}
       <h3>
         {{@data.name}}
