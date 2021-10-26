@@ -40,7 +40,6 @@
     "autoprefixer": "^10.3.7",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-a11y-testing": "^4.1.2",
     "ember-animated": "^0.11.0",
     "ember-auto-import": "^2.2.2",
     "ember-cli": "3.28.1",
