@@ -1,13 +1,15 @@
 li.list-item {
-  @apply p-2 flex flex-row h-16 space-x-2 w-full;
+  @apply p-2 flex flex-row h-16 w-full justify-between;
 
-  & h3 {
-    @apply flex-grow self-end text-3xl whitespace-nowrap truncate;
+  & a.link-to {
+    @apply flex flex-row h-full space-x-2;
 
-    & p, & div {
-     @apply inline;
+    & span {
+      @apply flex-grow self-end text-3xl whitespace-nowrap truncate;
+
+      & p, & div {
+       @apply inline;
+      }
     }
-
   }
-
 }

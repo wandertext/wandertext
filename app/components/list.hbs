@@ -1,5 +1,5 @@
 <ul class="list">
   {{#each @model as |data|}}
-    <ListItem @data={{data}} />
+    <ListItem @data={{data}} @linkToRoute={{@linkToRoute}} />
   {{/each}}
 </ul>

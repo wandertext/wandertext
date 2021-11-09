@@ -1,17 +1,16 @@
 {{! @type="text"}}
 <li class="list-item">
-  {{#if @data.imgSrc}}
-  <img src={{@data.imgSrc}} class="h-full w-auto" alt="cover of {{@data.name}}"/>
-  {{/if}}
-    {{#if @data.markdownName}}
-      <h3>
-        {{markdown-to-html @data.markdownName}}
-      </h3>
-    {{else}}
-      <h3>
-        {{@data.name}}
-      </h3>
+
+  <LinkTo class="link-to" @route={{@linkToRoute}} @model={{@data}}>
+    {{#if @data.imgSrc}}
+    <img src={{@data.imgSrc}} class="h-full w-auto" alt="cover of {{@data.name}}"/>
     {{/if}}
+      {{#if @data.markdownName}}
+        <span>{{markdown-to-html @data.markdownName}}</span>
+      {{else}}
+        <span>{{@data.name}}</span>
+      {{/if}}
+    </LinkTo>
   <div class="flex flex-row justify-center items-center space-x-1">
     <Icon @icon="map" />
     <Icon @icon="caret-down" />
