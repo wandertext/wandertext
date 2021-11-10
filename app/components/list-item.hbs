@@ -1,19 +1,10 @@
 {{! @type="text"}}
 <li class="list-item">
-
-  <LinkTo class="link-to" @route={{@linkToRoute}} @model={{@data}}>
-    {{#if @data.imgSrc}}
-    <img src={{@data.imgSrc}} class="h-full w-auto" alt="cover of {{@data.name}}"/>
-    {{/if}}
-      {{#if @data.markdownName}}
-        <span>{{markdown-to-html @data.markdownName}}</span>
-      {{else}}
-        <span>{{@data.name}}</span>
-      {{/if}}
-    </LinkTo>
-  <div class="flex flex-row justify-center items-center space-x-1">
-    <Icon @icon="map" />
-    <Icon @icon="caret-down" />
-  </div>
+  <InfoBox @model={{@model}} @linkToRoute={{@linkToRoute}}>
+    <InfoBox::IconBox>
+      <Icon @icon="map" @action={{this.showmap}}/>
+      <Icon @icon="caret-down" />
+    </InfoBox::IconBox>
+  </InfoBox>
 </li>
 

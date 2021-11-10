@@ -1,0 +1,11 @@
+<div class="info-box-text">
+  {{#if @model.imgSrc}}
+    <img src={{@model.imgSrc}} class="h-full w-auto" alt="cover of {{@model.name}}"/>
+  {{/if}}
+
+  {{#if @model.markdownName}}
+    <span>{{markdown-to-html @model.markdownName}}</span>
+  {{else}}
+    <span>{{@model.name}}</span>
+  {{/if}} 
+</div>

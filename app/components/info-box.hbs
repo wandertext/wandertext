@@ -1,0 +1,10 @@
+<div class="info-box">
+  {{#if @linkToRoute}}
+    <LinkTo class="link-to" @route={{@linkToRoute}} @model={{@model.id}}>
+      <InfoBox::Text @model={{@model}}/>
+    </LinkTo>
+  {{else}}
+    <InfoBox::Text @model={{@model}}/>
+  {{/if}}
+    {{yield}}
+</div>

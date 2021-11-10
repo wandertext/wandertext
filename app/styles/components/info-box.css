@@ -1,0 +1,21 @@
+.info-box {
+  @apply h-16 p-2s.route("places");
+  w-full flex flex-row space-x-2 justify-between;
+
+  & .info-box-text {
+    @apply h-full flex flex-row space-x-2 flex-grow;
+  
+    & span {
+      @apply self-end text-3xl whitespace-nowrap truncate inline;
+
+      & p, & div {
+       @apply inline;
+      }
+    }
+  }
+
+  & .info-box-icon-box {
+    @apply flex flex-row justify-center items-center space-x-1;
+  }
+}
+
