@@ -2,9 +2,20 @@
 <li class="list-item">
   <InfoBox @model={{@model}} @linkToRoute={{@linkToRoute}}>
     <InfoBox::IconBox>
-      <Icon @icon="map" @action={{this.showmap}}/>
-      <Icon @icon="caret-down" />
+      <button type="button" {{on "click" this.toggleMap}}>
+        <Icon @role="butotn" @icon="map"/>
+      </button>
+      {{#if this.mapVisible}}
+        <Icon @icon="caret-up" />
+      {{else}}
+        <Icon @icon="caret-down" />
+      {{/if}}
     </InfoBox::IconBox>
   </InfoBox>
+  {{#if this.mapVisible}}
+    <div class="w-full h-60 bg-primary">
+      &nbsp;
+    </div>
+  {{/if}}
 </li>
 

@@ -1,6 +1,5 @@
 .info-box {
-  @apply h-16 p-2s.route("places");
-  w-full flex flex-row space-x-2 justify-between;
+  @apply h-16 p-2 pr-6 w-full flex flex-row space-x-2 justify-between;
 
   & .info-box-text {
     @apply h-full flex flex-row space-x-2 flex-grow;

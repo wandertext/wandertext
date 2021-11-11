@@ -54,6 +54,10 @@ export default class IconComponent extends Component {
       title: "Caret",
       desc: "A Left-pointing caret",
     },
+    "caret-up": {
+      title: "Caret",
+      desc: "An up-pointing caret",
+    },
     "caret-down": {
       title: "Caret",
       desc: "A down-pointing caret",
