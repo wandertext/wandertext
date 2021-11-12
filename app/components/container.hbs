@@ -1,9 +1,0 @@
-<div class="app-container">
-  <AnimatedContainer class="h-full w-full">
-    {{#animated-if this.menuState.menuVisible rules=this.rules}}
-      <Menu />
-    {{else}}
-      {{yield}}
-    {{/animated-if}}
-  </AnimatedContainer>
-</div>
