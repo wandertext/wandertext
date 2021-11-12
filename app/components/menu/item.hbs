@@ -1,5 +1,5 @@
 <li class="menu-item">
-  <LinkTo @route={{@route}}>
+  <LinkTo @route={{@route}} {{on "click" this.menuState.toggleMenu}}>
     <p><Icon @role="img" @icon={{@icon}} />
       {{yield}}</p>
   </LinkTo>
