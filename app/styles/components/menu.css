@@ -1,5 +1,9 @@
 .menu {
-  @apply h-full bg-white font-sans w-screen absolute top-0 left-0 z-10 transform;
+  @apply w-full h-full p-4
+    overflow-hidden
+    bg-white font-sans 
+    absolute top-0 left-0 z-10 
+    transform;
 
   & h2 {
     @apply text-3xl font-title;
