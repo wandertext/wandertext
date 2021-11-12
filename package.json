@@ -31,9 +31,9 @@
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^2.0.0",
     "@ember/test-helpers": "^2.4.0",
-    "@embroider/compat": "^0.47.1",
-    "@embroider/core": "^0.47.1",
-    "@embroider/webpack": "^0.47.1",
+    "@embroider/compat": "^0.47.2",
+    "@embroider/core": "^0.47.2",
+    "@embroider/webpack": "^0.47.2",
     "@fullhuman/postcss-purgecss": "^4.0.3",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
@@ -90,7 +90,7 @@
     "qunit": "^2.17.2",
     "qunit-dom": "^2.0.0",
     "tailwindcss": "^2.2.17",
-    "webpack": "^5.60.0",
+    "webpack": "^5.64.0",
     "xo": "^0.46.4"
   },
   "engines": {
