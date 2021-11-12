@@ -1,9 +1,9 @@
 {{! @type="text"}}
-<li class="list-item">
+<li class="list-item {{if this.mapVisible "bg-columbiaBlue"}}">
   <InfoBox @model={{@model}} @linkToRoute={{@linkToRoute}}>
     <InfoBox::IconBox>
       <button type="button" {{on "click" this.toggleMap}}>
-        <Icon @role="butotn" @icon="map"/>
+        <Icon @role="button" @icon="map"/>
       </button>
       {{#if this.mapVisible}}
         <Icon @icon="caret-up" />
