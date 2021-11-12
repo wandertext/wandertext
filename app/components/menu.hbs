@@ -1,23 +1,27 @@
-<aside class="p-4 menu">
-  <CloseButton 
-    @onClick={{this.menuState.toggleMenu}}
-    @ariaLabel="Close menu"
-    />
-  <header>
-    <h2>
-      Wandertext <Icon @icon="logo" /> <span class="sr-only">Menu</span>
-    </h2>
-  </header>
+{{#if this.menuState.menuVisible}}
+  <aside class="p-4 menu"
+    {{css-transition "menu-slide"}}
+  >
+    <CloseButton 
+      @onClick={{this.menuState.toggleMenu}}
+      @ariaLabel="Close menu"
+      />
+    <header>
+      <h2>
+        Wandertext <Icon @icon="logo" /> <span class="sr-only">Menu</span>
+      </h2>
+    </header>
 
-  <ul role="navigation">
-    {{#each this.menuItems as |menuItem|}}
-      <Menu::Item @route={{menuItem.route}} @icon={{menuItem.slug}}>
-        {{menuItem.text}}
-      </Menu::Item>
-    {{/each}}
-  </ul>
+    <ul role="navigation">
+      {{#each this.menuItems as |menuItem|}}
+        <Menu::Item @route={{menuItem.route}} @icon={{menuItem.slug}}>
+          {{menuItem.text}}
+        </Menu::Item>
+      {{/each}}
+    </ul>
 
-  <footer>
-    © 2021, people of Earth
-  </footer>
-</aside>
+    <footer>
+      © 2021, people of Earth
+    </footer>
+  </aside>
+{{/if}}

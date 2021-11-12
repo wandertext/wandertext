@@ -1,7 +1,19 @@
 .menu {
-  @apply h-full w-full bg-white font-sans;
+  @apply h-full bg-white font-sans w-screen absolute top-0 left-0 z-10 transform;
 
   & h2 {
     @apply text-3xl font-title;
   }
+}
+
+.menu-slide-enter, .menu-slide-leave-to {
+  @apply translate-x-full;
+}
+
+.menu-slide-enter-active, .menu-slide-leave-active {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+.menu-slide-enter-to, .menu-slide-leave {
+  @apply translate-x-0;
 }
