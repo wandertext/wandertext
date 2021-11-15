@@ -54,7 +54,7 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-cli-update": "^1.0.1",
-    "ember-cli-yadda": "^0.6.0",
+    "ember-cli-yadda": "^0.7.0",
     "ember-css-transitions": "^2.1.1",
     "ember-data": "3.28.3",
     "ember-export-application-global": "^2.0.1",
