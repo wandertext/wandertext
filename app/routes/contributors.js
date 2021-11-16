@@ -1,3 +1,10 @@
 import Route from "@ember/routing/route";
+import { inject as service } from "@ember/service";
 
-export default class ContributorsRoute extends Route {}
+export default class ContributorsRoute extends Route {
+  @service store;
+
+  async model() {
+    return this.store.findAll("contributor");
+  }
+}
