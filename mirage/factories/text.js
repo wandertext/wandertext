@@ -15,7 +15,7 @@ export default Factory.extend({
   },
 
   markdownBlurb() {
-    return faker.lorem.paragraph(2);
+    return faker.lorem.paragraph(6);
   },
 
   url() {

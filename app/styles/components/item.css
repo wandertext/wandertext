@@ -1,0 +1,13 @@
+.item {
+  & section {
+    @apply px-2;
+
+    & h2 {
+      @apply text-2xl font-semibold;
+    }
+  }
+
+  & section.blurb {
+    @apply text-xl;
+  }
+}

@@ -1,7 +1,6 @@
 {{#let @model.name as |title|}}
   {{page-title title}}
   <Header @icon="text" @title={{title}} />
-
-  <h1>{{@model.name}}</h1>
+  <Item @model={{@model}} />
 {{/let}}
 

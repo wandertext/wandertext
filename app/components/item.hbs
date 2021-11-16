@@ -1,0 +1,25 @@
+<article class="item">
+  <header>
+    <InfoBox @model={{@model}}>
+      <InfoBox::IconBox>
+        <button type="button">
+          <Icon @role="button" @icon="map"/>
+        </button>
+          <Icon @icon="caret-right" />
+      </InfoBox::IconBox>
+    </InfoBox>
+  </header>
+
+  {{#if @model.markdownBlurb}}
+    <section class="blurb">
+      {{markdown-to-html @model.markdownBlurb}}
+    </section>
+  {{/if}}
+
+  <section>
+    <h2><Icon @icon="contributors" /> Contributors</h2>
+  </section>
+  <section>
+    <h2><Icon @icon="stats" /> Statistics</h2>
+  </section>
+</article>
