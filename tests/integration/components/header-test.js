@@ -10,17 +10,8 @@ module("Integration | Component | header", function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Header />`);
+    await render(hbs`<Header @title="Test Title" />`);
 
-    assert.dom(this.element).hasText("");
-
-    // Template block usage:
-    await render(hbs`
-      <Header>
-        template block text
-      </Header>
-    `);
-
-    assert.dom(this.element).hasText("template block text");
+    assert.dom(this.element).hasTextContaining("Test Title");
   });
 });

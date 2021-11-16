@@ -7,13 +7,6 @@ module("Integration | Component | menu/item", hooks => {
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<Menu::Item />`);
-
-    assert.equal(this.element.textContent.trim(), "");
-
     // Template block usage:
     await render(hbs`
       <Menu::Item>
@@ -21,6 +14,6 @@ module("Integration | Component | menu/item", hooks => {
       </Menu::Item>
     `);
 
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.dom(this.element).hasTextContaining("template block text");
   });
 });
