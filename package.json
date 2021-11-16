@@ -89,7 +89,7 @@
     "qunit": "^2.17.2",
     "qunit-dom": "^2.0.0",
     "tailwindcss": "^2.2.19",
-    "webpack": "^5.64.0",
+    "webpack": "^5.64.1",
     "xo": "^0.46.4"
   },
   "engines": {
