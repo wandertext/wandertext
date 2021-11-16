@@ -17230,6 +17230,11 @@ yadda@*:
   resolved "https://registry.yarnpkg.com/yadda/-/yadda-2.1.0.tgz#44b2279f552d0df49e5af663457ee65a796df7ef"
   integrity sha512-jWEhhPemaU2OBNjOmwtdbNm7dHS43bNFexsV4aEDhlkz/vuGvYYHsySdSCM0YWdGLzlyqEJqLkXva+vFRTOblg==
 
+yadda@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/yadda/-/yadda-2.1.1.tgz#77b08f9bd13362031a4808c6f98b0f73074194db"
+  integrity sha512-ZDYKz9GU+fBk56v8fLhJ9lXBKAy9w0smD/jNsmAwhlSf/ni/cwxXw5oRuwjL98SU+MX+mjTMVKN5h1vBTPd0Rw==
+
 yallist@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
