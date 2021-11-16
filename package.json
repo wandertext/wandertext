@@ -54,7 +54,6 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-cli-update": "^1.0.1",
-    "ember-cli-yadda": "^0.7.0",
     "ember-css-transitions": "^2.1.1",
     "ember-data": "3.28.3",
     "ember-export-application-global": "^2.0.1",
@@ -91,8 +90,7 @@
     "qunit-dom": "^2.0.0",
     "tailwindcss": "^2.2.19",
     "webpack": "^5.64.0",
-    "xo": "^0.46.4",
-    "yadda": "^2.1.1"
+    "xo": "^0.46.4"
   },
   "engines": {
     "node": "10.* || >= 12"

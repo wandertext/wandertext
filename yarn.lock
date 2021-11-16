@@ -6914,19 +6914,6 @@ ember-cli-version-checker@^5.1.1, ember-cli-version-checker@^5.1.2:
     semver "^7.3.4"
     silent-error "^1.1.1"
 
-ember-cli-yadda@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-yadda/-/ember-cli-yadda-0.7.0.tgz#eff5583a886cd752343f74f485a4485ea6e37366"
-  integrity sha512-NdolJAdNEOIHdTR8pbv8I6LUvP6QHAHvIdFSQP1kzqEqdFurFT7E7Vl5XqG45puNDty5FSTptdZkc+zrP9C8HQ==
-  dependencies:
-    broccoli-funnel "^3.0.8"
-    broccoli-persistent-filter "^3.1.2"
-    ember-auto-import "^2.2.3"
-    ember-cli-babel "^7.26.6"
-    ember-cli-htmlbars "^5.7.1"
-    qunit "^2.16.0"
-    yadda "*"
-
 ember-cli@3.28.4:
   version "3.28.4"
   resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-3.28.4.tgz#784cfeaf5319e409edc3e03e5d99bcfcf18f9e53"
@@ -13997,7 +13984,7 @@ qunit-dom@^2.0.0:
     ember-cli-babel "^7.23.0"
     ember-cli-version-checker "^5.1.1"
 
-qunit@^2.16.0, qunit@^2.17.2:
+qunit@^2.17.2:
   version "2.17.2"
   resolved "https://registry.yarnpkg.com/qunit/-/qunit-2.17.2.tgz#5cb278e131d931f25c109a0fdb0518be7754c25a"
   integrity sha512-17isVvuOmALzsPjiV7wFg/6O5vJYXBrQZPwocfQSSh0I/rXvfX7bKMFJ4GMVW3U4P8r2mBeUy8EAngti4QD2Vw==
@@ -17224,16 +17211,6 @@ y18n@^5.0.5:
   version "5.0.8"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-5.0.8.tgz#7f4934d0f7ca8c56f95314939ddcd2dd91ce1d55"
   integrity sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==
-
-yadda@*:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/yadda/-/yadda-2.1.0.tgz#44b2279f552d0df49e5af663457ee65a796df7ef"
-  integrity sha512-jWEhhPemaU2OBNjOmwtdbNm7dHS43bNFexsV4aEDhlkz/vuGvYYHsySdSCM0YWdGLzlyqEJqLkXva+vFRTOblg==
-
-yadda@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/yadda/-/yadda-2.1.1.tgz#77b08f9bd13362031a4808c6f98b0f73074194db"
-  integrity sha512-ZDYKz9GU+fBk56v8fLhJ9lXBKAy9w0smD/jNsmAwhlSf/ni/cwxXw5oRuwjL98SU+MX+mjTMVKN5h1vBTPd0Rw==
 
 yallist@^2.1.2:
   version "2.1.2"
