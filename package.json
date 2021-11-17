@@ -84,7 +84,7 @@
     "postcss": "^8.3.11",
     "postcss-import": "^14.0.2",
     "postcss-nesting": "^9.0.0",
-    "postcss-preset-env": "^6.7.0",
+    "postcss-preset-env": "^7.0.0",
     "prettier": "^2.4.1",
     "qunit": "^2.17.2",
     "qunit-dom": "^2.0.0",
