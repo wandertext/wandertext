@@ -1,6 +1,5 @@
 /* eslint capitalized-comments: "off" */
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
-const autoprefixer = require("autoprefixer");
 const tailwind = require("tailwindcss");
 
 module.exports = function (defaults) {
@@ -24,8 +23,6 @@ module.exports = function (defaults) {
             },
           },
           tailwind("./app/tailwind/config.js"),
-          autoprefixer,
-          require("postcss-nesting"),
           require("postcss-preset-env")({
             stage: 1,
           }),
