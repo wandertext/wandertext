@@ -1,6 +1,7 @@
 {{#let @model.name as |title|}}
   {{page-title title}}
-  <Header @icon="text" @title={{title}} />
+<div class="transform -translate-x-full md:translate-x-0 w-full md:w-3/4">
   <Item @model={{@model}} />
+</div>
 {{/let}}
 

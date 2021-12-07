@@ -2,13 +2,14 @@
   @apply h-16 p-2 pr-6 w-full flex flex-row space-x-2 justify-between;
 
   & .info-box-text {
-    @apply h-full flex flex-row space-x-2 flex-grow;
+    @apply h-full flex flex-row space-x-2;
   
     & span {
-      @apply self-end text-3xl whitespace-nowrap truncate inline;
+      /* @apply self-end text-3xl whitespace-nowrap truncate inline; */
+      @apply self-end text-3xl block h-full;
 
-      & p, & div {
-       @apply inline;
+      & p, & div, & em {
+       @apply block h-full overflow-hidden;
       }
     }
   }

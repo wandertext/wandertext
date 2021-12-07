@@ -1,5 +1,8 @@
 {{#let "Texts" as |title|}}
   {{page-title title}}
   <Header @icon="text" @title={{title}} />
-  <List @model={{@model}} @linkToRoute="texts.text" />
+  <div class="flex flex-row">
+    <List @model={{@model}} @linkToRoute="texts.text" />
+    {{outlet}}
+  </div>
 {{/let}}

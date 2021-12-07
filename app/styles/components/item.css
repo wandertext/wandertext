@@ -1,4 +1,6 @@
 .item {
+  @apply md:bg-white h-full;
+
   & section {
     @apply px-2;
 
