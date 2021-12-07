@@ -1,7 +1,8 @@
 <button 
-  {{on "click" (fn this.click @icon)}} 
+  {{on "click" (fn this.click this.icon)}} 
   class="fab" type="button">
-  <Icon @role="button" @icon={{@icon}} />
+  <Icon @role="button" @icon={{this.icon}} />
 </button>
+
 
 
