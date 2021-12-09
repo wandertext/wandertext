@@ -49,7 +49,7 @@
     "ember-cli-mirage": "^2.2.0",
     "ember-cli-netlify": "^0.4.1",
     "ember-cli-postcss": "^7.0.1",
-    "ember-cli-showdown": "git://github.com/muziejus/ember-cli-showdown#master",
+    "ember-cli-showdown": "^6.0.1",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-css-transitions": "^2.1.1",
