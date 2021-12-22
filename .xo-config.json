@@ -17,6 +17,11 @@
     }
   },
   "overrides": [
+    { "files": ["types/**/*.d.ts"],
+      "rules": {
+        "@typescript-eslint/consistent-indexed-object-style": "off"
+      }
+    },
     {
       "files": ["tests/**/*.js"],
       "rules": {
