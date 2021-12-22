@@ -22,10 +22,11 @@ module.exports = function (defaults) {
               path: ["node_modules"],
             },
           },
-          tailwind("./app/tailwind/config.js"),
+          // The nesting plugin needs to come before tailwind.
           require("postcss-preset-env")({
             stage: 1,
           }),
+          tailwind("./app/tailwind/config.js"),
         ],
       },
     },

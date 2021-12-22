@@ -2,6 +2,7 @@
 const appColors = require("./colors.js");
 
 const tailwindConfig = {
+  content: ["./app/**/*.{html,js,hbs}"],
   theme: {
     screens: {
       sm: "640px",
