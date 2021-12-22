@@ -23,9 +23,7 @@ module.exports = function (defaults) {
             },
           },
           // The nesting plugin needs to come before tailwind.
-          require("postcss-preset-env")({
-            stage: 1,
-          }),
+          require("tailwindcss/nesting")(require("postcss-nesting")),
           tailwind("./app/tailwind/config.js"),
         ],
       },
