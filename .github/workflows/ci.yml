@@ -1,12 +1,15 @@
-name: CI
-
 on: 
   push:
     branches:
       - main
-  pull_request:
-
+  pull_request: {}
+concurrency:
+   group: ci-${{ github.head_ref || github.ref }}
+   cancel-in-progress: true
 jobs:
+  lint:
+    name: "Lint"
+    runs-on: ubuntu-latest
   test:
     name: Run tests
     runs-on: ${{ matrix.os }}
@@ -52,4 +55,5 @@ jobs:
           steps.cache-node-modules.outputs.cache-hit != 'true'
 
       - name: Run Wandertext Test Suite
+        uses: actions/checkout@v2
         run: yarn test
