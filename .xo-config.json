@@ -17,7 +17,15 @@
     }
   },
   "overrides": [
-    { "files": ["types/**/*.d.ts"],
+    {
+      "files": ["app/models/**/*.ts"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off",
+        "import/no-cycle": "off"
+      }
+    },
+    { 
+      "files": ["types/**/*.d.ts"],
       "rules": {
         "@typescript-eslint/consistent-indexed-object-style": "off"
       }
