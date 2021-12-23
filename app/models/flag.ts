@@ -1,13 +1,17 @@
-import Model, { attr, belongsTo } from "@ember-data/model";
-import DS from "ember-data";
-import Entry from "./entry";
-import Place from "./place";
-import Contributor from "./contributor";
-import Text from "./text";
+import Model, { attr, belongsTo, AsyncBelongsTo } from "@ember-data/model";
+import Entry from "wandertext/models/entry";
+import Place from "wandertext/models/place";
+import Contributor from "wandertext/models/contributor";
+import Text from "wandertext/models/text";
+
+declare module "ember-data/types/registries/model" {
+  export default interface ModelRegistry {
+    flag: FlagModel;
+  }
+}
 
 export default class FlagModel extends Model {
-  @attr()
-  declare comment?: string;
+  @attr declare comment?: string;
 
   @attr("date", {
     defaultValue() {
@@ -16,21 +20,13 @@ export default class FlagModel extends Model {
   })
   declare createdAt: Date;
 
-  @attr("date")
-  declare modifiedAt?: Date;
+  @attr("date") declare modifiedAt?: Date;
 
-  // If async is switched to false, these have to be the objects in themselves (Place),
-  // not DS.PromiseObject<Place>.
+  @belongsTo("contributor") declare creator: AsyncBelongsTo<Contributor>;
 
-  @belongsTo("contributor")
-  declare creator: DS.PromiseObject<Contributor>;
+  @belongsTo("place") declare place: AsyncBelongsTo<Place>;
 
-  @belongsTo("place")
-  declare place: DS.PromiseObject<Place>;
+  @belongsTo("entry") declare entry: AsyncBelongsTo<Entry>;
 
-  @belongsTo("entry")
-  declare entry: DS.PromiseObject<Entry>;
-
-  @belongsTo("text")
-  declare text: DS.PromiseObject<Text>;
+  @belongsTo("text") declare text: AsyncBelongsTo<Text>;
 }

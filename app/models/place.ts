@@ -1,30 +1,28 @@
-import Model, { attr, hasMany } from "@ember-data/model";
-import DS from "ember-data";
-import Entry from "./entry";
-import Contributor from "./contributor";
-import Flag from "./flag";
+import Model, { attr, hasMany, AsyncHasMany } from "@ember-data/model";
+import Entry from "wandertext/models/entry";
+import Contributor from "wandertext/models/contributor";
+import Flag from "wandertext/models/flag";
+
+declare module "ember-data/types/registries/model" {
+  export default interface ModelRegistry {
+    place: PlaceModel;
+  }
+}
 
 export default class PlaceModel extends Model {
-  @attr()
-  declare name: string;
+  @attr declare name: string;
 
-  @attr()
-  declare note?: string;
+  @attr declare note?: string;
 
-  @attr()
-  declare source?: string;
+  @attr declare source?: string;
 
-  @attr("number")
-  declare latitude?: number;
+  @attr("number") declare latitude?: number;
 
-  @attr("number")
-  declare longitude?: number;
+  @attr("number") declare longitude?: number;
 
-  @attr("number")
-  declare geonameId?: number;
+  @attr("number") declare geonameId?: number;
 
-  @attr("number")
-  declare confidence?: number;
+  @attr("number") declare confidence?: number;
 
   @attr("date", {
     defaultValue() {
@@ -33,18 +31,14 @@ export default class PlaceModel extends Model {
   })
   declare createdAt: Date;
 
-  @attr("date")
-  declare modifiedAt?: Date;
-
-  // If async is switched to false, these have to be EmberArrays, not DS.PromiseManyArrays.
-  // EmberArray is imported from "@ember/array";
+  @attr("date") declare modifiedAt?: Date;
 
   @hasMany("entry")
-  declare entry: DS.PromiseManyArray<Entry>;
+  declare entry: AsyncHasMany<Entry>;
 
   @hasMany("contributor")
-  declare contributor: DS.PromiseManyArray<Contributor>;
+  declare contributor: AsyncHasMany<Contributor>;
 
   @hasMany("flag")
-  declare flag: DS.PromiseManyArray<Flag>;
+  declare flag: AsyncHasMany<Flag>;
 }

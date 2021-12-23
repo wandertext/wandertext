@@ -1,29 +1,24 @@
-import Model, { attr, hasMany } from "@ember-data/model";
-import DS from "ember-data";
-import Text from "./text";
+import Model, { attr, hasMany, AsyncHasMany } from "@ember-data/model";
+import Text from "wandertext/models/text";
+
+declare module "ember-data/types/registries/model" {
+  export default interface ModelRegistry {
+    entryProperty: EntryPropertyModel;
+  }
+}
 
 export default class EntryPropertyModel extends Model {
-  @attr()
-  declare name?: string;
+  @attr declare name?: string;
 
-  @attr()
-  declare type?: string;
+  @attr declare type?: string;
 
-  @attr()
-  declare help?: string;
+  @attr declare help?: string;
 
-  @attr()
-  declare inputLabel?: string;
+  @attr declare inputLabel?: string;
 
-  @attr()
-  declare owner?: string;
+  @attr declare owner?: string;
 
-  @attr("boolean", { defaultValue: true })
-  declare nullable: boolean;
+  @attr("boolean", { defaultValue: true }) declare nullable: boolean;
 
-  // If async is switched to false, these have to be EmberArrays, not DS.PromiseManyArrays.
-  // EmberArray is imported from "@ember/array";
-
-  @hasMany("text")
-  declare text: DS.PromiseManyArray<Text>;
+  @hasMany("text") declare text: AsyncHasMany<Text>;
 }

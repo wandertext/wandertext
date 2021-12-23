@@ -1,23 +1,30 @@
-import Model, { attr, hasMany, belongsTo } from "@ember-data/model";
-import DS from "ember-data";
-import Contributor from "./contributor";
-import Place from "./place";
-import Flag from "./flag";
-import Text from "./text";
+import Model, {
+  attr,
+  hasMany,
+  belongsTo,
+  AsyncHasMany,
+  AsyncBelongsTo,
+} from "@ember-data/model";
+import Contributor from "wandertext/models/contributor";
+import Place from "wandertext/models/place";
+import Flag from "wandertext/models/flag";
+import Text from "wandertext/models/text";
+
+declare module "ember-data/types/registries/model" {
+  export default interface ModelRegistry {
+    entry: EntryModel;
+  }
+}
 
 export default class EntryModel extends Model {
-  @attr()
-  declare properties?: any;
+  @attr declare properties?: any;
 
-  @attr()
-  declare attestedName?: string;
+  @attr declare attestedName?: string;
 
-  @attr()
-  declare note?: string;
+  @attr declare note?: string;
 
   // Is this a lazy loaded id for the place?
-  @attr()
-  declare placeId?: string;
+  @attr declare placeId?: string;
 
   @attr("date", {
     defaultValue() {
@@ -26,24 +33,13 @@ export default class EntryModel extends Model {
   })
   declare createdAt: Date;
 
-  @attr("date")
-  declare modifiedAt?: Date;
+  @attr("date") declare modifiedAt?: Date;
 
-  // If async is switched to false, these have to be EmberArrays, not DS.PromiseManyArrays.
-  // EmberArray is imported from "@ember/array";
+  @hasMany("contributor") declare contributor: AsyncHasMany<Contributor>;
 
-  @hasMany("contributor")
-  declare contributor: DS.PromiseManyArray<Contributor>;
+  @hasMany("flag") declare flag: AsyncHasMany<Flag>;
 
-  @hasMany("flag")
-  declare flag: DS.PromiseManyArray<Flag>;
+  @belongsTo("place") declare place: AsyncBelongsTo<Place>;
 
-  // If async is switched to false, these have to be the objects in themselves (Place),
-  // not DS.PromiseObject<Place>.
-
-  @belongsTo("place")
-  declare place: DS.PromiseObject<Place>;
-
-  @belongsTo("text")
-  declare text: DS.PromiseObject<Text>;
+  @belongsTo("text") declare text: AsyncBelongsTo<Text>;
 }

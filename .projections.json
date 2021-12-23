@@ -27,9 +27,9 @@
   },
   "tests/unit/routes/*-test.js": {
     "type": "rtest",
-    "alternate": "app/routes/{}.js"
+    "alternate": "app/routes/{}.ts"
   },
-  "app/routes/*.js": {
+  "app/routes/*.ts": {
     "type": "route",
     "alternate": "app/templates/{}.hbs"
   },

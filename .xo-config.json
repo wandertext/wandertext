@@ -18,9 +18,14 @@
   },
   "overrides": [
     {
+      "files": ["app/**/*.ts"],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    },
+    {
       "files": ["app/models/**/*.ts"],
       "rules": {
-        "import/no-extraneous-dependencies": "off",
         "import/no-cycle": "off"
       }
     },
