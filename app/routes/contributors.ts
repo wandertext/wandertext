@@ -1,13 +1,17 @@
 import Route from "@ember/routing/route";
 import { inject as service } from "@ember/service";
 import Store from "@ember-data/store";
-import DS from "ember-data";
-import ContributorModel from "wandertext/models/contributor";
+
+type Resolved<P> = P extends Promise<infer T> ? T : P;
+
+export type ContributorsRouteModel = Resolved<
+  ReturnType<ContributorsRoute["model"]>
+>;
 
 export default class ContributorsRoute extends Route {
   @service declare store: Store;
 
-  model(): DS.PromiseArray<ContributorModel> {
+  model() {
     return this.store.findAll("contributor");
   }
 }
