@@ -6,4 +6,4 @@
 //   // Interface Function extends Ember.FunctionPrototypeExtensions {}
 // }
 
-// export {};
+export {};
