@@ -1,10 +1,18 @@
 import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
+import type MenuState from "wandertext/services/menu-state";
+import type { IconSlug } from "wandertext";
+
+interface MenuItem {
+  slug: IconSlug;
+  text: string;
+  route: string;
+}
 
 export default class MenuComponent extends Component {
-  @service menuState;
+  @service declare menuState: MenuState;
 
-  menuItems = [
+  menuItems: MenuItem[] = [
     {
       slug: "text",
       text: "Texts",

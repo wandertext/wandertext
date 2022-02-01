@@ -34,6 +34,7 @@ type IconSlug =
   | "privacy"
   | "search"
   | "stats"
+  | "text"
   | "text-delete"
   | "text-new";
 
