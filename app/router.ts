@@ -1,5 +1,6 @@
 /* eslint prefer-arrow-callback: "off" */
 /* eslint array-callback-return: "off" */
+/* eslint @typescript-eslint/naming-convention: "off" */
 import EmberRouter from "@ember/routing/router";
 import config from "wandertext/config/environment";
 
