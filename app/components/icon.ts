@@ -1,7 +1,13 @@
 import Component from "@glimmer/component";
+import { IconSlug } from "wandertext";
 
-export default class IconComponent extends Component {
-  icons = {
+interface IconComponentArgs {
+  role?: string;
+  icon?: IconSlug;
+}
+
+export default class IconComponent extends Component<IconComponentArgs> {
+  icons: Record<string, { title: string; desc: string }> = {
     logo: {
       title: "Wandertext Logo",
       desc: "The Wandertext logo, a nastaʼlīq wāw.",

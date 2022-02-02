@@ -1,11 +1,18 @@
 import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import type MenuState from "wandertext/services/menu-state";
+import { IconSlug } from "wandertext";
 
-export default class HeaderComponent extends Component {
-  @service menuState;
+interface HeaderComponentArgs {
+  icon: IconSlug;
+  title: string;
+}
 
-  get icon() {
+export default class HeaderComponent extends Component<HeaderComponentArgs> {
+  @service declare menuState: MenuState;
+
+  get icon(): IconSlug {
     if (this.args.icon) {
       return this.args.icon;
     }
@@ -26,6 +33,6 @@ export default class HeaderComponent extends Component {
   }
 
   @action goBack() {
-    window.history.back(); // eslint-disable-line no-undef
+    window.history.back();
   }
 }
