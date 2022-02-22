@@ -2,7 +2,12 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 
-export default class ListItemComponent extends Component {
+interface ListItemComponentArgs {
+  model: string; // This is completely wrong.
+  linkToRoute: string; // Also probably wrong.
+}
+
+export default class ListItemComponent extends Component<ListItemComponentArgs> {
   @tracked
   mapVisible = false;
 

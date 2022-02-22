@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
+import type { LeafletEvent } from "leaflet";
 
 export default class MapComponent extends Component {
   lat = 40.712_778;
@@ -23,13 +24,14 @@ export default class MapComponent extends Component {
     },
   };
 
+  // @ts-ignore
   @service modals;
 
-  @action openDefaultModal(content) {
+  @action openDefaultModal(content: string) {
     this.modals.open(`modals/${content}`);
   }
 
-  @action updateZoom(event) {
+  @action updateZoom(event: LeafletEvent) {
     // Seems to set up a race condition where the attribution is not always as
     // tidy as it should be.
     this.zoom = event.target.getZoom();
@@ -44,7 +46,7 @@ export default class MapComponent extends Component {
     }
   }
 
-  @action placeAttribution(event) {
+  @action placeAttribution(event: LeafletEvent) {
     event.target.attributionControl.setPosition("bottomleft");
   }
 }
