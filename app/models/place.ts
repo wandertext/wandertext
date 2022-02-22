@@ -1,7 +1,7 @@
 import Model, { attr, hasMany, AsyncHasMany } from "@ember-data/model";
-import Entry from "wandertext/models/entry";
-import Contributor from "wandertext/models/contributor";
-import Flag from "wandertext/models/flag";
+import type Entry from "wandertext/models/entry";
+import type Contributor from "wandertext/models/contributor";
+import type Flag from "wandertext/models/flag";
 
 declare module "ember-data/types/registries/model" {
   export default interface ModelRegistry {

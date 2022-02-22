@@ -5,10 +5,10 @@ import Model, {
   AsyncHasMany,
   AsyncBelongsTo,
 } from "@ember-data/model";
-import Contributor from "wandertext/models/contributor";
-import Place from "wandertext/models/place";
-import Flag from "wandertext/models/flag";
-import Text from "wandertext/models/text";
+import type Contributor from "wandertext/models/contributor";
+import type Place from "wandertext/models/place";
+import type Flag from "wandertext/models/flag";
+import type Text from "wandertext/models/text";
 
 declare module "ember-data/types/registries/model" {
   export default interface ModelRegistry {

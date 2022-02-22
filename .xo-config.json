@@ -8,12 +8,7 @@
       "legacyDecorators": true
     },
     "babelOptions": {
-      "plugins": [
-        [
-          "@babel/plugin-proposal-decorators", 
-          { "legacy": true }
-        ]
-      ]
+      "plugins": [["@babel/plugin-proposal-decorators", { "legacy": true }]]
     }
   },
   "overrides": [
@@ -24,12 +19,6 @@
       }
     },
     {
-      "files": ["app/models/**/*.ts"],
-      "rules": {
-        "import/no-cycle": "off"
-      }
-    },
-    { 
       "files": ["types/**/*.d.ts"],
       "rules": {
         "@typescript-eslint/consistent-indexed-object-style": "off"

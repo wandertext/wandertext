@@ -1,5 +1,5 @@
 import Model, { attr, hasMany, AsyncHasMany } from "@ember-data/model";
-import Text from "wandertext/models/text";
+import type Text from "wandertext/models/text";
 
 declare module "ember-data/types/registries/model" {
   export default interface ModelRegistry {
