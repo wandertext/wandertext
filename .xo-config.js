@@ -11,6 +11,9 @@ module.exports = {
       plugins: [["@babel/plugin-proposal-decorators", { legacy: true }]],
     },
   },
+  rules: {
+    "@typescript-eslint/member-ordering": "off",
+  },
   overrides: [
     {
       files: ["app/routes/**/*.ts", "app/models/*.ts"],
