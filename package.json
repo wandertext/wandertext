@@ -16,8 +16,8 @@
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
-    "lint:js": "xo . --cache",
-    "lint:js:fix": "xo . --fix",
+    "lint:js": "eslint --color --format=pretty . --cache",
+    "lint:js:fix": "eslint --color --format=pretty . --fix",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test"
@@ -62,6 +62,8 @@
     "@types/leaflet": "^1.7.9",
     "@types/qunit": "^2.11.3",
     "@types/rsvp": "^4.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^2.2.4",
@@ -95,6 +97,7 @@
     "ember-truth-helpers": "^3.0.0",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-formatter-pretty": "^4.1.0",
     "eslint-plugin-ember": "^10.5.8",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -112,8 +115,7 @@
     "qunit-dom": "^2.0.0",
     "tailwindcss": "^3.0.7",
     "typescript": "^4.5.5",
-    "webpack": "^5.65.0",
-    "xo": "^0.47.0"
+    "webpack": "^5.65.0"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"

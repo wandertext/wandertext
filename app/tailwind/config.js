@@ -1,4 +1,3 @@
-/* eslint unicorn/prefer-module: "off" */
 const appColors = require("./colors.js");
 
 const tailwindConfig = {

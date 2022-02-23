@@ -1,3 +1,4 @@
+/* eslint @typescript-eslint/no-explicit-any: "off" */
 /**
  * Catch-all for ember-data.
  */

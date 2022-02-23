@@ -1,11 +1,11 @@
 /* Use this file just so Prettier and XO play nice. */
-'use strict';
+"use strict";
 
 module.exports = {
   useTabs: false,
   semi: true,
-  trailingComma: 'es5',
+  trailingComma: "es5",
   bracketSpacing: true,
-  arrowParens: 'avoid',
+  arrowParens: "avoid",
   singleQuote: false,
 };

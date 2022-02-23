@@ -11,13 +11,13 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route("texts", function () {
-    this.route("text", { path: "/:textId" });
+    this.route("text", { path: "/:text_id" });
   });
   this.route("places");
-  this.route("places.place", { path: "/places/:placeId" });
+  this.route("places.place", { path: "/places/:place_id" });
   this.route("contributors");
   this.route("contributors.contributor", {
-    path: "/contributors/:contributorId",
+    path: "/contributors/:contributor_id",
   });
   this.route("about");
   this.route("help");

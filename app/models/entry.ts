@@ -17,7 +17,7 @@ declare module "ember-data/types/registries/model" {
 }
 
 export default class EntryModel extends Model {
-  @attr declare properties?: any;
+  @attr declare properties?: string;
 
   @attr declare attestedName?: string;
 

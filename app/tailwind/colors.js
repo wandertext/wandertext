@@ -1,4 +1,3 @@
-/* eslint unicorn/prefer-module: "off" */
 const appColors = {
   white: "#ffffff",
   black: "#000000",
