@@ -34,7 +34,7 @@ function checkAnnotations(annotations) {
 
 // Call back functions
 function ignoreIt(testElement) {
-  skip(`${testElement.title}`, (/* assert */) => {});
+  skip(`${testElement.title}`, (/* assert */) => true);
 }
 
 function logIt(testElement) {
