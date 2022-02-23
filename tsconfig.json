@@ -22,24 +22,11 @@
     "experimentalDecorators": true,
     "typeRoots": ["types/*"],
     "paths": {
-      "wandertext/tests/*": [
-        "tests/*"
-      ],
-      "wandertext/mirage/*": [
-        "mirage/*"
-      ],
-      "wandertext/*": [
-        "app/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "wandertext/tests/*": ["tests/*"],
+      "wandertext/mirage/*": ["mirage/*"],
+      "wandertext/*": ["app/*"],
+      "*": ["types/*"]
     }
   },
-  "include": [
-    "app/**/*",
-    "tests/**/*",
-    "types/**/*",
-    "mirage/**/*"
-  ]
+  "include": ["app/**/*", "tests/**/*", "types/**/*", "mirage/**/*"]
 }

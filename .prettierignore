@@ -1,5 +1,3 @@
-# Ignore all Handlebars files:
-*.hbs
 # unconventional js
 /blueprints/*/files/
 /vendor/
