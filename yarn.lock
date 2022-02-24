@@ -1799,7 +1799,7 @@
   resolved "https://registry.yarnpkg.com/@types/cors/-/cors-2.8.12.tgz#6b2c510a7ad7039e98e7b8d3d6598f4359e5c080"
   integrity sha512-vt+kDhq/M2ayberEtJcIN/hxXy1Pk+59g2FV/ZQceeaTyCtCucjL2Q7FXlFjtWn4n15KCr1NE2lNNFhp0lEThw==
 
-"@types/ember-data@*":
+"@types/ember-data@*", "@types/ember-data@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@types/ember-data/-/ember-data-4.0.0.tgz#ee915a16d75debd565bff73c8e0bd5bbb4d64b33"
   integrity sha512-UEZHkTFYAYJ5S+Kzz62z+wvlXtS6wu/lTIpwk4OnDXX1KRYauNfYfluaEH8GZ8rooMTG2xcpqFbAAw3FZJqrUQ==
@@ -1808,7 +1808,7 @@
     "@types/ember__object" "*"
     "@types/rsvp" "*"
 
-"@types/ember-data@^3", "@types/ember-data@^3.16.15":
+"@types/ember-data@^3":
   version "3.16.16"
   resolved "https://registry.yarnpkg.com/@types/ember-data/-/ember-data-3.16.16.tgz#351246f4214e865f88957c1fb88c47c8728118a2"
   integrity sha512-O+KP7aMz4CcSkK3yM5kYpbpYz9kcDvVL1j6MLpBaraooDN+VBfOwCcnP8RQj6+mVjbsePJdWUN7ALCUVXjRgXw==
