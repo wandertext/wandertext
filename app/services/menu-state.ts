@@ -9,3 +9,9 @@ export default class MenuStateService extends Service {
     this.menuVisible = !this.menuVisible;
   }
 }
+
+declare module '@ember/service' {
+  interface Registry {
+    'menu-state': MenuStateService;
+  }
+}
