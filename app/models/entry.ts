@@ -28,12 +28,12 @@ export default class EntryModel extends Model {
 
   @attr("date", {
     defaultValue() {
-      return new Date();
+      return new Date().toISOString();
     },
   })
-  declare createdAt: Date;
+  declare createdAt: string;
 
-  @attr("date") declare modifiedAt?: Date;
+  @attr() declare modifiedAt?: string;
 
   @hasMany("contributor") declare contributor: AsyncHasMany<Contributor>;
 

@@ -16,22 +16,22 @@ export default class PlaceModel extends Model {
 
   @attr declare source?: string;
 
-  @attr("number") declare latitude?: number;
+  @attr() declare latitude?: number;
 
-  @attr("number") declare longitude?: number;
+  @attr() declare longitude?: number;
 
-  @attr("number") declare geonameId?: number;
+  @attr() declare geonameId?: number;
 
-  @attr("number") declare confidence?: number;
+  @attr() declare confidence?: number;
 
   @attr("date", {
     defaultValue() {
-      return new Date();
+      return new Date().toISOString();
     },
   })
-  declare createdAt: Date;
+  declare createdAt: string;
 
-  @attr("date") declare modifiedAt?: Date;
+  @attr() declare modifiedAt?: string;
 
   @hasMany("entry")
   declare entry: AsyncHasMany<Entry>;

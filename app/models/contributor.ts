@@ -18,26 +18,26 @@ export default class ContributorModel extends Model {
 
   @attr declare lastName?: string;
 
-  @attr("boolean", { defaultValue: false }) declare enabled: boolean;
+  @attr({ defaultValue: false }) declare enabled: boolean;
 
-  @attr("boolean", { defaultValue: false }) declare editor: boolean;
+  @attr({ defaultValue: false }) declare editor: boolean;
 
-  @attr("boolean", { defaultValue: false }) declare admin: boolean;
+  @attr({ defaultValue: false }) declare admin: boolean;
 
-  @attr("date", {
+  @attr({
     defaultValue() {
-      return new Date();
+      return new Date().toISOString();
     },
   })
-  declare createdAt: Date;
+  declare createdAt: string;
 
-  @attr("date") declare modifiedAt?: Date;
+  @attr() declare modifiedAt?: string;
 
-  @hasMany("entry") declare entry: AsyncHasMany<Entry>;
+  @hasMany("entry") declare entries: AsyncHasMany<Entry>;
 
-  @hasMany("place") declare place: AsyncHasMany<Place>;
+  @hasMany("place") declare places: AsyncHasMany<Place>;
 
-  @hasMany("flag") declare flag: AsyncHasMany<Flag>;
+  @hasMany("flag") declare flags: AsyncHasMany<Flag>;
 
-  @hasMany("text") declare text: AsyncHasMany<Text>;
+  @hasMany("text") declare texts: AsyncHasMany<Text>;
 }

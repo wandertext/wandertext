@@ -27,7 +27,7 @@ export default class TextModel extends Model {
 
   @attr declare imgHref?: string;
 
-  @attr("number") declare year?: number;
+  @attr() declare year?: number;
 
   // @attr declare entryCount?: string;
 
@@ -37,12 +37,12 @@ export default class TextModel extends Model {
 
   @attr("date", {
     defaultValue() {
-      return new Date();
+      return new Date().toISOString();
     },
   })
-  declare createdAt: Date;
+  declare createdAt: string;
 
-  @attr("date") declare modifiedAt?: Date;
+  @attr() declare modifiedAt?: string;
 
   @hasMany("entryProperty")
   declare entryProperty: AsyncHasMany<EntryProperty>;

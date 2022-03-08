@@ -10,8 +10,8 @@ export default class MenuStateService extends Service {
   }
 }
 
-declare module '@ember/service' {
+declare module "@ember/service" {
   interface Registry {
-    'menu-state': MenuStateService;
+    "menu-state": MenuStateService;
   }
 }

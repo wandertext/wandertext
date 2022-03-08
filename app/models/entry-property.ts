@@ -18,7 +18,7 @@ export default class EntryPropertyModel extends Model {
 
   @attr declare owner?: string;
 
-  @attr("boolean", { defaultValue: true }) declare nullable: boolean;
+  @attr({ defaultValue: true }) declare nullable: boolean;
 
   @hasMany("text") declare text: AsyncHasMany<Text>;
 }

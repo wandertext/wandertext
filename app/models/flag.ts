@@ -15,12 +15,12 @@ export default class FlagModel extends Model {
 
   @attr("date", {
     defaultValue() {
-      return new Date();
+      return new Date().toISOString();
     },
   })
-  declare createdAt: Date;
+  declare createdAt: string;
 
-  @attr("date") declare modifiedAt?: Date;
+  @attr("date") declare modifiedAt?: string;
 
   @belongsTo("contributor") declare creator: AsyncBelongsTo<Contributor>;
 
