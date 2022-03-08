@@ -35,7 +35,7 @@ export default class TextModel extends Model {
 
   @attr declare properties?: string;
 
-  @attr("date", {
+  @attr({
     defaultValue() {
       return new Date().toISOString();
     },

@@ -13,14 +13,14 @@ declare module "ember-data/types/registries/model" {
 export default class FlagModel extends Model {
   @attr declare comment?: string;
 
-  @attr("date", {
+  @attr({
     defaultValue() {
       return new Date().toISOString();
     },
   })
   declare createdAt: string;
 
-  @attr("date") declare modifiedAt?: string;
+  @attr() declare modifiedAt?: string;
 
   @belongsTo("contributor") declare creator: AsyncBelongsTo<Contributor>;
 

@@ -24,7 +24,7 @@ export default class PlaceModel extends Model {
 
   @attr() declare confidence?: number;
 
-  @attr("date", {
+  @attr({
     defaultValue() {
       return new Date().toISOString();
     },

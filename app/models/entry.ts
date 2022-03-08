@@ -26,7 +26,7 @@ export default class EntryModel extends Model {
   // Is this a lazy loaded id for the place?
   @attr declare placeId?: string;
 
-  @attr("date", {
+  @attr({
     defaultValue() {
       return new Date().toISOString();
     },
