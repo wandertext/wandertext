@@ -1,7 +1,12 @@
+"use strict";
+const path = require("path");
 const appColors = require("./colors.js");
 
+const appEntry = path.join(__dirname, "app");
+const relevantFilesGlob = "**/*.{html,js,ts,hbs,gjs,gts}";
+
 const tailwindConfig = {
-  content: ["./app/**/*.{html,js,hbs}"],
+  content: [path.join(appEntry, relevantFilesGlob)],
   theme: {
     screens: {
       sm: "640px",

@@ -1,6 +1,5 @@
 /* eslint capitalized-comments: "off" */
 const EmberApp = require("ember-cli/lib/broccoli/ember-app");
-const tailwind = require("tailwindcss");
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
@@ -13,21 +12,6 @@ module.exports = function (defaults) {
         "images/marker-shadow.png",
       ],
     },
-    postcssOptions: {
-      compile: {
-        plugins: [
-          {
-            module: require("postcss-import"),
-            options: {
-              path: ["node_modules"],
-            },
-          },
-          // The nesting plugin needs to come before tailwind.
-          require("tailwindcss/nesting")(require("postcss-nesting")),
-          tailwind("./app/tailwind/config.js"),
-        ],
-      },
-    },
   });
 
   const { Webpack } = require("@embroider/webpack");
@@ -38,7 +22,30 @@ module.exports = function (defaults) {
     // staticComponents: true,
     // splitAtRoutes: ['route.name'], // can also be a RegExp
     packagerOptions: {
+      cssLoaderOptions: {
+        sourceMap: process.env.EMBER_ENV !== "production" ? true : false,
+      },
       webpackConfig: {
+        module: {
+          rules: [
+            {
+              test: f => /\.css$/i.test(f),
+              exclude: /node_modules/,
+              use: [
+                {
+                  loader: "postcss-loader",
+                  options: {
+                    sourceMap:
+                      process.env.EMBER_ENV !== "production" ? true : false,
+                    postcssOptions: {
+                      config: "./postcss.config.js",
+                    },
+                  },
+                },
+              ],
+            },
+          ],
+        },
         resolve: {
           fallback: {
             stream: false,

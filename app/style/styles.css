@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@import "components.css";
+@tailwind utilities;
+
+body {
+  min-height: -webkit-fill-available;
+  @apply text-primary h-screen w-screen;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+h3 {
+  @apply font-sans font-semibold;
+}
