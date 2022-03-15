@@ -3,7 +3,7 @@ module.exports = function (environment) {
     modulePrefix: "wandertext",
     environment,
     rootURL: "/",
-    locationType: "auto",
+    locationType: "history",
     "ember-cli-mirage": {
       enabled: true,
     },
