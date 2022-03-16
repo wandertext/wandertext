@@ -1,11 +1,11 @@
-<div class="info-box-text">
+<div class="self-end text-3xl block h-full">
   {{#if @model.imgSrc}}
     <img src={{@model.imgSrc}} class="h-full w-auto" alt="cover of {{@model.name}}"/>
   {{/if}}
 
   {{#if @model.markdownName}}
-    <span>{{markdown-to-html @model.markdownName}}</span>
+    <span class="block h-full overflow-hidden">{{markdown-to-html @model.markdownName}}</span>
   {{else}}
-    <span>{{@model.name}}</span>
+    <span class="block h-full overflow-hidden">{{@model.name}}</span>
   {{/if}} 
 </div>

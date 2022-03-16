@@ -11,7 +11,7 @@ const plugins = [
   // require("postcss-easing-gradients"),
   // require("postcss-font-magician"),
   // require("postcss-responsive-type"),
-  require("tailwindcss")({ config: "./tailwind/config.js" }),
+  require("tailwindcss")({ config: "./tailwind.config.js" }),
   require("autoprefixer"),
 ];
 

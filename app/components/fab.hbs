@@ -1,6 +1,7 @@
 <button 
   {{on "click" (fn this.click this.icon)}} 
-  class="fab" type="button">
+  class="rounded-full shadow-lg bg-white border m-2 p-2 absolute bottom-0 right-0 z-50"
+  type="button">
   <Icon @role="button" @icon={{this.icon}} />
 </button>
 

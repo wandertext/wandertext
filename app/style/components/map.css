@@ -1,7 +1,0 @@
-.map {
-  @apply text-primary;
-}
-
-.map-full-screen {
-  @apply h-full w-full;
-}

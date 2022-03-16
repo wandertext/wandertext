@@ -1,3 +1,0 @@
-ul.list {
-  @apply flex flex-col divide-y-2 divide-primaryDark;
-}

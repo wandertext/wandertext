@@ -1,5 +1,9 @@
 {{! @type="text"}}
-<li class="list-item {{if this.mapVisible "bg-columbiaBlue"}}">
+<li class="
+  w-full
+  flex
+  flex-col
+  {{if this.mapVisible "bg-columbiaBlue"}}">
   <InfoBox @model={{@model}} @linkToRoute={{@linkToRoute}}>
     <InfoBox::IconBox>
       <button type="button" {{on "click" this.toggleMap}}>

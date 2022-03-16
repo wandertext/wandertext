@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
-@import "components.css";
 @tailwind utilities;
+
+@import "./leaflet.css";
+@import "./ember-promise-modals.css";
 
 body {
   min-height: -webkit-fill-available;
@@ -14,4 +16,23 @@ html {
 
 h3 {
   @apply font-sans font-semibold;
+}
+
+a.active p {
+  @apply bg-columbiaBlue;
+}
+
+.menu-slide-enter,
+.menu-slide-leave-to {
+  @apply translate-x-full;
+}
+
+.menu-slide-enter-active,
+.menu-slide-leave-active {
+  @apply transition-all duration-500 ease-in-out;
+}
+
+.menu-slide-enter-to,
+.menu-slide-leave {
+  @apply translate-x-0;
 }

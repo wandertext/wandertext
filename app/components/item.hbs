@@ -1,4 +1,4 @@
-<article class="item">
+<article class="md:bg-white h-full">
   <header>
     <InfoBox @model={{@model}}>
       <InfoBox::IconBox>
@@ -11,15 +11,15 @@
   </header>
 
   {{#if @model.markdownBlurb}}
-    <section class="blurb">
+    <section class="text-xl px-2">
       {{markdown-to-html @model.markdownBlurb}}
     </section>
   {{/if}}
 
-  <section>
-    <h2><Icon @icon="contributors" /> Contributors</h2>
+  <section class="px-2">
+    <h2 class="text-2xl font-semibold"><Icon @icon="contributors" /> Contributors</h2>
   </section>
   <section>
-    <h2><Icon @icon="stats" /> Statistics</h2>
+    <h2 class="text-2xl font-semibold"><Icon @icon="stats" /> Statistics</h2>
   </section>
 </article>

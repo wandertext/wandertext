@@ -1,6 +1,8 @@
-<li class="menu-item">
+<li class="w-3/4 text-2xl font-sans font-semibold py-1">
   <LinkTo @route={{@route}} {{on "click" this.menuState.toggleMenu}}>
-    <p><Icon @role="img" @icon={{@icon}} />
-      {{yield}}</p>
+    <p class="p-1 hover:bg-columbiaBlue">
+      <Icon @role="img" @icon={{@icon}} />
+      {{yield}}
+    </p>
   </LinkTo>
 </li>

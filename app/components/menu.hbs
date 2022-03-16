@@ -1,5 +1,11 @@
 {{#if this.menuState.menuVisible}}
-  <aside class="menu"
+  <aside class="
+  w-full h-full p-4
+    overflow-hidden
+    bg-white font-sans 
+    absolute top-0 left-0 z-10 
+    transform
+  "
     {{css-transition "menu-slide"}}
   >
     <CloseButton 
@@ -7,7 +13,7 @@
       @ariaLabel="Close menu"
       />
     <header>
-      <h2>
+      <h2 class="text-3xl font-title">
         Wandertext <Icon @icon="logo" /> <span class="sr-only">Menu</span>
       </h2>
     </header>

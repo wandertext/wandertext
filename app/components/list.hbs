@@ -1,4 +1,7 @@
-<ul class="list {{if (eq this.router.currentRouteName "texts.text") "transform -translate-x-full md:translate-x-0 md:w-1/4 w-full" "w-full"}}">
+<ul class="flex flex-col
+divide-y-2
+divide-primaryDark
+  {{if (eq this.router.currentRouteName "texts.text") "transform -translate-x-full md:translate-x-0 md:w-1/4 w-full" "w-full"}}">
   {{#each @model as |item|}}
     <ListItem @model={{item}} @linkToRoute={{@linkToRoute}} />
   {{/each}}

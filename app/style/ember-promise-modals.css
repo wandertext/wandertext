@@ -1,7 +1,3 @@
-.modal {
-  @apply m-4 p-4 bg-white;
-}
-
 .epm-backdrop,
 .epm-modal-container {
   z-index: 2;
