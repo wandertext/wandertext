@@ -20,7 +20,6 @@ const appColors = {
 };
 
 const content = [path.join(appEntry, relevantFilesGlob)];
-console.log("CONTENT IS", content);
 
 const tailwindConfig = {
   content,
