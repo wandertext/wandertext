@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "description": "Small description for wandertext goes here",
-  "repository": "",
+  "repository": "https://github.com/wandertext/wandertext.git",
   "license": "MIT",
-  "author": "",
+  "author": "Moacir P. de Sá Pereira <github@moacir.moacir.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
