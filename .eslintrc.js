@@ -34,7 +34,7 @@ module.exports = {
         "./config/**/*.js",
         "./lib/*/index.js",
         "./server/**/*.js",
-        "./tailwind/*.js",
+        "./tailwind.config.js",
         "./postcss.config.js",
       ],
       parserOptions: {
