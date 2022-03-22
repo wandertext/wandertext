@@ -10,9 +10,9 @@
         <Icon @role="button" @icon="map"/>
       </button>
       {{#if this.mapVisible}}
-        <Icon @icon="caret-up" />
+        <Icon @role="button" @icon="caret-up" {{on "click" this.toggleMap}}/>
       {{else}}
-        <Icon @icon="caret-down" />
+        <Icon @role="button" @icon="caret-down" {{on "click" this.toggleMap}}/>
       {{/if}}
     </InfoBox::IconBox>
   </InfoBox>
