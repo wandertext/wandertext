@@ -1,0 +1,22 @@
+<LeafletMap 
+  class="h-full" 
+  @lat={{@lat}} 
+  @lng={{@lng}} 
+  @zoom={{this.zoom}} 
+  @onZoom={{this.updateZoom}}
+  @onLoad={{this.placeAttribution}}
+  as |layers|>
+
+  {{#if (lte this.zoom 8)}}
+    <layers.tile 
+      @url={{this.tiles.esriPhysical.url}}
+      />
+  {{else}}
+    <layers.tile 
+      @url={{this.tiles.openStreetMapMapnik.url}}
+    />
+  {{/if}}
+
+  {{yield}}
+
+</LeafletMap>

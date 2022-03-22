@@ -1,29 +1,15 @@
-<article
-  class="{{if @fullScreen "h-full w-full"}} text-primary bg-columbiaBlueLight">
-  {{#if @defaultModalOpen}}
-    <div 
-    class="hidden"
-    {{did-insert (fn this.openDefaultModal @modalContentComponent)}}
-    />
-  {{/if}}
-  <LeafletMap 
-    class="h-full" 
-    @lat={{this.lat}} 
-    @lng={{this.lng}} 
-    @zoom={{this.zoom}} 
-    @onZoom={{this.updateZoom}}
-    @onLoad={{this.placeAttribution}}
-    as |layers|>
-
-    {{#if (lte this.zoom 8)}}
-      <layers.tile 
-        @url={{this.tiles.esriPhysical.url}}
-        />
-    {{else}}
-      <layers.tile 
-        @url={{this.tiles.openStreetMapMapnik.url}}
+{{#if @fullScreen}}
+  <article
+    class="{{if @fullScreen "h-full w-full"}} text-primary bg-columbiaBlueLight">
+    {{#if @defaultModalOpen}}
+      <div 
+      class="hidden"
+      {{did-insert (fn this.openDefaultModal @modalContentComponent)}}
       />
     {{/if}}
+    <Map::LeafletContainer @lat={{this.lat}} @lng={{this.lng}} @showAttribution={{true}} />
+  </article>
+{{else}}
+    <Map::LeafletContainer @lat={{this.lat}} @lng={{this.lng}} />
+{{/if}}
 
-  </LeafletMap>
-</article>

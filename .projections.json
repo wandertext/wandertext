@@ -2,30 +2,30 @@
   "app/gql/queries/*.graphql": {
     "type": "query"
   },
-  "app/controllers/*.js": {
+  "app/controllers/*.ts": {
     "type": "controller",
-    "alternate": "tests/unit/controllers/{}-test.js"
+    "alternate": "tests/unit/controllers/{}-test.ts"
   },
-  "tests/acceptance/*-test.js": {
+  "tests/acceptance/*-test.ts": {
     "type": "acceptanceTest"
   },
   "app/models/*.ts": {
     "type": "model",
-    "alternate": "tests/unit/models/{}-test.js"
+    "alternate": "tests/unit/models/{}-test.ts"
   },
-  "app/services/*.js": {
+  "app/services/*.ts": {
     "type": "service",
-    "alternate": "tests/unit/services/{}-test.js"
+    "alternate": "tests/unit/services/{}-test.ts"
   },
-  "app/helpers/*.js": {
+  "app/helpers/*.ts": {
     "type": "helper",
-    "alternate": "tests/integration/helpers/{}-test.js"
+    "alternate": "tests/integration/helpers/{}-test.ts"
   },
   "app/templates/*.hbs": {
     "type": "rtemplate",
-    "alternate": "tests/unit/routes/{}-test.js"
+    "alternate": "tests/unit/routes/{}-test.ts"
   },
-  "tests/unit/routes/*-test.js": {
+  "tests/unit/routes/*-test.ts": {
     "type": "rtest",
     "alternate": "app/routes/{}.ts"
   },
@@ -35,21 +35,21 @@
   },
   "app/components/*.hbs": {
     "type": "component",
-    "alternate": "app/components/{}.js"
+    "alternate": "app/components/{}.ts"
   },
-  "tests/integration/components/*-test.js": {
+  "tests/integration/components/*-test.ts": {
     "type": "ctest",
     "alternate": "app/components/{}.hbs"
   },
-  "app/components/*.js": {
+  "app/components/*.ts": {
     "type": "cclass",
     "alternate": "app/components/{}.hbs"
   },
   "tests/acceptance/*.feature": {
     "type": "bdd",
-    "alternate": "tests/acceptance/steps/{}-steps.js"
+    "alternate": "tests/acceptance/steps/{}-steps.ts"
   },
-  "tests/acceptance/steps/*-steps.js": {
+  "tests/acceptance/steps/*-steps.ts": {
     "type": "steps",
     "alternate": "tests/acceptance/{}.feature"
   },
@@ -73,7 +73,7 @@
   "mirage/scenarios/*.js": {
     "type": "mscenario"
   },
-  "tests/acceptance/steps/steps.js": {
+  "tests/acceptance/steps/steps.ts": {
     "type": "gsteps"
   }
 }
