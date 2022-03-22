@@ -1,11 +1,18 @@
-<div class="self-end text-3xl block h-full">
+<div class="text-3xl h-full flex flex-row space-x-2 items-center">
   {{#if @model.imgSrc}}
     <img src={{@model.imgSrc}} class="h-full w-auto" alt="cover of {{@model.name}}"/>
   {{/if}}
 
   {{#if @model.markdownName}}
-    <span class="block h-full overflow-hidden">{{markdown-to-html @model.markdownName}}</span>
+    <span class="truncate">
+      {{markdown-to-html 
+        markdown=@model.markdownName 
+        extensions="truncate-p"
+      }}
+    </span>
   {{else}}
-    <span class="block h-full overflow-hidden">{{@model.name}}</span>
+    <span class="truncate">
+     {{@model.name}}
+    </span>
   {{/if}} 
 </div>
