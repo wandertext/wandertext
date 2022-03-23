@@ -12,7 +12,7 @@ module("Integration | Component | map/leaflet-container", function (hooks) {
 
     await render(hbs`<Map::LeafletContainer />`);
 
-    assert.dom(this.element).hasText("");
+    assert.dom().hasText("");
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +21,6 @@ module("Integration | Component | map/leaflet-container", function (hooks) {
       </Map::LeafletContainer>
     `);
 
-    assert.dom(this.element).hasText("template block text");
+    assert.dom().hasText("template block text");
   });
 });
