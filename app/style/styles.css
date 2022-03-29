@@ -36,3 +36,7 @@ a.active p {
 .menu-slide-leave {
   @apply translate-x-0;
 }
+
+span.markdown p {
+  @apply truncate;
+}
