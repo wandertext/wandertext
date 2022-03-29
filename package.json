@@ -31,6 +31,7 @@
     "@embroider/compat": "^1.5.0",
     "@embroider/core": "^1.5.0",
     "@embroider/webpack": "^1.5.0",
+    "@faker-js/faker": "^6.1.1",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
     "@tailwindcss/typography": "^0.5.2",
