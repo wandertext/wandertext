@@ -9,18 +9,22 @@ module("Integration | Component | map/leaflet-container", function (hooks) {
   test("it renders", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set("lat", 40.712_778);
+    this.set("lng", -74.006_111);
 
-    await render(hbs`<Map::LeafletContainer />`);
+    await render(
+      hbs`<Map::LeafletContainer @lat={{this.lat}} @lng={{this.lng}} />`
+    );
 
-    assert.dom().hasText("");
+    assert.dom().includesText("Leaflet");
 
     // Template block usage:
     await render(hbs`
-      <Map::LeafletContainer>
+      <Map::LeafletContainer @lat={{this.lat}} @lng={{this.lng}}>
         template block text
       </Map::LeafletContainer>
     `);
 
-    assert.dom().hasText("template block text");
+    assert.dom().includesText("template block text");
   });
 });
