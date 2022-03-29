@@ -1,4 +1,6 @@
-export default function (server) {
+import { Server } from "miragejs";
+
+export default function seedDevServer(server: Server) {
   /*
     Seed your development database using your factories.
     This data will not be loaded in your tests.
