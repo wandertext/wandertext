@@ -1856,10 +1856,10 @@
     "@types/ember__array" "*"
     "@types/ember__object" "*"
 
-"@types/ember__component@*", "@types/ember__component@^4.0.5":
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/@types/ember__component/-/ember__component-4.0.5.tgz#9382489cb401fd70482c35527404bb5ffc41f848"
-  integrity sha512-lERD8thT2Jr4iG85+CpT3c/Omz56OXwHlq3bt8XszxMnM6wHGY1cOxTXtFJfhEbAQNhV4V6f7+z0rYK2Xy5mgw==
+"@types/ember__component@*", "@types/ember__component@^4.0.8":
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@types/ember__component/-/ember__component-4.0.8.tgz#09a5f954f734fcbe6c988a173f4de4fa09084470"
+  integrity sha512-YVGn/kpWtpZAu6I2XtS9fsZV+78/sON5NyKzK5EOUyMiCwwpbUr5XL8dTSdkHehYrsfzJikcYvqpmwbNZSJxGQ==
   dependencies:
     "@types/ember" "*"
     "@types/ember__component" "*"
