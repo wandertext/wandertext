@@ -6,7 +6,7 @@ export default Factory.extend({
     return `${faker.random.words(4)} ${i + 1}`;
   },
 
-  markdownName() {
+  markdownName(i) {
     return `_${this.name}_`;
   },
 
@@ -23,7 +23,7 @@ export default Factory.extend({
   },
 
   imgSrc() {
-    return faker.image.animals(200, 200);
+    return faker.image.animals(200, 200, true);
   },
 
   imgHref() {
