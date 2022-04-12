@@ -6,7 +6,7 @@ export default Factory.extend({
     return `${faker.random.words(4)} ${i + 1}`;
   },
 
-  markdownName(i) {
+  markdownName() {
     return `_${this.name}_`;
   },
 
