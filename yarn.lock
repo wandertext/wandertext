@@ -6511,7 +6511,7 @@ ember-in-element-polyfill@^1.0.0:
   dependencies:
     ember-cli-babel "^7.26.5"
 
-ember-leaflet@^5.0.0:
+ember-leaflet@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/ember-leaflet/-/ember-leaflet-5.0.1.tgz#1971820318824bc525aa6ad537e853176171196d"
   integrity sha512-VmRHzAXHb7gBU6VnN1J9mKnUCNaC31YSza6h5qJ+F07TrbKctD5If0PQdxH4bKPEoBOg2BS3bs6NquZa/11khQ==
