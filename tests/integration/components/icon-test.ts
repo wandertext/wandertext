@@ -12,6 +12,6 @@ module("Integration | Component | icon", hooks => {
 
     await render(hbs`<Icon />`);
 
-    assert.dom(this.element).hasTextContaining("Entry Icon");
+    assert.dom("[data-test-icon-component]").hasTextContaining("Entry Icon");
   });
 });
