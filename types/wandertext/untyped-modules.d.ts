@@ -3,5 +3,3 @@ declare module "ember-promise-modals" {
     open: (content: string) => void;
   }
 }
-
-declare module "ember-cli-mirage/test-support";

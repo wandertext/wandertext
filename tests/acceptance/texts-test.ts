@@ -1,12 +1,8 @@
 import { module, test } from "qunit";
-import { visit, currentURL, type TestContext } from "@ember/test-helpers";
+import { visit, currentURL } from "@ember/test-helpers";
 import { setupApplicationTest } from "ember-qunit";
-import { Server } from "miragejs";
 import { setupMirage } from "ember-cli-mirage/test-support";
-
-interface MirageTestContext extends TestContext {
-  server: Server;
-}
+import type { MirageTestContext } from "wandertext";
 
 module("Acceptance | texts", function (hooks) {
   setupApplicationTest(hooks);

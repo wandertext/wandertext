@@ -1,3 +1,4 @@
+import type MirageTestContext from "./mirage-test-context";
 // This complains about importing Ember, and I'm not a big fan of it, either.
 // import Ember from "ember";
 
@@ -38,4 +39,4 @@ type IconSlug =
   | "text-delete"
   | "text-new";
 
-export { IconSlug };
+export { IconSlug, MirageTestContext };
