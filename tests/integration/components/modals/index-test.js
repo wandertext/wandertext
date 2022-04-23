@@ -3,13 +3,13 @@ import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
-module("Integration | Component | modals/index", function (hooks) {
+module("Integration | Component | modals/index", function(hooks) {
   setupRenderingTest(hooks);
 
-  test.skip("it renders", async function (assert) {
+  test.skip("it renders", async function(assert) {
     await render(hbs`<Modals::Index />`);
 
-    assert.dom(this.element).hasText("");
+    assert.dom().includesText("");
 
     // Template block usage:
     await render(hbs`
@@ -18,6 +18,6 @@ module("Integration | Component | modals/index", function (hooks) {
       </Modals::Index>
     `);
 
-    assert.dom(this.element).hasText("template block text");
+    assert.dom().includesText("template block text");
   });
 });

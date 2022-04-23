@@ -10,6 +10,6 @@ module("Acceptance | there is a front page", function (hooks) {
 
     const title = this.element.querySelector("h1");
 
-    assert.dom(title).hasText("Wandertext");
+    assert.dom(title).includesText("Wandertext");
   });
 });

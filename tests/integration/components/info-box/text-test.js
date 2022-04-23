@@ -5,11 +5,11 @@ import { hbs } from "ember-cli-htmlbars";
 import { setupMirage } from "ember-cli-mirage/test-support";
 import { run } from "@ember/runloop";
 
-module("Integration | Component | info-box/text", function (hooks) {
+module("Integration | Component | info-box/text", function(hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
-  test("it renders", async function (assert) {
+  test("it renders", async function(assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
@@ -23,10 +23,10 @@ module("Integration | Component | info-box/text", function (hooks) {
 
     await render(hbs`<InfoBox::Text @model={{this.model}}/>`);
 
-    assert.dom(this.element).hasTextContaining("Model Name");
+    assert.dom().includesText("Model Name");
   });
 
-  test("it converts to markdown when there's a @model.markdownName", async function (assert) {
+  test("it converts to markdown when there's a @model.markdownName", async function(assert) {
     const model = run(() =>
       this.owner
         .lookup("service:store")
@@ -41,6 +41,6 @@ module("Integration | Component | info-box/text", function (hooks) {
 
     assert.ok(title);
 
-    assert.dom(title).hasTextContaining("Model Name");
+    assert.dom(title).includesText("Model Name");
   });
 });

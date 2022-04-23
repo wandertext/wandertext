@@ -6,7 +6,7 @@ import { hbs } from "ember-cli-htmlbars";
 module("Integration | Component | menu/item", hooks => {
   setupRenderingTest(hooks);
 
-  test("it renders", async function (assert) {
+  test("it renders", async function(assert) {
     // Template block usage:
     await render(hbs`
       <Menu::Item>
@@ -14,6 +14,6 @@ module("Integration | Component | menu/item", hooks => {
       </Menu::Item>
     `);
 
-    assert.dom(this.element).hasTextContaining("template block text");
+    assert.dom().includesText("template block text");
   });
 });
