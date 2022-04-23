@@ -1,9 +1,11 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
+import type Text from "wandertext/models/text";
+import type Place from "wandertext/models/place";
 
 interface ListItemComponentArgs {
-  model: string; // This is completely wrong.
+  model: Text | Place;
   linkToRoute: string; // Also probably wrong.
 }
 
