@@ -7,9 +7,15 @@
       {{did-insert (fn this.openDefaultModal @modalContentComponent)}}
       />
     {{/if}}
-    <Map::LeafletContainer @lat={{this.lat}} @lng={{this.lng}} @showAttribution={{true}} />
+    <Map::LeafletContainer 
+      @lat={{this.lat}} @lng={{this.lng}} 
+      @markers={{this.markers}}
+      @showAttribution={{true}}
+    />
   </article>
 {{else}}
-    <Map::LeafletContainer @lat={{this.lat}} @lng={{this.lng}} />
+    <Map::LeafletContainer @lat={{this.lat}} @lng={{this.lng}}
+      @markers={{@markers}}
+    />
 {{/if}}
 

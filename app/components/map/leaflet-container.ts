@@ -2,12 +2,18 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
 import type { LeafletEvent, Map } from "leaflet";
+import Place from "wandertext/models/place";
+
+interface Marker extends Place {
+  count?: number;
+}
 
 interface WandertextLeafletEvent extends LeafletEvent {
   target: Map;
 }
 
 interface MapLeafletContainerComponentArgs {
+  markers: Marker[];
   showAttribution: boolean;
   lat: number;
   lng: number;
