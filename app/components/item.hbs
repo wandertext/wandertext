@@ -11,7 +11,7 @@
   </header>
 
   {{#if @model.markdownBlurb}}
-    <section class="text-xl px-2">
+    <section class="text-xl px-2" data-test-markdown-blurb>
       {{markdown-to-html @model.markdownBlurb}}
     </section>
   {{/if}}
