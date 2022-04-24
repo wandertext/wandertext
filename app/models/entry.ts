@@ -39,7 +39,7 @@ export default class EntryModel extends Model {
 
   @hasMany("flag") declare flags: AsyncHasMany<Flag>;
 
-  @belongsTo("place", { async: false }) declare place: SyncBelongsTo<Place>;
+  @belongsTo("place", { async: false }) declare place: Place;
 
-  @belongsTo("text", { async: false }) declare text: SyncBelongsTo<Text>;
+  @belongsTo("text", { async: false }) declare text: Text;
 }
