@@ -45,14 +45,14 @@ export default class TextModel extends Model {
   @attr() declare modifiedAt?: string;
 
   @hasMany("entryProperty")
-  declare entryProperty: AsyncHasMany<EntryProperty>;
+  declare entryProperties: AsyncHasMany<EntryProperty>;
 
   @hasMany("entry")
-  declare entry: AsyncHasMany<Entry>;
+  declare entries: AsyncHasMany<Entry>;
 
   @hasMany("contributor")
-  declare contributor: AsyncHasMany<Contributor>;
+  declare contributors: AsyncHasMany<Contributor>;
 
   @hasMany("flag")
-  declare flag: AsyncHasMany<Flag>;
+  declare flags: AsyncHasMany<Flag>;
 }

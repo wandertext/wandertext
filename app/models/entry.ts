@@ -24,7 +24,7 @@ export default class EntryModel extends Model {
   @attr declare note?: string;
 
   // Is this a lazy loaded id for the place?
-  @attr declare placeId?: string;
+  //@attr declare placeId?: string;
 
   @attr({
     defaultValue() {
@@ -35,9 +35,9 @@ export default class EntryModel extends Model {
 
   @attr() declare modifiedAt?: string;
 
-  @hasMany("contributor") declare contributor: AsyncHasMany<Contributor>;
+  @hasMany("contributor") declare contributors: AsyncHasMany<Contributor>;
 
-  @hasMany("flag") declare flag: AsyncHasMany<Flag>;
+  @hasMany("flag") declare flags: AsyncHasMany<Flag>;
 
   @belongsTo("place") declare place: AsyncBelongsTo<Place>;
 

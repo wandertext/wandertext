@@ -34,11 +34,11 @@ export default class PlaceModel extends Model {
   @attr() declare modifiedAt?: string;
 
   @hasMany("entry")
-  declare entry: AsyncHasMany<Entry>;
+  declare entries: AsyncHasMany<Entry>;
 
   @hasMany("contributor")
-  declare contributor: AsyncHasMany<Contributor>;
+  declare contributors: AsyncHasMany<Contributor>;
 
   @hasMany("flag")
-  declare flag: AsyncHasMany<Flag>;
+  declare flags: AsyncHasMany<Flag>;
 }
