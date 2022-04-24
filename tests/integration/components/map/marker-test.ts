@@ -6,13 +6,10 @@ import { hbs } from "ember-cli-htmlbars";
 module("Integration | Component | map/marker", hooks => {
   setupRenderingTest(hooks);
 
-  test("it renders", async function (assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
+  test("it renders", async function(assert) {
     await render(hbs`<Map::Marker />`);
 
-    assert.strictEqual(this.element.textContent.trim(), "");
+    assert.dom().containsText("");
 
     // Template block usage:
     await render(hbs`
@@ -21,6 +18,6 @@ module("Integration | Component | map/marker", hooks => {
       </Map::Marker>
     `);
 
-    assert.strictEqual(this.element.textContent.trim(), "template block text");
+    assert.dom().containsText("template block text");
   });
 });
