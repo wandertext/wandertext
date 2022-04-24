@@ -18,7 +18,10 @@
   {{/if}}
 
   {{#each @markers as |marker|}}
-    <layers.marker @lat={{marker.latitude}} @lng={{marker.longitude}} data-test-map-leaflet-container-layers-marker/>
+    <layers.marker 
+      @lat={{marker.latitude}} 
+      @lng={{marker.longitude}} 
+      />
   {{/each}}
     
 
