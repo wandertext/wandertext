@@ -7,7 +7,7 @@
   {{if this.mapVisible "bg-columbiaBlue"}}">
   <InfoBox @model={{@model}} @linkToRoute={{@linkToRoute}}>
     <InfoBox::IconBox>
-      <button type="button" {{on "click" this.toggleMap}}>
+      <button type="button" {{on "click" this.toggleMap}} data-test-list-item-map-button>
         <Icon @role="button" @icon="map"/>
       </button>
       {{#if this.mapVisible}}
@@ -27,7 +27,8 @@
         leaveActiveClass="transition-all duration-500 ease-in-out"
         leaveToClass="opacity-100 max-h-0"
       }}
-    >
+    data-test-list-item-map-container
+    data-test-list-item-markers={{this.markers}}>
       <Map @markers={{this.markers}}/>
     </div>
   {{/if}}

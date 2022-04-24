@@ -14,7 +14,6 @@ export default class ListItemComponent extends Component<ListItemComponentArgs> 
   mapVisible = false;
 
   get markers() {
-    console.log("get markeirs");
     const model = this.args.model;
     if (model instanceof Text) {
       return [...new Set(model.entries.map(entry => entry.place))];
@@ -23,8 +22,6 @@ export default class ListItemComponent extends Component<ListItemComponentArgs> 
     if (model instanceof Place) {
       return [model];
     }
-
-    console.log(`Model is neither Text nor Place`);
 
     return [];
   }

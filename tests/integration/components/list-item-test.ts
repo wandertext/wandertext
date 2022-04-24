@@ -1,6 +1,6 @@
 import { module, skip, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
-import { render } from "@ember/test-helpers";
+import { render, click } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import Store from "@ember-data/store";
 import { setupMirage } from "ember-cli-mirage/test-support";
@@ -26,6 +26,18 @@ module("Integration | Component | list-item", function(hooks) {
     await render(hbs`<ListItem @model={{this.model}} />`);
 
     assert.dom("[data-test-info-box]").includesText(text.name);
+  });
+
+  test("it has a button that, when you click on it, shows a map", async function(assert) {
+    assert.expect(2);
+
+    await render(hbs`<ListItem />`);
+
+    assert.dom("[data-test-list-item-map-container]").doesNotExist();
+
+    await click("[data-test-list-item-map-button]");
+
+    assert.dom("[data-test-list-item-map-container]").exists();
   });
 
   skip("it has a @model argument");
@@ -60,8 +72,17 @@ module("Integration | Component | list-item", function(hooks) {
       assert.dom("em").hasText("Book One Italics");
     });
 
-    test("it has a markers getter that returns an array of places", async function(this: MirageTestContext, assert) {
+    // This should be an acceptance test.
+    skip("it has a map that shows an array of places", async function(this: MirageTestContext, assert) {
+      // store doesn't seem to persist long enough to get entries passed down.
+      // "but the store instance has already been destroyed"
       const text = this.model as TextModel;
+      const count = [...new Set(text.entries.map(entry => entry.place))].length;
+      await render(hbs`<ListItem @model={{this.model}} />`);
+      await click("[data-test-list-item-map-button]");
+      assert
+        .dom("[data-test-map-leaflet-container-layers-marker]")
+        .exists({ count });
       assert.ok(text);
     });
   });
