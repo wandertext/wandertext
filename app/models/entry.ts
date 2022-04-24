@@ -3,7 +3,6 @@ import Model, {
   hasMany,
   belongsTo,
   AsyncHasMany,
-  SyncBelongsTo,
 } from "@ember-data/model";
 import type Contributor from "wandertext/models/contributor";
 import type Place from "wandertext/models/place";
