@@ -3,10 +3,10 @@ import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 
-module("Integration | Component | info-box", function(hooks) {
+module("Integration | Component | info-box", function (hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders", async function(assert) {
+  test("it renders", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
@@ -26,7 +26,7 @@ module("Integration | Component | info-box", function(hooks) {
 
   skip("if @linkToRoute is passed, InfoBox::Text is wrapped in a link.");
 
-  test("it includes an InfoBox::Text", async function(assert) {
+  test("it includes an InfoBox::Text", async function (assert) {
     await render(hbs`<InfoBox />`);
 
     assert.dom("[data-test-info-box-text]").exists();

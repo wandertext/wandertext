@@ -6,7 +6,7 @@ import { hbs } from "ember-cli-htmlbars";
 module("Integration | Component | icon", hooks => {
   setupRenderingTest(hooks);
 
-  test("it renders with no @icon or @role", async function(assert) {
+  test("it renders with no @icon or @role", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
