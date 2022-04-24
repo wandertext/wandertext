@@ -3,7 +3,7 @@ import Model, {
   hasMany,
   belongsTo,
   AsyncHasMany,
-  AsyncBelongsTo,
+  SyncBelongsTo,
 } from "@ember-data/model";
 import type Contributor from "wandertext/models/contributor";
 import type Place from "wandertext/models/place";
@@ -39,7 +39,7 @@ export default class EntryModel extends Model {
 
   @hasMany("flag") declare flags: AsyncHasMany<Flag>;
 
-  @belongsTo("place") declare place: AsyncBelongsTo<Place>;
+  @belongsTo("place", { async: false }) declare place: SyncBelongsTo<Place>;
 
-  @belongsTo("text") declare text: AsyncBelongsTo<Text>;
+  @belongsTo("text", { async: false }) declare text: SyncBelongsTo<Text>;
 }
