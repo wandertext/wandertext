@@ -10,6 +10,6 @@ export default class TextsRoute extends Route {
   @service declare store: Store;
 
   model() {
-    return this.store.findAll("text");
+    return this.store.findAll("text", { include: "entries,entries.place" });
   }
 }
