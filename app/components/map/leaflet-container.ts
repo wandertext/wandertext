@@ -6,6 +6,8 @@ import Place from "wandertext/models/place";
 
 interface Marker extends Place {
   count?: number;
+  latitude: number;
+  longitude: number;
 }
 
 interface WandertextLeafletEvent extends LeafletEvent {
@@ -13,6 +15,7 @@ interface WandertextLeafletEvent extends LeafletEvent {
 }
 
 interface MapLeafletContainerComponentArgs {
+  onLoad?: (element: Map) => void;
   markers: Marker[];
   showAttribution: boolean;
   lat: number;
@@ -38,9 +41,21 @@ export default class MapLeafletContainerComponent extends Component<MapLeafletCo
     }
   }
 
-  @action placeAttribution(event: WandertextLeafletEvent) {
+  @action onLoad(event: WandertextLeafletEvent) {
     if (this.args.showAttribution) {
       event.target.attributionControl.setPosition("bottomleft");
+    }
+
+    if (this.args.markers) {
+      const coordinates = this.args.markers.filter((marker): marker is Marker =>
+        Boolean(marker.latitude && marker.longitude)
+      );
+      const bounds: [number, number][] = coordinates.map(marker => [
+        marker.latitude,
+        marker.longitude,
+      ]);
+
+      event.target.fitBounds(bounds);
     }
   }
 

@@ -4,7 +4,7 @@
   @lng={{@lng}} 
   @zoom={{this.zoom}} 
   @onZoom={{this.updateZoom}}
-  @onLoad={{this.placeAttribution}}
+  @onLoad={{this.onLoad}}
   as |layers|>
 
   {{#if (lte this.zoom 8)}}

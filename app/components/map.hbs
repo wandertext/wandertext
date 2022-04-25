@@ -14,7 +14,9 @@
     />
   </article>
 {{else}}
-    <Map::LeafletContainer @lat={{this.lat}} @lng={{this.lng}}
+    <Map::LeafletContainer 
+      @lat={{this.lat}} 
+      @lng={{this.lng}}
       @markers={{@markers}}
     />
 {{/if}}
