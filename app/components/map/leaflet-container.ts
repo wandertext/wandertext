@@ -46,7 +46,7 @@ export default class MapLeafletContainerComponent extends Component<MapLeafletCo
       event.target.attributionControl.setPosition("bottomleft");
     }
 
-    if (this.args.markers) {
+    if (this.args.markers?.length > 0) {
       const coordinates = this.args.markers.filter((marker): marker is Marker =>
         Boolean(marker.latitude && marker.longitude)
       );
