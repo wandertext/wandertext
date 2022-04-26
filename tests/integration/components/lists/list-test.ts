@@ -6,12 +6,12 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import Store from "@ember-data/store";
 import { MirageTestContext } from "wandertext";
 
-module("Integration | Component | list", function (hooks) {
+module("Integration | Component | lists/list", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
   test("it renders", async function (assert) {
-    await render(hbs`<List />`);
+    await render(hbs`<Lists::List />`);
 
     assert.dom().includesText("");
   });
@@ -21,7 +21,7 @@ module("Integration | Component | list", function (hooks) {
     const store = this.owner.lookup("service:store") as Store;
     this.set("model", await store.findAll("text"));
 
-    await render(hbs`<List @model={{this.model}} />`);
+    await render(hbs`<Lists::List @model={{this.model}} />`);
 
     assert.dom("[data-test-list-item]").exists({ count: 5 });
   });

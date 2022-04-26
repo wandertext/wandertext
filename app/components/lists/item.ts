@@ -4,12 +4,12 @@ import { action } from "@ember/object";
 import Text from "wandertext/models/text";
 import Place from "wandertext/models/place";
 
-interface ListItemComponentArgs {
+interface ListsItemComponentArgs {
   model: Text | Place;
   linkToRoute: string; // Also probably wrong.
 }
 
-export default class ListItemComponent extends Component<ListItemComponentArgs> {
+export default class ListsItemComponent extends Component<ListsItemComponentArgs> {
   @tracked
   mapVisible = false;
 

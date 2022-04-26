@@ -1,6 +1,6 @@
 {{#let "Places" as |title|}}
   {{page-title title}}
   <Header @icon="place" @title={{title}} />
-  <List @model={{@model}} @linkToRoute="places.place" />
+  <Lists::PlaceList @model={{@model}} />
   {{outlet}}
 {{/let}}
