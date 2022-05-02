@@ -113,7 +113,7 @@
     "postcss": "^8.4.12",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.6.1",
-    "qunit": "^2.18.0",
+    "qunit": "^2.19.0",
     "qunit-dom": "^2.0.0",
     "showdown": "^2.0.3",
     "tailwindcss": "^3.0.23",
