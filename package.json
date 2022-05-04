@@ -121,8 +121,7 @@
     "webpack": "^5.70.0"
   },
   "resolutions": {
-    "ansi-html": "https://registry.npmjs.org/ansi-html-community/-/ansi-html-community-0.0.8.tgz",
-    "glob-parent": "5.1.2"
+    "ansi-html": "https://registry.npmjs.org/ansi-html-community/-/ansi-html-community-0.0.8.tgz"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
