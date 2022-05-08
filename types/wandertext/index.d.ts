@@ -1,4 +1,5 @@
 import type MirageTestContext from "./mirage-test-context";
+import "@glint/environment-ember-loose";
 // This complains about importing Ember, and I'm not a big fan of it, either.
 // import Ember from "ember";
 

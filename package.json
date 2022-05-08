@@ -20,7 +20,8 @@
     "lint:js:fix": "eslint --color --format=pretty . --fix",
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "test:type": "yarn glint"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
@@ -34,6 +35,8 @@
     "@faker-js/faker": "^6.1.1",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
+    "@glint/core": "^0.8.0",
+    "@glint/environment-ember-loose": "^0.8.0",
     "@tailwindcss/typography": "^0.5.2",
     "@types/ember-data": "^4.0.0",
     "@types/ember-data__adapter": "^4.0.0",
