@@ -5,6 +5,20 @@ import ClassBasedModifier from "ember-modifier";
 import { LeafletEvent } from "leaflet";
 import { IconSlug, WandertextLeafletEvent } from "wandertext";
 
+interface EmberLeafletLayers {
+  tile: ComponentLike<{
+    Args: {
+      url: string;
+    };
+  }>;
+  marker: ComponentLike<{
+    Args: {
+      lat: number;
+      lng: number;
+    };
+  }>;
+}
+
 interface CssTransitionArgs {
   Element: Element;
   Args: {
@@ -64,6 +78,7 @@ declare module "@glint/environment-ember-loose/registry" {
       Return: void;
     }>;
     LeafletMap: ComponentLike<{
+      Element: HTMLDivElement;
       Args: {
         lat: number;
         lng: number;
@@ -72,7 +87,7 @@ declare module "@glint/environment-ember-loose/registry" {
         onLoad: (event: LeafletEvent) => void;
       };
       Blocks: {
-        layers: [tile: string];
+        default: [layers: EmberLeafletLayers];
       };
     }>;
     EpmModalContainer: ComponentLike;
