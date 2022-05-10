@@ -1,11 +1,11 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
-import Text from "wandertext/models/text";
-import Place from "wandertext/models/place";
 import { Marker } from "wandertext";
 import Contributor from "wandertext/models/contributor";
 import Entry from "wandertext/models/entry";
+import Place from "wandertext/models/place";
+import Text from "wandertext/models/text";
 
 interface ListsItemComponentSignature {
   Args: {

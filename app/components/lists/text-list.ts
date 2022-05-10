@@ -1,9 +1,10 @@
 import Component from "@glimmer/component";
 import TextModel from "wandertext/models/text";
+import ArrayProxy from "@ember/array/proxy";
 
 interface ListsTextListComponentSignature {
   Args: {
-    model: ArrayLike<TextModel>;
+    model: ArrayProxy<TextModel>;
   };
 }
 

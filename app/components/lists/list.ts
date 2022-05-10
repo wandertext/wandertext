@@ -1,6 +1,7 @@
 import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
 import Router from "@ember/routing/router";
+import ArrayProxy from "@ember/array/proxy";
 import PlaceModel from "wandertext/models/place";
 import ContributorModel from "wandertext/models/contributor";
 import EntryModel from "wandertext/models/entry";
@@ -8,7 +9,7 @@ import TextModel from "wandertext/models/text";
 
 interface ListsListComponentSignature {
   Args: {
-    model: ArrayLike<PlaceModel | ContributorModel | EntryModel | TextModel>;
+    model: ArrayProxy<PlaceModel | ContributorModel | EntryModel | TextModel>;
     linkToRoute: string;
   };
 }
