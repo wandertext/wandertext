@@ -1,7 +1,7 @@
 import "@glint/environment-ember-loose";
 import "@glint/environment-ember-loose/native-integration";
 import { ComponentLike, HelperLike } from "@glint/template";
-import ClassBasedModifier from "ember-modifier";
+import Modifier from "ember-modifier";
 import { LeafletEvent } from "leaflet";
 import { IconSlug, WandertextLeafletEvent } from "wandertext";
 
@@ -19,7 +19,7 @@ interface EmberLeafletLayers {
   }>;
 }
 
-interface CssTransitionArgs {
+interface CssTransitionSignature {
   Element: Element;
   Args: {
     Positional?: [className: string];
@@ -34,10 +34,11 @@ interface CssTransitionArgs {
   };
 }
 
-declare class CssTransition extends ClassBasedModifier<CssTransitionArgs> { }
+declare class CssTransitionModifier extends Modifier<CssTransitionSignature> {}
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
+    "css-transition": typeof CssTransitionModifier;
     eq: HelperLike<{
       Args: {
         Positional: [a: string | number, b: string | number];
@@ -59,7 +60,6 @@ declare module "@glint/environment-ember-loose/registry" {
       };
       Return: HTMLElement;
     }>;
-    "css-transition": CssTransition;
     "svg-jar": HelperLike<{
       Args: {
         Positional: [element: IconSlug];
