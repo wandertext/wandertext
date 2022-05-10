@@ -1,12 +1,12 @@
 <div class="h-full flex flex-row space-x-2 items-center" data-test-info-box-text>
-  {{#if @model.imgSrc}}
-    <img src={{@model.imgSrc}} class="h-full w-auto" alt="cover of {{@model.name}}"/>
+  {{#if this.hasImg}}
+    <img src={{this.imgSrc}} class="h-full w-auto" alt="cover of {{@model.name}}"/>
   {{/if}}
 
-  {{#if @model.markdownName}}
+  {{#if this.hasMarkdownName}}
     <span class="truncate prose prose-p:text-3xl prose-p:truncate">
       {{markdown-to-html 
-        markdown=@model.markdownName 
+        markdown=this.markdownName 
       }}
     </span>
   {{else}}

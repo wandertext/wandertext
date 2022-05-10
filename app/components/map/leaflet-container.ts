@@ -1,28 +1,24 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
-import type { LeafletEvent, Map } from "leaflet";
-import Place from "wandertext/models/place";
+import type { Map } from "leaflet";
+import { Marker, WandertextLeafletEvent } from "wandertext";
 
-interface Marker extends Place {
-  count?: number;
-  latitude: number;
-  longitude: number;
+export interface MapLeafletContainerComponentSignature {
+  Element: HTMLElement;
+  Args: {
+    onLoad?: (element: Map) => void;
+    markers?: Marker[];
+    showAttribution?: boolean;
+    lat: number;
+    lng: number;
+  };
+  Blocks: {
+    default: [];
+  };
 }
 
-interface WandertextLeafletEvent extends LeafletEvent {
-  target: Map;
-}
-
-interface MapLeafletContainerComponentArgs {
-  onLoad?: (element: Map) => void;
-  markers: Marker[];
-  showAttribution: boolean;
-  lat: number;
-  lng: number;
-}
-
-export default class MapLeafletContainerComponent extends Component<MapLeafletContainerComponentArgs> {
+export default class MapLeafletContainerComponent extends Component<MapLeafletContainerComponentSignature> {
   @tracked
   zoom = 8;
 
@@ -46,9 +42,10 @@ export default class MapLeafletContainerComponent extends Component<MapLeafletCo
       event.target.attributionControl.setPosition("bottomleft");
     }
 
-    if (this.args.markers?.length > 0) {
-      const coordinates = this.args.markers.filter((marker): marker is Marker =>
-        Boolean(marker.latitude && marker.longitude)
+    if (this.args.markers && this.args.markers.length > 0) {
+      const coordinates = this.args.markers.filter(
+        (marker: Marker): marker is Marker =>
+          Boolean(marker.latitude && marker.longitude)
       );
       const bounds: [number, number][] = coordinates.map(marker => [
         marker.latitude,
@@ -70,4 +67,11 @@ export default class MapLeafletContainerComponent extends Component<MapLeafletCo
         "&copy;<a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors",
     },
   };
+}
+
+declare module "@glint/environment-ember-loose/registry" {
+  export default interface Registry {
+    "Map::LeafletContainer": typeof MapLeafletContainerComponent;
+    "map/leaflet-container": typeof MapLeafletContainerComponent;
+  }
 }

@@ -40,4 +40,14 @@ export default class ContributorModel extends Model {
   @hasMany("flag") declare flags: AsyncHasMany<Flag>;
 
   @hasMany("text") declare texts: AsyncHasMany<Text>;
+
+  get name() {
+    if (this.firstName && this.lastName) {
+      return `${this.firstName} ${this.lastName}`;
+    } else if (this.firstName) {
+      return this.firstName;
+    }
+
+    return "No name";
+  }
 }

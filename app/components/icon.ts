@@ -1,12 +1,15 @@
 import Component from "@glimmer/component";
 import { IconSlug } from "wandertext";
 
-interface IconComponentArgs {
-  role?: string;
-  icon?: IconSlug;
+interface IconComponentSignature {
+  Element: HTMLDivElement;
+  Args: {
+    role?: string;
+    icon?: IconSlug;
+  };
 }
 
-export default class IconComponent extends Component<IconComponentArgs> {
+export default class IconComponent extends Component<IconComponentSignature> {
   icons: Record<string, { title: string; desc: string }> = {
     logo: {
       title: "Wandertext Logo",
@@ -90,7 +93,7 @@ export default class IconComponent extends Component<IconComponentArgs> {
     return this.icons[this.icon].desc;
   }
 
-  get icon() {
+  get icon(): IconSlug {
     if (this.args.icon) {
       return this.args.icon;
     }
@@ -104,5 +107,11 @@ export default class IconComponent extends Component<IconComponentArgs> {
     }
 
     return "img";
+  }
+}
+
+declare module "@glint/environment-ember-loose/registry" {
+  export default interface Registry {
+    Icon: typeof IconComponent;
   }
 }

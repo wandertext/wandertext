@@ -4,12 +4,15 @@ import { inject as service } from "@ember/service";
 import type MenuState from "wandertext/services/menu-state";
 import { IconSlug } from "wandertext";
 
-interface HeaderComponentArgs {
-  icon: IconSlug;
-  title: string;
+interface HeaderComponentSignature {
+  Element: HTMLElement;
+  Args: {
+    icon: IconSlug;
+    title: string;
+  };
 }
 
-export default class HeaderComponent extends Component<HeaderComponentArgs> {
+export default class HeaderComponent extends Component<HeaderComponentSignature> {
   @service declare menuState: MenuState;
 
   get icon(): IconSlug {
@@ -34,5 +37,11 @@ export default class HeaderComponent extends Component<HeaderComponentArgs> {
 
   @action goBack() {
     window.history.back();
+  }
+}
+
+declare module "@glint/environment-ember-loose/registry" {
+  export default interface Registry {
+    Header: typeof HeaderComponent;
   }
 }

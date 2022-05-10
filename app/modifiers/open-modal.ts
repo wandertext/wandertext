@@ -5,7 +5,7 @@ import type Modals from "ember-promise-modals";
 export interface OpenModalModifierSignature {
   Element: HTMLDivElement;
   Args: {
-    Positional: [modalContent: string];
+    Positional: [modalContent?: string];
   };
 }
 
@@ -13,7 +13,9 @@ export default class OpenModalModifier extends Modifier<OpenModalModifierSignatu
   @service declare modals: Modals;
 
   modify(_element: HTMLElement, [modalContent]: [string]) {
-    this.modals.open(`modals/${modalContent}`);
+    if (modalContent) {
+      this.modals.open(`modals/${modalContent}`);
+    }
   }
 }
 

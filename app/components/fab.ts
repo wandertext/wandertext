@@ -4,11 +4,14 @@ import { inject as service } from "@ember/service";
 import type MenuState from "wandertext/services/menu-state";
 import type { IconSlug } from "wandertext";
 
-interface FabComponentArgs {
-  icon: IconSlug;
+interface FabComponentSignature {
+  Element: HTMLButtonElement;
+  Args: {
+    icon: IconSlug;
+  };
 }
 
-export default class FabComponent extends Component<FabComponentArgs> {
+export default class FabComponent extends Component<FabComponentSignature> {
   @service declare menuState: MenuState;
 
   get icon(): IconSlug {
@@ -27,5 +30,11 @@ export default class FabComponent extends Component<FabComponentArgs> {
 
   @action click(icon: "menu") {
     this.clickActions[icon]();
+  }
+}
+
+declare module "@glint/environment-ember-loose/registry" {
+  export default interface Registry {
+    Fab: typeof FabComponent;
   }
 }

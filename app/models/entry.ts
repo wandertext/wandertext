@@ -18,7 +18,7 @@ declare module "ember-data/types/registries/model" {
 export default class EntryModel extends Model {
   @attr declare properties?: string;
 
-  @attr declare attestedName?: string;
+  @attr declare attestedName: string;
 
   @attr declare note?: string;
 
@@ -41,4 +41,8 @@ export default class EntryModel extends Model {
   @belongsTo("place", { async: false }) declare place: Place;
 
   @belongsTo("text", { async: false }) declare text: Text;
+
+  get name() {
+    return this.attestedName;
+  }
 }

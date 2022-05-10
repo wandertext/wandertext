@@ -10,9 +10,9 @@
     </InfoBox>
   </header>
 
-  {{#if @model.markdownBlurb}}
+  {{#if this.hasBlurb}}
     <section class="text-xl px-2" data-test-markdown-blurb>
-      {{markdown-to-html @model.markdownBlurb}}
+      {{markdown-to-html this.markdownBlurb}}
     </section>
   {{/if}}
 

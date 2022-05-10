@@ -4,12 +4,12 @@
     {{#if @defaultModalOpen}}
       <div 
       class="hidden"
-      {{did-insert (fn this.openDefaultModal @modalContentComponent)}}
+      {{open-modal @modalContentComponent}}
       />
     {{/if}}
     <Map::LeafletContainer 
       @lat={{this.lat}} @lng={{this.lng}} 
-      @markers={{this.markers}}
+      @markers={{@markers}}
       @showAttribution={{true}}
     />
   </article>

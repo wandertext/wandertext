@@ -1,5 +1,6 @@
+import PlaceModel from "wandertext/models/place";
 import type MirageTestContext from "./mirage-test-context";
-import "@glint/environment-ember-loose";
+import type { LeafletEvent, Map } from "leaflet";
 // This complains about importing Ember, and I'm not a big fan of it, either.
 // import Ember from "ember";
 
@@ -7,6 +8,15 @@ import "@glint/environment-ember-loose";
 //   interface Array<T> extends Ember.ArrayPrototypeExtensions<T> {}
 //   // Interface Function extends Ember.FunctionPrototypeExtensions {}
 // }
+interface WandertextLeafletEvent extends LeafletEvent {
+  target: Map;
+}
+
+interface Marker extends PlaceModel {
+  count?: number;
+  latitude: number;
+  longitude: number;
+}
 
 type IconSlug =
   | "about"
@@ -40,4 +50,4 @@ type IconSlug =
   | "text-delete"
   | "text-new";
 
-export { IconSlug, MirageTestContext };
+export { Marker, IconSlug, MirageTestContext, WandertextLeafletEvent };
