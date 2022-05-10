@@ -1,6 +1,6 @@
 import Component from "@glimmer/component";
 import { inject as service } from "@ember/service";
-import Router from "@ember/routing/router";
+import RouterService from "@ember/routing/router-service";
 import ArrayProxy from "@ember/array/proxy";
 import PlaceModel from "wandertext/models/place";
 import ContributorModel from "wandertext/models/contributor";
@@ -15,7 +15,7 @@ interface ListsListComponentSignature {
 }
 
 export default class ListsListComponent extends Component<ListsListComponentSignature> {
-  @service declare router: Router;
+  @service declare router: RouterService;
 }
 
 declare module "@glint/environment-ember-loose/registry" {
