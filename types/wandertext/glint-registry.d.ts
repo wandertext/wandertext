@@ -4,6 +4,7 @@ import { ComponentLike, HelperLike } from "@glint/template";
 import Modifier from "ember-modifier";
 import { LeafletEvent } from "leaflet";
 import { IconSlug, WandertextLeafletEvent } from "wandertext";
+// import LeafletMap from "ember-leaflet";
 
 interface EmberLeafletLayers {
   tile: ComponentLike<{
@@ -77,6 +78,7 @@ declare module "@glint/environment-ember-loose/registry" {
       Args: { Positional: [title: string] };
       Return: void;
     }>;
+    // LeafletMap: typeof LeafletMap;
     LeafletMap: ComponentLike<{
       Element: HTMLDivElement;
       Args: {
