@@ -1,10 +1,11 @@
 import "@glint/environment-ember-loose";
 import "@glint/environment-ember-loose/native-integration";
 import { ComponentLike, HelperLike } from "@glint/template";
-import Modifier from "ember-modifier";
 import { LeafletEvent } from "leaflet";
-import { IconSlug, WandertextLeafletEvent } from "wandertext";
-// import LeafletMap from "ember-leaflet";
+import "ember-css-transitions/glint";
+import "ember-svg-jar/glint";
+import "ember-page-title/glint";
+import { WandertextLeafletEvent } from "wandertext";
 
 interface EmberLeafletLayers {
   tile: ComponentLike<{
@@ -20,26 +21,8 @@ interface EmberLeafletLayers {
   }>;
 }
 
-interface CssTransitionSignature {
-  Element: Element;
-  Args: {
-    Positional?: [className: string];
-    Named: {
-      enterClass?: string;
-      enterActiveClass?: string;
-      enterToClass?: string;
-      leaveClass?: string;
-      leaveActiveClass?: string;
-      leaveToClass?: string;
-    };
-  };
-}
-
-declare class CssTransitionModifier extends Modifier<CssTransitionSignature> {}
-
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
-    "css-transition": typeof CssTransitionModifier;
     eq: HelperLike<{
       Args: {
         Positional: [a: string | number, b: string | number];
@@ -61,24 +44,6 @@ declare module "@glint/environment-ember-loose/registry" {
       };
       Return: HTMLElement;
     }>;
-    "svg-jar": HelperLike<{
-      Args: {
-        Positional: [element: IconSlug];
-        Named: {
-          title?: string;
-          desc?: string;
-          class?: string;
-          role?: string;
-          width?: string;
-        };
-      };
-      Return: HTMLElement;
-    }>;
-    "page-title": HelperLike<{
-      Args: { Positional: [title: string] };
-      Return: void;
-    }>;
-    // LeafletMap: typeof LeafletMap;
     LeafletMap: ComponentLike<{
       Element: HTMLDivElement;
       Args: {
