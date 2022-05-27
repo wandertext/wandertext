@@ -26,6 +26,8 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.3",
     "@babel/plugin-proposal-decorators": "^7.17.8",
+    "@commitlint/cli": "^17.0.1",
+    "@commitlint/config-conventional": "^17.0.0",
     "@ember/optional-features": "^2.0.0",
     "@ember/render-modifiers": "^2.0.0",
     "@ember/test-helpers": "^2.6.0",
@@ -109,6 +111,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-qunit": "^7.2.0",
     "faker": "^5.5.3",
+    "husky": "^8.0.1",
     "leaflet": "^1.7.1",
     "loader.js": "^4.7.0",
     "miragejs": "^0.1.43",
