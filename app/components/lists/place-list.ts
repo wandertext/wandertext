@@ -1,4 +1,4 @@
-import Component from "@glimmer/component";
+import templateOnlyComponent from "@ember/component/template-only";
 import PlaceModel from "wandertext/models/place";
 import ArrayProxy from "@ember/array/proxy";
 
@@ -8,7 +8,10 @@ interface ListsPlaceListComponentSignature {
   };
 }
 
-export default class ListsPlaceListComponent extends Component<ListsPlaceListComponentSignature> { }
+const ListsPlaceListComponent =
+  templateOnlyComponent<ListsPlaceListComponentSignature>();
+
+export default ListsPlaceListComponent;
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {

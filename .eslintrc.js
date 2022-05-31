@@ -25,6 +25,7 @@ module.exports = {
     // node files
     {
       files: [
+        "./commitlint.config.js",
         "./.eslintrc.js",
         "./.prettierrc.js",
         "./.template-lintrc.js",

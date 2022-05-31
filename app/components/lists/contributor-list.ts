@@ -1,4 +1,4 @@
-import Component from "@glimmer/component";
+import templateOnlyComponent from "@ember/component/template-only";
 import ContributorModel from "wandertext/models/contributor";
 import ArrayProxy from "@ember/array/proxy";
 
@@ -8,7 +8,10 @@ interface ListsContributorListComponentSignature {
   };
 }
 
-export default class ListsContributorListComponent extends Component<ListsContributorListComponentSignature> { }
+const ListsContributorListComponent =
+  templateOnlyComponent<ListsContributorListComponentSignature>();
+
+export default ListsContributorListComponent;
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {

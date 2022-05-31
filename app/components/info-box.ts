@@ -1,4 +1,4 @@
-import Component from "@glimmer/component";
+import templateOnlyComponent from "@ember/component/template-only";
 import PlaceModel from "wandertext/models/place";
 import ContributorModel from "wandertext/models/contributor";
 import EntryModel from "wandertext/models/entry";
@@ -15,7 +15,9 @@ interface InfoBoxComponentSignature {
   };
 }
 
-export default class InfoBoxComponent extends Component<InfoBoxComponentSignature> { }
+const InfoBoxComponent = templateOnlyComponent<InfoBoxComponentSignature>();
+
+export default InfoBoxComponent;
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
