@@ -2,7 +2,7 @@ import { module, test, skip } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import faker from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 
 module("Integration | Component | header", function (hooks) {
   setupRenderingTest(hooks);
