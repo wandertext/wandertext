@@ -28,6 +28,7 @@ module.exports = {
         "./.eslintrc.js",
         "./.prettierrc.js",
         "./.template-lintrc.js",
+        "./commitlint.config.js",
         "./ember-cli-build.js",
         "./testem.js",
         "./blueprints/*/index.js",
