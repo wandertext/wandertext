@@ -1,4 +1,4 @@
-import Component from "@glimmer/component";
+import templateOnlyComponent from "@ember/component/template-only";
 
 interface CloseButtonComponentSignature {
   Element: HTMLButtonElement;
@@ -8,7 +8,10 @@ interface CloseButtonComponentSignature {
   };
 }
 
-export default class CloseButtonComponent extends Component<CloseButtonComponentSignature> { }
+const CloseButtonComponent =
+  templateOnlyComponent<CloseButtonComponentSignature>();
+
+export default CloseButtonComponent;
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {

@@ -1,4 +1,4 @@
-import Component from "@glimmer/component";
+import templateOnlyComponent from "@ember/component/template-only";
 
 interface InfoBoxIconBoxComponentSignature {
   Blocks: {
@@ -6,7 +6,10 @@ interface InfoBoxIconBoxComponentSignature {
   };
 }
 
-export default class InfoBoxIconBoxComponent extends Component<InfoBoxIconBoxComponentSignature> { }
+const InfoBoxIconBoxComponent =
+  templateOnlyComponent<InfoBoxIconBoxComponentSignature>();
+
+export default InfoBoxIconBoxComponent;
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
