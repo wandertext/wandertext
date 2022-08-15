@@ -73,7 +73,7 @@
     "@typescript-eslint/parser": "^5.17.0",
     "autoprefixer": "^10.4.5",
     "broccoli-asset-rev": "^3.0.0",
-    "cssnano": "^5.1.5",
+    "cssnano": "^5.1.13",
     "ember-auto-import": "^2.4.1",
     "ember-cli": "~4.3.0",
     "ember-cli-app-version": "^5.0.0",
