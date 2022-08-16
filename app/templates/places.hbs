@@ -1,6 +1,6 @@
 {{#let "Places" as |title|}}
   {{page-title title}}
   <Header @icon="place" @title={{title}} />
-  <Lists::PlaceList @model={{@model}} />
+  <List::PlaceList @model={{@model}} />
   {{outlet}}
 {{/let}}

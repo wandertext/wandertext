@@ -7,20 +7,20 @@ import ContributorModel from "wandertext/models/contributor";
 import EntryModel from "wandertext/models/entry";
 import TextModel from "wandertext/models/text";
 
-interface ListsListComponentSignature {
+interface ListListComponentSignature {
   Args: {
     model: ArrayProxy<PlaceModel | ContributorModel | EntryModel | TextModel>;
     linkToRoute: string;
   };
 }
 
-export default class ListsListComponent extends Component<ListsListComponentSignature> {
+export default class ListListComponent extends Component<ListListComponentSignature> {
   @service declare router: RouterService;
 }
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
-    "Lists::List": typeof ListsListComponent;
-    "lists/list": typeof ListsListComponent;
+    "List::List": typeof ListListComponent;
+    "list/list": typeof ListListComponent;
   }
 }

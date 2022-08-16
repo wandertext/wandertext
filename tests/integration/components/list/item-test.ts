@@ -7,12 +7,12 @@ import { setupMirage } from "ember-cli-mirage/test-support";
 import { MirageTestContext } from "wandertext";
 import TextModel from "wandertext/models/text";
 
-module("Integration | Component | lists/item", function (hooks) {
+module("Integration | Component | list/item", function (hooks) {
   setupRenderingTest(hooks);
   setupMirage(hooks);
 
   test("it renders with an InfoBox", async function (assert) {
-    await render(hbs`<Lists::Item />`);
+    await render(hbs`<List::Item />`);
 
     assert.dom("[data-test-info-box]").exists();
   });
@@ -23,7 +23,7 @@ module("Integration | Component | lists/item", function (hooks) {
     const text = await store.findRecord("text", 1);
     this.set("model", text);
 
-    await render(hbs`<Lists::Item @model={{this.model}} />`);
+    await render(hbs`<List::Item @model={{this.model}} />`);
 
     assert.dom("[data-test-info-box]").includesText(text.name);
   });
@@ -35,7 +35,7 @@ module("Integration | Component | lists/item", function (hooks) {
     const text = await store.findRecord("text", 1);
     this.set("model", text);
 
-    await render(hbs`<Lists::Item @model={{this.model}} />`);
+    await render(hbs`<List::Item @model={{this.model}} />`);
 
     assert.dom("[data-test-list-item-map-container]").doesNotExist();
 
@@ -71,7 +71,7 @@ module("Integration | Component | lists/item", function (hooks) {
     });
 
     test("it shows the Text's name as rendered markdown", async function (assert) {
-      await render(hbs`<Lists::Item @model={{this.model}} />`);
+      await render(hbs`<List::Item @model={{this.model}} />`);
 
       assert.dom("em").hasText("Book One Italics");
     });
@@ -80,7 +80,7 @@ module("Integration | Component | lists/item", function (hooks) {
       const text = this.model as TextModel;
       const entries = await text.entries;
       const count = [...new Set(entries.map(entry => entry.place))].length;
-      await render(hbs`<Lists::Item @model={{this.model}} />`);
+      await render(hbs`<List::Item @model={{this.model}} />`);
 
       assert.dom("[data-test-list-item-map-button='1']").exists();
       await click("[data-test-list-item-map-button='1']");

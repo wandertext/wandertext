@@ -7,14 +7,14 @@ import Entry from "wandertext/models/entry";
 import Place from "wandertext/models/place";
 import Text from "wandertext/models/text";
 
-interface ListsItemComponentSignature {
+interface ListItemComponentSignature {
   Args: {
     model: Text | Place | Contributor | Entry;
     linkToRoute: string; // Probably wrong.
   };
 }
 
-export default class ListsItemComponent extends Component<ListsItemComponentSignature> {
+export default class ListItemComponent extends Component<ListItemComponentSignature> {
   @tracked
   mapVisible = false;
 
@@ -39,7 +39,7 @@ export default class ListsItemComponent extends Component<ListsItemComponentSign
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
-    "Lists::Item": typeof ListsItemComponent;
-    "lists/item": typeof ListsItemComponent;
+    "List::Item": typeof ListItemComponent;
+    "list/item": typeof ListItemComponent;
   }
 }

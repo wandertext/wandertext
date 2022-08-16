@@ -2,20 +2,20 @@ import templateOnlyComponent from "@ember/component/template-only";
 import EntryModel from "wandertext/models/entry";
 import ArrayProxy from "@ember/array/proxy";
 
-interface ListsEntryListComponentSignature {
+interface ListEntryListComponentSignature {
   Args: {
     model: ArrayProxy<EntryModel>;
   };
 }
 
-const ListsEntryListComponent =
-  templateOnlyComponent<ListsEntryListComponentSignature>();
+const ListEntryListComponent =
+  templateOnlyComponent<ListEntryListComponentSignature>();
 
-export default ListsEntryListComponent;
+export default ListEntryListComponent;
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
-    "Lists::EntryList": typeof ListsEntryListComponent;
-    "lists/entry-list": typeof ListsEntryListComponent;
+    "List::EntryList": typeof ListEntryListComponent;
+    "list/entry-list": typeof ListEntryListComponent;
   }
 }

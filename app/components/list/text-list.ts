@@ -2,20 +2,20 @@ import templateOnlyComponent from "@ember/component/template-only";
 import TextModel from "wandertext/models/text";
 import ArrayProxy from "@ember/array/proxy";
 
-interface ListsTextListComponentSignature {
+interface ListTextListComponentSignature {
   Args: {
     model: ArrayProxy<TextModel>;
   };
 }
 
-const ListsTextListComponent =
-  templateOnlyComponent<ListsTextListComponentSignature>();
+const ListTextListComponent =
+  templateOnlyComponent<ListTextListComponentSignature>();
 
-export default ListsTextListComponent;
+export default ListTextListComponent;
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
-    "Lists::TextList": typeof ListsTextListComponent;
-    "lists/text-list": typeof ListsTextListComponent;
+    "List::TextList": typeof ListTextListComponent;
+    "list/text-list": typeof ListTextListComponent;
   }
 }
