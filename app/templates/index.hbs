@@ -1,9 +1,22 @@
-<h1 class="sr-only">Wandertext</h1>
-<Map 
-  @fullScreen={{true}} 
-  @defaultModalOpen={{true}}
-  @modalContentComponent="index"
-  />
+<article class="h-full w-full flex flex-row">
+  <section class="h-full w-1/2 p-6">
+  <header class="border-b-2 border-b-primary">
+    <h1 class="font-title text-6xl pb-4">Wandertext <Icon @icon="logo" class="inline"/></h1>
 
+    <h2 class="font-serif italic text-2xl pb-3">Create and share semantically rich geospatial data</h2>
+  </header>
+  
+  <div class="prose p-4">
+    <p>This application is currently under heavy development.</p>
+
+    <p>You can follow along with the progress every Tuesday afternoon at 3pm NYC time <a class="underline" href="https://www.youtube.com/channel/UCLOUh6s8E2FYAVAsJg3lgoA/live">on the CUL Studio YouTube channel</a>.</p>
+
+    <p>Additionally, you can follow along with the code <a class="underline" href="http://github.com/wandertext/wandertext">on GitHub</a>.</p>
+  </div>
+</section>
+<section class="h-full w-1/2">
+  <Map />
+</section>
+</article>
 <Fab 
   @icon="menu" />
