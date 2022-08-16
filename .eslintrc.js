@@ -20,7 +20,16 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {},
+  rules: {
+    "space-before-function-paren": [
+      "error",
+      {
+        anonymous: "always",
+        asyncArrow: "always",
+        named: "never",
+      },
+    ],
+  },
   overrides: [
     // node files
     {
