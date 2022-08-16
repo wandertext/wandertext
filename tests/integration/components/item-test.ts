@@ -1,7 +1,13 @@
 import { module, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
-import { render } from "@ember/test-helpers";
+import { render, TestContext } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
+import TextModel from "wandertext/models/text";
+import Store from "@ember-data/store";
+
+interface TextModelContext extends TestContext {
+  textModel: TextModel;
+}
 
 module("Integration | Component | item", function (hooks) {
   setupRenderingTest(hooks);
@@ -26,13 +32,16 @@ module("Integration | Component | item", function (hooks) {
     assert.dom("[data-test-icon-title]").containsText("Map");
   });
 
-  test("it renders markdown if the model has a markdownBlurb", async function (assert) {
+  test("it renders markdown if the model has a markdownBlurb", async function (this: TextModelContext, assert) {
+    const store = this.owner.lookup("service:store") as Store;
     const dataTest = "[data-test-markdown-blurb]";
     const italics = "http://en.wikipedia.org/Italic_type";
-    this.set("model", {
+
+    this.textModel = store.createRecord("text", {
+      name: "name",
       markdownBlurb: `_**This** is in [italics](${italics})_`,
     });
-    await render(hbs`<Item @model={{this.model}} />`);
+    await render(hbs`<Item @model={{this.textModel}} />`);
     assert.dom(dataTest).hasText("This is in italics");
     // It renders in italics.
     assert.dom(`${dataTest} div p em`).exists();

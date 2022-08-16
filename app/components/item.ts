@@ -11,20 +11,12 @@ interface ItemComponentSignature {
 }
 
 export default class ItemComponent extends Component<ItemComponentSignature> {
-  get hasBlurb() {
-    if (this.args.model instanceof TextModel) {
-      return true;
-    }
-
-    return false;
-  }
-
-  get markdownBlurb() {
+  get markdownBlurb(): string | false {
     if (this.args.model instanceof TextModel && this.args.model.markdownBlurb) {
       return this.args.model.markdownBlurb;
     }
 
-    return "";
+    return false;
   }
 }
 
