@@ -6,11 +6,15 @@ imagines the component/route tree.
 - application route:
 
   - { { outlet } }
-  - <Menu>:
+  - <Menu as |menu|>:
     * (header with logo, but not navbar)
-    * <Menu::Item>:
-      * <Icon>
+      (each item)
+        <menu.Item>
+        * <Icon>
+        </menu.Item>
+      (/each)
     * (footer w/ copyright info)
+    </Menu>
 
 - / (index):
   - <Map>:
