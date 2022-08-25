@@ -3,28 +3,26 @@
 This document describes the Wandertext routes with the Figma designs and
 imagines the component/route tree.
 
+- <Nav>:
+  * (header with logo, but not navbar)
+    (each item)
+      <menu.Item>
+      * <Icon>
+      </menu.Item>
+    (/each)
+  * (footer w/ copyright info)
+  </Nav>
+
 - application route:
 
-  - { { outlet } }
-  - <Menu as |menu|>:
-    * (header with logo, but not navbar)
-      (each item)
-        <menu.Item>
-        * <Icon>
-        </menu.Item>
-      (/each)
-    * (footer w/ copyright info)
-    </Menu>
+  - {{ outlet }}
 
 - / (index):
-  - <Map>:
-    - <Map::Marker>
-  - <FAB>:
-    - <Icon>
-  - <PopUp>:
-    - <PopUp::Header>:
-      - (header with logo, but not navbar)
-      - <Icon> (to close)
+    <Header>
+      <Nav/>
+    </Header>
+    <content>
+    <Footer/>
 - /texts :
   - <Header>:
     * <Icon>

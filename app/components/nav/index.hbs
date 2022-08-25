@@ -1,0 +1,31 @@
+<Menu as |menu|>
+  <PopperJS as |reference popover|>
+    <menu.Button
+      {{reference}}
+      >
+      <button 
+        type="button"
+        >
+        <Icon @icon="menu" @role="button" />
+      </button>
+    </menu.Button>
+    <menu.Items
+      {{popover}}
+      >
+      <nav>
+        <ul>
+          {{#each this.menuItems as |menuItem|}}
+            <li>
+              <LinkTo @route={{menuItem.route}}>
+                <p class="p-1 hover:bg-columbiaBlue">
+                  <Icon @role="img" @icon={{menuItem.slug}} class="inline" />
+                  {{menuItem.text}}
+                </p>
+              </LinkTo>
+            </li>
+          {{/each}}
+        </ul>
+      </nav>
+    </menu.Items>
+  </PopperJS>
+</Menu>

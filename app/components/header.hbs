@@ -1,19 +1,18 @@
 <header class="shadow-md h-12 p-3 flex flex-row justify-between sticky top-0 bg-columbiaBlue w-full">
-  <button 
-    data-test-back-button
-    {{on "click" this.goBack}}
-    type="button"
-    >
-    <Icon @icon="caret-left" @role="button"/>
-  </button>
+  {{#unless (eq this.route "index")}}
+    <button 
+      data-test-back-button
+      {{on "click" this.goBack}}
+      type="button"
+      >
+      <Icon @icon="caret-left" @role="button"/>
+    </button>
+  {{/unless}}
+
   <div data-test-header-center>
     <h1 class="sr-only">{{this.title}}</h1>
     <Icon @icon={{this.icon}} />
   </div>
-  <button 
-    {{on "click" this.handleMenuClick}}
-    type="button"
-    >
-    <Icon @icon="menu" @role="button" />
-  </button>
+
+  <Nav />
 </header>

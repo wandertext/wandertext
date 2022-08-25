@@ -3,6 +3,7 @@ import { action } from "@ember/object";
 import { inject as service } from "@ember/service";
 import type MenuState from "wandertext/services/menu-state";
 import { IconSlug } from "wandertext";
+import RouterService from "@ember/routing/router-service";
 
 interface HeaderComponentSignature {
   Element: HTMLElement;
@@ -13,7 +14,13 @@ interface HeaderComponentSignature {
 }
 
 export default class HeaderComponent extends Component<HeaderComponentSignature> {
+  @service declare router: RouterService;
+
   @service declare menuState: MenuState;
+
+  get route(): string {
+    return this.router.currentRouteName;
+  }
 
   get icon(): IconSlug {
     if (this.args.icon) {

@@ -1,6 +1,4 @@
 import Component from "@glimmer/component";
-import { inject as service } from "@ember/service";
-import type MenuState from "wandertext/services/menu-state";
 import type { IconSlug } from "wandertext";
 
 interface MenuItem {
@@ -9,9 +7,14 @@ interface MenuItem {
   route: string;
 }
 
-export default class MenuComponent extends Component {
-  @service declare menuState: MenuState;
+interface NavIndexComponentSignature {
+  Element: Element;
+  Blocks: {
+    default: [];
+  };
+}
 
+export default class NavIndexComponent extends Component<NavIndexComponentSignature> {
   menuItems: MenuItem[] = [
     {
       slug: "text",
@@ -58,6 +61,6 @@ export default class MenuComponent extends Component {
 
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
-    Menu: typeof MenuComponent;
+    Nav: typeof NavIndexComponent;
   }
 }
