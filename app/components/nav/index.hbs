@@ -3,21 +3,18 @@
     <menu.Button
       {{reference}}
       >
-      <button 
-        type="button"
-        >
-        <Icon @icon="menu" @role="button" />
-      </button>
+      <Icon @icon="menu" @role="button" />
     </menu.Button>
     <menu.Items
       {{popover}}
+      class="bg-white rounded shadow-lg"
       >
       <nav>
-        <ul>
+        <ul class="py-4">
           {{#each this.menuItems as |menuItem|}}
             <li>
               <LinkTo @route={{menuItem.route}}>
-                <p class="p-1 hover:bg-columbiaBlue">
+                <p class="p-1 hover:bg-columbiaBlue px-4">
                   <Icon @role="img" @icon={{menuItem.slug}} class="inline" />
                   {{menuItem.text}}
                 </p>

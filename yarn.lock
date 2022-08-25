@@ -1672,6 +1672,11 @@
   resolved "https://registry.yarnpkg.com/@faker-js/faker/-/faker-7.1.0.tgz#019eeb2c20030e475a1bd05df1cc7b7e72c039d5"
   integrity sha512-G+EvE29QUd9/6GTrwA/TK2AiN79W4ZG6kyJqj2RAqUqEd8A8ICnjA3Rj3F2IaaA+sq6WJzs4lh8GJJRDG1UH7A==
 
+"@gavant/glint-template-types@^0.1.5":
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/@gavant/glint-template-types/-/glint-template-types-0.1.5.tgz#8208994e43b6ba0097a76f7a778043aeb6901c75"
+  integrity sha512-ASLbIYjLUkHGQHLSRbrFMH8Ndobn+ls54f3k6cv4En0QN55Q3YgR0PKACjVfK+pKWYR1fhm/vBtJBgPi73iXMA==
+
 "@glimmer/component@^1.0.2", "@glimmer/component@^1.0.4":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@glimmer/component/-/component-1.1.2.tgz#892ec0c9f0b6b3e41c112be502fde073cf24d17c"

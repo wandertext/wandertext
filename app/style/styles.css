@@ -19,7 +19,7 @@ h3 {
 }
 
 a.active p {
-  @apply bg-columbiaBlue;
+  @apply bg-columbiaBlue shadow-inner;
 }
 
 .menu-slide-enter,

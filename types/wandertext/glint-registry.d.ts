@@ -1,11 +1,16 @@
 import "@glint/environment-ember-loose";
 import "@glint/environment-ember-loose/native-integration";
-import { ComponentLike, HelperLike } from "@glint/template";
+import { ComponentLike } from "@glint/template";
 import { LeafletEvent } from "leaflet";
 import "ember-css-transitions/glint";
 import "ember-svg-jar/glint";
 import "ember-page-title/glint";
+import EqHelper from "@gavant/glint-template-types/types/ember-truth-helpers/eq";
+import LteHelper from "@gavant/glint-template-types/types/ember-truth-helpers/lte";
+import MarkdownToHtml from "@gavant/glint-template-types/types/ember-cli-showdown/markdown-to-html";
+import SvgJarHelper from "@gavant/glint-template-types/types/ember-svg-jar/svg-jar";
 import { WandertextLeafletEvent } from "wandertext";
+import { PopperJS } from "ember-popperjs";
 
 interface EmberLeafletLayers {
   tile: ComponentLike<{
@@ -21,28 +26,36 @@ interface EmberLeafletLayers {
   }>;
 }
 
+interface HeadlessMenuComponents {
+  Button?: ComponentLike<{
+    Element: HTMLButtonElement;
+    Args: {};
+    Blocks: {
+      default: [];
+    };
+  }>;
+  Items?: ComponentLike<{
+    Element: HTMLDivElement;
+    Args: {};
+    Blocks: {
+      default: [];
+    };
+  }>;
+}
+
 declare module "@glint/environment-ember-loose/registry" {
   export default interface Registry {
-    eq: HelperLike<{
-      Args: {
-        Positional: [a: string | number, b: string | number];
+    eq: typeof EqHelper;
+    lte: typeof LteHelper;
+    PopperJS: typeof PopperJS;
+    "markdown-to-html": typeof MarkdownToHtml;
+    "svg-jar": typeof SvgJarHelper;
+    Menu: ComponentLike<{
+      Element: HTMLElement;
+      Args: {};
+      Blocks: {
+        default: [menu: HeadlessMenuComponents];
       };
-      Return: boolean;
-    }>;
-    lte: HelperLike<{
-      Args: {
-        Positional: [a: number, b: number];
-      };
-      Return: boolean;
-    }>;
-    "markdown-to-html": HelperLike<{
-      Args: {
-        Named: {
-          markdown?: string;
-        };
-        Positional: [markdownContent?: string];
-      };
-      Return: HTMLElement;
     }>;
     LeafletMap: ComponentLike<{
       Element: HTMLDivElement;
@@ -57,6 +70,5 @@ declare module "@glint/environment-ember-loose/registry" {
         default: [layers: EmberLeafletLayers];
       };
     }>;
-    EpmModalContainer: ComponentLike;
   }
 }
