@@ -1,6 +1,6 @@
 {{#let "Contributors" as |title|}}
   {{page-title title}}
   <Header @icon="contributors" @title={{title}} />
-  <List::ContributorList @model={{@model}} />
+  <List @model={{@model}} @linkToRoute="contributors.contributor"/>
   {{outlet}}
 {{/let}}
