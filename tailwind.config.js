@@ -24,6 +24,11 @@ const content = [path.join(appEntry, relevantFilesGlob)];
 const tailwindConfig = {
   content,
   theme: {
+    extend: {
+      zIndex: {
+        "above-leaflet": "10001",
+      },
+    },
     screens: {
       sm: "640px",
       md: "768px",
