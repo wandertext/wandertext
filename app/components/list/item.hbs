@@ -1,14 +1,14 @@
-<li data-test-list-item={{@model.name}}
+<li data-test-list-item={{@item.name}}
   class="
   w-full
   flex
   flex-col"
   >
   <Disclosure as |disclosure|>
-      <InfoBox @model={{@model}} @linkToRoute={{@linkToRoute}}
+      <InfoBox @item={{@item}} @linkToRoute={{@linkToRoute}}
         class={{if this.mapVisible "bg-columbiaBlue"}}>
         <InfoBox::IconBox>
-          <disclosure.Button data-test-list-item-map-button={{@model.id}}
+          <disclosure.Button data-test-list-item-map-button={{@item.id}}
             class="flex flex-row h-full items-center px-2 space-x-2 hover:shadow">
               <Icon @icon="map"/>
             {{#if disclosure.isOpen}}

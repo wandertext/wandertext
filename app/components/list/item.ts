@@ -9,7 +9,7 @@ import Text from "wandertext/models/text";
 
 interface ListItemComponentSignature {
   Args: {
-    model: Text | Place | Contributor | Entry;
+    item: Text | Place | Contributor | Entry;
     linkToRoute: string; // Probably wrong.
   };
 }
@@ -19,7 +19,7 @@ export default class ListItemComponent extends Component<ListItemComponentSignat
   mapVisible = false;
 
   get markers() {
-    const model = this.args.model;
+    const model = this.args.item;
     if (model instanceof Text) {
       return [...new Set(model.entries.map(entry => entry.place))] as Marker[];
     }

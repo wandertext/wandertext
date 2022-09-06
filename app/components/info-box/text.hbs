@@ -1,6 +1,6 @@
 <div class="h-full flex flex-row space-x-2 items-center" data-test-info-box-text>
   {{#if this.hasImg}}
-    <img src={{this.imgSrc}} class="h-full w-auto" alt="cover of {{@model.name}}"/>
+    <img src={{this.imgSrc}} class="h-full w-auto" alt="cover of {{@item.name}}"/>
   {{/if}}
 
   {{#if this.hasMarkdownName}}
@@ -11,7 +11,7 @@
     </span>
   {{else}}
     <span class="text-3xl truncate">
-     {{@model.name}}
+     {{@item.name}}
     </span>
   {{/if}} 
 </div>

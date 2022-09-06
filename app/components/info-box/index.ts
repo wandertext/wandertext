@@ -7,7 +7,7 @@ import TextModel from "wandertext/models/text";
 interface InfoBoxComponentSignature {
   Element: HTMLDivElement;
   Args: {
-    model: PlaceModel | ContributorModel | EntryModel | TextModel;
+    item: PlaceModel | ContributorModel | EntryModel | TextModel;
     linkToRoute?: string;
   };
   Blocks: {

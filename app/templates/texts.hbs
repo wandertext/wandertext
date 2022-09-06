@@ -2,7 +2,7 @@
   {{page-title title}}
   <Header @icon="text" @title={{title}} />
   <div class="flex flex-row">
-    <List @model={{@model}} @linkToRoute="texts.text" />
+    <List @items={{@model}} @linkToRoute="texts.text" />
     {{outlet}}
   </div>
 {{/let}}

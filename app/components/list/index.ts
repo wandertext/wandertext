@@ -10,7 +10,7 @@ import TextModel from "wandertext/models/text";
 interface ListComponentSignature {
   Element: HTMLUListElement;
   Args: {
-    model: ArrayProxy<PlaceModel | ContributorModel | EntryModel | TextModel>;
+    items: ArrayProxy<PlaceModel | ContributorModel | EntryModel | TextModel>;
     linkToRoute: string;
   };
 }

@@ -5,32 +5,33 @@ import EntryModel from "wandertext/models/entry";
 import TextModel from "wandertext/models/text";
 
 interface InfoBoxTextComponentSignature {
+  Element: HTMLElement;
   Args: {
-    model: PlaceModel | ContributorModel | EntryModel | TextModel;
+    item: PlaceModel | ContributorModel | EntryModel | TextModel;
     linkToRoute?: string;
   };
 }
 
 export default class InfoBoxTextComponent extends Component<InfoBoxTextComponentSignature> {
   get hasMarkdownName() {
-    return this.args.model instanceof TextModel && this.args.model.markdownName;
+    return this.args.item instanceof TextModel && this.args.item.markdownName;
   }
 
   get hasImg() {
-    return this.args.model instanceof TextModel && this.args.model.imgSrc;
+    return this.args.item instanceof TextModel && this.args.item.imgSrc;
   }
 
   get markdownName() {
-    if (this.args.model instanceof TextModel && this.args.model.markdownName) {
-      return this.args.model.markdownName;
+    if (this.args.item instanceof TextModel && this.args.item.markdownName) {
+      return this.args.item.markdownName;
     }
 
     return "";
   }
 
   get imgSrc() {
-    if (this.args.model instanceof TextModel && this.args.model.imgSrc) {
-      return this.args.model.imgSrc;
+    if (this.args.item instanceof TextModel && this.args.item.imgSrc) {
+      return this.args.item.imgSrc;
     }
 
     return "";
