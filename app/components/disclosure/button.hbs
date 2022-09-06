@@ -1,0 +1,13 @@
+{{! template-lint-disable no-down-event-binding }}
+<button
+  type='button'
+  aria-haspopup={{true}}
+  aria-controls={{if @isOpen @panelGuid}}
+  aria-expanded={{@isOpen}}
+  id={{@buttonGuid}}
+  ...attributes
+  {{on 'click' @togglePanel}}
+  {{on 'keydown' this.onKeydown}}
+>
+  {{yield}}
+</button>

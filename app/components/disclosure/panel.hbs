@@ -1,0 +1,13 @@
+{{! template-lint-disable no-down-event-binding }}
+{{#if @isOpen}}
+  <div
+    id={{@panelGuid}}
+    aria-labelledby={{@buttonGuid}}
+    tabindex='-1'
+    ...attributes
+    {{on 'keydown' this.onKeydown}}
+  >
+    {{yield}}
+  </div>
+{{/if}}
+

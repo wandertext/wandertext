@@ -1,0 +1,23 @@
+{{yield 
+  (hash
+    isOpen=this.isOpen
+    open=this.open
+    close=this.close
+    Button=(component
+     "disclosure/button"
+      buttonGuid=this.buttonGuid
+      panelGuid=this.panelGuid
+      isOpen=this.isOpen
+      openPanel=this.open
+      closePanel=this.close
+      togglePanel=this.toggle
+    )
+    Panel=(component
+      "disclosure/panel"
+      buttonGuid=this.buttonGuid
+      panelGuid=this.panelGuid
+      isOpen=this.isOpen
+      closePanel=this.close
+    )
+  )
+}}

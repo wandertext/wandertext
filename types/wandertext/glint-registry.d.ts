@@ -2,6 +2,7 @@ import "@glint/environment-ember-loose";
 import "@glint/environment-ember-loose/native-integration";
 import { ComponentLike } from "@glint/template";
 import { LeafletEvent } from "leaflet";
+import { ensureSafeComponent } from "@embroider/util";
 import "ember-css-transitions/glint";
 import "ember-svg-jar/glint";
 import "ember-page-title/glint";
@@ -50,6 +51,7 @@ declare module "@glint/environment-ember-loose/registry" {
     PopperJS: typeof PopperJS;
     "markdown-to-html": typeof MarkdownToHtml;
     "svg-jar": typeof SvgJarHelper;
+    "ensure-safe-component": typeof ensureSafeComponent;
     Menu: ComponentLike<{
       Element: HTMLElement;
       Args: {};
