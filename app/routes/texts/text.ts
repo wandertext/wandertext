@@ -7,7 +7,7 @@ export type TextsTextRouteModel = Awaited<ReturnType<TextsTextRoute["model"]>>;
 export default class TextsTextRoute extends Route {
   @service declare store: Store;
 
-  model({ textId }: { textId: string }) {
-    return this.store.findRecord("text", textId);
+  model({ text_id }: { text_id: string }) {
+    return this.store.findRecord("text", text_id);
   }
 }
