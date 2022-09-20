@@ -22,7 +22,7 @@ interface DisclosureComponentSignature {
 }
 
 export default class DisclosureComponent extends Component<DisclosureComponentSignature> {
-  guid = `${guidFor(this)}-tailwindui-disclosure`;
+  guid = `${guidFor(this)}-headlessui-disclosure`;
   @tracked isOpen = false;
 
   @action

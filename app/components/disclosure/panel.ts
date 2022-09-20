@@ -2,7 +2,7 @@ import Component from "@glimmer/component";
 import { action } from "@ember/object";
 
 interface DisclosurePanelComponentSignature {
-  Element: HTMLButtonElement;
+  Element: HTMLElement;
   Args: {
     buttonGuid: string;
     panelGuid: string;
