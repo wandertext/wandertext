@@ -1,23 +1,37 @@
-{{#if @fullScreen}}
-  <article
-    class="{{if @fullScreen "h-full w-full"}} text-primary bg-columbiaBlueLight" data-test-map-full-screen>
-    {{#if @defaultModalOpen}}
-      <div 
-      class="hidden"
-      {{open-modal @modalContentComponent}}
+<article
+  class="h-full w-full 
+    text-primary 
+    bg-columbiaBlueLight" 
+  data-test-map-full-screen
+>
+  <LeafletMap 
+    class="h-full" 
+    @lat={{this.lat}} 
+    @lng={{this.lng}} 
+    @zoom={{this.zoom}} 
+    @onZoom={{this.updateZoom}}
+    @onLoad={{this.onLoad}}
+    as |layers|>
+ 
+    {{! why do this in the template and not in the class?}}
+    {{#if (lte this.zoom 8)}}
+      <layers.tile 
+        @url={{this.tiles.esriPhysical.url}}
+        />
+    {{else}}
+      <layers.tile 
+        @url={{this.tiles.openStreetMapMapnik.url}}
       />
     {{/if}}
-    <Map::LeafletContainer 
-      @lat={{this.lat}} @lng={{this.lng}} 
-      @markers={{@markers}}
-      @showAttribution={{true}}
-    />
-  </article>
-{{else}}
-    <Map::LeafletContainer 
-      @lat={{this.lat}} 
-      @lng={{this.lng}}
-      @markers={{@markers}}
-    />
-{{/if}}
+
+      {{yield (hash
+      LayersMarker=(component layers.marker)
+      Marker=(component
+        "map/marker"
+        LayersMarker=(component layers.marker)
+        )
+      )
+      }}
+  </LeafletMap>
+</article>
 
