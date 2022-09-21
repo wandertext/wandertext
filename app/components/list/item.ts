@@ -8,6 +8,7 @@ import Place from "wandertext/models/place";
 import Text from "wandertext/models/text";
 
 interface ListItemComponentSignature {
+  Element: HTMLLIElement;
   Args: {
     item: Text | Place | Contributor | Entry;
     linkToRoute: string; // Probably wrong.
@@ -17,6 +18,21 @@ interface ListItemComponentSignature {
 export default class ListItemComponent extends Component<ListItemComponentSignature> {
   @tracked
   mapVisible = false;
+
+  get markerBounds() {
+    const markers = this.markers;
+    if (markers && markers.length > 0) {
+      const coordinates = markers.filter((marker: Marker): marker is Marker =>
+        Boolean(marker.latitude && marker.longitude)
+      );
+      const bounds: [number, number][] = coordinates.map(marker => [
+        marker.latitude,
+        marker.longitude,
+      ]);
+
+      return bounds;
+    }
+  }
 
   get markers() {
     const model = this.args.item;

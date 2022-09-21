@@ -30,7 +30,11 @@
           leaveToClass="opacity-100 max-h-0"
         }}
       data-test-list-item-map-container>
-        <Map @markers={{this.markers}} />
+        <Map @bounds={{this.markerBounds}} as |map|>
+          {{#each this.markers as |marker|}}
+            <map.Marker @lat={{marker.latitude}} @lng={{marker.longitude}} />
+          {{/each}}
+        </Map>
     </disclosure.Panel>
   </Disclosure>
 </li>

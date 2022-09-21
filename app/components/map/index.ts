@@ -4,18 +4,18 @@ import { action } from "@ember/object";
 import { WandertextLeafletEvent } from "wandertext";
 import MapMarkerComponent from "./marker";
 
-interface Marker {
-  LayersMarker: typeof LayersMarkerComponent;
+interface MapBlock {
   Marker: typeof MapMarkerComponent;
 }
 
 export interface MapComponentSignature {
   Element: HTMLDivElement;
   Args: {
-    fullScreen: boolean;
+    fullScreen?: boolean;
+    bounds?: [number, number][];
   };
   Blocks: {
-    default: [marker: Marker];
+    default: [mapBlock: MapBlock];
   };
 }
 
@@ -43,6 +43,9 @@ export default class MapComponent extends Component<MapComponentSignature> {
   }
 
   @action onLoad(event: WandertextLeafletEvent) {
+    if (this.args.bounds && this.args.bounds.length > 0) {
+      event.target.fitBounds(this.args.bounds);
+    }
     // if (this.args.showAttribution) {
     //   event.target.attributionControl.setPosition("bottomleft");
     // }

@@ -13,7 +13,7 @@ import SvgJarHelper from "@gavant/glint-template-types/types/ember-svg-jar/svg-j
 import { WandertextLeafletEvent } from "wandertext";
 import { PopperJS } from "ember-popperjs";
 
-interface EmberLeafletLayers {
+export interface EmberLeafletLayers {
   tile: ComponentLike<{
     Args: {
       url: string;
@@ -70,6 +70,13 @@ declare module "@glint/environment-ember-loose/registry" {
       };
       Blocks: {
         default: [layers: EmberLeafletLayers];
+      };
+    }>;
+    EmberLeafletMapMarker: ComponentLike<{
+      Element: HTMLDivElement;
+      Args: {
+        lat: number;
+        lng: number;
       };
     }>;
   }
