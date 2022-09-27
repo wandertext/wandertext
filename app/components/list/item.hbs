@@ -32,7 +32,7 @@
       data-test-list-item-map-container>
         <Map @bounds={{this.markerBounds}} as |map|>
           {{#each this.markers as |marker|}}
-            <map.Marker @lat={{marker.latitude}} @lng={{marker.longitude}} />
+            <map.Marker @placeName={{marker.name}} @lat={{marker.latitude}} @lng={{marker.longitude}} />
           {{/each}}
         </Map>
     </disclosure.Panel>

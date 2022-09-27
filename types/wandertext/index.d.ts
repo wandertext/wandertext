@@ -14,6 +14,7 @@ interface WandertextLeafletEvent extends LeafletEvent {
 
 interface Marker extends PlaceModel {
   count?: number;
+  placeName?: string;
   latitude: number;
   longitude: number;
 }

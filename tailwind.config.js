@@ -7,9 +7,9 @@ const relevantFilesGlob = "**/*.{html,js,ts,hbs,gjs,gts}";
 const appColors = {
   white: "#ffffff",
   black: "#000000",
-  primary: "#012169",
+  primary: "#000D74",
   primaryDark: "#011541",
-  columbiaBlue: "#B9D9EB",
+  columbiaBlue: "#C4D8E2",
   columbiaBlueLight: "#EFF6FB",
   error: "#FE5D26",
   errorLight: "#FFE1D6",

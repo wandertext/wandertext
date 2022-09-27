@@ -59,6 +59,13 @@ declare module "@glint/environment-ember-loose/registry" {
         default: [menu: HeadlessMenuComponents];
       };
     }>;
+    EmberLeafletMapMarker: ComponentLike<{
+      Element: HTMLDivElement;
+      Args: {
+        lat: number;
+        lng: number;
+      };
+    }>;
     LeafletMap: ComponentLike<{
       Element: HTMLDivElement;
       Args: {
@@ -70,13 +77,6 @@ declare module "@glint/environment-ember-loose/registry" {
       };
       Blocks: {
         default: [layers: EmberLeafletLayers];
-      };
-    }>;
-    EmberLeafletMapMarker: ComponentLike<{
-      Element: HTMLDivElement;
-      Args: {
-        lat: number;
-        lng: number;
       };
     }>;
   }

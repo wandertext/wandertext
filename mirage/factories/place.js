@@ -15,11 +15,11 @@ export default Factory.extend({
   },
 
   latitude() {
-    return faker.address.latitude();
+    return 0.8 * faker.address.latitude();
   },
 
   longitude() {
-    return faker.address.longitude();
+    return 0.8 * faker.address.longitude();
   },
 
   geonameId() {

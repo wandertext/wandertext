@@ -26,8 +26,8 @@ export default class ListItemComponent extends Component<ListItemComponentSignat
         Boolean(marker.latitude && marker.longitude)
       );
       const bounds: [number, number][] = coordinates.map(marker => [
-        marker.latitude,
-        marker.longitude,
+        1.1 * marker.latitude,
+        1.1 * marker.longitude,
       ]);
 
       return bounds;
