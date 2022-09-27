@@ -11,6 +11,7 @@
     "test": "tests"
   },
   "scripts": {
+    "s": "ember serve",
     "build": "ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
@@ -125,7 +126,7 @@
     "qunit-dom": "^2.0.0",
     "showdown": "^2.0.3",
     "tailwindcss": "^3.0.23",
-    "typescript": "^4.7.2",
+    "typescript": "^4.8.4",
     "webpack": "^5.70.0"
   },
   "resolutions": {
