@@ -35,7 +35,7 @@
     "@embroider/compat": "1.6.0",
     "@embroider/core": "1.6.0",
     "@embroider/webpack": "1.6.0",
-    "@faker-js/faker": "^7.1.0",
+    "@faker-js/faker": "^7.6.0",
     "@gavant/glint-template-types": "^0.1.5",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
