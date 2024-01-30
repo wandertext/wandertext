@@ -1,4 +1,9 @@
-import Model, { attr, hasMany, AsyncHasMany } from "@ember-data/model";
+import Model, {
+  attr,
+  hasMany,
+  AsyncHasMany,
+  SyncHasMany,
+} from "@ember-data/model";
 import type EntryProperty from "wandertext/models/entry-property";
 import type Entry from "wandertext/models/entry";
 import type Contributor from "wandertext/models/contributor";
@@ -44,11 +49,11 @@ export default class TextModel extends Model {
 
   @attr declare modifiedAt?: string;
 
-  @hasMany("entryProperty", { async: true })
-  declare entryProperties: AsyncHasMany<EntryProperty>;
+  @hasMany("entryProperty", { async: false })
+  declare entryProperties: SyncHasMany<EntryProperty>;
 
-  @hasMany("entry", { async: true, inverse: null })
-  declare entries: AsyncHasMany<Entry>;
+  @hasMany("entry", { async: false, inverse: null })
+  declare entries: SyncHasMany<Entry>;
 
   @hasMany("contributor", { async: true })
   declare contributors: AsyncHasMany<Contributor>;
