@@ -2,6 +2,7 @@
 "use strict";
 
 module.exports = {
+  plugins: ["prettier-plugin-ember-template-tag"],
   useTabs: false,
   semi: true,
   trailingComma: "es5",

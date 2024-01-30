@@ -33,7 +33,7 @@
   resolved "https://registry.yarnpkg.com/@babel/compat-data/-/compat-data-7.23.5.tgz#ffb878728bb6bdcb6f4510aa51b1be9afb8cfd98"
   integrity sha512-uU27kfDRlhfKl+w1U6vp16IuvSLtjAxdArVXPa9BvLkrr7CYIsxH5adpHObeAGY/41+syctUWOZ140a2Rvkgjw==
 
-"@babel/core@^7.12.0", "@babel/core@^7.14.5", "@babel/core@^7.16.10", "@babel/core@^7.16.7", "@babel/core@^7.22.10", "@babel/core@^7.22.19", "@babel/core@^7.22.20", "@babel/core@^7.23.0", "@babel/core@^7.23.3", "@babel/core@^7.23.7", "@babel/core@^7.3.4":
+"@babel/core@^7.12.0", "@babel/core@^7.14.5", "@babel/core@^7.16.10", "@babel/core@^7.16.7", "@babel/core@^7.22.10", "@babel/core@^7.22.19", "@babel/core@^7.22.20", "@babel/core@^7.23.0", "@babel/core@^7.23.3", "@babel/core@^7.23.6", "@babel/core@^7.23.7", "@babel/core@^7.3.4":
   version "7.23.9"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.23.9.tgz#b028820718000f267870822fec434820e9b1e4d1"
   integrity sha512-5q0175NOjddqpvvzU+kDiSOAk4PfdO6FvwCWoQ6RO7rTzEe8vlo+4HVfcnAREhD4npMs0e9uZypjTwzZPCf/cw==
@@ -2191,6 +2191,13 @@
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@glint/environment-ember-loose/-/environment-ember-loose-1.3.0.tgz#4b4a302a05ffe9f9ec3cc63ecf8f4f577d48ee34"
   integrity sha512-kURIttax2zG1oYniJ4bd3rhJRuP588Ld4YAG5EFzjg4s01oLQKpfNskxwSwox07PUkygm2D+9v3Foo2TlYJSSg==
+
+"@glint/environment-ember-template-imports@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@glint/environment-ember-template-imports/-/environment-ember-template-imports-1.3.0.tgz#2d56e31a3d3c4bc1822bad14c48ebdf754c19336"
+  integrity sha512-ynSc3AeFE4ZocvjI4rTS55L5sSrMexMvRtOYbVuY/u9t0PGXDjFuH/OiRiSCbHIL/jYH5Ie5uASZxs7TTCT8dw==
+  dependencies:
+    ember-template-imports "^3.0.0"
 
 "@glint/template@^1.3.0":
   version "1.3.0"
@@ -6302,7 +6309,7 @@ content-disposition@0.5.4:
   dependencies:
     safe-buffer "5.2.1"
 
-content-tag@^1.2.2:
+content-tag@^1.1.2, content-tag@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/content-tag/-/content-tag-1.2.2.tgz#8cbc3cdb9957a81f7c425b138e334330dd6fd78d"
   integrity sha512-9guqKIx2H+78N17otBpl8yLZbQGL5q1vBO/jDb3gF2JjixtcVpC62jDUNxjVMNoaZ09oxRX84ZOD6VX02qkVvg==
@@ -8156,7 +8163,7 @@ ember-svg-jar@^2.3.3:
     lodash "^4.17.15"
     safe-stable-stringify "^2.2.0"
 
-ember-template-imports@^3.4.2:
+ember-template-imports@^3.0.0, ember-template-imports@^3.4.2:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/ember-template-imports/-/ember-template-imports-3.4.2.tgz#6cf7de7d4b8348a0fddf3aaec4947aa1211289e6"
   integrity sha512-OS8TUVG2kQYYwP3netunLVfeijPoOKIs1SvPQRTNOQX4Pu8xGGBEZmrv0U1YTnQn12Eg+p6w/0UdGbUnITjyzw==
@@ -8170,6 +8177,15 @@ ember-template-imports@^3.4.2:
     parse-static-imports "^1.1.0"
     string.prototype.matchall "^4.0.6"
     validate-peer-dependencies "^1.1.0"
+
+ember-template-imports@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ember-template-imports/-/ember-template-imports-4.0.0.tgz#e423b378bd8c479f6e4c3d269de0f40a5958b91e"
+  integrity sha512-Kw1FnFX3MrBesfsjJDFvVgOf1mANOvMprAH1ngDd5SvdlkltNWCF2UKI9WXKQV3lw5noQC1+n6S80L9Q03D3Hw==
+  dependencies:
+    broccoli-stew "^3.0.0"
+    content-tag "^1.1.2"
+    ember-cli-version-checker "^5.1.2"
 
 ember-template-lint@^5.13.0:
   version "5.13.0"
@@ -14797,12 +14813,21 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
+prettier-plugin-ember-template-tag@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-ember-template-tag/-/prettier-plugin-ember-template-tag-2.0.0.tgz#041efb9b4bff19681c5a8e44a108b05aab3bc677"
+  integrity sha512-n2iIQedT5r/kvoTfhjThPECE1y0Ji3DupNpCtENP1Dm974M2NoKhaT5QynfBdn+WXlPhvFE4A/2uDSsZfx373A==
+  dependencies:
+    "@babel/core" "^7.23.6"
+    content-tag "^1.2.2"
+    prettier "^3.1.1"
+
 prettier@^2.5.1:
   version "2.8.8"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.8.8.tgz#e8c5d7e98a4305ffe3de2e1fc4aca1a71c28b1da"
   integrity sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==
 
-prettier@^3.1.0, prettier@^3.2.4:
+prettier@^3.1.0, prettier@^3.1.1, prettier@^3.2.4:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.2.4.tgz#4723cadeac2ce7c9227de758e5ff9b14e075f283"
   integrity sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==

@@ -31,6 +31,9 @@
     "node_modules/@gavant/glint-template-types/types/ember-truth-helpers/*"
   ],
   "glint": {
-    "environment": "ember-loose"
+    "environment": [
+      "ember-loose",
+      "ember-template-imports"
+    ]
   }
 }
