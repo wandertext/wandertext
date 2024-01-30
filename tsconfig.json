@@ -1,32 +1,30 @@
 {
+  "extends": "@tsconfig/ember/tsconfig.json",
   "compilerOptions": {
-    "target": "es2020",
-    "allowJs": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noEmitOnError": false,
-    "noEmit": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
+
+    // The combination of `baseUrl` with `paths` allows Ember's classic package
+    // layout, which is not resolvable with the Node resolution algorithm, to
+    // work with TypeScript.
     "baseUrl": ".",
-    "module": "es6",
-    "experimentalDecorators": true,
-    "typeRoots": ["types/*"],
     "paths": {
-      "wandertext/tests/*": ["tests/*"],
-      "wandertext/mirage/*": ["mirage/*"],
-      "wandertext/*": ["app/*"],
-      "*": ["types/*"]
+      "wandertext/tests/*": [
+        "tests/*"
+      ],
+      "wandertext/mirage/*": [
+        "mirage/*"
+      ],
+      "wandertext/*": [
+        "app/*"
+      ],
+      "*": [
+        "types/*"
+      ]
     }
   },
-  "include": ["app/**/*", "tests/**/*", "types/**/*", "mirage/**/*"]
+  "include": [
+    "app/**/*",
+    "tests/**/*",
+    "types/**/*",
+    "mirage/**/*"
+  ]
 }
