@@ -34,13 +34,14 @@ export default class EntryModel extends Model {
 
   @attr() declare modifiedAt?: string;
 
-  @hasMany("contributor") declare contributors: AsyncHasMany<Contributor>;
+  @hasMany("contributor", { async: true })
+  declare contributors: AsyncHasMany<Contributor>;
 
-  @hasMany("flag") declare flags: AsyncHasMany<Flag>;
+  @hasMany("flag", { async: true }) declare flags: AsyncHasMany<Flag>;
 
-  @belongsTo("place", { async: false }) declare place: Place;
+  @belongsTo("place", { async: false, inverse: null }) declare place: Place;
 
-  @belongsTo("text", { async: false }) declare text: Text;
+  @belongsTo("text", { async: false, inverse: null }) declare text: Text;
 
   get name() {
     return this.attestedName;

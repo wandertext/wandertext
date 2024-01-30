@@ -33,13 +33,13 @@ export default class ContributorModel extends Model {
 
   @attr() declare modifiedAt?: string;
 
-  @hasMany("entry") declare entries: AsyncHasMany<Entry>;
+  @hasMany("entry", { async: true }) declare entries: AsyncHasMany<Entry>;
 
-  @hasMany("place") declare places: AsyncHasMany<Place>;
+  @hasMany("place", { async: true }) declare places: AsyncHasMany<Place>;
 
-  @hasMany("flag") declare flags: AsyncHasMany<Flag>;
+  @hasMany("flag", { async: true }) declare flags: AsyncHasMany<Flag>;
 
-  @hasMany("text") declare texts: AsyncHasMany<Text>;
+  @hasMany("text", { async: true }) declare texts: AsyncHasMany<Text>;
 
   get name() {
     if (this.firstName && this.lastName) {
