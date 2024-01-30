@@ -1,3 +1,4 @@
+import Application from "@ember/application";
 import PlaceModel from "wandertext/models/place";
 import type MirageTestContext from "./mirage-test-context";
 import type { LeafletEvent, Map } from "leaflet";
@@ -51,4 +52,10 @@ type IconSlug =
   | "text-delete"
   | "text-new";
 
-export { Marker, IconSlug, MirageTestContext, WandertextLeafletEvent };
+export {
+  Application,
+  Marker,
+  IconSlug,
+  MirageTestContext,
+  WandertextLeafletEvent,
+};

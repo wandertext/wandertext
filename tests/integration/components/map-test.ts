@@ -34,10 +34,10 @@ module("Integration | Component | map", hooks => {
   skip("it is the full window size when @fullScreen is true", async function (assert) {
     await render(hbs`<Map @fullScreen={{true}} />`);
 
-    if (this.element) {
-      console.log("there is an element");
-      // const map = this.element.querySelector("[data-test-map-full-screen]");
-    }
+    // if (this.element) {
+    //   console.log("there is an element");
+    //   // const map = this.element.querySelector("[data-test-map-full-screen]");
+    // }
 
     assert.ok(true);
   });

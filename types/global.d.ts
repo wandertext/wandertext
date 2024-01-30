@@ -1,7 +1,9 @@
 // Types for compiled templates
-declare module 'wandertext/templates/*' {
-  import { TemplateFactory } from 'ember-cli-htmlbars';
+import "@glint/environment-ember-loose";
 
-  const tmpl: TemplateFactory;
-  export default tmpl;
-}
+// declare module "wandertext/templates/*" {
+//   import { TemplateFactory } from "ember-cli-htmlbars";
+//
+//   const tmpl: TemplateFactory;
+//   export default tmpl;
+// }

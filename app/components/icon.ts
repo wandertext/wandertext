@@ -86,11 +86,11 @@ export default class IconComponent extends Component<IconComponentSignature> {
   };
 
   get title() {
-    return this.icons[this.icon].title;
+    return this.icons[this.icon]?.title;
   }
 
   get desc() {
-    return this.icons[this.icon].desc;
+    return this.icons[this.icon]?.desc;
   }
 
   get icon(): IconSlug {

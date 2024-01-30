@@ -1,6 +1,7 @@
 {
   "extends": "@tsconfig/ember/tsconfig.json",
   "compilerOptions": {
+    "verbatimModuleSyntax": false,
 
     // The combination of `baseUrl` with `paths` allows Ember's classic package
     // layout, which is not resolvable with the Node resolution algorithm, to
@@ -25,6 +26,11 @@
     "app/**/*",
     "tests/**/*",
     "types/**/*",
-    "mirage/**/*"
-  ]
+    "mirage/**/*",
+    "node_modules/@gavant/glint-template-types/types/ember-cli-showdown/markdown-to-html.d.ts",
+    "node_modules/@gavant/glint-template-types/types/ember-truth-helpers/*"
+  ],
+  "glint": {
+    "environment": "ember-loose"
+  }
 }

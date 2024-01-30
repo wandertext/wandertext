@@ -6,10 +6,10 @@ import { ensureSafeComponent } from "@embroider/util";
 import "ember-css-transitions/glint";
 import "ember-svg-jar/glint";
 import "ember-page-title/glint";
-import EqHelper from "@gavant/glint-template-types/types/ember-truth-helpers/eq";
-import LteHelper from "@gavant/glint-template-types/types/ember-truth-helpers/lte";
-import MarkdownToHtml from "@gavant/glint-template-types/types/ember-cli-showdown/markdown-to-html";
-import SvgJarHelper from "@gavant/glint-template-types/types/ember-svg-jar/svg-jar";
+import type EmberSvgJarRegistry from "ember-svg-jar/template-registry";
+import EqHelper from "ember-truth-helpers";
+import LteHelper from "ember-truth-helpers";
+import MarkdownToHtml from "ember-cli-showdown/components/markdown-to-html";
 import { WandertextLeafletEvent } from "wandertext";
 import { PopperJS } from "ember-popperjs";
 
@@ -45,12 +45,11 @@ interface HeadlessMenuComponents {
 }
 
 declare module "@glint/environment-ember-loose/registry" {
-  export default interface Registry {
+  export default interface Registry extends EmberSvgJarRegistry {
     eq: typeof EqHelper;
     lte: typeof LteHelper;
     PopperJS: typeof PopperJS;
     "markdown-to-html": typeof MarkdownToHtml;
-    "svg-jar": typeof SvgJarHelper;
     "ensure-safe-component": typeof ensureSafeComponent;
     Menu: ComponentLike<{
       Element: HTMLElement;

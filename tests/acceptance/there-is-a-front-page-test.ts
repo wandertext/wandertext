@@ -8,8 +8,6 @@ module("Acceptance | there is a front page", function (hooks) {
   test("visiting /", async function (assert) {
     await visit("/");
 
-    const title = this.element.querySelector("h1");
-
-    assert.dom(title).includesText("Wandertext");
+    assert.dom("h1").includesText("Wandertext");
   });
 });
