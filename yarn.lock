@@ -8292,7 +8292,7 @@ ember-source@~5.6.0:
     silent-error "^1.1.1"
     simple-html-tokenizer "^0.5.11"
 
-ember-svg-jar@^2.3.3:
+ember-svg-jar@^2.4.7:
   version "2.4.7"
   resolved "https://registry.yarnpkg.com/ember-svg-jar/-/ember-svg-jar-2.4.7.tgz#930bada6e6e1a84de121c5874f772465baa9c88b"
   integrity sha512-W1PWqiQOAcNvUIomkZP5oi4JdV2eQPEuGLa1ic0LPhpx/OHKwtW35M1TTDQ+YWwCnKJf0uh/Bl8ZumVw38YXBQ==

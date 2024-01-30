@@ -1,5 +1,6 @@
 import Component from "@glimmer/component";
 import { IconSlug } from "wandertext";
+import svgJar from 'ember-svg-jar/helpers/svg-jar';
 
 interface IconComponentSignature {
   Element: HTMLDivElement;
@@ -108,6 +109,21 @@ export default class IconComponent extends Component<IconComponentSignature> {
 
     return "img";
   }
+
+  <template>
+    <div ...attributes
+      data-test-icon-component >
+      <span>
+        {{svgJar this.icon
+          title=this.title
+          desc=this.desc
+          class="inline fill-current"
+          role=this.role
+          width="24px"}}
+      </span>
+      <span class="sr-only" data-test-icon-title>{{this.title}}</span>
+    </div>
+  </template>
 }
 
 declare module "@glint/environment-ember-loose/registry" {

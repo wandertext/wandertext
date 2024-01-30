@@ -4,7 +4,6 @@ import { ComponentLike } from "@glint/template";
 import { LeafletEvent } from "leaflet";
 import { ensureSafeComponent } from "@embroider/util";
 import "ember-css-transitions/glint";
-import "ember-svg-jar/glint";
 import "ember-page-title/glint";
 import type EmberSvgJarRegistry from "ember-svg-jar/template-registry";
 import EqHelper from "ember-truth-helpers";
