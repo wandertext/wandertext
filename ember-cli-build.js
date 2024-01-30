@@ -29,16 +29,16 @@ module.exports = function (defaults) {
         module: {
           rules: [
             {
-              test: f => /\.css$/i.test(f),
-              exclude: /node_modules/,
+              test: /\.css$/i,
+              // exclude: /node_modules/,
               use: [
                 {
                   loader: "postcss-loader",
                   options: {
-                    sourceMap:
-                      process.env.EMBER_ENV !== "production" ? true : false,
+                    // sourceMap:
+                    //   process.env.EMBER_ENV !== "production" ? true : false,
                     postcssOptions: {
-                      config: "./postcss.config.js",
+                      config: "postcss.config.js",
                     },
                   },
                 },

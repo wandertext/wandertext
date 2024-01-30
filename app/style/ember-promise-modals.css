@@ -1,8 +1,0 @@
-.epm-backdrop,
-.epm-modal-container {
-  z-index: 2;
-}
-
-.epm-backdrop {
-  background-color: rgba(0, 13, 41, 0.3);
-}

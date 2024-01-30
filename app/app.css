@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./leaflet.css";
-@import "./ember-promise-modals.css";
-
 body {
   min-height: -webkit-fill-available;
   @apply text-primary h-screen w-screen;
@@ -35,4 +32,21 @@ a.active p {
 .menu-slide-enter-to,
 .menu-slide-leave {
   @apply translate-x-0;
+}
+.epm-backdrop,
+.epm-modal-container {
+  z-index: 2;
+}
+
+.epm-backdrop {
+  background-color: rgba(0, 13, 41, 0.3);
+}
+
+.leaflet-pane {
+  z-index: 0;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 1;
 }

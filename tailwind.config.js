@@ -1,9 +1,4 @@
 "use strict";
-const path = require("path");
-
-const appEntry = path.join(__dirname, "app");
-const relevantFilesGlob = "**/*.{html,js,ts,hbs,gjs,gts}";
-
 const appColors = {
   white: "#ffffff",
   black: "#000000",
@@ -19,7 +14,7 @@ const appColors = {
   grayLight: "#F0F0F0",
 };
 
-const content = [path.join(appEntry, relevantFilesGlob)];
+const content = ["./app/**/*.{gjs,gts,hbs,html,js,ts}"];
 
 const tailwindConfig = {
   content,
