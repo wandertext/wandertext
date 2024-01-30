@@ -90,6 +90,7 @@
     "ember-cli-terser": "^4.0.2",
     "ember-cli-typescript": "^5.0.0",
     "ember-cli-typescript-blueprints": "muziejus/ember-cli-typescript-blueprints#ember-4-update",
+    "ember-cli-update": "^2.0.1",
     "ember-css-transitions": "^4.0.0",
     "ember-data": "~4.4.0",
     "ember-export-application-global": "^2.0.1",
