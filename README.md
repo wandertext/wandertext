@@ -36,15 +36,9 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Linting
 
-<<<<<<< HEAD
-
 - `yarn lint:hbs`
 - `yarn lint:js`
 - # `yarn lint:js --fix`
-
-* `yarn lint`
-* `yarn lint:fix`
-  > > > > > > > 83f8f2f... v3.23.0...v3.26.1
 
 ### Building
 
