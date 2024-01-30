@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 
 export default Factory.extend({
   name(i) {
-    return `${faker.random.words(4)} ${i + 1}`;
+    return `${faker.lorem.words(4)} ${i + 1}`;
   },
 
   markdownName() {
@@ -23,7 +23,7 @@ export default Factory.extend({
   },
 
   imgSrc() {
-    return faker.image.animals(200, 200, true);
+    return faker.image.urlLoremFlickr({ category: "animals" });
   },
 
   imgHref() {

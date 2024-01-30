@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 
 export default Factory.extend({
   name() {
-    return faker.address.cityName();
+    return faker.location.city();
   },
 
   note() {
@@ -15,15 +15,15 @@ export default Factory.extend({
   },
 
   latitude() {
-    return 0.8 * faker.address.latitude();
+    return 0.8 * faker.location.latitude();
   },
 
   longitude() {
-    return 0.8 * faker.address.longitude();
+    return 0.8 * faker.location.longitude();
   },
 
   geonameId() {
-    return faker.datatype.number();
+    return faker.number.int();
   },
 
   createdAt() {

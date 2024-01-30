@@ -3,7 +3,7 @@ import { faker } from "@faker-js/faker";
 
 export default Factory.extend({
   attestedName() {
-    return faker.address.cityName();
+    return faker.location.city();
   },
 
   note() {
